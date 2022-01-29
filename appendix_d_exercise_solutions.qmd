@@ -1,0 +1,3 @@
+# Exercise Solutions {#sec-exercise-solutions}
+
+Already existing quick guides here.

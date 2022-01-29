@@ -1,0 +1,5 @@
+# Software {#sec-appendix-a-free-software}
+
+R, RStudio, QGIS and RSMinerve.
+
+

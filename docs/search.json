@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "study_guide_materials.html#study-guide",
+    "href": "study_guide_materials.html#study-guide",
+    "title": "Study Guide and Materials",
+    "section": "Study Guide",
+    "text": "Study Guide\nOver the duration of the course, students are guided through implementing their own conceptual hydrological model of one of the Central Asian sample catchments that they can choose from the [Case Studies Pack](https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0).\nStudents are required to work through the Chapters, including the tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract. This Chapter explains how to use this course book.\n\n\n\n\n\n\nEXERCISE\n\n\n\nExercise boxes are highlighted in blue color. With the description of the exercise, hints and a link to the solution are provided. Wherever they appear in the text, exercises should be completed before starting the next course chapter.\n\n\n\n\n\n\n\n\nTip callout\n\n\n\n\n\n\n\n\n\n\n\n\nImportant callout\n\n\n\n\n\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\n\n\n\n\n\n\nWarning Callout"
+  },
+  {
+    "objectID": "study_guide_materials.html#materials",
+    "href": "study_guide_materials.html#materials",
+    "title": "Study Guide and Materials",
+    "section": "Materials",
+    "text": "Materials"
+  },
+  {
+    "objectID": "study_guide_materials.html#sec-study-guide",
+    "href": "study_guide_materials.html#sec-study-guide",
+    "title": "Study Guide and Materials",
+    "section": "Study Guide",
+    "text": "Study Guide\nOver the duration of the course and as part of the Applied Modeling track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments that they can choose from the Case Studies Pack.\nStudents are required to work through the Chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract. This Chapter explains how to use this course book.\nDifferent callout blocks appear throughout the text. These include Exercise, Tasks and Take Home Messages. Caution and Warning callouts highlight possibly problematic issues.\n\n\n\n\n\n\nEXERCISE\n\n\n\nExercise boxes are highlighted in blue color. With the description of the exercise, hints and a link to the solution are provided. Wherever they appear in the text, exercises should be completed before starting the next course chapter.\n\n\n\n\n\n\n\n\nTASK\n\n\n\n\n\n\n\n\n\n\n\n\nTAKE HOME MESSAGE\n\n\n\n\n\n\n\n\n\n\n\n\nCAUTION\n\n\n\n\n\n\n\n\n\n\n\n\nWARNING\n\n\n\n\n\n\nCode blocks of R code with corresponding output are regularly shown throughout the text and look like in the following example.\n1 + 1"
+  },
+  {
+    "objectID": "study_guide_materials.html#sec-materials",
+    "href": "study_guide_materials.html#sec-materials",
+    "title": "Study Guide and Materials",
+    "section": "Materials",
+    "text": "Materials\n\nDay 1: Introduction & Installation of Software\nRead Chapter 1: A short history of Water in Central Asia and Chapter 2: Hydrological Systems in Semi-Arid Central Asia in the course book. Then make sure the required software for this course is installed on your computer. Section Open-source resources of the Appendix includes installation instructions and the on-line learning material that can get you started with the software. Below is a quick summary:\n\nQGIS\n\nR\nRStudio\n\nRS Minerve\n\nIf you have not used the software above before we recommend the following resources to get your started (remember, more detailed instructions are available in the Appendix):\n\nQGIS training manual\n\nModern Dive for getting started with R and RStudio\n\nRS Minerve User Manual\n\nInevitably, you will also perform a lot of geocomputations with R in the future. After all, a GIS system like QGIS is nothing more than a nicely packed bunch of geocomputation algorithms and a window for visualizing geospatial assets. Well, rest assured, all of this can be done inside R. It is recommended therefore that you also consult the following excellent online resource Geocomputation with R.\n\n\n\n\n\n\nTASK\n\n\n\nFind a peer or two with whom you will work on a basin of your selection. Download the data from the corresponding river basin an\n\n\n\n\nDay 2: Catchment Characterization\nRead the Case Studies in Chapter 3 and Station Data in Chapter 5 and do the exercise on catchment characterization, i.e. do a catchment characterization of your sample catchment."
+  }
+]

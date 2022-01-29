@@ -1,0 +1,3 @@
+## Snow and Glacier Data {#sec-snow-and-glacier-data}
+
+Chapter on snow and glacier data.

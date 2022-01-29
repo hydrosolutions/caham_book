@@ -1,0 +1,3 @@
+## Geospatial Data {#sec-geospatial-data}
+
+Chapter on geospatial data, including DEM data, landcover information, geology, etc.

@@ -1,0 +1,3 @@
+## Modeling Using Predictive Inference {#sec-modeling-using-predictive-inference}
+
+Budyko chapter with critical results there.

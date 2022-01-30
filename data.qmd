@@ -1,3 +1,21 @@
 # Part II: Data Retrieval and Preparation {#sec-data}
 
-A grand overview over different types of data are provided and how they need to be prepared for modeling.
+In this Chapter, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling.
+
+Data include
+- in-situ station data,
+- geospatial data,
+- snow and glacier data, and
+- climate reanalysis and projections data.
+
+As will become clear, the preparation of these data requires a substantial amount of work, local storage space and, in some instances, computational power. The preparation of these data is described in this Part and the corresponding Chapters.
+
+Data needs vary according to the modeling approach and the model chain. As an example, for river basin-level climate impact modeling, the flow diagram in @fig-climate-impact-model-chain shows the required steps for the preparation of the individual data types for modeling.
+
+![Example hydrological modeling chain that include data preparation, the implementation of the hydrological model and the analysis of results. As is visbile, the data preparation steps are quite substantial.](images/data/model_chain_cmip6_v3.png){#fig-climate-impact-model-chain}
+
+
+
+
+
+

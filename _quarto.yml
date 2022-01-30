@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Modeling of Hydrological Systems in Semi-Arid Central Asia"
-  author: "Tobias Siegfried and Beatrice Marti, hydrosolutions GmbH"
+  author: "Tobias Siegfried and Beatrice Marti, [hydrosolutions GmbH](www.hydrosolutions.ch)"
   description: | 
     This text is intended for the modern study of hydrology and mathematical modeling of 
     hydrological systems in semi-arid Central Asia. It is geared towards students and teachers 
@@ -16,7 +16,7 @@ book:
   repo-branch: master
   repo-actions: [edit]
   sharing: [facebook, linkedin]
-  date: "1/27/2022"
+  date: "2022 Release"
   chapters:
     - index.qmd
     - preface.qmd

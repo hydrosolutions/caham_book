@@ -285,24 +285,19 @@ A couple of notes on measurement accuracy:</p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure D.1: Example for material needed and example setup to perform the linear reservoir experiment. Add a minion with a stop watch or a smart phone to help you logging the discharge from the bucket.</figcaption><p></p>
 </figure>
 </div>
-<p>Back to the <a href="#sec-rsminerve-why-model-introduction">recap section</a></p>
 </section></section><section id="sec-solution-task2-perform-experiment" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-solution-task2-perform-experiment">Task 2</h3>
 <p>The video was recorded with a smart phone. The weight of the outflow receptacle was noted down every second. The discharge is computed as the change of volume in the outflow receptacle over time.</p>
 <iframe width="720" height="480" src="images/appendix_c_quick_guides/bucket_video.mp4" align="middle" frameborder="0" allowfullscreen="">
 </iframe>
-<p>Back to the <a href="#section-rsminerve-why-model-introduction">recap section</a></p>
 </section><section id="sec-solution-task3-simulate" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-solution-task3-simulate">Task 3</h3>
 <p>The height of the measured discharge peak can be best reproduced with k = 0.42. However, the measured discharge peaks 1s later than the simulated discharge peak.<br>
 Reasons for the discrepancy can be the shape of the linear reservoir, non-linear pouring speed, and measurement uncertainties.</p>
-<p>Back to the <a href="#sec-rsminerve-why-model-introduction">recap section</a></p>
 </section></section><section id="sec-appendix-solutions-hbv-exercises" class="level2" data-number="D.2"><h2 data-number="D.2" class="anchored" data-anchor-id="sec-appendix-solutions-hbv-exercises">
 <span class="header-section-number">D.2</span> Exercises on the HBV Model</h2>
 <section id="sec-appendix-solutions-hbv-driving-forces" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-hbv-driving-forces">Exercise: Driving Forces of the HBV Model</h3>
 <p>The model drivers are precipitation, temperature and evaporation (P, T and ET in <span class="quarto-unresolved-ref">?fig-overview-hbv-model</span>). You need to provide time series of the model drivers to the model. Evaporation is typically not measured at climate stations but many empirical functions are available in the literature to estimate evaporation. RSMinerve offers the possibility to calculate evaporation based on temperature measurements and catchment location (you will do that later in this tutorial).</p>
-<p>Back to the <a href="#sec-hbv-model">HBV model section</a></p>
 </section><section id="sec-appendix-solutions-hbv-parameters-states" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-hbv-parameters-states">Exercise - HBV Model States</h3>
-<p>The model states are the snow water equivalent height (SWE), the relative water content in the snow pack (WH), the humidity (Hum), the upper reservoir water level (SU) and the lower reservoir water level (SL). The model states are initialized using the initial conditions (see <span class="quarto-unresolved-ref">?fig-overview-hbv-model-parameters</span>).</p>
-<p>Back to the <a href="#sec-hbv-model">HBV model section</a></p>
+<p>The model states are the snow water equivalent height (SWE), the relative water content in the snow pack (WH), the humidity (Hum), the upper reservoir water level (SU) and the lower reservoir water level (SL). The model states are initialized using the initial conditions.</p>
 </section><section id="sec-appendix-solutions-plot-temperature-and-precipitation-1984" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-plot-temperature-and-precipitation-1984">Exercise: Data Visualization in RSMinerve</h3>
 <p>Simulate from the 01/01/1981 01:00:00 to 31/12/1983 23:00:00, then choose data from 31/12/1983 23:00:00 as the initial conditions and run the model from 01/01/1984 01:00:00 to 31/12/1984 23:00:00. Choose hourly output for the simulation results.<br>
 Open the Selection and plots tab by clicking on the Selection and plots button in the Modules toolbar and select simulated P and T from the Nauvalisoy station as shown in <a href="#fig-pt-nauvailsoy">Figure&nbsp;<span>D.2</span></a>.</p>
@@ -313,7 +308,6 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 </div>
 <p>Note: If you want to repeat a simulation with specific initial conditions, you can store them through Export IC in the Model Properties toolbar.</p>
 <p>The approximate temperature range is -13 deg. C. in December to 34 deg. C. in August. The annual precipitation is about 1.4 m (visualize Pcum and click on the last value of the time series). No precipitation falls during the summer months.</p>
-<p>Back to the <a href="#sec-hbv-nauvalisoy-modelling-setup">Nauvalisoy model setup section</a>.</p>
 </section><section id="sec-appendix-solutions-compare-evaporation-methods" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-compare-evaporation-methods">Exercise: Compare Evaporation Methods</h3>
 <p>Figure <a href="#fig-evaporation-discharge">Figure&nbsp;<span>D.3</span></a> shows the evaporation computed with various methods and the resulting discharge. Uniform evaporation should not be used for sub-annual modeling time steps for obvious reasons that ET shows a strong seasonality. The difference between the different methods by Turc, McGuinness and Oudin are within 5 % of total discharge which is negligible for a regional model.</p>
 <div id="fig-evaporation-discharge" class="quarto-figure quarto-figure-center anchored">
@@ -322,7 +316,6 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 </figure>
 </div>
 <p>For advanced modeling, the choice of the evaporation model may be relevant but only if a validation with measured data is possible.</p>
-<p>Back to the <a href="#sec-hbv-nauvalisoy-modelling-setup">Nauvalisoy model setup section</a>.</p>
 </section><section id="sec-appendix-solutions-common-calibration-issues" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-common-calibration-issues">Exercise: Common Difficulties in Model Calibration</h3>
 <ol type="1">
 <li>Especially fully and semi-distributed hydrological models are typically over-parameterized, i.e.&nbsp;the number of model parameters is much larger than the number of observations for the model states. The true parameter values of the system cannot be uniquely identified based on a discharge time series alone.<br>
@@ -333,10 +326,8 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 </li>
 <li>The model is not perfect, it remains an approximation of the real system and may not incorporate all relevant processes of the hydrological cycle (e.g.&nbsp;water storage and transport in glaciers for the case of the HBV model or significant sub-surface water fluxes that very difficult to capture as for example in Karst regions).<br>
 </li>
-<li>Discharge measurements typically have uncertainties of 20 %. Particularly measurements at the lower and upper ends of the rating curve (i.e.&nbsp;the water table - discharge relationship) are typically prone to larger uncertainties (bonus question: think about why this is so!). Is the measurement location or the equipment not properly maintained, biases may grow over time. On the other hand, if the measurement method is updated and changed, the measured discharge may display a different pattern (for an example, look at the low flow of the discharge of the river Gunt in Figure <span class="quarto-unresolved-ref">?fig-guntmonthlyq</span>.</li>
-</ol>
-<p>Back to the <a href="#sec-calibration-principles">calibration section</a></p>
-</section><section id="sec-appendix-solutions-strategies-for-issues" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-strategies-for-issues">Exercise: Strategies to Overcome some of the Model Calibration Difficulties</h3>
+<li>Discharge measurements typically have uncertainties of 20 %. Particularly measurements at the lower and upper ends of the rating curve (i.e.&nbsp;the water table - discharge relationship) are typically prone to larger uncertainties (bonus question: think about why this is so!). Is the measurement location or the equipment not properly maintained, biases may grow over time. On the other hand, if the measurement method is updated and changed, the measured discharge may display a different pattern as was for example discussed in the data from Gunt River basin (<a href="example_river_basins.html#sec-example-gunt-river-basin">Section&nbsp;<span>3.1</span></a>).</li>
+</ol></section><section id="sec-appendix-solutions-strategies-for-issues" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-strategies-for-issues">Exercise: Strategies to Overcome some of the Model Calibration Difficulties</h3>
 <ol type="1">
 <li>Over-parameterization:<br>
 </li>
@@ -359,7 +350,6 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 <li>Square-root filters or data assimilation algorithms are able to account for non-correlated measurement errors (they are not implemented in RSMinerve and not topic of this course). Error bands for the measurements should be adapted when communicating model results.</li>
 </ol>
 <p>Most of the above points will be discussed in more detail during this course.</p>
-<p>Back to the <a href="#sec-calibration-principles">calibration section</a></p>
 </section><section id="exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered" class="level3" data-number="D.2.1"><h3 data-number="D.2.1" class="anchored" data-anchor-id="exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered">
 <span class="header-section-number">D.2.1</span> Exercise: Calibrate a Simple HBV Model {#sec-appendix-solutions-calibrated parameters .unnumbered}</h3>
 <p>The parameter set of the calibrated model are: ::: {.cell} ::: {.cell-output-stdout}</p>
@@ -382,9 +372,7 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 |Kl (1/d)        |  0.00|
 |Kperc (1/d)     |  0.00|</code></pre>
 <p>::: :::</p>
-<p>You can import the calibrated parameters via Import P in the Model Properties toolbar (the calibrated parameters are available in the following online repository.</p>
-<p>./data/SyrDarya/Chirchiq/RSMinerve/nauvalisoy_PAR_calibrated.txt.</p>
-<p>Back to the <a href="#sec-calibration-practical-steps">practical calibration section</a></p>
+<p>You can import the calibrated parameters via Import P in the Model Properties toolbar (note that the calibrated parameters are available for download <a href="https://www.dropbox.com/s/6512a22h2lrga7p/nauvalisoy_PAR_calibrated.txt?dl=1">here</a>.</p>
 
 
 </section></section></main><!-- /main --><script type="application/javascript">

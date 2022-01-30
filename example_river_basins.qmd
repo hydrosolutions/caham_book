@@ -4,6 +4,5 @@ Gunt and Chirchik River basins are discussed here in the subsections.
 
 ## Gunt River Basin {#sec-example-gunt-river-basin}
 
-
 ## Chirchik River Basin {#sec-example-chirchik-river-basin}
 

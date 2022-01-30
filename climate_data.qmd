@@ -1,0 +1,5 @@
+# Climate Data {#sec-climate-data}
+
+## Historical Climate Data {#sec-historical-climate-data}
+
+## Climate Projections {#sec-climate-projections}

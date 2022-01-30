@@ -1,3 +1,501 @@
 # Quick Guides  {#sec-quick-guides}
 
-Already existing quick guides here.
+## Earth Explorer: Register for an Account {#sec-register-with-earth-explorer .unnumbered}
+
+In your internet browser, navigate to <https://earthexplorer.usgs.gov/>. The window will look similar as in @fig-earth-explorer-window.
+
+![Start window of the Earth Explorer interface.](images/appendix_c_quick_guides/fig400_EarthExplorerWindow.png){#fig-earth-explorer-window}
+
+
+Click on *Login* in the top right corner. This will bring you to a new window where you can click on *Create New Account* which will open a form where you enter your information. After verifying your account by clicking on the appropriate link that you will be sent, you can download data from the Earth Explorer interface.
+
+### EE: Download SRTM Data for a Selected Region {#section-earth-explorer-download-srtm .unnumbered}
+
+-   Login to the [Earth Explorer](https://earthexplorer.usgs.gov/) (Register if you haven't done so before [How to](#section-register-with-earth-explorer)).
+-   Navigate to your area of interest in the map panel of the Earth Explorer interface.
+-   Draw a polygon around your area of interest by clicking on the map (see @fig-earth-explorer-area-of-interest).
+-   In the Data Set tab, look for the SRTM 1 arc-second global DEM (see  @fig-earth-explorer-search-data) and select it by ticking the box next to the product name in the list.\
+
+![Define a polygon around your area of interest by clicking on the map.](images/appendix_c_quick_guides/fig401_PolygonAroundAreaOfInterest.png){#fig-earth-explorer-area-of-interest}
+
+![Search for the SRTM 1 arc-second global DEM product.](images/appendix_c_quick_guides/fig402_SearchSRTM1ArcSecondGlobal.png){#fig-earth-explorer-search-data}
+
+-   Verify that the result layer(s) cover your area of interest by pressing the foot icon in the Results tab and download if you are satisfied (@fig-earth-explorer-results-download).
+
+![Verify the results of your search and download the data products you need.](images/appendix_c_quick_guides/fig404_verifyResultsDownload.png){#fig-earth-explorer-results-download}
+
+Back to the [Load DEM section](#sec-geospatial-data-load-dem).
+
+## QGIS Installation Guide {#sec-sofware-qgis-installation-guide .unnumbered}
+In your web browser go to [https://qgis.org/en/site/forusers/download.html](https://qgis.org/en/site/forusers/download.html) (see @fig-qgis-download-site). 
+
+![The QGIS download site.](images/appendix_c_quick_guides/fig_download_site_qgis.png){#fig-qgis-download-site}
+
+Choose the long-term support version of QGIS for your operating system (e.g. if you use a laptop with a 64-bit Windows operating system, open the *Download for Windows* tab and click on *QGIS Standalone Installer Version 3.16 (64 bit)*, see  @fig-qgis-installer-version-316)). Clicking on the installer will start the download. 
+
+![The QGIS installer if you work on a 64-bit Windows operating system.](images/appendix_c_quick_guides/fig_qgis-installer-version-316.png){#fig-qgis-installer-version-316}
+
+Double-click on the downloaded file to start the installation. Typically, SAGA GIS and GRASS GIS are installed alongside QGIS if you choose this installing option. 
+
+## The QGIS Window - Overview {#sec-qgis-window-overview .unnumbered}
+
+The main parts of the QGIS window which are referenced in this tutorial, are highlighted in @fig-qgis-window-overview.
+
+![The QGIS window.](images/appendix_c_quick_guides/0fig000_qgisWindowOverview.png){#fig-qgis-window-overview}
+
+## QGIS: Saving a New QGIS Project {#sec-saving-a-new-qgis-project .unnumbered}
+
+Open your QGIS and open a new QGIS project by moving your cursor on the white sheet symbol in the upper-left corner of your QGIS window (see @fig-qgis-open-qgis-project).
+
+![Tutorial project open in QGIS LTS.](images/appendix_c_quick_guides/0fig001_OpenNewProject.png){#fig-qgis-open-qgis-project}
+
+Save the QGIS project by pressing on the disk icon and selecting a location for the file on your computer and a name for the project. You can [add freely available on-line maps as background](#sec-loading-public-background-layers).
+
+Back to [setting up of QGIS](#sec-geospatial-data-steps-setting-up).
+
+## QGIS: Change the Projection of the QGIS Project {#sec-change-project-projection-qgis .unnumbered}
+
+For this tutorial, the projection of the QGIS project should be in EPSG:32642 (i.e., UTM 42 N). Change it by clicking on the projects projection in the lower right corner of the QGIS window (see @fig-qgis-window-overview). In the coordinate reference system (CRS) tab of the Project Properties, select WGS84 / UTM zone 42N with ID EPSG:32642 and click *OK*.  
+For modeling your own sample catchment, a different UTM zone may be applicable. The map in the lower right corner of the Project Properties window shows the area for the projection in red and the area where your data is located in violet so you can visually verify that you choose an appropriate projection. 
+
+Generally, you want to choose the CRS so that you have minimal distortion through the projection in your area of interest. The CRS with ID EPSG:32462 suits well for all of the student exercise catchments.
+
+Back to the [setting up of QGIS](#sec-geospatial-data-steps-setting-up).
+
+## QGIS: Install and activate plugins in QGIS3 {#sec-install-and-activate-plugins-in-QGIS3 .unnumbered}
+
+Navigate to *Plugins* in the header toolbar and go to *Manage and Install Plugins ...*. Search for the plugin name and go to *Install Plugin* to install a plugin or tick the box to the left of the plugin name in the list of plugins to activate it (see @fig-install-activate-qgis-plugin).
+
+![Plugin management window in QGIS 3.16. Install plugin with the `Install Plugin` button. Activate installed plugins by ticking the box in the list.](images/appendix_c_quick_guides/fig301_InstallAndActivatePluginsInQGIS3.png){#fig-install-activate-qgis-plugin}
+
+Back to the [setting up of QGIS](#sec-geospatial-data-steps-setting-up).
+
+## GQIS: Managing Panels Visibility in QGIS {#sec-managing-panels .unnumbered}
+
+Should one of the panels described here not be visible in your QGIS window navigate to *View* in your header toolbar and then to *Panels*. The visible panels are marked with a tick. Click on a panel name in the list to activate or deactivate it.
+
+Back to [setting up of QGIS](#section-geospatial-data-steps-setting-up).
+
+## QGIS: Loading Public Background Maps {#sec-loading-public-background-layers .unnumbered}
+
+You can add freely available on-line maps as backgrounds. Note that they will only be available as long as your computer is connected to the internet. In the *Browser* panel (see [What to do if you don't see the *Browser* panel](#sec-managing-panels)), move the cursor to *XYZ Tiles*, do a right-click and select *New Connection*. Enter a descriptive name for the map layer and one of the links below and click *OK*. The new map layer will appear under *XYZ Tiles*. By double-clicking on the layer you can add it to your Layers panel.
+
+Back to [setting up of QGIS](#section-geospatial-data-steps-setting-up).
+
+## QGIS: Zoom to Layer {#sec-zoom-to-layer .unnumbered}
+
+You can tell QGIS to zoom to the selected layer by selecting a layer in the *Layers* window and then on the white sheet and magnifying glass icon in the toolbar (see @fig-qgis-zoom-to-layer).
+
+![Zoom to layer.](images/appendix_c_quick_guides/fig009_ZoomToLayer.png){#fig-qgis-zoom-to-layer}
+
+You can also perform a right-click on the layer name in the *Layers* panel and select *Zoom to layer*.
+
+## QGIS: Import SRTM layers using the SRTM plugin {#sec-srtm-plugin .unnumbered}
+
+Make sure the SRTM plugin is installed (see [How to](#sec-install-and-activate-plugins-in-QGIS3)). Navigate to *Plugins* in the header toolbar and there to *SRTM Downloader*. Select the *SRTM Downloader*. Set the boundaries of the SRTM tiles to download and press the *Download* button. Close the window when done. The SRTM tiles are loaded to the Layers pane.
+
+Back to [Load DEM in QGIS section](#sec-geospatial-data-load-dem)
+
+## QGIS: Merge SRTM Tiles to a Single Layer {#sec-merge-srtm-tiles .unnumbered}
+Navigate to *Raster* in the header toolbar and then to *Miscellaneous* and *Merge...*. In the *Merge* window that opens, select the input layers by clicking on the *...* button. Tick the layers that need to be merged and press *Run*. When the algorithm is done, close the window. You can zoom to the extent of the new layer (see [How to](#sec-zoom-to-layer)). You can change the color of the DEM file.
+
+Back to [Load DEM in QGIS section](#section-geospatial-data-load-dem)
+
+## QGIS: Add Raster Layer {#sec-quick-guides-load-dem .unnumbered} 
+In your QGIS window, navigate to *Layer* in your header toolbar, there to *Add Layer* and left-click on *Add Raster Layer* (see @fig-qgis-add-raster-layer-1). The Data Source Manager will open in a pop-up window (see @fig-qgis-add-raster-layer-2). 
+
+![Add raster layer to QGIS project, step 1.: Navigate to the Data Source Manager.](images/appendix_c_quick_guides/fig_add_raster_layer_001.png){#fig-qgis-add-raster-layer-1}
+
+![Add raster layer to QGIS project, step 2.: Browse for the raster file to add to the QGIS project by pressing on the box with the three dots (...) to the right of the raster source input field.](images/appendix_c_quick_guides/fig_add_raster_layer_002.png){#fig-qgis-add-raster-layer-2}
+
+In the example above, a DEM for the example of the Nauvalisoy river catchment is loaded. For loading the DEM of your sample catchments, browse for the DEM in the corresponding folder you downloaded from the provided [Dropbox directory](https://www.dropbox.com/home/1_HSOL_PROJECTS/PROJECTS/SDC/DKU_WRM_COURSE_CA/CourseMaterials/Handbook/HydrologicalModeling_CentralAsia_Data/STUDENTS_CaseStudyPacks/).   
+
+Press the *Add* button at the bottom right of the Data Source Manager window to load the raster layer to your QGIS project and close the window by pressing the *Close* button (to the left of the *Add* button).  
+
+Your QGIS project now shows a grey-scale version of the raster layer you loaded. If you are satisfied with the change, save your project by pressing the disk icon at the upper left corner of your QGIS window.   
+
+You can change the color of your raster file ([how to](#sec-quick-guides-change-color-of-raster-layer)). [Here](#sec-quick-guides-topograpy-color-ramp) is a quick-guide of how to apply a topography-style color band to your DEM. 
+
+## QGIS: Change Color of Raster Layer {#sec-quick-guides-change-color-of-raster-layer .unnumbered}
+
+You can change the colors of your cut DEM by double-clicking on the layer name in the *Layers* window. Go to tab *Symbology* (with the paint and brush icon) and choose *Render type* *Singleband-pseudocolor* (see @fig-qgis-dem-coloring-1) and select a *Color ramp*.
+
+![Nicely color your DEM, step 1.](images/appendix_c_quick_guides/fig013_DEMcoloring1.png){#fig-qgis-dem-coloring-1}
+
+QGIS comes with a large library of color ramps but you can also create your own. See below a description of how to get your DEM in a topography style color palette. 
+
+## QGIS: Topography-style color palettes {#sec-quick-guides-topograpy-color-ramp .unnumbered}
+
+For our DEM we choose an existing topography-style color ramp. Open the *Layer Properties* window with a double-click on the raster layer in the *Layers* pane of the QGIS window. In the *Symbology* tab click the triangle to the right of the color ramp and select Create New Color Ramp... (see @fig-qgis-dem-coloring-2).
+
+![Nicely color your DEM, step 2.](images/appendix_c_quick_guides/fig014_DEMcoloring2.png){#fig-qgis-dem-coloring-2}
+
+In the drop down menu of the pop-up window choose Catalog: cpt-city and press OK (see @fig-qgis-dem-coloring-3).
+
+![Nicely color your DEM, step 3.](images/appendix_c_quick_guides/fig015_DEMcoloring3.png){#fig-qgis-dem-coloring-3}
+
+A this will open another window containing the catalog of existing color ramps. Under Topography, we choose sd-a and press OK (see @fig-qgis-dem-coloring-4).
+
+![Nicely color your DEM, step 4.](images/appendix_c_quick_guides/fig016_DEMcoloring4.png){#fig-qgis-dem-coloring-4}
+
+Go to tab Transparency, set Global Opacity to 30% and specify the No Data Value 0 (see @fig-qgis-dem-coloring-5).
+
+![Nicely color your DEM, step 5.](images/appendix_c_quick_guides/fig017_DEMcoloring5.png){#fig-qgis-dem-coloring-5}
+
+Then go back to the Symbology tab. The minimum value of the color ramp should now not be 0 but 272. Adapt manually if need be. Then, press classify to get a discrete color ramp for your map and *Apply* to the map. If you are happy with the colors, quit by pressing OK (see  @fig-qgis-dem-coloring-6).
+
+![Nicely color your DEM, step 6.](images/appendix_c_quick_guides/fig018_DEMcoloring6.png){#fig-qgis-dem-coloring-6}
+
+The result will look like @fig-qgis-dem-coloring-7.
+
+![Nicely color your DEM, step 7.](images/appendix_c_quick_guides/fig019_DEMcoloring7.png){#fig-qgis-dem-coloring-7}
+
+You can add decorations (e.g. scale and north arrow) to your map ([how to](#sec-add-map-decorations)). 
+
+## QGIS: Add Map Decorations {#sec-add-map-decorations .unnumbered}
+
+Navigate to *View* -\> *Decorations* and choose among the decorations to add. Many options for configuring the decorations are available.
+
+## QGIS: Verify Projection of Layer and Re-project Layer {#sec-quick-guides-verify-projection-reproject}
+
+Open the *Layer Properties* window with a double-click on the layer in the *Layers* pane and navigate to the *Information* tab. Under CRS (coordinate reference system) you see the projection of the layer. For the Chirchiq river basin, the CRS should say "EPSG:32642 - WGS 84 / UTM zone 42N - Projected". Other river catchments in Central Asia may require a different UTM zone. For the student exercises, it is good to choose this projection for all basins. 
+
+A raster layer can be reprojected to a different CRS: Go to *Raster* in the header toolbar. From there move the cursor over *Projections* and click on *Warp (Reproject)...*. The Warp window will pop up (in fact, it is just an interface where the user can specify the parameters of the wrap algorithm in a convient way). Select the raster layer you wish to re-project in the *Input layer* and select the *Target CRS*. 
+
+If the target CRS you wish to re-project to is not available in the drop-down menu, you can browse for it by clicking on the globe icon to thr right of the *Target CRS* section. You may re-sample the raster to a coarser resolution by specifying the *Output file resolution*. You may also specify to save the reprojected raster layer: Scroll to the bottom of the *Warp (Reproject)* window where you see *Reprojected* and a white box where you can browse for a location to store the new layer. 
+
+::: callout-warning
+### WARNING
+If you do not specify a target location, only a temporary layer will be loaded to QGIS which will not be available anymore after you close the QGIS project (even if you save the project). 
+:::
+
+You may decide to load the temporary file and save it later ([how to](#sec-quick-guide-save-temp-layer)). Click the *Run* button at the bottom right to start the re-projection algorithm and press *Close* when the process is done. The reprojected layer will be available in the *Layers* pane.    
+
+A vector layer can be reprojected by selecting *Vector* in the header toolbar, moving the cursor to *Data Management Tools* and clicking on *Reproject Layer...*. This opens the *Reproject Layer* window where you can specify a *Target CRS* and optionally a storage location. As for the reprojection of the raster layer, a temporary layer is loaded to your QGIS project if you do not specify a storage location. However, you can always store temporary layers later ([how to](#sec-quick-guide-save-temp-layer)). 
+
+Back to the [load DEM section](#section-geospatial-data-load-dem). 
+
+## QGIS: Save a Temporary Layer {#sec-quick-guide-save-temp-layer .unnumbered}
+Right-click on a temporary layer in the *Layers* pane. Temporary layers are indicated by a box to the right of the layer name. From the menu that opens upon right-click, select *Export* and *Save As...* (for raster layers) or *Save Feature As...* (for vector layers). An explorer window will open where you can specify a file name and a location to store the file to. 
+
+## QGIS: Add Vector Layer {#sec-add-vector-layer-to-qgis .unnumbered}
+
+Left-clicking on *Layer*, moving your cursor over *Add Layer* and left-clicking *Add Vector Layer* (see @fig-qgis-add-vector-layer-1).
+
+![Add vector layer to QGIS project, step 1.: Navigate to the Data Source Manager.](images/appendix_c_quick_guides/fig003_AddVectorLayer1.png){#fig-qgis-add-vector-layer-1}
+
+A window will pop up, asking you to specify the properties of the vector layer to add (see @fig-qgis-add-vector-layer-2).
+
+![Add vector layer to QGIS project, step 2: Select vector layers to add. Note that you select the *shp* file but *cpg*, *dbf* and *shx* need to be present in the same location.](images/appendix_c_quick_guides/fig004_AddVectorLayer2.png){#fig-qgis-add-vector-layer-2}
+
+Press the box with the three dots on the right of the source field to specify the location of the shape file to be added to your project (see @fig-qgis-add-vector-layer-3). Click *Open* and the window will close. The address of your shape files should now stand in the source field as in @fig-qgis-add-vector-layer-2.
+
+![Add vector layer to QGIS project, step 3.](images/appendix_c_quick_guides/fig005_AddVectorLayer3.png){#fig-qgis-add-vector-layer-3}
+
+Note that you load the *.shp* file but that all the files in the list in @fig-qgis-add-vector-layer-2 need to be present. In the *Add Vector Layer* window, click *Add* and then close the window. QGIS has attributed a random color to your shape file which can be changed manually [How to](#sec-change-color-of-vector-layer).
+
+## QGIS: Change Color of a Vector Layer {#sec-change-color-of-vector-layer .unnumbered}
+You can change the color of your layer by double-clicking on the layer name in the *Layers* Window to the left of the map. This will open the properties window. The third tab from the top shows paint and brush (see @fig-qgis-add-vector-layer-5).
+
+![dd vector layer to QGIS project, step 5. Change the color of the layer.](images/appendix_c_quick_guides/fig007_AddVectorLayer5.png){#fig-qgis-add-vector-layer-5}
+
+You can activate *Simple fill* by clicking on it and select *No brush* in the drop-down menu in order to only show the outline of your vector layer (see @fig-qgis-add-vector-layer-6).
+
+![Add vector layer to QGIS project, step 6. Only show the outline of the vector layer.](images/appendix_c_quick_guides/fig008_AddVectorLayer6.png){#fig-qgis-add-vector-layer-6}
+
+## QGIS: Fill Sinks {#sec-quick-guides-fill-sinks .unnumbered}
+Browse for the *Fill sinks* algorithm in the *Processing Toolbox* panel (see @fig-qgis-fill-sinks-1). If the *Processing Toolbox* panel is not visible go to *Processing* in the header toolbar and click on *Toolbox* to activate it. Alternatively, [here](#sec-managing-panels) is how to manage the visibility of panels in QGIS. 
+
+![Search for the *Fill sinks* algorithm in the *Processing Toolbar* panel.](images/appendix_c_quick_guides/1fig_fillSinks.png){#fig-qgis-fill-sinks-1}
+
+Open the *Fill sinks* window with a double-click on the name of the algorithm in the *Processing Toolbar* panel. There, select the DEM you want to process and browse for a location to store the output file (see @fig-qgis-fill-sinks-2). You can leave the default minimum slope. 
+
+![Select the raster file to process.](images/appendix_c_quick_guides/1fig_fillSinks2.png){#fig-qgis-fill-sinks-2}
+
+When the algorithm is done it will load the new layer into your QGIS project. Close the *Fill sinks* window and save your project. 
+
+Back to [catchment delineation](#sec-steps-derive-catchment-boundaries). 
+
+## QGIS: Calculate the area upslope of a point {#sec-quick-guide-upslope-area .unnumbered}
+Search for the SAGA algorithm *Upslope Area* in the *Processing Toolbox* panel and open the function window with a double click on the name. Enter the Longitude of your discharge station for the Target X coordinate and the Latitude for the Target Y coordinate for which the upslope area should be calculated. For the Elevation select the sink-filled DEM (see [how to fill sinks in a DEM](#sec-quick-guides-fill-sinks) and [why we need to fill in sinks](#sec-why-fill-sinks-dem)). 
+
+All GIS layers and the coordinates of the discharge gauge need to be in the same UTM projection. Choose a method in the drop-down menue in the *Method* section and optionally specify a location for the output file. For the example of the Nauvalisoy basin, the *Upslope Area* window filled in correctly is shown in @fig-qgis-upslope-area-window.
+
+![The *Upslope Area* window for the determination of the catchment area of the Nauvalisoy river basin.](images/appendix_c_quick_guides/1fig_upslopeAreaWindow.png){#fig-qgis-upslope-area-window}
+
+Click *Run* and *Close* after the algorithm is done. A new raster file with the values 0 for outside the catchment area and 100 for inside the catchment area is now loaded into your QGIS project. 
+
+Back to [catchment delineation](#sec-steps-derive-catchment-boundaries). 
+
+## QGIS: Polygonize a Raster {#appendix-quick-guide-polygonize .unnumbered}
+Got to *Raster* in the header toolbar, move your cursor over *Conversion* and click on *Polygonize (Raster to Vector)...* (see @fig-qgis-open-polygonize-window).
+
+![Open the *Polygonize* window.](images/appendix_c_quick_guides/1fig_polygonize1.png){#fig-qgis-open-polygonize-window}
+
+Select the raster layer you wish to polygonize (for example the upslope area raster layer) and run the process. Close the polygonize window after the algorithm is done. A new shape file will be loaded to your GIS project (see @fig-qgis-raw-polygonized-layer). 
+
+![The vector layer generated by a raster to vector conversion.](images/appendix_c_quick_guides/1fig_polygonize2.png){#fig-qgis-raw-polygonized-layer}
+
+The new vector layer has 2 features: the watershed boundary and a box around the watershed the same size of the DEM we used. To get rid of the outer shape, open the attribute table with a right-click on the vector layer and selecting *Open Attribute Table*. In the attribute table, elect the outer shape by clicking on the second row of the attribute table and toggle the edit mode by clicking on the pen icon (see @fig-qgis-attrib-table-toggle-edit). 
+
+![Select the outer shape to discard by clicking on the second row in the attribute table and toggle the edit mode by clicking on the pen icon.](images/appendix_c_quick_guides/1fig_polygonize3.png){#fig-qgis-attrib-table-toggle-edit}
+
+Delete the outer shape by pressing the red bin icon in the attribute table (see @fig-qgis-delete-selected-features). 
+
+![Delete the selected outer shape.](images/appendix_c_quick_guides/1fig_polygonize4.png){#fig-qgis-delete-selected-features}
+
+Save the edits in the attribute table (see @fig-qgis-save-edits-attribute-table) and press the pen icon again to un-toggle the edit mode. 
+
+![Save your edits in the attribute table.](images/appendix_c_quick_guides/1fig_polygonize5.png){#fig-qgis-save-edits-attribute-table}
+
+Close the attribute table window and save the boundary of your watershed and your QGIS project. 
+
+Back to [catchment delineation](#sec-steps-derive-catchment-boundaries). 
+
+## QGIS: Edit Junctions Layer {#sec-graphical-edit-junctions .unnumbered}
+
+Select the Junctions layer and toggle manual editing by clicking on the yellow pen (see @fig-qgis-edit-junctions-1).
+
+![Manually edit the layer with the river junctions, step 1: Toggle layer editing.](images/appendix_c_quick_guides/fig026_ManualEditJunctions1.png){#fig-qgis-edit-junctions-1}
+
+When in editing mode, the yellow pen will appear in the *Layers* window next to the name of the layer being edited. The edit mode will also activate a button for adding points (i.e. junctions, we don't need that now) and the vertex tool. Click on the vertex tool icon. It is active when a a boundary appears around the icon and the Vertex Editor windows opens (see @fig-qgis-edit-junctions-2).
+
+![Manually edit the layer with the river junctions, step 1: Toggle layer editing.](images/appendix_c_quick_guides/fig027_ManualEditJunctions2.png){#fig-qgis-edit-junctions-2}
+
+Right-click on a junction point you would like to delete to activate it (see @fig-qgis-edit-junctions-3).
+
+![Manually edit the layer with the river junctions, step 3: Activate a junction node for editing.](images/appendix_c_quick_guides/fig028_ManualEditJunctions3.png){#fig-qgis-edit-junctions-3}
+
+Select the activated point by drawing a rectangle over the point with your mouse. The point will appear blue (see @fig-qgis-edit-junctions-4).
+
+![Manually edit the layer with the river junctions, step 3: Select the activated junction node.](images/appendix_c_quick_guides/fig029_ManualEditJunctions4.png){#fig-qgis-edit-junctions-4}
+
+Delete the point with the delete key on your keyboard. You can save your edits by pressing the blue-white Save Layer Edits button that is decorated with an orange pen (see @fig-qgis-edit-junctions-5). This saves your changes without exiting the edit mode.
+
+![Manually edit the layer with the river junctions, step 3: Save edits.](images/appendix_c_quick_guides/fig030_ManualEditJunctions5.png){#fig-qgis-edit-junctions-5}
+
+If you have many points to remove, as in our case, it may be faster to identify the IDs of the features you want to keep, select these and delete all others. To start, you activate the *Identify Features* mode by clicking on the icon with the white *i* on the blue circle (see @fig-qgis-edit-junctions-fast-1).
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 1.](images/appendix_c_quick_guides/fig031_ManualEditJunctionsFast1.png){#fig-qgis-edit-junctions-fast-1}
+
+A black *i* will appear next to your cursor. You then click on the first of your nodes that you want to keep. This will highlight it in red and a list with information on the selected feature appears on the right in the Identify Results window. You will see the attribute NODE_ID with value 1 for the outflow node (see @fig-qgis-edit-junctions-fast-2). Note down the ID of the feature.
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 2.](images/appendix_c_quick_guides/fig032_ManualEditJunctionsFast2.png){#fig-qgis-edit-junctions-fast-2}
+
+You then press on the node at the confluence of the two tributaries in the center of the catchment. The Identify Results window shows 2 results, that means, that two junction nodes are close to each other (see @fig-qgis-edit-junctions-fast-3).
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 3.](images/appendix_c_quick_guides/fig033_ManualEditJunctionsFast3.png){#fig-qgis-edit-junctions-fast-3}
+
+Zoom in in your map window with your mouse to see the two nodes (see @fig-qgis-edit-junctions-fast-4).
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 4.](images/appendix_c_quick_guides/fig034_ManualEditJunctionsFast4.png){#fig-qgis-edit-junctions-fast-4}
+
+Select the node that should be kept and not the ID of the node (NODE_ID 11) (see @fig-qgis-edit-junctions-fast-5).
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 5.](images/appendix_c_quick_guides/fig035_ManualEditJunctionsFast5.png){#fig-qgis-edit-junctions-fast-5}
+
+Zoom back to the entire Junctions layer (see @fig-qgis-zoom-to-layer) and go to *Select Features by Values...* in the toolbar (see @fig-qgis-edit-junctions-fast-6).
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 1.](images/appendix_c_quick_guides/fig036_ManualEditJunctionsFast6.png){#fig-qgis-edit-junctions-fast-6}
+
+Add NODE_ID 1 to your selection as demonstrated in @fig-qgis-edit-junctions-fast-7.
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 2.](images/appendix_c_quick_guides/fig037_ManualEditJunctionsFast7.png){#fig-qgis-edit-junctions-fast-7}
+
+The outflow node with ID 1 will change color in your map as shown in @fig-qgis-edit-junctions-fast-8.
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 3.](images/appendix_c_quick_guides/fig038_ManualEditJunctionsFast8.png){#fig-qgis-edit-junctions-fast-8}
+
+Add node 11 to your selection in the same way and close the Select Node by Value window. Invert the feature selection as shown in @fig-qgis-edit-junctions-fast-9.
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 4.](images/appendix_c_quick_guides/fig039_ManualEditJunctionsFast9.png){#fig-qgis-edit-junctions-fast-9}
+
+All other nodes will now be yellow and the ones to keep will appear in the layer color (see @fig-qgis-edit-junctions-fast-10).
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 5.](images/appendix_c_quick_guides/fig040_ManualEditJunctionsFast10.png){#fig-qgis-edit-junctions-fast-10}
+
+Delete the features (nodes) by pressing the Delete Selected button in the edit features toolbar as shown in @fig-qgis-edit-junctions-fast-11.
+
+![Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 6.](images/appendix_c_quick_guides/fig041_ManualEditJunctionsFast11.png){#fig-qgis-edit-junctions-fast-11}
+
+Save your edits (see @fig-qgis-edit-junctions-5). To verify that, indeed, all superfluous nodes are deleted from the Junctions file, open the Attribute table shown in @fig-qgis-edit-junctions-at-1.
+
+![Edit Attribute table. Step 1: Open the attribute table with a click on the Attribute Table icon in the QGIS toolbar.](images/appendix_c_quick_guides/fig042_EditJunctionsAttributeTable1.png){#fig-qgis-edit-junctions-at-1}
+
+Only 2 features should be listed under each attribute. We will now edit the attribute table to prepare it for the RSMinerve model. RSMinerve needs an identifier to differentiate between the junctions. We can use the attribute *TYPE* to uniquely identify the two junctions needed. RSMinerve further needs the ID of the downstream river. Add a column to the attribute table by pressing the Add Field button (see @fig-qgis-edit-junctions-at-2).
+
+![Edit Attribute table. Step 2: Add a column to the attribute table manually, part 1.](images/appendix_c_quick_guides/fig043_EditJunctionsAttributeTable2.png){#fig-qgis-edit-junctions-at-2}
+
+Define a name for the attribute, a type and admissible length of each entry in the Add Field window. In our case, we choose a string consisting of letters  as ID and allow it to be 20 characters long as shown in @fig-qgis-edit-junctions-at-3.
+
+![Edit Attribute table. Step 2: Add a column to the attribute table manually, part 2.](images/appendix_c_quick_guides/fig044_EditJunctionsAttributeTable3.png){#fig-qgis-edit-junctions-at-3}
+
+Close the window by pressing OK. By clicking in the newly created NULL fields, you can now type names for the downstream rivers and save your edits by pressing the save edits icon (3rd from the left in the toolbar of the attribute table window). As the outlet of the catchment goes directly into Charvak reservoir, we can type Charvak as the downstream river ID for this example. The river stretch between junction and outlet is called Pskem (see @fig-qgis-edit-junctions-at-4).
+
+![Edit Attribute table. Step 2: Add a column to the attribute table manually, part 3.](images/appendix_c_quick_guides/fig045_EditJunctionsAttributeTable4.png){#fig-qgis-edit-junctions-at-4}
+
+We are done editing the Junctions layer. Deactivate the edit mode by clicking on the yellow pen in the attribute table window as demonstrated in @fig-qgis-edit-junctions-at-5 and close the window.
+
+![Save your edits.](images/appendix_c_quick_guides/fig046_EditJunctionsAttributeTable5.png){#fig-qgis-edit-junctions-at-5}
+
+Now save the Junctions layer in an appropriate place on your drive. Time to save your QGIS project.  
+
+In the same way you can also edit the river channels layer. 
+
+## RSM: Create HBV model and edit parameters {#sec-quickguides-create-hbv-model .unnumbered}  
+Click on the HBV model icon in the model selection panel (see @fig-create-hbv-model). 
+
+![To generate an HBV model, click on the HBV model icon in the model selection panel.](images/appendix_c_quick_guides/fig100_HBVinModelSelectionPanel.png){#fig-create-hbv-model}
+
+Move your cursor to the white area in the center and create a HBV model with a click. The HBV model icon will now appear in the white model panel (see @fig-hbv-model-generated). 
+
+![A HBV model has been generated.](images/appendix_c_quick_guides/fig101_HBVmodelGenerated.png){#fig-hbv-model-generated}
+
+Edit the parameters of the model by double-clicking on the model icon and changing parameter values in the table that appears to the right of the RSMinerve window (see  @fig-edit-hbv-model-single). 
+
+![Double-click on the HBV model to open and edit the parameter table.](images/appendix_c_quick_guides/fig102_editParametersSingleModel.png){#fig-edit-hbv-model-single}
+
+Alternatively (especially if you have to change parameters for several models), activate the Parameters panel in the Model Properties toolbar (see @fig-activate-parameters-panel). 
+
+![Activate the Parameters panel in the Model Properties toolbar.](images/appendix_c_quick_guides/fig103_activateParametersPanel.png){#fig-activate-parameters-panel}
+
+Select the HBV model in the Parameters panel as shown in @fig-select-hbv-parameters-panel.
+
+![Select HBV in the Parameters panel.](images/appendix_c_quick_guides/fig104_selectHBVparameters.png){#fig-select-hbv-parameters-panel}
+
+If you have several HBV models, you can select models by zone and apply edits in the parameter table in the left of the Parameters panel to all selected models (marked with tick). You can also edit paramers for individual models in the right-hand table of the Parameters panel as is visible in @fig-edit-hbv-parameters-panel. 
+
+![Edit parameters for groups of models (left parameter table) or for individual models (right parameter table).](images/appendix_c_quick_guides/fig105_editParametersInParametersPanel.png){#fig-edit-hbv-parameters-panel}
+
+Save your model by clicking the floppy disk icon in the toolbar.   
+
+You can also export parameters to a text file via the button *Export P* in the Model Properties toolbar, edit the text file and import the edited parameter file through *Import P*.   
+
+Note that for the Nauvalisoy demonstration case study, the area of the HBV model should be 99'000'000 m2.   
+
+Back to the [Nauvalisoy model guide](#section-hbv-nauvalisoy-modelling-setup). 
+
+## RSM: Add and link climate station {#sec-quickguides-add-climate-station .unnumbered}
+
+Move your cursor to the V-Station icon in the models panel (the first icon in @fig-create-hbv-model). Click on the icon to activate it and click next to the HBV model in your model pane to place the V-Station. With a double-click on the newly created V-Station, you can visualize the parameters of the virtual weather station.   
+
+Then, connect the station to the HBV model by activating the *Connections Mode* in the Editing tools toolbar as shown in @fig-connect-v-station-1. 
+
+![Create a virtual weather station.](images/appendix_c_quick_guides/fig108_createVStation.png){#fig-connect-v-station-1}
+
+Click on the station, hold down the finger move your cursor to the HBV model, then release the hold. A grey line appears between the station and the model and a pop-up window asks you to verify the data links between the two components (see @fig-connect-v-station-2).
+
+![Link the virtual weather station to the HBV model.](images/appendix_c_quick_guides/fig109_linkVStation.png){#fig-connect-v-station-2}
+
+Click *Ok* to accept the suggested data links and a blue arrow will appear between the weather station and the model. Click on the black arrow in the Editing tools toolbar to leave the *Connections Mode*.     
+
+Back to the [Nauvalisoy model guide](#sec-hbv-nauvalisoy-modelling-setup). 
+
+## RSM: Import climate data {#sec-quickguides-import-climate-data .unnumbered}
+
+Go to the database tab and click on Open in the File database toolbar (see @fig-open-database-tab).
+
+![The database tab.](images/appendix_c_quick_guides/fig110_databasetab.png){#fig-open-database-tab}
+
+Select the file./data/SyrDarya/Chirchiq/RSMinerve/ERA5_Nauvalisoy_1981_2013.csv. If you don't see the file in your file browser, make sure the file ending .csv is selected in the file browser (see @fig-open-database-tab-csv).
+
+[//]: # (TODO: Proper Chapter reference here!)
+
+![Make sure the file ending is .csv in the file browser.](images/appendix_c_quick_guides/fig111_dbfileEnding.png){#fig-open-database-tab-csv}
+
+Press open to load the data into RSMinerve. Depending on your computer this may take a few seconds. Once the data is loaded, click through the database browser in the left pane to explore the data as shown in @fig-explore-db.
+
+![Explore the data base.](images/appendix_c_quick_guides/fig112_exploreDataDB.png){#fig-explore-db}
+
+To connect the data base to the model you will need to make the data consistent with the model. To do this change the name "New group" to "Measurements" and select Inputs for the Category selection (see @fig-db-measurements).
+
+![Change \"New group\" to \"Measurements\" and select Input as category.](images/appendix_c_quick_guides/fig113_changenewdata.png){#fig-db-measurements}
+
+Then, browse the name of the station as done in @fig-station-name-db. 
+
+![The name of the station is \"Nauvalisoy\".](images/appendix_c_quick_guides/fig114_stationName.png){#fig-station-name-db}
+
+As our weather data is representative for the entire Nauvalisoy catchment, the station name in the data base needs to be consistent with the station name of the V-Station in the model pane. Change the name of the station in the model pane from V-Station to Nauvalisoy by clicking on the name and then editing it.   
+
+Choose the nauvalisoy data set as source and adapt the simulation period as shown in @fig-validate-model. 
+
+![Choose the nauvalisoy data set to link the weather station data to the virtual weather station. The simulation times should not extend the period of the input data. Simulation time step is 1 hour and the recording time step is 1 month.](images/appendix_c_quick_guides/fig115_solverspecs.png){#fig-validate-model}
+
+Click on *Validation* to verify that the model has been set up correctly. Once you have adapted the model settings to calculate evaporation based on temperature ([how to](#sec-quickguides-atapt-model-settings)), no errors should be reported. You can now run the model. A warning tells you that the number of meteo stations is not sufficient. Ignore the warning for now. 
+
+Back to the [Nauvalisoy model guide](#sec-hbv-nauvalisoy-modelling-setup)
+
+## RSM: Adapt Model Settings {#sec-quickguides-atapt-model-settings .unnumbered}
+Navigate to Edit in the Settings toolbar (see @fig-open-settings-tab). 
+
+![Open the models settings tab.](images/appendix_c_quick_guides/fig106_openSettingsTab.png){#fig-open-settings-tab}
+
+Open the Settings tab and choose an ET model. Adapt the coordinates of the project (choose the station coordinates mentioned in the Introduction Section) (see @fig-change-settings). 
+
+![Edit the evaporation calculation method and the coordinates of the project.](images/appendix_c_quick_guides/fig107_changeSettings.png){#fig-change-settings}
+
+Back to the [model guide](#sec-modelling-setup)
+
+## RSM: Export Simulation Results to Data Base {#sec-export-sim-results-to-db .unnumbered}
+Go to Export in the Database toolbar (see @fig-export-to-db). Define a name for the simulation results and choose a data base group to save the data to. Create a new group if you haven't already done so. 
+
+![Export simulation results to the data base.](images/appendix_c_quick_guides/fig117_exportResultsToDB.png){#fig-export-to-db}
+
+The data sets are now available in the data base tab and can be visualized in the *Selection and Plots* tab.  
+
+Back to the [model guide](#section-modelling-setup)
+
+## RSM: Add Comparator and Load Discharge Measurements {#sec-quickguides-add-comparator-and-discharge-data .unnumbered}
+The comparator object allows the user to compare a simulated variable to a reference. In our case, we want to compare the simulated discharge of the Nauvalisoy river to the one actually measured at the only gauge in the catchment. The measured discharge can be imported to RSMinerve via the database tab.  
+
+Move your cursor to the comparator icon as shown in @fig-rsminerve-comparator-icon in the model components panel. 
+
+![Comparator icon in RS Minerve.](images/appendix_c_quick_guides/fig_comparator_icon.png){#fig-rsminerve-comparator-icon}
+
+Activate it with a left-click and move your cursor next to the HBV model in the model pane. Place the comparator object with another click. 
+
+Add a source object to your model following the same procedure as for the comparator object. @fig-rsminerve-source-icon shows the icon of the source object.  
+
+![Source icon in RS Minerve.](images/appendix_c_quick_guides/fig_source_icon.png){#fig-rsminerve-source-icon}
+
+You can now optionally rename your model objects.   
+
+Connect the source and the HBV model to the comparator by activating the *Connections* mode in the Editing Tools toolbar. Right-click on the HBV model, hold the click and drag the cursor to the comparator object where you release the cursor. You will be asked in a pop-up window to specify the flow you wish to compare and if the data is to be viewed as simulation results or reference (measured) data. Connect the total discharge computed by the HBV model component as simulation result to the comparator (see @fig-rsminerve-connect-hbv-comparator) and close the pop-up window by pressing OK. 
+
+![Connecting a Source to  Comparater Object in RSMinerve.](images/appendix_c_quick_guides/fig_connectHBVtoComparator.png){#fig-rsminerve-connect-hbv-comparator}
+
+Connect the source object to the comparator in the same way as the HBV object. The source will be connected as reference (see @fig-rsminerve-connect-source-comparator).
+
+![Final, connected objects.](images/appendix_c_quick_guides/fig_connectSourcetoComparator.png){#fig-rsminerve-connect-source-comparator}
+
+Next, we have to load the discharge data into the database. Navigate to the database tab. In the database, go to Measurements -> Nauvalisoy and click *Add* and enter a name for the discharge station (see @fig-rsminerve-add-discharge-database). For this example, we do not need to bother with the coordinates of the station (later, in more complex models, we will have to though!).  
+
+![Connect the outflow of the HBV model as simulation result to the comparator.](images/appendix_c_quick_guides/fig_connectHBVtoComparator.png){#fig-rsminerve-add-discharge-database}
+
+Under the new discharge station, add a sensor and rename it to the source object in your model as shown in @fig-rsminerve-add-discharge-sensor. 
+
+![Connect the discharge measurements (source) as reference to the comparator.](images/appendix_c_quick_guides/fig_add_discharge_sensor.png){#fig-rsminerve-add-discharge-sensor}
+
+Open the tab with the values. Here we need to import the discharge data. You can do that by opening the discharge data in a spreadsheet (e.g. Excel) and copy-pasting the dates and discharge values into the Values table in RSMinerve ([here is how to do this step-by-step](#sec-quickguides-copy-paste-database-values). 
+
+Now we need to link the discharge data in the database to the source object in the model. Navigate to the model do the following.
+
+![Select the data source for the source object (under Data Source in the left window pane) and select the sensor for discharge data for the source (under Source, Series identifier in the right window pane).](images/appendix_c_quick_guides/fig_connect_source_database_to_object.png){#fig-rsminerve-link-discharge-data-to-model}
+
+Validate the model to see if the model setup went correctly. Run the model if the validation did not throw an error. 
+
+Back to the [practical model calibration and validation Section](#sec-calibration-practical-steps)
+
+## RSM: Copy-paste Data to Database {#sec-quickguides-copy-paste-database-values .unnumbered}
+
+[//]: # (TODO: Redo links below!)
+
+Open the file ./data/SyrDarya/Chirchiq/RSMinerve/synthetic_discharge_Nauvalisoy_river_for_calibration_exercise.csv in a spreadsheet software, e.g. Excel, Numbers, Google Sheets or OpenOffice Calc and select the rows containing dates and values (@fig-copy-spreadsheet-data). Press *Control+C* or perform a right-click with the mouse and choose copy. 
+
+![Select the rows and columns containing the dates and data to be copied. Press control C to copy the selected cells.](images/appendix_c_quick_guides/fig000_copy_data_spreadsheet.png){#fig-copy-spreadsheet-data}
+
+Then navigate to the discharge sensor on the database tab in RSMinerve where you want to add the data to. Click in the small square to the left of the first row in the Values tab and click the keyboard keys *Control+P*. Alternatively perform a right-click in the small square and select Paste. The dates and values from the excel sheet will now appear in the table (@fig-paste-spreadsheet-data). Save the database. 
+
+![Paste dates and values to the database table.](images/appendix_c_quick_guides/fig000_paste_values_database.png){#fig-paste-spreadsheet-data}
+
+Back to the [practical model calibration and validation Section](#sec-calibration-practical-steps)

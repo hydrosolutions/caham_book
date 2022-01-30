@@ -25,9 +25,11 @@ All learning tracks presented here require significant investments by the studen
 
 ## Study Guide {#sec-study-guide .unnumbered}
 
-Over the duration of the course and as part of the Applied Modeling track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments that they can choose from the [Case Studies Pack](https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0).
+Over the duration of the course and as part of the Applied Modeling track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments that they can choose from the [Case Studies Pack](https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0). 
 
-Students are required to work through the Chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract. This Chapter explains how to use this course book.
+Students are required to work through the Chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract prior to the conference. 
+
+This Chapter explains how to use this course book.
 
 Different callout blocks appear throughout the text. These include *Exercise*, *Tasks* and *Take Home Messages*. *Caution* and *Warning* callouts highlight possibly problematic issues.
 
@@ -53,16 +55,17 @@ Exercise boxes are highlighted in blue color. With the description of the exerci
 ## WARNING
 :::
 
-Code blocks of R code with corresponding output are regularly shown throughout the text and look like in the following simple example. 
+Code blocks of R code with corresponding output are regularly shown throughout the text and look like this. Note that in grayed-out code cell, the code can be copied and the pasted into RStudio locally. Note that code blocks in Chapters are executed sequentially.
 
 ```{r}
-1 + 1
+a <- 1 + 1
+print(paste("a is set to", a))
 ```
 
 
 ## Materials {#sec-materials .unnumbered}
 
-### Day 1: Introduction & Installation of Software {#sec-materials-day1 .unnumbered}
+### Day 1: Introduction & Installation of Software {#sec-study-guide-day1 .unnumbered}
 
 Read [Chapter 1: A short history of Water in Central Asia](#sec-short-history) and [Chapter 2: Hydrological Systems in Semi-Arid Central Asia](#sec-hydrology-of-central-asia) in the course book. Then make sure the required software for this course is installed on your computer. Section [Open-source resources of the Appendix](#sec-appendix_a_free_software) includes installation instructions and the on-line learning material that can get you started with the software. Below is a quick summary:
 
@@ -84,11 +87,80 @@ Inevitably, you will also perform a lot of geocomputations with R in the future.
 Find a peer or two with whom you will work on a basin of your selection. Download the data from the corresponding river basin an
 :::
 
-### Day 2: Catchment Characterization {#studyGuide-day2 .unnumbered}
+### Day 2: Catchment Characterization {#sec-study-guide-day2 .unnumbered}
 
-Read the [Case Studies in Chapter 3](#CaseStudies) and [Station Data in Chapter 5](#Data::StationData) and do the exercise on catchment characterization, i.e. do a catchment characterization of your sample catchment.
+Read the River Basin sample studies in [Part I: Chapter 3](#sec-example-river-basins) and familiarize yourself with the Data available in [Part II](#sec-data). Do the catchment characterization of the  basin that you selected to work on by filling in the Table @tbl-example-basin-characterization below. If you have downloaded the entire folder on your local drive, you already have all the data available for the analysis.
 
+| ATTRIBUTE                                             | VALUE                 |
+|-------------------------------------------------------|-----------------------|
+| ***Geography*** [@srtmgl12020]                        |                       |
+| Basin Area $A$                                        | 13'693 km^2^          |
+| Minimum Elevation $h_{min}$                           | 2'068 masl            |
+| Maximum Elevation $h_{max}$                           | 6'652 masl            |
+| Mean Elevation $h_{mean}$                             | 4'267 masl            |
+| ***Hydrology [Source: Tajik Hydromet Service]***      |                       |
+| Norm hydrological year discharge $Q_{norm}$           | 103.8 m^3^/s          |
+| Norm cold season discharge (Oct. - Mar., Q4/Q1)       | 19.8 m^3^/s           |
+| Norm warm season discharge (Apr. - Sept., Q2/Q3)      | 84.2 m^3^/s           |
+| Annual norm discharge volume                          | 3.28 km^3^            |
+| Annual norm specific discharge                        | 239 mm                |
+| ***Climate***                                         |                       |
+| Mean basin temperature $T$ [@Karger_2017]             | -5.96 deg. Celsius    |
+| Mean basin precipitation $P$ [@beck2020]              | 351 mm                |
+| Potential Evaporation $E_{pot}$ [@Trabucco2019]       | 929 mm                |
+| Aridity Index $\phi = E_{pot} / P$                    | 2.7                   |
+| Aridity Index [@Trabucco2019]                         | 3.6                   |
+| ***Land Cover [@CopernicusLandCover]***               |                       |
+| Shrubland                                             | 8 km^2^               |
+| Herbaceous Vegetation                                 | 4'241 km^2^           |
+| Crop Land                                             | 0.5 km^2^             |
+| Built up                                              | 4 km^2^               |
+| Bare / Sparse Vegetation                              | 8'410 km^2^           |
+| Snow and Ice                                          | 969 km^2^             |
+| Permanent Water Bodies                                | 80 km^2^              |
+| ***Land Ice***                                        |                       |
+| Total glacier area [@glims2005]                       | 875 km^2^             |
+| Total glacier volume (calculated with [@erasov_1968]) | 699 km^3^             |
+: As an example, key relevant basin statistics for Gunt river basin are shown with individual data sources indicated. Using the data available in the data pack, you should characterize your case study basin in a similar way. {#tbl-example-basin-characterization}
 
+### Day 3: Geospatial Data & Introduction to Linear Reservoir Models {#sec-study-guide-day3 .unnumbered}
 
+Read [Chapter 5 on Geospatial Data](#sec-geospatial-data) and prepare the GIS layers for import into RS Minerve for your sample catchment. Step-by-step instructions of how to do this are given there.
 
+As homework, read the Chapter 9.2 and do the exercise on the linear reservoir model.
+[//]: # (TODO: Proper Chapter reference here!)
+
+### Day 4: Discussion of Types of Hydrological Models {#sec-study-guide-day4 .unnumbered}
+
+Hydrological models in general are discussed. Consult the introductory Section of [Part III: Hydrological Modeling and Applications](#sec-hydrological-modeling). All three types of modeling approaches will be presented but with a focus on hydraulic-hydrological rainfall-runoff modeling.
+
+As homework, choose an R tutorial to work on from the [Appendix A: Software](#sec-open-resouces-software-R) which suits your skills. If you are already fluent in R, you can for example work on your visualization skills in R by producing nice plots of your sample catchment which you may include in the final presentation on the last day of the workshop. You may let yourselves be inspired by the R code supplied in this book.
+
+### Day 5: The HBV Model {#sec-study-guide-day5 .unnumbered}
+
+A commonly used hydrological model is introduced. Read Chapters [9.4 on the data preparation](#sec-rsminerve-data-preparation) and [6.5 on the HBV model](#sec-hbv-model) and the pre-requisite reading listed therein. It is recommended to do the tasks suggested in the course book to get more familiar with RSMinerve.
+
+As an exercise, you will implement a hydrological model of your catchment based on the catchment characterization that you performed on day 2 and the geospatial layers that you prepared on day 3.
+
+### Day 6: Model Calibration and Validation {#sec-study-guide-day6 .unnumbered}
+
+Read Chapter [6.6](#section-model-calibration-and-validation) and go through the example of the Nauvalisoy catchment which illustrates the iterative model refinement process.\
+As homework students will calibrate and validate the hydrological models of their own sample catchment.
+
+### Day 7: Case Studies {#sec-study-guide-day7 .unnumbered}
+
+Discussion of the calibration and validation exercise followed by a presentation of the Gunt basin case study.
+As homework students will write an abstract about your modeling work for the final conference. Instructions for abstract writing are available [here](./learningFiles/AbstractSubmissionGuide.pdf). The abstract submission deadline will be communicated at the beginning of the course.
+
+### Day 8: Real-World Applications {#sec-study-guide-day8 .unnumbered}
+
+Presentation of examples of real-world applications of hydrological models.
+
+As homework, students will finalize the presentation of their course work. The presentation will have to submitted to the conference board prior to the start of the conference. Details will be communicated during the course.
+
+### Day 9: Student Conference & Course Wrap Up {#sec-study-guide-day9 .unnumbered}
+
+The last day of the course is organized as a student conference where students present their modeling work on their respective case study catchment. The groups need to prepare a presentation of 12 minutes duration. Each presentation will be followed by a 3 minutes Q&A session. After all the groups have presented, impressions and feedback will be shared by the teachers followed by a larger group discussion.
+
+At the end, students are invited to provide feedback with regard to their impression of the course. A key question will be hoe the course can be further improved to reach future students even more effectively.
 

@@ -1,30 +1,429 @@
 [
   {
-    "objectID": "study_guide_materials.html#study-guide",
-    "href": "study_guide_materials.html#study-guide",
-    "title": "Study Guide and Materials",
-    "section": "Study Guide",
-    "text": "Study Guide\nOver the duration of the course, students are guided through implementing their own conceptual hydrological model of one of the Central Asian sample catchments that they can choose from the [Case Studies Pack](https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0).\nStudents are required to work through the Chapters, including the tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract. This Chapter explains how to use this course book.\n\n\n\n\n\n\nEXERCISE\n\n\n\nExercise boxes are highlighted in blue color. With the description of the exercise, hints and a link to the solution are provided. Wherever they appear in the text, exercises should be completed before starting the next course chapter.\n\n\n\n\n\n\n\n\nTip callout\n\n\n\n\n\n\n\n\n\n\n\n\nImportant callout\n\n\n\n\n\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\n\n\n\n\n\n\nWarning Callout"
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Modeling of Hydrological Systems in Semi-Arid Central Asia",
+    "section": "Welcome",
+    "text": "Welcome\nThis handbook on hydrological modeling of Central Asian river basins is geared towards young water professionals in Central Asia. They inherit fascinatingly complex natural and man-made hydrological systems. They face work where opportunities for modernization abound after decades of limited investments in the water sectors of the countries and where continuous population growth and a changing climate pose emerging challenges. At the same time, they face work in a field that has enabled the region to prosper and flourish over hundreds if not thousands of years.\nThe authors hope that this easily online translatable textbook provides a source of inspiration for these students and that the text and the methods presented will also be used by teachers and integrated in university curricula locally.\nThe book is dedicated to colleagues at the Central Asian Hydrometeorological Agencies whose tireless work in collecting and analyzing hydro-meteorological data in Central Asia has helped to significantly improve our understanding of the complex runoff generation processes at work in the region.\nThe authors are grateful for the support by the Global Water Programme of the Swiss Agency for Development and Cooperation who greatly helped to push the envelop further with regard to modern water education in the Central Asia region. Finally, Mr. Andrey Yakovlev and his tremendous knowledge of the region is acknowledged."
   },
   {
-    "objectID": "study_guide_materials.html#materials",
-    "href": "study_guide_materials.html#materials",
-    "title": "Study Guide and Materials",
-    "section": "Materials",
-    "text": "Materials"
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Modeling of Hydrological Systems in Semi-Arid Central Asia",
+    "section": "License",
+    "text": "License\n\n\nDOI\n\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.\n\nThe development of this book was supported by the Swiss Agency for Development and Cooperation."
+  },
+  {
+    "objectID": "preface.html",
+    "href": "preface.html",
+    "title": "Preface",
+    "section": "",
+    "text": "Figure 1: Oasis between Samarkand and Bukhara. Source: Tobias Siegfried, hydrosolutions GmbH\n\n\nThis is a book and study guide about the hydrology of semi-arid Central Asia and applied hydrological modeling in the region. It is geared towards students and young professionals in Central Asia who are interested in learning modern hydrological modeling approaches. The book teaches by example and focuses on two example catchments in the Syr Darya and Amu Darya river basins as case studies. The methods demonstrated here can be applied elsewhere.\n\n\n\n\n\n\nOnline Translation\n\n\n\nShould the reader struggle with the English language, there is a very easy way to translate this book into any of the local languages spoken in Central Asia, including Russian. The picture below shows a screenshot from the online book translated into Russian language via Google’s translation service. The screenshot shows how to activiate the translation panel (1). The translated book text then appears (2).\n\n\n\nIn Part I of the book, key hydro-climatological characteristics of the region are presented. This Section draws inspiration from Victor Shults’ “Rivers of Middle Asia” (Shults 1965). Through the collection of a large number of in-situ hydrological data from all over the region and in combination with a plethora of newly available data, a grand modern regional perspective on Central Asian hydrology becomes possible in the tradition of Shults.\nTwo important basins are highlighted as in-depth case studies, i.e. the Gunt River Basins in the Amu Darya catchment and the Chirchik River basin in the Syr Darya. The analyses of these catchments draws on available data from the Central Asian Hydrometeorological Services and on global and entirely public hydro-climatological as well as land cover datasets. The goal of these introductory chapters is to familiarize the student with the first steps prior to any hydrological modeling, i.e. to obtain a robust understand of the system of interest through a thorough hydro-climatological characterization of the study area.\nPart II is a rather large section of the book which is then devoted to data where different open data sources are presented. Retrieval and data preparation in the context of hydrological modeling are discussed. These data include data on topography, land cover, climate reanalysis data and parameters on biophysical climate and climate projections data. The preparation of these data often requires significant work. Hence, a focus lies on demonstrating workflows to facilitate the handling and preparation of these type of data for hydrological modeling.\nIn Part III, three different modeling approach are presented and discussed. First, long-term water balance modeling using the Budyko framework is presented and discussed in depth with an application to a large dataset from the region. This approach can yield powerful insights for example on regional hydrological changes due to climatic changes and where the detailed hydrological-hydraulic modeling of a large number of rivers is impracticable. Second, detailed hydrological-hydraulic modeling of individual river basins is presented. These types of models are normally developed for tradeoff analysis between different water uses and users in a basin, i.e. in the planning context and also under different climate scenarios. They can also be run in operational mode to respond to real-time management challenges. Finally, the last modeling chapter introduces modeling through predictive inference where empirical data-drive models are setup for forecasting discharge at particular locations in a basin. These models rely on large amounts of measured discharge data and hence, their application is limited to places where such data are available.\nPart III also includes two Chapters on hydrological model applications where real-world model deployment is presented and discussed. A special emphasis here is aspects of operation and maintenance of deployed models in local agencies and options for this, also in relation to staff education and learning.\nThe book / study guide is accompanied by a Study Exercise Pack that encompasses data from 7 Central Asian catchments which can be used by students for learning and applying skills acquired to real-world examples in the region. The Exercise Pack can accessed and downloaded here. Furthermore, a dedicated R Package1 has been developed which implements many of the data analyses and processing steps shown in this book (see also Section for more information).\nWith everything that is presented, the focus is on the use of open source and free software. For data preparation and analysis as well as for water balance and empirical modeling, R and RStudio are utilized [?r-2013; ?rstudio-2020]. For the processing of geographic data, workflows in QGIS are demonstrated [QGIS Development Team (2021)]. For hydrological-hydraulic modeling, the free RS MINERVE is utilized which is a environment for the modeling of free surface runoff flow formation and propagation [Foehn et al. (2020); Garcia Hernandez et al. (2020)]. The reader is expected to have a basic understanding of R and QGIS and how to use these software for data analysis and processing.\nThe outlook having to learn hydrology together with quantitative geospatial analysis and programming may sound overwhelming at the beginning. Really the best way is just to dive into the book and learn through the many examples provided. All code with which the analysis and modeling is carried out is provided and can be thus adapted to any other local context or relevant task. So, this handbook on applied hydrological modeling is hopefully inviting students to learn through experimentation and not to get scared.\n\n\n\n\nFoehn, A., J. Garcia Hernandez, B. Roquier, J. Fluixa-Sanmartin, T. Brauchli, J. Paredes Arquiola, and G. De Cesare. 2020. “RS MINERVE - User Manual, V2.15.” ISSN 2673-2653. Switzerland: Ed. CREALP.\n\n\nGarcia Hernandez, J., A. Foehn, J. Fluixa-Sanmartin, B. Roquier, T. Brauchli, J. Paredes Arquiola, and De Cesare G. 2020. “RS MINERVE - Technical Manual, V2.25.” ISSN 2673-2661. Switzerland: Ed. CREALP.\n\n\nQGIS Development Team. 2021. QGIS Geographic Information System. QGIS Association.\n\n\nShults, Victor. 1965. Rivers of Middle Asia. 2nd Edition. Gidrometeoizdat, Leningrad.\n\n\nFootnotes\n\n\nR is a programming language widely used in data analysis and mining. See ?r-base for more information.↩︎"
   },
   {
     "objectID": "study_guide_materials.html#sec-study-guide",
     "href": "study_guide_materials.html#sec-study-guide",
     "title": "Study Guide and Materials",
     "section": "Study Guide",
-    "text": "Study Guide\nOver the duration of the course and as part of the Applied Modeling track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments that they can choose from the Case Studies Pack.\nStudents are required to work through the Chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract. This Chapter explains how to use this course book.\nDifferent callout blocks appear throughout the text. These include Exercise, Tasks and Take Home Messages. Caution and Warning callouts highlight possibly problematic issues.\n\n\n\n\n\n\nEXERCISE\n\n\n\nExercise boxes are highlighted in blue color. With the description of the exercise, hints and a link to the solution are provided. Wherever they appear in the text, exercises should be completed before starting the next course chapter.\n\n\n\n\n\n\n\n\nTASK\n\n\n\n\n\n\n\n\n\n\n\n\nTAKE HOME MESSAGE\n\n\n\n\n\n\n\n\n\n\n\n\nCAUTION\n\n\n\n\n\n\n\n\n\n\n\n\nWARNING\n\n\n\n\n\n\nCode blocks of R code with corresponding output are regularly shown throughout the text and look like in the following example.\n1 + 1"
+    "text": "Study Guide\nOver the duration of the course and as part of the Applied Modeling track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments that they can choose from the Case Studies Pack.\nStudents are required to work through the Chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract prior to the conference.\nThis Chapter explains how to use this course book.\nDifferent callout blocks appear throughout the text. These include Exercise, Tasks and Take Home Messages. Caution and Warning callouts highlight possibly problematic issues.\n\n\n\n\n\n\nEXERCISE\n\n\n\nExercise boxes are highlighted in blue color. With the description of the exercise, hints and a link to the solution are provided. Wherever they appear in the text, exercises should be completed before starting the next course chapter.\n\n\n\n\n\n\n\n\nTASK\n\n\n\n\n\n\n\n\n\n\n\n\nTAKE HOME MESSAGE\n\n\n\n\n\n\n\n\n\n\n\n\nCAUTION\n\n\n\n\n\n\n\n\n\n\n\n\nWARNING\n\n\n\n\n\n\nCode blocks of R code with corresponding output are regularly shown throughout the text and look like this. Note that in grayed-out code cell, the code can be copied and the pasted into RStudio locally. Note that code blocks in Chapters are executed sequentially.\n\na <- 1 + 1\nprint(paste(\"a is set to\", a))\n\n[1] \"a is set to 2\""
   },
   {
     "objectID": "study_guide_materials.html#sec-materials",
     "href": "study_guide_materials.html#sec-materials",
     "title": "Study Guide and Materials",
     "section": "Materials",
-    "text": "Materials\n\nDay 1: Introduction & Installation of Software\nRead Chapter 1: A short history of Water in Central Asia and Chapter 2: Hydrological Systems in Semi-Arid Central Asia in the course book. Then make sure the required software for this course is installed on your computer. Section Open-source resources of the Appendix includes installation instructions and the on-line learning material that can get you started with the software. Below is a quick summary:\n\nQGIS\n\nR\nRStudio\n\nRS Minerve\n\nIf you have not used the software above before we recommend the following resources to get your started (remember, more detailed instructions are available in the Appendix):\n\nQGIS training manual\n\nModern Dive for getting started with R and RStudio\n\nRS Minerve User Manual\n\nInevitably, you will also perform a lot of geocomputations with R in the future. After all, a GIS system like QGIS is nothing more than a nicely packed bunch of geocomputation algorithms and a window for visualizing geospatial assets. Well, rest assured, all of this can be done inside R. It is recommended therefore that you also consult the following excellent online resource Geocomputation with R.\n\n\n\n\n\n\nTASK\n\n\n\nFind a peer or two with whom you will work on a basin of your selection. Download the data from the corresponding river basin an\n\n\n\n\nDay 2: Catchment Characterization\nRead the Case Studies in Chapter 3 and Station Data in Chapter 5 and do the exercise on catchment characterization, i.e. do a catchment characterization of your sample catchment."
+    "text": "Materials\nDay 1: Introduction & Installation of Software\nRead Chapter 1: A short history of Water in Central Asia and Chapter 2: Hydrological Systems in Semi-Arid Central Asia in the course book. Then make sure the required software for this course is installed on your computer. Section Open-source resources of the Appendix includes installation instructions and the on-line learning material that can get you started with the software. Below is a quick summary:\n\n\nQGIS\n\nR\n\nRStudio\n\nRS Minerve\n\nIf you have not used the software above before we recommend the following resources to get your started (remember, more detailed instructions are available in the Appendix):\n\n\nQGIS training manual\n\n\nModern Dive for getting started with R and RStudio\n\nRS Minerve User Manual\n\nInevitably, you will also perform a lot of geocomputations with R in the future. After all, a GIS system like QGIS is nothing more than a nicely packed bunch of geocomputation algorithms and a window for visualizing geospatial assets. Well, rest assured, all of this can be done inside R. It is recommended therefore that you also consult the following excellent online resource Geocomputation with R.\n\n\n\n\n\n\nTASK\n\n\n\nFind a peer or two with whom you will work on a basin of your selection. Download the data from the corresponding river basin an\n\n\nDay 2: Catchment Characterization\nRead the River Basin sample studies in Part I: Chapter 3 and familiarize yourself with the Data available in Part II. Do the catchment characterization of the basin that you selected to work on by filling in the Table Table 1 below. If you have downloaded the entire folder on your local drive, you already have all the data available for the analysis.\n\n\nTable 1: As an example, key relevant basin statistics for Gunt river basin are shown with individual data sources indicated. Using the data available in the data pack, you should characterize your case study basin in a similar way.\n\n\n\n\n\nATTRIBUTE\nVALUE\n\n\n\n\nGeography (srtmgl12020?)\n\n\n\n\nBasin Area \\(A\\)\n\n13’693 km2\n\n\n\nMinimum Elevation \\(h_{min}\\)\n\n2’068 masl\n\n\nMaximum Elevation \\(h_{max}\\)\n\n6’652 masl\n\n\nMean Elevation \\(h_{mean}\\)\n\n4’267 masl\n\n\nHydrology [Source: Tajik Hydromet Service]\n\n\n\nNorm hydrological year discharge \\(Q_{norm}\\)\n\n103.8 m3/s\n\n\nNorm cold season discharge (Oct. - Mar., Q4/Q1)\n19.8 m3/s\n\n\nNorm warm season discharge (Apr. - Sept., Q2/Q3)\n84.2 m3/s\n\n\nAnnual norm discharge volume\n3.28 km3\n\n\n\nAnnual norm specific discharge\n239 mm\n\n\nClimate\n\n\n\nMean basin temperature \\(T\\) (Karger_2017?)\n\n-5.96 deg. Celsius\n\n\nMean basin precipitation \\(P\\) (beck2020?)\n\n351 mm\n\n\nPotential Evaporation \\(E_{pot}\\) (Trabucco2019?)\n\n929 mm\n\n\nAridity Index \\(\\phi = E_{pot} / P\\)\n\n2.7\n\n\nAridity Index (Trabucco2019?)\n\n3.6\n\n\nLand Cover (CopernicusLandCover?)\n\n\n\nShrubland\n8 km2\n\n\n\nHerbaceous Vegetation\n4’241 km2\n\n\n\nCrop Land\n0.5 km2\n\n\n\nBuilt up\n4 km2\n\n\n\nBare / Sparse Vegetation\n8’410 km2\n\n\n\nSnow and Ice\n969 km2\n\n\n\nPermanent Water Bodies\n80 km2\n\n\n\nLand Ice\n\n\n\nTotal glacier area (glims2005?)\n\n875 km2\n\n\n\nTotal glacier volume (calculated with (erasov_1968?))\n699 km3\n\n\n\n\n\nDay 3: Geospatial Data & Introduction to Linear Reservoir Models\nRead Chapter 5 on Geospatial Data and prepare the GIS layers for import into RS Minerve for your sample catchment. Step-by-step instructions of how to do this are given there.\nAs homework, read the Chapter 9.2 and do the exercise on the linear reservoir model. [//]: # (TODO: Proper Chapter reference here!)\nDay 4: Discussion of Types of Hydrological Models\nHydrological models in general are discussed. Consult the introductory Section of Part III: Hydrological Modeling and Applications. All three types of modeling approaches will be presented but with a focus on hydraulic-hydrological rainfall-runoff modeling.\nAs homework, choose an R tutorial to work on from the Appendix A: Software which suits your skills. If you are already fluent in R, you can for example work on your visualization skills in R by producing nice plots of your sample catchment which you may include in the final presentation on the last day of the workshop. You may let yourselves be inspired by the R code supplied in this book.\nDay 5: The HBV Model\nA commonly used hydrological model is introduced. Read Chapters 9.4 on the data preparation and 6.5 on the HBV model and the pre-requisite reading listed therein. It is recommended to do the tasks suggested in the course book to get more familiar with RSMinerve.\nAs an exercise, you will implement a hydrological model of your catchment based on the catchment characterization that you performed on day 2 and the geospatial layers that you prepared on day 3.\nDay 6: Model Calibration and Validation\nRead Chapter 6.6 and go through the example of the Nauvalisoy catchment which illustrates the iterative model refinement process.\nAs homework students will calibrate and validate the hydrological models of their own sample catchment.\nDay 7: Case Studies\nDiscussion of the calibration and validation exercise followed by a presentation of the Gunt basin case study. As homework students will write an abstract about your modeling work for the final conference. Instructions for abstract writing are available here. The abstract submission deadline will be communicated at the beginning of the course.\nDay 8: Real-World Applications\nPresentation of examples of real-world applications of hydrological models.\nAs homework, students will finalize the presentation of their course work. The presentation will have to submitted to the conference board prior to the start of the conference. Details will be communicated during the course.\nDay 9: Student Conference & Course Wrap Up\nThe last day of the course is organized as a student conference where students present their modeling work on their respective case study catchment. The groups need to prepare a presentation of 12 minutes duration. Each presentation will be followed by a 3 minutes Q&A session. After all the groups have presented, impressions and feedback will be shared by the teachers followed by a larger group discussion.\nAt the end, students are invited to provide feedback with regard to their impression of the course. A key question will be hoe the course can be further improved to reach future students even more effectively."
+  },
+  {
+    "objectID": "hydrology_of_central_asia.html",
+    "href": "hydrology_of_central_asia.html",
+    "title": "Part I: Hydrology of Semi-Arid Central Asia",
+    "section": "",
+    "text": "Add a grand overview of Central Asian Hydrology here."
+  },
+  {
+    "objectID": "short_history_of_central_asia_water.html",
+    "href": "short_history_of_central_asia_water.html",
+    "title": "1  Historical Context",
+    "section": "",
+    "text": "Highlight the importance of water in semi-arid Central Asia in the historical development of the region."
+  },
+  {
+    "objectID": "hydrological_systems.html#sec-regional-hydroclimatological-features",
+    "href": "hydrological_systems.html#sec-regional-hydroclimatological-features",
+    "title": "2  Hydrological Systems in Semi-Arid Central Asia",
+    "section": "2.1 Regional Hydroclimatological Features",
+    "text": "2.1 Regional Hydroclimatological Features"
+  },
+  {
+    "objectID": "hydrological_systems.html#sec-zone-of-runoff-formation",
+    "href": "hydrological_systems.html#sec-zone-of-runoff-formation",
+    "title": "2  Hydrological Systems in Semi-Arid Central Asia",
+    "section": "2.2 Zone of Runoff Formation",
+    "text": "2.2 Zone of Runoff Formation"
+  },
+  {
+    "objectID": "hydrological_systems.html#sec-zone-of-water-distribution-and-use",
+    "href": "hydrological_systems.html#sec-zone-of-water-distribution-and-use",
+    "title": "2  Hydrological Systems in Semi-Arid Central Asia",
+    "section": "2.3 Zone of Water Distribution and Use",
+    "text": "2.3 Zone of Water Distribution and Use"
+  },
+  {
+    "objectID": "example_river_basins.html#gunt-river-basin",
+    "href": "example_river_basins.html#gunt-river-basin",
+    "title": "3  Case Study River Basins",
+    "section": "3.1 Gunt River Basin",
+    "text": "3.1 Gunt River Basin"
+  },
+  {
+    "objectID": "example_river_basins.html#chirchik-river-basin",
+    "href": "example_river_basins.html#chirchik-river-basin",
+    "title": "3  Case Study River Basins",
+    "section": "3.2 Chirchik River Basin",
+    "text": "3.2 Chirchik River Basin"
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Part II: Data Retrieval and Preparation",
+    "section": "",
+    "text": "A grand overview over different types of data are provided and how they need to be prepared for modeling."
+  },
+  {
+    "objectID": "discharge_station_data.html",
+    "href": "discharge_station_data.html",
+    "title": "4  Discharge Station Data",
+    "section": "",
+    "text": "Chaptr on discharge station data"
+  },
+  {
+    "objectID": "geospatial_data.html",
+    "href": "geospatial_data.html",
+    "title": "5  Geospatial Data",
+    "section": "",
+    "text": "Chapter on geospatial data, including DEM data, landcover information, geology, etc."
+  },
+  {
+    "objectID": "snow_and_glacier_data.html",
+    "href": "snow_and_glacier_data.html",
+    "title": "6  Snow and Glacier Data",
+    "section": "",
+    "text": "Chapter on snow and glacier data."
+  },
+  {
+    "objectID": "climate_data.html#sec-historical-climate-data",
+    "href": "climate_data.html#sec-historical-climate-data",
+    "title": "7  Climate Data",
+    "section": "7.1 Historical Climate Data",
+    "text": "7.1 Historical Climate Data"
+  },
+  {
+    "objectID": "climate_data.html#sec-climate-projections",
+    "href": "climate_data.html#sec-climate-projections",
+    "title": "7  Climate Data",
+    "section": "7.2 Climate Projections",
+    "text": "7.2 Climate Projections"
+  },
+  {
+    "objectID": "hydrological_modeling.html",
+    "href": "hydrological_modeling.html",
+    "title": "Part III: Hydrological Modeling & Applications",
+    "section": "",
+    "text": "A grand overview over different types of hydrological modeling approaches. Furthermore, real-world model applications are demonstrated."
+  },
+  {
+    "objectID": "long_term_water_balance_modeling.html",
+    "href": "long_term_water_balance_modeling.html",
+    "title": "8  Long-term Water Balance Modeling",
+    "section": "",
+    "text": "Budyko chapter with critical results there."
+  },
+  {
+    "objectID": "hydraulic_hydrological_modeling.html",
+    "href": "hydraulic_hydrological_modeling.html",
+    "title": "9  Hydraulic-Hydrological Modeling",
+    "section": "",
+    "text": "9.0.1 Pre"
+  },
+  {
+    "objectID": "modeling_using_predictive_inference.html",
+    "href": "modeling_using_predictive_inference.html",
+    "title": "10  Modeling Using Predictive Inference",
+    "section": "",
+    "text": "Budyko chapter with critical results there."
+  },
+  {
+    "objectID": "real_world_examples.html#sec-ieasy_hydro",
+    "href": "real_world_examples.html#sec-ieasy_hydro",
+    "title": "11  Real World Examples",
+    "section": "11.1 iEasyHydro Digital Assistant",
+    "text": "11.1 iEasyHydro Digital Assistant"
+  },
+  {
+    "objectID": "real_world_examples.html#sec-hydro4u-count4d",
+    "href": "real_world_examples.html#sec-hydro4u-count4d",
+    "title": "11  Real World Examples",
+    "section": "11.2 Hydro4U Count4D Water-Energy-Food Accounting Software",
+    "text": "11.2 Hydro4U Count4D Water-Energy-Food Accounting Software"
+  },
+  {
+    "objectID": "real_world_examples.html#sec-challenges-in-operational-deployment",
+    "href": "real_world_examples.html#sec-challenges-in-operational-deployment",
+    "title": "11  Real World Examples",
+    "section": "11.3 Challenges in Operational Model Deployment",
+    "text": "11.3 Challenges in Operational Model Deployment"
+  },
+  {
+    "objectID": "appendix_a_free_software.html#literature",
+    "href": "appendix_a_free_software.html#literature",
+    "title": "Appendix A — Software",
+    "section": "A.1 Literature",
+    "text": "A.1 Literature\nMany authors of scientific literature are on the web platform researchgate where they can privately share their work with students (users need to register for an account)."
+  },
+  {
+    "objectID": "appendix_a_free_software.html#sec-open-resouces-software-QGIS",
+    "href": "appendix_a_free_software.html#sec-open-resouces-software-QGIS",
+    "title": "Appendix A — Software",
+    "section": "A.2 QGIS",
+    "text": "A.2 QGIS\nQGIS is a free and open source Geographical Information System that offers very similar tools as their commercial counterparts. The latest version of QGIS can be downloaded from the QGIS website. We recommend to install the stable long-term support version (installation guide).\n\nA.2.1 Resources for learning QGIS\nA general tutorial for beginners is the QGIS training manual. It includes a short chapter on the use of QGIS for hydrological analysis (Chapter 17.16). For this course you should be familiar with the QGIS window and know the difference between raster and vector data. If you have used QGIS or a similar GIS software before you will not need to do a tutorial prior to this course."
+  },
+  {
+    "objectID": "appendix_a_free_software.html#sec-open-resouces-software-R",
+    "href": "appendix_a_free_software.html#sec-open-resouces-software-R",
+    "title": "Appendix A — Software",
+    "section": "A.3 R and RStudio",
+    "text": "A.3 R and RStudio\nR is a free and open source statistical programming language. It’s large user community ensure active development and up-to-date help resources available on the internet. RStudio is a free user interface for R. To install R and RStudio follow the installation guide on ModernDive - Statistical Inference via Data Science.\nFor the bare beginners, also with regard to programming, the book Hands-On Programming with R is an excellent start\n\nA.3.1 Resources for learning R and R studio\n\n“Help! I’m new to R and RStudio and I need to learn them! What do I do?” If you’re asking yourself this, this book is for you: ModernDive - Statistical Inference via Data Science.\nA thorough guide for data science in R: R for Data Science\n\n\n\nA.3.2 RS Minerve\n\nA.3.2.1 How to download and install RS Minerve\nGo to the software download page of CREALP’s website https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve/telechargement-rsm.html (last accessed March 18, 2021) and click on Version actuelle to download the latest installer for Windows as shown in Figure A.1. This will start the download process for the installer RSMinerve-install.exe.\n\n\n\nFigure A.1: Download RS Minerve from the CREALP website https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve/telechargement-rsm.html (last accessed March 18, 2021).\n\n\nYou should also download the user manual (RS MINERVE user manual, written in English) and the example files used for the tutorials in the user manual (Exemple de fichiers, a zip file with data) as well as the technical manual (RS MINERVE technical manual, written in English).\nOnce the installer is downloaded, install RSMinerve with a double-click on the installer and follow the Setup guide. Open RSMinerve once you have it installed.\nBack to the prerequisites for RS Minerve modelling"
+  },
+  {
+    "objectID": "appendix_b_riverscentralasia_r_toolbox.html",
+    "href": "appendix_b_riverscentralasia_r_toolbox.html",
+    "title": "Appendix B — R Toolbox riversCentralAsia",
+    "section": "",
+    "text": "More information can be found on Github, where the package is maintained."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-register-with-earth-explorer",
+    "href": "appendix_c_quick_guides.html#sec-register-with-earth-explorer",
+    "title": "Appendix C — Quick Guides",
+    "section": "Earth Explorer: Register for an Account",
+    "text": "Earth Explorer: Register for an Account\nIn your internet browser, navigate to https://earthexplorer.usgs.gov/. The window will look similar as in Figure C.1.\n\n\n\nFigure C.1: Start window of the Earth Explorer interface.\n\n\nClick on Login in the top right corner. This will bring you to a new window where you can click on Create New Account which will open a form where you enter your information. After verifying your account by clicking on the appropriate link that you will be sent, you can download data from the Earth Explorer interface.\n\nEE: Download SRTM Data for a Selected Region\n\nLogin to the Earth Explorer (Register if you haven’t done so before How to).\nNavigate to your area of interest in the map panel of the Earth Explorer interface.\nDraw a polygon around your area of interest by clicking on the map (see Figure C.2).\nIn the Data Set tab, look for the SRTM 1 arc-second global DEM (see Figure C.3) and select it by ticking the box next to the product name in the list.\n\n\n\n\n\nFigure C.2: Define a polygon around your area of interest by clicking on the map.\n\n\n\n\n\nFigure C.3: Search for the SRTM 1 arc-second global DEM product.\n\n\n\nVerify that the result layer(s) cover your area of interest by pressing the foot icon in the Results tab and download if you are satisfied (Figure C.4).\n\n\n\n\nFigure C.4: Verify the results of your search and download the data products you need.\n\n\nBack to the Load DEM section."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-sofware-qgis-installation-guide",
+    "href": "appendix_c_quick_guides.html#sec-sofware-qgis-installation-guide",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS Installation Guide",
+    "text": "QGIS Installation Guide\nIn your web browser go to https://qgis.org/en/site/forusers/download.html (see Figure C.5).\n\n\n\nFigure C.5: The QGIS download site.\n\n\nChoose the long-term support version of QGIS for your operating system (e.g. if you use a laptop with a 64-bit Windows operating system, open the Download for Windows tab and click on QGIS Standalone Installer Version 3.16 (64 bit), see Figure C.6)). Clicking on the installer will start the download.\n\n\n\nFigure C.6: The QGIS installer if you work on a 64-bit Windows operating system.\n\n\nDouble-click on the downloaded file to start the installation. Typically, SAGA GIS and GRASS GIS are installed alongside QGIS if you choose this installing option."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-qgis-window-overview",
+    "href": "appendix_c_quick_guides.html#sec-qgis-window-overview",
+    "title": "Appendix C — Quick Guides",
+    "section": "The QGIS Window - Overview",
+    "text": "The QGIS Window - Overview\nThe main parts of the QGIS window which are referenced in this tutorial, are highlighted in Figure C.7.\n\n\n\nFigure C.7: The QGIS window."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-saving-a-new-qgis-project",
+    "href": "appendix_c_quick_guides.html#sec-saving-a-new-qgis-project",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Saving a New QGIS Project",
+    "text": "QGIS: Saving a New QGIS Project\nOpen your QGIS and open a new QGIS project by moving your cursor on the white sheet symbol in the upper-left corner of your QGIS window (see Figure C.8).\n\n\n\nFigure C.8: Tutorial project open in QGIS LTS.\n\n\nSave the QGIS project by pressing on the disk icon and selecting a location for the file on your computer and a name for the project. You can add freely available on-line maps as background.\nBack to setting up of QGIS."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-change-project-projection-qgis",
+    "href": "appendix_c_quick_guides.html#sec-change-project-projection-qgis",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Change the Projection of the QGIS Project",
+    "text": "QGIS: Change the Projection of the QGIS Project\nFor this tutorial, the projection of the QGIS project should be in EPSG:32642 (i.e., UTM 42 N). Change it by clicking on the projects projection in the lower right corner of the QGIS window (see Figure C.7). In the coordinate reference system (CRS) tab of the Project Properties, select WGS84 / UTM zone 42N with ID EPSG:32642 and click OK.\nFor modeling your own sample catchment, a different UTM zone may be applicable. The map in the lower right corner of the Project Properties window shows the area for the projection in red and the area where your data is located in violet so you can visually verify that you choose an appropriate projection.\nGenerally, you want to choose the CRS so that you have minimal distortion through the projection in your area of interest. The CRS with ID EPSG:32462 suits well for all of the student exercise catchments.\nBack to the setting up of QGIS."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-install-and-activate-plugins-in-QGIS3",
+    "href": "appendix_c_quick_guides.html#sec-install-and-activate-plugins-in-QGIS3",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Install and activate plugins in QGIS3",
+    "text": "QGIS: Install and activate plugins in QGIS3\nNavigate to Plugins in the header toolbar and go to Manage and Install Plugins …. Search for the plugin name and go to Install Plugin to install a plugin or tick the box to the left of the plugin name in the list of plugins to activate it (see Figure C.9).\n\n\n\nFigure C.9: Plugin management window in QGIS 3.16. Install plugin with the Install Plugin button. Activate installed plugins by ticking the box in the list.\n\n\nBack to the setting up of QGIS."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-managing-panels",
+    "href": "appendix_c_quick_guides.html#sec-managing-panels",
+    "title": "Appendix C — Quick Guides",
+    "section": "GQIS: Managing Panels Visibility in QGIS",
+    "text": "GQIS: Managing Panels Visibility in QGIS\nShould one of the panels described here not be visible in your QGIS window navigate to View in your header toolbar and then to Panels. The visible panels are marked with a tick. Click on a panel name in the list to activate or deactivate it.\nBack to setting up of QGIS."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-loading-public-background-layers",
+    "href": "appendix_c_quick_guides.html#sec-loading-public-background-layers",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Loading Public Background Maps",
+    "text": "QGIS: Loading Public Background Maps\nYou can add freely available on-line maps as backgrounds. Note that they will only be available as long as your computer is connected to the internet. In the Browser panel (see What to do if you don’t see the Browser panel), move the cursor to XYZ Tiles, do a right-click and select New Connection. Enter a descriptive name for the map layer and one of the links below and click OK. The new map layer will appear under XYZ Tiles. By double-clicking on the layer you can add it to your Layers panel.\nBack to setting up of QGIS."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-zoom-to-layer",
+    "href": "appendix_c_quick_guides.html#sec-zoom-to-layer",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Zoom to Layer",
+    "text": "QGIS: Zoom to Layer\nYou can tell QGIS to zoom to the selected layer by selecting a layer in the Layers window and then on the white sheet and magnifying glass icon in the toolbar (see Figure C.10).\n\n\n\nFigure C.10: Zoom to layer.\n\n\nYou can also perform a right-click on the layer name in the Layers panel and select Zoom to layer."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-srtm-plugin",
+    "href": "appendix_c_quick_guides.html#sec-srtm-plugin",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Import SRTM layers using the SRTM plugin",
+    "text": "QGIS: Import SRTM layers using the SRTM plugin\nMake sure the SRTM plugin is installed (see How to). Navigate to Plugins in the header toolbar and there to SRTM Downloader. Select the SRTM Downloader. Set the boundaries of the SRTM tiles to download and press the Download button. Close the window when done. The SRTM tiles are loaded to the Layers pane.\nBack to Load DEM in QGIS section"
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-merge-srtm-tiles",
+    "href": "appendix_c_quick_guides.html#sec-merge-srtm-tiles",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Merge SRTM Tiles to a Single Layer",
+    "text": "QGIS: Merge SRTM Tiles to a Single Layer\nNavigate to Raster in the header toolbar and then to Miscellaneous and Merge…. In the Merge window that opens, select the input layers by clicking on the … button. Tick the layers that need to be merged and press Run. When the algorithm is done, close the window. You can zoom to the extent of the new layer (see How to). You can change the color of the DEM file.\nBack to Load DEM in QGIS section"
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quick-guides-load-dem",
+    "href": "appendix_c_quick_guides.html#sec-quick-guides-load-dem",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Add Raster Layer",
+    "text": "QGIS: Add Raster Layer\nIn your QGIS window, navigate to Layer in your header toolbar, there to Add Layer and left-click on Add Raster Layer (see Figure C.11). The Data Source Manager will open in a pop-up window (see Figure C.12).\n\n\n\nFigure C.11: Add raster layer to QGIS project, step 1.: Navigate to the Data Source Manager.\n\n\n\n\n\nFigure C.12: Add raster layer to QGIS project, step 2.: Browse for the raster file to add to the QGIS project by pressing on the box with the three dots (…) to the right of the raster source input field.\n\n\nIn the example above, a DEM for the example of the Nauvalisoy river catchment is loaded. For loading the DEM of your sample catchments, browse for the DEM in the corresponding folder you downloaded from the provided Dropbox directory.\nPress the Add button at the bottom right of the Data Source Manager window to load the raster layer to your QGIS project and close the window by pressing the Close button (to the left of the Add button).\nYour QGIS project now shows a grey-scale version of the raster layer you loaded. If you are satisfied with the change, save your project by pressing the disk icon at the upper left corner of your QGIS window.\nYou can change the color of your raster file (how to). Here is a quick-guide of how to apply a topography-style color band to your DEM."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quick-guides-change-color-of-raster-layer",
+    "href": "appendix_c_quick_guides.html#sec-quick-guides-change-color-of-raster-layer",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Change Color of Raster Layer",
+    "text": "QGIS: Change Color of Raster Layer\nYou can change the colors of your cut DEM by double-clicking on the layer name in the Layers window. Go to tab Symbology (with the paint and brush icon) and choose Render type Singleband-pseudocolor (see Figure C.13) and select a Color ramp.\n\n\n\nFigure C.13: Nicely color your DEM, step 1.\n\n\nQGIS comes with a large library of color ramps but you can also create your own. See below a description of how to get your DEM in a topography style color palette."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quick-guides-topograpy-color-ramp",
+    "href": "appendix_c_quick_guides.html#sec-quick-guides-topograpy-color-ramp",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Topography-style color palettes",
+    "text": "QGIS: Topography-style color palettes\nFor our DEM we choose an existing topography-style color ramp. Open the Layer Properties window with a double-click on the raster layer in the Layers pane of the QGIS window. In the Symbology tab click the triangle to the right of the color ramp and select Create New Color Ramp… (see Figure C.14).\n\n\n\nFigure C.14: Nicely color your DEM, step 2.\n\n\nIn the drop down menu of the pop-up window choose Catalog: cpt-city and press OK (see Figure C.15).\n\n\n\nFigure C.15: Nicely color your DEM, step 3.\n\n\nA this will open another window containing the catalog of existing color ramps. Under Topography, we choose sd-a and press OK (see Figure C.16).\n\n\n\nFigure C.16: Nicely color your DEM, step 4.\n\n\nGo to tab Transparency, set Global Opacity to 30% and specify the No Data Value 0 (see Figure C.17).\n\n\n\nFigure C.17: Nicely color your DEM, step 5.\n\n\nThen go back to the Symbology tab. The minimum value of the color ramp should now not be 0 but 272. Adapt manually if need be. Then, press classify to get a discrete color ramp for your map and Apply to the map. If you are happy with the colors, quit by pressing OK (see Figure C.18).\n\n\n\nFigure C.18: Nicely color your DEM, step 6.\n\n\nThe result will look like Figure C.19.\n\n\n\nFigure C.19: Nicely color your DEM, step 7.\n\n\nYou can add decorations (e.g. scale and north arrow) to your map (how to)."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-add-map-decorations",
+    "href": "appendix_c_quick_guides.html#sec-add-map-decorations",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Add Map Decorations",
+    "text": "QGIS: Add Map Decorations\nNavigate to View -> Decorations and choose among the decorations to add. Many options for configuring the decorations are available."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quick-guides-verify-projection-reproject",
+    "href": "appendix_c_quick_guides.html#sec-quick-guides-verify-projection-reproject",
+    "title": "Appendix C — Quick Guides",
+    "section": "C.1 QGIS: Verify Projection of Layer and Re-project Layer",
+    "text": "C.1 QGIS: Verify Projection of Layer and Re-project Layer\nOpen the Layer Properties window with a double-click on the layer in the Layers pane and navigate to the Information tab. Under CRS (coordinate reference system) you see the projection of the layer. For the Chirchiq river basin, the CRS should say “EPSG:32642 - WGS 84 / UTM zone 42N - Projected”. Other river catchments in Central Asia may require a different UTM zone. For the student exercises, it is good to choose this projection for all basins.\nA raster layer can be reprojected to a different CRS: Go to Raster in the header toolbar. From there move the cursor over Projections and click on Warp (Reproject)…. The Warp window will pop up (in fact, it is just an interface where the user can specify the parameters of the wrap algorithm in a convient way). Select the raster layer you wish to re-project in the Input layer and select the Target CRS.\nIf the target CRS you wish to re-project to is not available in the drop-down menu, you can browse for it by clicking on the globe icon to thr right of the Target CRS section. You may re-sample the raster to a coarser resolution by specifying the Output file resolution. You may also specify to save the reprojected raster layer: Scroll to the bottom of the Warp (Reproject) window where you see Reprojected and a white box where you can browse for a location to store the new layer.\n\n\n\n\n\n\nWARNING\n\n\n\nIf you do not specify a target location, only a temporary layer will be loaded to QGIS which will not be available anymore after you close the QGIS project (even if you save the project).\n\n\nYou may decide to load the temporary file and save it later (how to). Click the Run button at the bottom right to start the re-projection algorithm and press Close when the process is done. The reprojected layer will be available in the Layers pane.\nA vector layer can be reprojected by selecting Vector in the header toolbar, moving the cursor to Data Management Tools and clicking on Reproject Layer…. This opens the Reproject Layer window where you can specify a Target CRS and optionally a storage location. As for the reprojection of the raster layer, a temporary layer is loaded to your QGIS project if you do not specify a storage location. However, you can always store temporary layers later (how to).\nBack to the load DEM section."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quick-guide-save-temp-layer",
+    "href": "appendix_c_quick_guides.html#sec-quick-guide-save-temp-layer",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Save a Temporary Layer",
+    "text": "QGIS: Save a Temporary Layer\nRight-click on a temporary layer in the Layers pane. Temporary layers are indicated by a box to the right of the layer name. From the menu that opens upon right-click, select Export and Save As… (for raster layers) or Save Feature As… (for vector layers). An explorer window will open where you can specify a file name and a location to store the file to."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-add-vector-layer-to-qgis",
+    "href": "appendix_c_quick_guides.html#sec-add-vector-layer-to-qgis",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Add Vector Layer",
+    "text": "QGIS: Add Vector Layer\nLeft-clicking on Layer, moving your cursor over Add Layer and left-clicking Add Vector Layer (see Figure C.20).\n\n\n\nFigure C.20: Add vector layer to QGIS project, step 1.: Navigate to the Data Source Manager.\n\n\nA window will pop up, asking you to specify the properties of the vector layer to add (see Figure C.21).\n\n\n\nFigure C.21: Add vector layer to QGIS project, step 2: Select vector layers to add. Note that you select the shp file but cpg, dbf and shx need to be present in the same location.\n\n\nPress the box with the three dots on the right of the source field to specify the location of the shape file to be added to your project (see Figure C.22). Click Open and the window will close. The address of your shape files should now stand in the source field as in Figure C.21.\n\n\n\nFigure C.22: Add vector layer to QGIS project, step 3.\n\n\nNote that you load the .shp file but that all the files in the list in Figure C.21 need to be present. In the Add Vector Layer window, click Add and then close the window. QGIS has attributed a random color to your shape file which can be changed manually How to."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-change-color-of-vector-layer",
+    "href": "appendix_c_quick_guides.html#sec-change-color-of-vector-layer",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Change Color of a Vector Layer",
+    "text": "QGIS: Change Color of a Vector Layer\nYou can change the color of your layer by double-clicking on the layer name in the Layers Window to the left of the map. This will open the properties window. The third tab from the top shows paint and brush (see Figure C.23).\n\n\n\nFigure C.23: dd vector layer to QGIS project, step 5. Change the color of the layer.\n\n\nYou can activate Simple fill by clicking on it and select No brush in the drop-down menu in order to only show the outline of your vector layer (see Figure C.24).\n\n\n\nFigure C.24: Add vector layer to QGIS project, step 6. Only show the outline of the vector layer."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quick-guides-fill-sinks",
+    "href": "appendix_c_quick_guides.html#sec-quick-guides-fill-sinks",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Fill Sinks",
+    "text": "QGIS: Fill Sinks\nBrowse for the Fill sinks algorithm in the Processing Toolbox panel (see Figure C.25). If the Processing Toolbox panel is not visible go to Processing in the header toolbar and click on Toolbox to activate it. Alternatively, here is how to manage the visibility of panels in QGIS.\n\n\n\nFigure C.25: Search for the Fill sinks algorithm in the Processing Toolbar panel.\n\n\nOpen the Fill sinks window with a double-click on the name of the algorithm in the Processing Toolbar panel. There, select the DEM you want to process and browse for a location to store the output file (see Figure C.26). You can leave the default minimum slope.\n\n\n\nFigure C.26: Select the raster file to process.\n\n\nWhen the algorithm is done it will load the new layer into your QGIS project. Close the Fill sinks window and save your project.\nBack to catchment delineation."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quick-guide-upslope-area",
+    "href": "appendix_c_quick_guides.html#sec-quick-guide-upslope-area",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Calculate the area upslope of a point",
+    "text": "QGIS: Calculate the area upslope of a point\nSearch for the SAGA algorithm Upslope Area in the Processing Toolbox panel and open the function window with a double click on the name. Enter the Longitude of your discharge station for the Target X coordinate and the Latitude for the Target Y coordinate for which the upslope area should be calculated. For the Elevation select the sink-filled DEM (see how to fill sinks in a DEM and why we need to fill in sinks).\nAll GIS layers and the coordinates of the discharge gauge need to be in the same UTM projection. Choose a method in the drop-down menue in the Method section and optionally specify a location for the output file. For the example of the Nauvalisoy basin, the Upslope Area window filled in correctly is shown in Figure C.27.\n\n\n\nFigure C.27: The Upslope Area window for the determination of the catchment area of the Nauvalisoy river basin.\n\n\nClick Run and Close after the algorithm is done. A new raster file with the values 0 for outside the catchment area and 100 for inside the catchment area is now loaded into your QGIS project.\nBack to catchment delineation."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#appendix-quick-guide-polygonize",
+    "href": "appendix_c_quick_guides.html#appendix-quick-guide-polygonize",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Polygonize a Raster",
+    "text": "QGIS: Polygonize a Raster\nGot to Raster in the header toolbar, move your cursor over Conversion and click on Polygonize (Raster to Vector)… (see Figure C.28).\n\n\n\nFigure C.28: Open the Polygonize window.\n\n\nSelect the raster layer you wish to polygonize (for example the upslope area raster layer) and run the process. Close the polygonize window after the algorithm is done. A new shape file will be loaded to your GIS project (see Figure C.29).\n\n\n\nFigure C.29: The vector layer generated by a raster to vector conversion.\n\n\nThe new vector layer has 2 features: the watershed boundary and a box around the watershed the same size of the DEM we used. To get rid of the outer shape, open the attribute table with a right-click on the vector layer and selecting Open Attribute Table. In the attribute table, elect the outer shape by clicking on the second row of the attribute table and toggle the edit mode by clicking on the pen icon (see Figure C.30).\n\n\n\nFigure C.30: Select the outer shape to discard by clicking on the second row in the attribute table and toggle the edit mode by clicking on the pen icon.\n\n\nDelete the outer shape by pressing the red bin icon in the attribute table (see Figure C.31).\n\n\n\nFigure C.31: Delete the selected outer shape.\n\n\nSave the edits in the attribute table (see Figure C.32) and press the pen icon again to un-toggle the edit mode.\n\n\n\nFigure C.32: Save your edits in the attribute table.\n\n\nClose the attribute table window and save the boundary of your watershed and your QGIS project.\nBack to catchment delineation."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-graphical-edit-junctions",
+    "href": "appendix_c_quick_guides.html#sec-graphical-edit-junctions",
+    "title": "Appendix C — Quick Guides",
+    "section": "QGIS: Edit Junctions Layer",
+    "text": "QGIS: Edit Junctions Layer\nSelect the Junctions layer and toggle manual editing by clicking on the yellow pen (see Figure C.33).\n\n\n\nFigure C.33: Manually edit the layer with the river junctions, step 1: Toggle layer editing.\n\n\nWhen in editing mode, the yellow pen will appear in the Layers window next to the name of the layer being edited. The edit mode will also activate a button for adding points (i.e. junctions, we don’t need that now) and the vertex tool. Click on the vertex tool icon. It is active when a a boundary appears around the icon and the Vertex Editor windows opens (see Figure C.34).\n\n\n\nFigure C.34: Manually edit the layer with the river junctions, step 1: Toggle layer editing.\n\n\nRight-click on a junction point you would like to delete to activate it (see Figure C.35).\n\n\n\nFigure C.35: Manually edit the layer with the river junctions, step 3: Activate a junction node for editing.\n\n\nSelect the activated point by drawing a rectangle over the point with your mouse. The point will appear blue (see Figure C.36).\n\n\n\nFigure C.36: Manually edit the layer with the river junctions, step 3: Select the activated junction node.\n\n\nDelete the point with the delete key on your keyboard. You can save your edits by pressing the blue-white Save Layer Edits button that is decorated with an orange pen (see Figure C.37). This saves your changes without exiting the edit mode.\n\n\n\nFigure C.37: Manually edit the layer with the river junctions, step 3: Save edits.\n\n\nIf you have many points to remove, as in our case, it may be faster to identify the IDs of the features you want to keep, select these and delete all others. To start, you activate the Identify Features mode by clicking on the icon with the white i on the blue circle (see Figure C.38).\n\n\n\nFigure C.38: Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 1.\n\n\nA black i will appear next to your cursor. You then click on the first of your nodes that you want to keep. This will highlight it in red and a list with information on the selected feature appears on the right in the Identify Results window. You will see the attribute NODE_ID with value 1 for the outflow node (see Figure C.39). Note down the ID of the feature.\n\n\n\nFigure C.39: Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 2.\n\n\nYou then press on the node at the confluence of the two tributaries in the center of the catchment. The Identify Results window shows 2 results, that means, that two junction nodes are close to each other (see Figure C.40).\n\n\n\nFigure C.40: Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 3.\n\n\nZoom in in your map window with your mouse to see the two nodes (see Figure C.41).\n\n\n\nFigure C.41: Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 4.\n\n\nSelect the node that should be kept and not the ID of the node (NODE_ID 11) (see Figure C.42).\n\n\n\nFigure C.42: Alternative method to manually edit junctions if many nodes need to be deleted. Step 1: Get ID of features to keep, part 5.\n\n\nZoom back to the entire Junctions layer (see Figure C.10) and go to Select Features by Values… in the toolbar (see Figure C.43).\n\n\n\nFigure C.43: Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 1.\n\n\nAdd NODE_ID 1 to your selection as demonstrated in Figure C.44.\n\n\n\nFigure C.44: Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 2.\n\n\nThe outflow node with ID 1 will change color in your map as shown in Figure C.45.\n\n\n\nFigure C.45: Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 3.\n\n\nAdd node 11 to your selection in the same way and close the Select Node by Value window. Invert the feature selection as shown in Figure C.46.\n\n\n\nFigure C.46: Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 4.\n\n\nAll other nodes will now be yellow and the ones to keep will appear in the layer color (see Figure C.47).\n\n\n\nFigure C.47: Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 5.\n\n\nDelete the features (nodes) by pressing the Delete Selected button in the edit features toolbar as shown in Figure C.48.\n\n\n\nFigure C.48: Alternative method to manually edit junctions if many nodes need to be deleted. Step 2: Select features to delete, part 6.\n\n\nSave your edits (see Figure C.37). To verify that, indeed, all superfluous nodes are deleted from the Junctions file, open the Attribute table shown in Figure C.49.\n\n\n\nFigure C.49: Edit Attribute table. Step 1: Open the attribute table with a click on the Attribute Table icon in the QGIS toolbar.\n\n\nOnly 2 features should be listed under each attribute. We will now edit the attribute table to prepare it for the RSMinerve model. RSMinerve needs an identifier to differentiate between the junctions. We can use the attribute TYPE to uniquely identify the two junctions needed. RSMinerve further needs the ID of the downstream river. Add a column to the attribute table by pressing the Add Field button (see Figure C.50).\n\n\n\nFigure C.50: Edit Attribute table. Step 2: Add a column to the attribute table manually, part 1.\n\n\nDefine a name for the attribute, a type and admissible length of each entry in the Add Field window. In our case, we choose a string consisting of letters as ID and allow it to be 20 characters long as shown in Figure C.51.\n\n\n\nFigure C.51: Edit Attribute table. Step 2: Add a column to the attribute table manually, part 2.\n\n\nClose the window by pressing OK. By clicking in the newly created NULL fields, you can now type names for the downstream rivers and save your edits by pressing the save edits icon (3rd from the left in the toolbar of the attribute table window). As the outlet of the catchment goes directly into Charvak reservoir, we can type Charvak as the downstream river ID for this example. The river stretch between junction and outlet is called Pskem (see Figure C.52).\n\n\n\nFigure C.52: Edit Attribute table. Step 2: Add a column to the attribute table manually, part 3.\n\n\nWe are done editing the Junctions layer. Deactivate the edit mode by clicking on the yellow pen in the attribute table window as demonstrated in Figure C.53 and close the window.\n\n\n\nFigure C.53: Save your edits.\n\n\nNow save the Junctions layer in an appropriate place on your drive. Time to save your QGIS project.\nIn the same way you can also edit the river channels layer."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quickguides-create-hbv-model",
+    "href": "appendix_c_quick_guides.html#sec-quickguides-create-hbv-model",
+    "title": "Appendix C — Quick Guides",
+    "section": "RSM: Create HBV model and edit parameters",
+    "text": "RSM: Create HBV model and edit parameters\nClick on the HBV model icon in the model selection panel (see Figure C.54).\n\n\n\nFigure C.54: To generate an HBV model, click on the HBV model icon in the model selection panel.\n\n\nMove your cursor to the white area in the center and create a HBV model with a click. The HBV model icon will now appear in the white model panel (see Figure C.55).\n\n\n\nFigure C.55: A HBV model has been generated.\n\n\nEdit the parameters of the model by double-clicking on the model icon and changing parameter values in the table that appears to the right of the RSMinerve window (see Figure C.56).\n\n\n\nFigure C.56: Double-click on the HBV model to open and edit the parameter table.\n\n\nAlternatively (especially if you have to change parameters for several models), activate the Parameters panel in the Model Properties toolbar (see Figure C.57).\n\n\n\nFigure C.57: Activate the Parameters panel in the Model Properties toolbar.\n\n\nSelect the HBV model in the Parameters panel as shown in Figure C.58.\n\n\n\nFigure C.58: Select HBV in the Parameters panel.\n\n\nIf you have several HBV models, you can select models by zone and apply edits in the parameter table in the left of the Parameters panel to all selected models (marked with tick). You can also edit paramers for individual models in the right-hand table of the Parameters panel as is visible in Figure C.59.\n\n\n\nFigure C.59: Edit parameters for groups of models (left parameter table) or for individual models (right parameter table).\n\n\nSave your model by clicking the floppy disk icon in the toolbar.\nYou can also export parameters to a text file via the button Export P in the Model Properties toolbar, edit the text file and import the edited parameter file through Import P.\nNote that for the Nauvalisoy demonstration case study, the area of the HBV model should be 99’000’000 m2.\nBack to the Nauvalisoy model guide."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quickguides-add-climate-station",
+    "href": "appendix_c_quick_guides.html#sec-quickguides-add-climate-station",
+    "title": "Appendix C — Quick Guides",
+    "section": "RSM: Add and link climate station",
+    "text": "RSM: Add and link climate station\nMove your cursor to the V-Station icon in the models panel (the first icon in Figure C.54). Click on the icon to activate it and click next to the HBV model in your model pane to place the V-Station. With a double-click on the newly created V-Station, you can visualize the parameters of the virtual weather station.\nThen, connect the station to the HBV model by activating the Connections Mode in the Editing tools toolbar as shown in Figure C.60.\n\n\n\nFigure C.60: Create a virtual weather station.\n\n\nClick on the station, hold down the finger move your cursor to the HBV model, then release the hold. A grey line appears between the station and the model and a pop-up window asks you to verify the data links between the two components (see Figure C.61).\n\n\n\nFigure C.61: Link the virtual weather station to the HBV model.\n\n\nClick Ok to accept the suggested data links and a blue arrow will appear between the weather station and the model. Click on the black arrow in the Editing tools toolbar to leave the Connections Mode.\nBack to the Nauvalisoy model guide."
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quickguides-import-climate-data",
+    "href": "appendix_c_quick_guides.html#sec-quickguides-import-climate-data",
+    "title": "Appendix C — Quick Guides",
+    "section": "RSM: Import climate data",
+    "text": "RSM: Import climate data\nGo to the database tab and click on Open in the File database toolbar (see Figure C.62).\n\n\n\nFigure C.62: The database tab.\n\n\nSelect the file./data/SyrDarya/Chirchiq/RSMinerve/ERA5_Nauvalisoy_1981_2013.csv. If you don’t see the file in your file browser, make sure the file ending .csv is selected in the file browser (see Figure C.63).\n\n\n\nFigure C.63: Make sure the file ending is .csv in the file browser.\n\n\nPress open to load the data into RSMinerve. Depending on your computer this may take a few seconds. Once the data is loaded, click through the database browser in the left pane to explore the data as shown in Figure C.64.\n\n\n\nFigure C.64: Explore the data base.\n\n\nTo connect the data base to the model you will need to make the data consistent with the model. To do this change the name “New group” to “Measurements” and select Inputs for the Category selection (see Figure C.65).\n\n\n\nFigure C.65: Change \"New group\" to \"Measurements\" and select Input as category.\n\n\nThen, browse the name of the station as done in Figure C.66.\n\n\n\nFigure C.66: The name of the station is \"Nauvalisoy\".\n\n\nAs our weather data is representative for the entire Nauvalisoy catchment, the station name in the data base needs to be consistent with the station name of the V-Station in the model pane. Change the name of the station in the model pane from V-Station to Nauvalisoy by clicking on the name and then editing it.\nChoose the nauvalisoy data set as source and adapt the simulation period as shown in Figure C.67.\n\n\n\nFigure C.67: Choose the nauvalisoy data set to link the weather station data to the virtual weather station. The simulation times should not extend the period of the input data. Simulation time step is 1 hour and the recording time step is 1 month.\n\n\nClick on Validation to verify that the model has been set up correctly. Once you have adapted the model settings to calculate evaporation based on temperature (how to), no errors should be reported. You can now run the model. A warning tells you that the number of meteo stations is not sufficient. Ignore the warning for now.\nBack to the Nauvalisoy model guide"
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quickguides-atapt-model-settings",
+    "href": "appendix_c_quick_guides.html#sec-quickguides-atapt-model-settings",
+    "title": "Appendix C — Quick Guides",
+    "section": "RSM: Adapt Model Settings",
+    "text": "RSM: Adapt Model Settings\nNavigate to Edit in the Settings toolbar (see Figure C.68).\n\n\n\nFigure C.68: Open the models settings tab.\n\n\nOpen the Settings tab and choose an ET model. Adapt the coordinates of the project (choose the station coordinates mentioned in the Introduction Section) (see Figure C.69).\n\n\n\nFigure C.69: Edit the evaporation calculation method and the coordinates of the project.\n\n\nBack to the model guide"
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-export-sim-results-to-db",
+    "href": "appendix_c_quick_guides.html#sec-export-sim-results-to-db",
+    "title": "Appendix C — Quick Guides",
+    "section": "RSM: Export Simulation Results to Data Base",
+    "text": "RSM: Export Simulation Results to Data Base\nGo to Export in the Database toolbar (see Figure C.70). Define a name for the simulation results and choose a data base group to save the data to. Create a new group if you haven’t already done so.\n\n\n\nFigure C.70: Export simulation results to the data base.\n\n\nThe data sets are now available in the data base tab and can be visualized in the Selection and Plots tab.\nBack to the model guide"
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quickguides-add-comparator-and-discharge-data",
+    "href": "appendix_c_quick_guides.html#sec-quickguides-add-comparator-and-discharge-data",
+    "title": "Appendix C — Quick Guides",
+    "section": "RSM: Add Comparator and Load Discharge Measurements",
+    "text": "RSM: Add Comparator and Load Discharge Measurements\nThe comparator object allows the user to compare a simulated variable to a reference. In our case, we want to compare the simulated discharge of the Nauvalisoy river to the one actually measured at the only gauge in the catchment. The measured discharge can be imported to RSMinerve via the database tab.\nMove your cursor to the comparator icon as shown in Figure C.71 in the model components panel.\n\n\n\nFigure C.71: Comparator icon in RS Minerve.\n\n\nActivate it with a left-click and move your cursor next to the HBV model in the model pane. Place the comparator object with another click.\nAdd a source object to your model following the same procedure as for the comparator object. Figure C.72 shows the icon of the source object.\n\n\n\nFigure C.72: Source icon in RS Minerve.\n\n\nYou can now optionally rename your model objects.\nConnect the source and the HBV model to the comparator by activating the Connections mode in the Editing Tools toolbar. Right-click on the HBV model, hold the click and drag the cursor to the comparator object where you release the cursor. You will be asked in a pop-up window to specify the flow you wish to compare and if the data is to be viewed as simulation results or reference (measured) data. Connect the total discharge computed by the HBV model component as simulation result to the comparator (see Figure C.73) and close the pop-up window by pressing OK.\n\n\n\nFigure C.73: Connecting a Source to Comparater Object in RSMinerve.\n\n\nConnect the source object to the comparator in the same way as the HBV object. The source will be connected as reference (see Figure C.74).\n\n\n\nFigure C.74: Final, connected objects.\n\n\nNext, we have to load the discharge data into the database. Navigate to the database tab. In the database, go to Measurements -> Nauvalisoy and click Add and enter a name for the discharge station (see Figure C.75). For this example, we do not need to bother with the coordinates of the station (later, in more complex models, we will have to though!).\n\n\n\nFigure C.75: Connect the outflow of the HBV model as simulation result to the comparator.\n\n\nUnder the new discharge station, add a sensor and rename it to the source object in your model as shown in Figure C.76.\n\n\n\nFigure C.76: Connect the discharge measurements (source) as reference to the comparator.\n\n\nOpen the tab with the values. Here we need to import the discharge data. You can do that by opening the discharge data in a spreadsheet (e.g. Excel) and copy-pasting the dates and discharge values into the Values table in RSMinerve (here is how to do this step-by-step.\nNow we need to link the discharge data in the database to the source object in the model. Navigate to the model do the following.\n\n\n\nFigure C.77: Select the data source for the source object (under Data Source in the left window pane) and select the sensor for discharge data for the source (under Source, Series identifier in the right window pane).\n\n\nValidate the model to see if the model setup went correctly. Run the model if the validation did not throw an error.\nBack to the practical model calibration and validation Section"
+  },
+  {
+    "objectID": "appendix_c_quick_guides.html#sec-quickguides-copy-paste-database-values",
+    "href": "appendix_c_quick_guides.html#sec-quickguides-copy-paste-database-values",
+    "title": "Appendix C — Quick Guides",
+    "section": "RSM: Copy-paste Data to Database",
+    "text": "RSM: Copy-paste Data to Database\nOpen the file ./data/SyrDarya/Chirchiq/RSMinerve/synthetic_discharge_Nauvalisoy_river_for_calibration_exercise.csv in a spreadsheet software, e.g. Excel, Numbers, Google Sheets or OpenOffice Calc and select the rows containing dates and values (Figure C.78). Press Control+C or perform a right-click with the mouse and choose copy.\n\n\n\nFigure C.78: Select the rows and columns containing the dates and data to be copied. Press control C to copy the selected cells.\n\n\nThen navigate to the discharge sensor on the database tab in RSMinerve where you want to add the data to. Click in the small square to the left of the first row in the Values tab and click the keyboard keys Control+P. Alternatively perform a right-click in the small square and select Paste. The dates and values from the excel sheet will now appear in the table (Figure C.79). Save the database.\n\n\n\nFigure C.79: Paste dates and values to the database table.\n\n\nBack to the practical model calibration and validation Section"
+  },
+  {
+    "objectID": "appendix_d_exercise_solutions.html#sec-appendix-solutions-exercise1",
+    "href": "appendix_d_exercise_solutions.html#sec-appendix-solutions-exercise1",
+    "title": "Appendix D — Exercise Solutions",
+    "section": "\nD.1 Exercise on Linear Reservoir modelling",
+    "text": "D.1 Exercise on Linear Reservoir modelling\nTask 1\nWhat will determine the flow through your bucket?\nThe flow through the bucket will be influenced by the volume to bottom area fraction of the bucket, the amount and speed of water added to the bucket and the size of the outlet hole.\nWhat do you need to measure?\nYou will need to measure:\n\nthe discharge from your bucket over time,\n\nthe recharge volume (how much water you put into the bucket over a given time),\n\nthe time when you start pouring water and when you stop pouring water into the bucket, and\nthe approximate volume of your bucket.\nHow can you measure it?\nThis depends on what you have available. You can draw a water level line outside of your outflow receptacle every 10 seconds and then determine the volume change over time. Maybe you have a scale and a smart phone so you can put your outflow receptacle on the scale and make a movie of the weight change over time (note, 1 kg of water is approximately 1 liter of water).\nFor the inflow pour a well defined volume over a well defined time interval. You can do this manually unless of course you have pipes and valves lying around that you can use.\nYou will need a watch for measuring time and a receptacle with known volume to measure volumes (or a scale).\nA couple of notes on measurement accuracy:\n\nGenerally, the larger the volumes, the smaller the relative measurement error. Say you measure a discharge of 50 ml in 1 s (i.e. 50 ml/s) and you can read your volume with an accuracy of 5 ml and the time with an accuracy of 0.2 s. Your measurement uncertainty becomes 11 ml/s which is more than 20 % of your discharge. If on the other hand, you measure 500 ml over 10 s (which is the same discharge of 50 ml/s) with the same inaccuracies for volume and time your measurement uncertainty for discharge becomes 1 ml/s which is only 2 % of your discharge.\n\nHow do you estimate measurement uncertainties: Measure several times, compute the average and the standard deviation of your measurements assuming a student-t distribution.\n\nHow do you combine uncertainties of volume and time to the uncertainty of discharge: By applying Gaussian error propagation.\nWhat materials you will need to set up the experiment?\n\nFor the bucket (the linear reservoir): A plastic bottle, a box or a can that is no longer used. It should have an opening at the top and the material should repel water and be thin enough that you can drill a hole into the wall.\nA pair of pointy scissors or a knife to drill a hole into the bucket.\n\nA water source (a tap, hose or a water container larger than the one above). This will be your rain machine.\nA watch to measure time.\n\nNote paper and pen.\n\nA receptacle for measuring the outflow.\n\nAdditional material to facilitate measurement according to availability.\n\n\n\nFigure D.1: Example for material needed and example setup to perform the linear reservoir experiment. Add a minion with a stop watch or a smart phone to help you logging the discharge from the bucket.\n\n\nBack to the recap section\nTask 2\nThe video was recorded with a smart phone. The weight of the outflow receptacle was noted down every second. The discharge is computed as the change of volume in the outflow receptacle over time.\n\n\nBack to the recap section\nTask 3\nThe height of the measured discharge peak can be best reproduced with k = 0.42. However, the measured discharge peaks 1s later than the simulated discharge peak.\nReasons for the discrepancy can be the shape of the linear reservoir, non-linear pouring speed, and measurement uncertainties.\nBack to the recap section"
+  },
+  {
+    "objectID": "appendix_d_exercise_solutions.html#sec-appendix-solutions-hbv-exercises",
+    "href": "appendix_d_exercise_solutions.html#sec-appendix-solutions-hbv-exercises",
+    "title": "Appendix D — Exercise Solutions",
+    "section": "\nD.2 Exercises on the HBV Model",
+    "text": "D.2 Exercises on the HBV Model\nExercise: Driving Forces of the HBV Model\nThe model drivers are precipitation, temperature and evaporation (P, T and ET in ?fig-overview-hbv-model). You need to provide time series of the model drivers to the model. Evaporation is typically not measured at climate stations but many empirical functions are available in the literature to estimate evaporation. RSMinerve offers the possibility to calculate evaporation based on temperature measurements and catchment location (you will do that later in this tutorial).\nBack to the HBV model section\nExercise - HBV Model States\nThe model states are the snow water equivalent height (SWE), the relative water content in the snow pack (WH), the humidity (Hum), the upper reservoir water level (SU) and the lower reservoir water level (SL). The model states are initialized using the initial conditions (see ?fig-overview-hbv-model-parameters).\nBack to the HBV model section\nExercise: Data Visualization in RSMinerve\nSimulate from the 01/01/1981 01:00:00 to 31/12/1983 23:00:00, then choose data from 31/12/1983 23:00:00 as the initial conditions and run the model from 01/01/1984 01:00:00 to 31/12/1984 23:00:00. Choose hourly output for the simulation results.\nOpen the Selection and plots tab by clicking on the Selection and plots button in the Modules toolbar and select simulated P and T from the Nauvalisoy station as shown in Figure D.2.\n\n\nFigure D.2: Hourly precipitation and temperature at the virtual Nauvalisoy weather station.\n\n\nNote: If you want to repeat a simulation with specific initial conditions, you can store them through Export IC in the Model Properties toolbar.\nThe approximate temperature range is -13 deg. C. in December to 34 deg. C. in August. The annual precipitation is about 1.4 m (visualize Pcum and click on the last value of the time series). No precipitation falls during the summer months.\nBack to the Nauvalisoy model setup section.\nExercise: Compare Evaporation Methods\nFigure Figure D.3 shows the evaporation computed with various methods and the resulting discharge. Uniform evaporation should not be used for sub-annual modeling time steps for obvious reasons that ET shows a strong seasonality. The difference between the different methods by Turc, McGuinness and Oudin are within 5 % of total discharge which is negligible for a regional model.\n\n\nFigure D.3: Hourly precipitation and temperature at the virtual Nauvalisoy weather station.\n\n\nFor advanced modeling, the choice of the evaporation model may be relevant but only if a validation with measured data is possible.\nBack to the Nauvalisoy model setup section.\nExercise: Common Difficulties in Model Calibration\n\nEspecially fully and semi-distributed hydrological models are typically over-parameterized, i.e. the number of model parameters is much larger than the number of observations for the model states. The true parameter values of the system cannot be uniquely identified based on a discharge time series alone.\n\nThe outcome of the calibration depends on the measure of similarity between the simulated and the measured discharge.\nThe water balance is often forgotten during model calibration. A nice fit of the discharge curve can for example be achieved by increasing the volume of water in the model over time.\nThe model is calibrated against historical data. Its ability to predict future discharge may be limited.\n\nThe model is not perfect, it remains an approximation of the real system and may not incorporate all relevant processes of the hydrological cycle (e.g. water storage and transport in glaciers for the case of the HBV model or significant sub-surface water fluxes that very difficult to capture as for example in Karst regions).\n\nDischarge measurements typically have uncertainties of 20 %. Particularly measurements at the lower and upper ends of the rating curve (i.e. the water table - discharge relationship) are typically prone to larger uncertainties (bonus question: think about why this is so!). Is the measurement location or the equipment not properly maintained, biases may grow over time. On the other hand, if the measurement method is updated and changed, the measured discharge may display a different pattern (for an example, look at the low flow of the discharge of the river Gunt in Figure ?fig-guntmonthlyq.\n\nBack to the calibration section\nExercise: Strategies to Overcome some of the Model Calibration Difficulties\n\nOver-parameterization:\n\n\n\nConsider simplifying the model, i.e. reducing the number of parameters. If the model complexity is required, try adding additional measured variables, e.g. snow cover from MODIS data (see Chapter on snow cover data) to validate individual components of the HBV model.\n\nCollect data to verify individual fluxes of the model components (e.g. soil parameters, snow water equivalent, etc.). As physical measurements in the field are not always possible you may have to become creative here, e.g. use MODIS snow cover data to validate the snow/no snow partitioning of the HBV model. Also consult the literature for parameterizations of similar catchments.\n\n\n\nUse a combination of similarity measures. This will be demonstrated later on in the model calibration section.\n\nDuring model calibration, look at the components of the model as well as the total discharge time series. Make sure that the storage of water changes within reasonable bounds and that the partitioning of the water in your system is physically reasonable (e.g. comparatively small storage compartments for rocky mountain catchments).\n\nExclude part of your data set from model calibration and use it for model validation. If the model does not perform well in the validation period, its parameters are too specific for the calibration period (you have over-fitted the model) and the model is said to not generalize well. If this happens you should try to reduce the number of parameters in your model. To understand better which parameters are responsible for the over-fit of the historical discharge, use different calibration and validation periods and compare the resulting parameters. Through sensitivity analysis, identify the model components that are most sensitive to predicted changes of model forcings, geometry or parameterization and perform scenario analysis.\n\nImplement and validate multiple possible conceptual models. All of the models must be calibrated and validated individually. It is further recommended to calculate at the highest possible temporal resolution and to try and compare the model outcome at different spatial resolution.\n\nSquare-root filters or data assimilation algorithms are able to account for non-correlated measurement errors (they are not implemented in RSMinerve and not topic of this course). Error bands for the measurements should be adapted when communicating model results.\n\nMost of the above points will be discussed in more detail during this course.\nBack to the calibration section\n\nD.2.1 Exercise: Calibrate a Simple HBV Model {#sec-appendix-solutions-calibrated parameters .unnumbered}\nThe parameter set of the calibrated model are:\n\n\n\n\n|                |      |\n|:---------------|-----:|\n|CFMax (mm/°C/d) |  0.50|\n|CFR (-)         |  0.05|\n|CWH (-)         |  0.10|\n|TT (°C)         |  3.00|\n|TTInt (°C)      |  3.00|\n|TTSM (°C)       |  0.00|\n|Beta (-)        |  2.50|\n|FC (mm)         | 20.00|\n|PWP (-)         |  0.50|\n|SUMax (mm)      | 10.00|\n|Kr (1/d)        |  0.09|\n|Ku (1/d)        |  0.02|\n|Kl (1/d)        |  0.00|\n|Kperc (1/d)     |  0.00|\n\n\nYou can import the calibrated parameters via Import P in the Model Properties toolbar (the calibrated parameters are available in the following online repository.\n./data/SyrDarya/Chirchiq/RSMinerve/nauvalisoy_PAR_calibrated.txt.\nBack to the practical calibration section"
   }
 ]

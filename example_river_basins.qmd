@@ -1,3 +1,9 @@
-# Example River Basins  {#sec-example-river-basins}
+# Case Study River Basins  {#sec-example-river-basins}
 
 Gunt and Chirchik River basins are discussed here in the subsections.
+
+## Gunt River Basin
+
+
+## Chirchik River Basin
+

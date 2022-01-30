@@ -1,3 +1,134 @@
 # Exercise Solutions {#sec-exercise-solutions}
 
-Already existing quick guides here.
+## Exercise on Linear Reservoir modelling {#sec-appendix-solutions-exercise1}
+
+### Task 1 {#sec-solution-task1-experimental-setup .unnumbered}  
+#### What will determine the flow through your bucket?  {.unnumbered}
+The flow through the bucket will be influenced by the volume to bottom area fraction of the bucket, the amount and speed of water added to the bucket and the size of the outlet hole. 
+
+#### What do you need to measure? {.unnumbered}
+You will need to measure:   
+
+* the discharge from your bucket over time,  
+* the recharge volume (how much water you put into the bucket over a given time),   
+* the time when you start pouring water and when you stop pouring water into the bucket, and
+* the approximate volume of your bucket.  
+
+#### How can you measure it? {.unnumbered}
+This depends on what you have available. You can draw a water level line outside of your outflow receptacle every 10 seconds and then determine the volume change over time. Maybe you have a scale and a smart phone so you can put your outflow receptacle on the scale and make a movie of the weight change over time (note, 1 kg of water is approximately 1 liter of water).   
+
+For the inflow pour a well defined volume over a well defined time interval. You can do this manually unless of course you have pipes and valves lying around that you can use.   
+You will need a watch for measuring time and a receptacle with known volume to measure volumes (or a scale).    
+A couple of notes on measurement accuracy:   
+
+* Generally, the larger the volumes, the smaller the relative measurement error. Say you measure a discharge of 50 ml in 1 s (i.e. 50 ml/s) and you can read your volume with an accuracy of 5 ml and the time with an accuracy of 0.2 s. Your measurement uncertainty becomes 11 ml/s which is more than 20 % of your discharge. If on the other hand, you measure 500 ml over 10 s (which is the same discharge of 50 ml/s) with the same inaccuracies for volume and time your measurement uncertainty for discharge becomes 1 ml/s which is only 2 % of your discharge.  
+* How do you estimate measurement uncertainties: Measure several times, compute the average and the standard deviation of your measurements assuming a [student-t distribution](https://en.wikipedia.org/wiki/Student's_t-distribution).   
+* How do you combine uncertainties of volume and time to the uncertainty of discharge: By applying [Gaussian error propagation](https://en.wikipedia.org/wiki/Propagation_of_uncertainty).   
+
+#### What materials you will need to set up the experiment? {.unnumbered}
+* For the bucket (the linear reservoir): A plastic bottle, a box or a can that is no longer used. It should have an opening at the top and the material should repel water and be thin enough that you can drill a hole into the wall. 
+* A pair of pointy scissors or a knife to drill a hole into the bucket.   
+* A water source (a tap, hose or a water container larger than the one above). This will be your rain machine.
+* A watch to measure time.  
+* Note paper and pen.   
+* A receptacle for measuring the outflow.   
+* Additional material to facilitate measurement according to availability.   
+
+![Example for material needed and example setup to perform the linear reservoir experiment. Add a minion with a stop watch or a smart phone to help you logging the discharge from the bucket.](images/appendix_c_quick_guides/fig_experimentalSetup.jpg){#fig-solution1-example-setup}
+
+Back to the [recap section](#sec-rsminerve-why-model-introduction)
+
+### Task 2 {#sec-solution-task2-perform-experiment .unnumbered}
+The video was recorded with a smart phone. The weight of the outflow receptacle was noted down every second. The discharge is computed as the change of volume in the outflow receptacle over time.    
+
+<iframe width="720" height="480" src="images/appendix_c_quick_guides/bucket_video.mp4" align="middle" frameborder="0" allowfullscreen></iframe>
+
+Back to the [recap section](#section-rsminerve-why-model-introduction)
+
+
+### Task 3 {#sec-solution-task3-simulate .unnumbered} 
+The height of the measured discharge peak can be best reproduced with k = 0.42. However, the measured discharge peaks 1s later than the simulated discharge peak.   
+Reasons for the discrepancy can be the shape of the linear reservoir, non-linear pouring speed, and measurement uncertainties.       
+
+Back to the [recap section](#sec-rsminerve-why-model-introduction)
+
+## Exercises on the HBV Model {#sec-appendix-solutions-hbv-exercises}
+
+### Exercise: Driving Forces of the HBV Model {#sec-appendix-solutions-hbv-driving-forces .unnumbered}
+The model drivers are precipitation, temperature and evaporation (P, T and ET in @fig-overview-hbv-model). You need to provide time series of the model drivers to the model. Evaporation is typically not measured at climate stations but many empirical functions are available in the literature to estimate evaporation. RSMinerve offers the possibility to calculate evaporation based on temperature measurements and catchment location (you will do that later in this tutorial).  
+
+Back to the [HBV model section](#sec-hbv-model)
+
+### Exercise - HBV Model States {#sec-appendix-solutions-hbv-parameters-states .unnumbered}
+The model states are the snow water equivalent height (SWE), the relative water content in the snow pack (WH), the humidity (Hum), the upper reservoir water level (SU) and the lower reservoir water level (SL). The model states are initialized using the initial conditions (see @fig-overview-hbv-model-parameters).   
+
+Back to the [HBV model section](#sec-hbv-model)
+
+### Exercise: Data Visualization in RSMinerve   {#sec-appendix-solutions-plot-temperature-and-precipitation-1984 .unnumbered}
+Simulate from the 01/01/1981 01:00:00 to 31/12/1983 23:00:00, then choose data from 31/12/1983 23:00:00 as the initial conditions and run the model from 01/01/1984 01:00:00 to 31/12/1984 23:00:00. Choose hourly output for the simulation results.   
+Open the Selection and plots tab by clicking on the Selection and plots button in the Modules toolbar and select simulated P and T from the Nauvalisoy station as shown in @fig-pt-nauvailsoy. 
+
+![Hourly precipitation and temperature at the virtual Nauvalisoy weather station.](images/appendix_c_quick_guides/fig116_plotPThourly.png){#fig-pt-nauvailsoy}
+
+Note: If you want to repeat a simulation with specific initial conditions, you can store them through Export IC in the Model Properties toolbar. 
+
+The approximate temperature range is -13 deg. C. in December to 34 deg. C. in August. The annual precipitation is about 1.4 m (visualize Pcum and click on the last value of the time series). No precipitation falls during the summer months.  
+
+Back to the  [Nauvalisoy model setup section](#sec-hbv-nauvalisoy-modelling-setup). 
+
+### Exercise: Compare Evaporation Methods {#sec-appendix-solutions-compare-evaporation-methods .unnumbered}
+Figure @fig-evaporation-discharge shows the evaporation computed with various methods and the resulting discharge. Uniform evaporation should not be used for sub-annual modeling time steps for obvious reasons that ET shows a strong seasonality. The difference between the different methods by Turc, McGuinness and Oudin are within 5 % of total discharge which is negligible for a regional model. 
+
+![Hourly precipitation and temperature at the virtual Nauvalisoy weather station.](images/appendix_c_quick_guides/fig119_evaporationDischarge1984.png){#fig-evaporation-discharge}
+
+For advanced modeling, the choice of the evaporation model may be relevant but only if a validation with measured data is possible.   
+
+Back to the  [Nauvalisoy model setup section](#sec-hbv-nauvalisoy-modelling-setup). 
+
+### Exercise: Common Difficulties in Model Calibration {#sec-appendix-solutions-common-calibration-issues .unnumbered}
+
+1. Especially fully and semi-distributed hydrological models are typically over-parameterized, i.e. the number of model parameters is much larger than the number of observations for the model states. The true parameter values of the system cannot be uniquely identified based on a discharge time series alone.   
+2. The outcome of the calibration depends on the measure of similarity between the simulated and the measured discharge. 
+3. The water balance is often forgotten during model calibration. A nice fit of the discharge curve can for example be achieved by increasing the volume of water in the model over time. 
+4. The model is calibrated against historical data. Its ability to predict future discharge may be limited.  
+5. The model is not perfect, it remains an approximation of the real system and may not incorporate all relevant processes of the hydrological cycle (e.g. water storage and transport in glaciers for the case of the HBV model or significant sub-surface water fluxes that very difficult to capture as for example in Karst regions).  
+6. Discharge measurements typically have uncertainties of 20 %. Particularly measurements at the lower and upper ends of the rating curve (i.e. the water table - discharge relationship) are typically prone to larger uncertainties (bonus question: think about why this is so!). Is the measurement location or the equipment not properly maintained, biases may grow over time. On the other hand, if the measurement method is updated and changed, the measured discharge may display a different pattern (for an example, look at the low flow of the discharge of the river Gunt in Figure @fig-GuntMonthlyQ.  
+
+Back to the [calibration section](#sec-calibration-principles)
+
+### Exercise: Strategies to Overcome some of the Model Calibration Difficulties {#sec-appendix-solutions-strategies-for-issues .unnumbered}
+
+1. Over-parameterization:   
+  + Consider simplifying the model, i.e. reducing the number of parameters. If the model complexity is required, try adding additional measured variables, e.g. snow cover from MODIS data (see Chapter on [snow cover data](#sec-data-snow-cover)) to validate individual components of the HBV model.    
+  + Collect data to verify individual fluxes of the model components (e.g. soil parameters, snow water equivalent, etc.). As physical measurements in the field are not always possible you may have to become creative here, e.g. use MODIS snow cover data to validate the snow/no snow partitioning of the HBV model. Also consult the literature for parameterizations of similar catchments.   
+2. Use a combination of similarity measures. This will be demonstrated later on in the model calibration section.   
+3. During model calibration, look at the components of the model as well as the total discharge time series. Make sure that the storage of water changes within reasonable bounds and that the partitioning of the water in your system is physically reasonable (e.g. comparatively small storage compartments for rocky mountain catchments).    
+3. Exclude part of your data set from model calibration and use it for model validation. If the model does not perform well in the validation period, its parameters are too specific for the calibration period (you have over-fitted the model) and the model is said to not generalize well. If this happens you should try to reduce the number of parameters in your model. To understand better which parameters are responsible for the over-fit of the historical discharge, use different calibration and validation periods and compare the resulting parameters. Through sensitivity analysis, identify the model components that are most sensitive to predicted changes of model forcings, geometry or parameterization and perform scenario analysis.   
+4. Implement and validate multiple possible conceptual models. All of the models must be calibrated and validated individually. It is further recommended to calculate at the highest possible temporal resolution and to try and compare the model outcome at different spatial resolution.       
+5. Square-root filters or data assimilation algorithms are able to account for non-correlated measurement errors (they are not implemented in RSMinerve and not topic of this course). Error bands for the measurements should be adapted when communicating model results.  
+
+Most of the above points will be discussed in more detail during this course.  
+
+Back to the [calibration section](#sec-calibration-principles)
+
+### Exercise: Calibrate a Simple HBV Model {#sec-appendix-solutions-calibrated parameters .unnumbered}
+The parameter set of the calibrated model are: 
+```{r, echo=FALSE,message=FALSE,warning=FALSE,error=FALSE}
+calibrated_parameters <- read.delim("./data/SyrDarya/Chirchiq/RSMinerve/nauvalisoy_PAR_calibrated.txt", 
+                                    header = TRUE, skip = 9, nrows = 1) 
+calibrated_parameters <- calibrated_parameters[,4:dim(calibrated_parameters)[2]]
+colnames(calibrated_parameters) <- c("CFMax (mm/°C/d)", "CFR (-)", "CWH (-)", 
+                                     "TT (°C)", "TTInt (°C)", "TTSM (°C)", 
+                                     "Beta (-)", "FC (mm)", "PWP (-)", 
+                                     "SUMax (mm)", "Kr (1/d)", "Ku (1/d)", 
+                                     "Kl (1/d)", "Kperc (1/d)")
+print(knitr::kable(t(calibrated_parameters)))
+```
+
+You can import the calibrated parameters via Import P in the Model Properties toolbar (the calibrated parameters are available in the following online repository.
+
+[//]: # (TODO: Redo links below!)
+
+./data/SyrDarya/Chirchiq/RSMinerve/nauvalisoy_PAR_calibrated.txt. 
+
+Back to the [practical calibration section](#sec-calibration-practical-steps)

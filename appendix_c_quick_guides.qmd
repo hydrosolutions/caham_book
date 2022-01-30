@@ -393,13 +393,13 @@ Back to the [Nauvalisoy model guide](#sec-hbv-nauvalisoy-modelling-setup).
 
 ## RSM: Import climate data {#sec-quickguides-import-climate-data .unnumbered}
 
+Make sure that you have downloaded storede the following climate data file [ERA5_Nauvalisoy_1981_2013.csv](https://www.dropbox.com/s/9mm6x8cc78rr29i/ERA5_Nauvalisoy_1981_2013.csv?dl=1) for Nauvalisoy River on your computer. 
+
 Go to the database tab and click on Open in the File database toolbar (see @fig-open-database-tab).
 
 ![The database tab.](images/appendix_c_quick_guides/fig110_databasetab.png){#fig-open-database-tab}
 
-Select the file./data/SyrDarya/Chirchiq/RSMinerve/ERA5_Nauvalisoy_1981_2013.csv. If you don't see the file in your file browser, make sure the file ending .csv is selected in the file browser (see @fig-open-database-tab-csv).
-
-[//]: # (TODO: Proper Chapter reference here!)
+Select the file that you downloaded before. If you don't see the file in your file browser, make sure the file ending .csv is selected in the file browser (see @fig-open-database-tab-csv).
 
 ![Make sure the file ending is .csv in the file browser.](images/appendix_c_quick_guides/fig111_dbfileEnding.png){#fig-open-database-tab-csv}
 
@@ -488,11 +488,11 @@ Back to the [practical model calibration and validation Section](#sec-calibratio
 
 ## RSM: Copy-paste Data to Database {#sec-quickguides-copy-paste-database-values .unnumbered}
 
-[//]: # (TODO: Redo links below!)
+Make sure that the following file [synthetic_discharge_Nauvalisoy_river_for_calibration_exercise.csv](https://www.dropbox.com/s/gw968m3bs43kzse/synthetic_discharge_Nauvalisoy_river_for_calibration_exercise.csv?dl=1) is available on your computer. 
 
-Open the file ./data/SyrDarya/Chirchiq/RSMinerve/synthetic_discharge_Nauvalisoy_river_for_calibration_exercise.csv in a spreadsheet software, e.g. Excel, Numbers, Google Sheets or OpenOffice Calc and select the rows containing dates and values (@fig-copy-spreadsheet-data). Press *Control+C* or perform a right-click with the mouse and choose copy. 
+Now, open the file in a spreadsheet software, e.g. Excel, Numbers, Google Sheets or OpenOffice Calc and select the rows containing dates and values (@fig-copy-spreadsheet-data). Press *Control+C* or perform a right-click with the mouse and choose copy. 
 
-![Select the rows and columns containing the dates and data to be copied. Press control C to copy the selected cells.](images/appendix_c_quick_guides/fig000_copy_data_spreadsheet.png){#fig-copy-spreadsheet-data}
+![Select the rows and columns containing the dates and data to be copied. Press *Control+C* to copy the selected cells.](images/appendix_c_quick_guides/fig000_copy_data_spreadsheet.png){#fig-copy-spreadsheet-data}
 
 Then navigate to the discharge sensor on the database tab in RSMinerve where you want to add the data to. Click in the small square to the left of the first row in the Values tab and click the keyboard keys *Control+P*. Alternatively perform a right-click in the small square and select Paste. The dates and values from the excel sheet will now appear in the table (@fig-paste-spreadsheet-data). Save the database. 
 

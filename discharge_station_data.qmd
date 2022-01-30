@@ -1,3 +1,394 @@
-## Discharge Station Data {#sec-discharge-station-data}
+# Discharge Station Data {#sec-discharge-station-data}
 
-Chaptr on discharge station data
+```{r, message=FALSE, echo=FALSE}
+# Tidy data wrangling
+library(tidyverse)
+library(timetk)
+library(lubridate)
+library(timetk)
+
+# ggplot add-ons
+library(tmap) # thematic maps
+library(viridis)
+library(RColorBrewer)
+
+# Our own package for load and processing local data
+#devtools::install_github("hydrosolutions/riversCentralAsia") # ensuring the latest version is installed!
+library('riversCentralAsia')
+
+# Spatial data processing
+library(ncdf4)
+library(raster)
+library(rgdal)
+library(sf)
+library(smoothr) 
+library(units)
+```
+
+Here, we are demonstrating important data preparation steps that should always precede modeling. These preparatory steps focus on data cleaning and gap filling. Please note that many of key data visualization techniques and their corresponding code have already been shown in @sec-example-river-basins in Part I of the book. 
+
+## Available Data {#sec-available-data}
+
+The `riversCentralAsia` Package provides available data of the gauging and meteorological stations in the Chirchik River Basin (where other data are used, their source and access options are indicated). This is the time then to install and load the package with
+
+```{r eval=FALSE}
+devtools::install_github("hydrosolutions/riversCentralAsia") # download package from github
+library('riversCentralAsia') # load package
+```
+
+Before starting any type of modeling, it is important to get a good understanding of the data that we are dealing with and whether there exist problems with the raw data that need to be addressed prior to modeling. This is actually also one of the more hidden agendas when doing a basin characterization.
+
+Problems in real-world data usually include data gaps and outliers as data records that one obtains are usually neither complete nor cleaned (of errors).
+
+The steps performed here are thus required steps for any type of successful modeling and should be performed with great care prior to starting hydrological modeling. 
+
+::: callout-important
+### Garbage in - Garbage out
+The importance of good quality data for modeling cannot be overstated. It can very easily be summarized in the following way
+
+- Data $\rightarrow$ *Model* $\rightarrow$ Results
+
+If the underlying data is erroneous, then this translated into
+
+- Garbage in $\rightarrow$ *Model* $\rightarrow$ Garbage out
+:::
+
+We concentrate our efforts here on discharge records and data from meteorological stations in the Chirchik River Basin for demonstration purposes. The techniques shown here for decadal (10-days) data naturally extend to monthly data and also, to data from other basins and other sources.
+
+## Gap Filling Discharge Data {#sec-gap-filling-discharge-data}
+
+In the following, we will work with decadal discharge data from the two main tributaries of the Chirchik River, i.e. the Chatkal River (Gauge 16279) and the Pskem River (Gauge 16290) as well as on the data of the inflow to the Charvak reservoir (Gauge 16924). The goal is to analyze the data and prepare for modeling. First, let us load the relevant discharge data.
+
+```{r}
+data <- ChirchikRiverBasin # load data
+q_dec_tbl <- data %>% filter(code == '16279' | code == '16290' | code == '16924') # Note for the new name of the data object, we use snake notation. We choose to add periodicity (_dec_) and data type (_tbl for tibble/dataframe) to the data name. This just helps to stay organized and is good practice in R programming.
+q_dec_tbl
+```
+
+You can get more information about the available data by typing `?ChirchikRiverBasin`. Note that the original time series data has been packaged in this format by the `riversCentralAsia::loadTabularData()` function which takes a simple .csv file as input.
+
+It is advisable to check at this stage for missing data in time series and to fill gaps where present. Are there missing data? How can these be filled so as to arrive at complete time series that are required for hydrological modeling?
+
+As can be seen in Figure @fig-discharge-data-chirchik-river-basin, close inspection of the time series indeed reveals some missing data in the 1940ies. 
+
+::: callout-tip
+Note, @fig-discharge-data-chirchik-river-basin is an interactive figure where you can zoom in. Try it and zoom into the 1940ies to visualize the missing data fore clearly. You can zoom out again by clicking the *Autoscale* hover over. For the viualization of time series, we normally use the excellent [timetk R Package](https://business-science.github.io/timetk/). Check it out and try yourself!
+:::
+
+```{r}
+#| label: fig-discharge-data-chirchick-river-basin
+#| fig.cap: "Discharge data of selected gauges in the upstream zone of runoff formation in the Chirchik River Basin. Data Source: Uzbek Hydrometeorological Service."
+#| warning: false
+q_dec_tbl %>% plot_time_series(date,data,
+                               .facet_vars  = code,
+                               .smooth      = FALSE,
+                               .interactive = TRUE,
+                               .x_lab       = "year",
+                               .y_lab       = "m^3/s",
+                               .title       = ""
+                               )
+```
+
+Missing data are also confirmed by the warning that the function `timetk::plot_time_series()` throws (suppressed here). Statistics of the missing data can be easily obtained. As the Table below shows, we can do this analysis for each discharge station separately.
+
+```{r}
+q_dec_tbl %>% group_by(code) %>% 
+  summarize(n.na = sum(is.na(data)), na.perc = n.na/n()*100)
+```
+
+Summarizing the number of observation with missing data reveals that 15 data points for station 16279 (0.5 % of total record length) and 39 for station 16290 (1.3 % of total record length) are missing. As there are only very few gaps in the existing time series, we use a simple method to fill these. Wherever there is a gap, we fill in the corresponding decadal norm as stored in the *norm* column in the object `q_dec_tbl` at the timestamp of the missing data. The visualization of the results confirms that our simple gap filling approach is indeed satisfactory (see @fig-gap-filled-time-series).
+
+```{r}
+#| label: fig-gap-filled-time-series
+#| fig.cap: "Gap filled Pskem and Chatkal river discharges."
+# Make a copy of the original data
+q_dec_filled_tbl <- q_dec_tbl
+
+# Actual gap filling step
+q_dec_filled_tbl$data[is.na(q_dec_filled_tbl$data)] = 
+  q_dec_filled_tbl$norm[is.na(q_dec_filled_tbl$data)] 
+
+# Inspect results
+q_dec_filled_tbl %>% plot_time_series(date, data, 
+                                      .facet_vars  = code, 
+                                      .smooth      = FALSE,
+                                      .interactive = TRUE,
+                                      .x_lab       = "year",
+                                      .y_lab       = "m^3/s",
+                                      .title       = ""
+                                      )
+```
+
+All missing data are gone now as can easily be validated.
+
+```{r}
+q_dec_filled_tbl %>% group_by(code) %>% 
+  summarize(n.na = sum(is.na(data)), na.perc = n.na/n()*100)
+```
+
+A note of caution here. This simple gap filling technique reduces variance in the time series. It should only be used when the percentage of missing data is low. As will be discussed in the next Section @sec-gap-filling-meteorological-data below, more sophisticated techniques should be utilized when there exist substantial gaps and in the case of less regular data.
+
+Finally, we discard the data that we no longer need, including the norm data, which we used for gap filling of the missing discharge data and convert the data to wide format (see @tbl-gap-filled-discharge-result-tibble below) to add to it meteorological data in the next Section.
+
+```{r}
+#| label: tbl-gap-filled-discharge-result-tibble
+q_dec_filled_wide_tbl <- q_dec_filled_tbl %>% # again we use the name convention of objects as introduced above
+  mutate(code = paste0('Q',code %>% as.character())) %>% # Since we convert everything to long form, we want to keep information as compact as possible. Hence, we paste the type identifier (Q for discharge here) in from of the 5 digit station code.
+  dplyr::select(date,data,code) %>% # ... and then ditch all the remainder information
+  pivot_wider(names_from = "code",values_from = "data") # in order to pivot to the long format, we need to make a small detour via the wide format.
+
+q_dec_filled_long_tbl <- q_dec_filled_wide_tbl %>% pivot_longer(-date) # and then pivot back
+q_dec_filled_wide_tbl
+```
+
+As a result, we now have a complete record of decadal discharge data for the two main tributaries of the Chirchik river and the inflow time series to Charvak Reservoir from the beginning of 1932 until and including 2015, i.e. 84 years. The same type of preparatory analysis will now be carried out for the meteorological data but in a slightly more sophisticated way.
+
+## Gap Filling Meteorological Data {#sec-gap-filling-meteorological-data}
+
+Here, we use precipitation and temperature data from Pskem (38462), Chatkal (38471) and Charvak Reservoir (38464) Meteorological Stations (see @sec-example-chirchik-river-basin for more information on these stations). We also have data from Oygaing station (Station Code 38339) but the record only starts in 1962 and the time resolution is monthly. Therefore, we do not take this station into account here for the time being.
+
+We start with precipitation and plot the available data.
+
+```{r }
+#| label: fig-raw-precip-data-chirchik-meteo-stations
+#| fig-cap: "Raw decadal precipitation data from Pskem (38462), Charvak Reservoir (38471) and Chatkal Meteo Station (38471)."
+p_dec_tbl <- data %>% filter(type == "P" & code != "38339") 
+p_dec_tbl %>% plot_time_series(date,data,
+                               .facet_vars  = code,
+                               .interactive = TRUE,
+                               .smooth      = FALSE,
+                               .title       = "",
+                               .y_lab       = "mm/decade",
+                               .x_lab       = "year"
+                               )
+```
+
+The precipitation data from these 3 stations shows some significant data gaps. The Chatkal Meteorological Station that is located in Kyrgyzstan apparently did not work in the post-transition years as continuous measurements were only resumed there in 1998.
+
+Let us see what happens if we were to use the same simple gap filling technique that we introduced above for discharge.
+
+```{r}
+#| label: fig-precip-data-chirchik-meteo-stations-norm-filled
+#| fig-cap: "Precipitation Data gap-filled with norms. The filled values from 1990 - 2000 in the case of the Station 38471 indicate that the norm-filling technique is not adequate for this type of data."
+p_dec_filled_tbl <- p_dec_tbl
+p_dec_filled_tbl$data[is.na(p_dec_filled_tbl$data)] = p_dec_filled_tbl$norm[is.na(p_dec_filled_tbl$data)]
+p_dec_filled_tbl %>% plot_time_series(date,data,
+                                      .facet_vars  = code,
+                                      .interactive = TRUE,
+                                      .smooth      = FALSE,
+                                      .title       = "",
+                                      .y_lab       = "mm/decade",
+                                      .x_lab       = "year"
+                                      )
+```
+
+Closely inspect the significant data gap in the 1990ies at Station 38741. Play around and zoom into the time series in the 1990ies in @fig-raw-precip-data-chirchik-meteo-stations and compare it with the resulting gap-filled time series in @fig-precip-data-chirchik-meteo-stations-norm-filled. We see that our technique of gap filling with long-term norms is not suitable for this type of data and the significant gap size. The effect of variance reduction is clearly visible.
+
+Hence, we resort to a more powerful gap filling technique that uses a (regression) model to impute the missing values from existing ones at the neighboring stations, i.e. Stations 38462 and 38464. To do so, we utilize the [simputation R package](https://cran.r-project.org/web/packages/simputation/index.html). Please note that if you do not have the required package installed locally, you should install it prior to its use with the following command `install.packages('simputation')`
+
+```{r}
+#| label: fig-simputed-p-t-time-series
+#| fig-cap: "Precipitation Data gap filled with a robust linear regression modeling approach"
+#| message: false
+library(simputation)
+# First, we bring the data into the suitable format. 
+p_dec_wide_tbl <- p_dec_tbl %>% 
+  mutate(code = paste0('P',code %>% as.character())) %>% 
+  dplyr::select(date,data,code) %>% 
+  pivot_wider(names_from = "code",values_from = "data")
+
+# Second, we impute missing values.
+p_dec_filled_wide_tbl <- p_dec_wide_tbl  %>% 
+  impute_rlm(P38471 ~ P38462 + P38464) %>% # Imputing precipitation at station 38471 using a robust linear regression model
+  impute_rlm(P38462 ~ P38471 + P38464) %>% # Imputing precipitation at station 38462 using a robust linear regression model
+  impute_rlm(P38464 ~ P38462 + P38471) # Imputing precipitation at station 38464 using a robust linear regression model
+
+p_dec_filled_long_tbl <- p_dec_filled_wide_tbl %>% pivot_longer(c('P38462','P38464','P38471')) 
+
+p_dec_filled_long_tbl %>% plot_time_series(date,value,
+                                          .facet_vars  = name,
+                                          .interactive = TRUE,
+                                          .smooth      = FALSE,
+                                          .title       = '',
+                                          .y_lab       = "mm/decade",
+                                          .x_lab       = "year"
+                                          )
+```
+
+As you can see, we use simple linear regression models to impute missing value in the target time series using observations from the neighboring stations. This is of course only possible where data is not missing across the time series, as we will discuss below.
+
+Through simple visual inspection, it becomes clear that this type of regression model for gap filling is better suited than the previous approach chosen. Let us check whether we could successfully fill all gaps with this robust linear regression approach.
+
+```{r}
+#| message: false
+p_dec_filled_long_tbl %>% 
+  group_by(name) %>% 
+  summarize(n.na = sum(is.na(value)), n.na.perc = n.na / n() * 100)
+```
+
+It turns out that we still have very few gaps to deal with. We can see them by simply visualizing the wide tibble. The problem persisted at times when two or more values were missing across the available stations at the same time and where thus the linear regression could not be carried out. Let us look at the start of the record...
+
+```{r}
+p_dec_filled_wide_tbl %>% 
+  head(10)
+```
+
+... and the end of the record. The missing values are easily spotted.
+
+```{r}
+p_dec_filled_wide_tbl %>% 
+  tail()
+```
+
+We can solve the issues related to the missing values at the start of the observation record by using the same technique as above and by only regressing P38462 and P38464 on P38471.
+
+```{r}
+p_dec_filled_wide_tbl <- 
+  p_dec_filled_wide_tbl  %>% 
+  impute_rlm(P38462 ~ P38471) %>% # Imputing precipitation at station 38462 using a robust linear regression model
+  impute_rlm(P38464 ~ P38471) # Imputing precipitation at station 38464 using a robust linear regression model
+p_dec_filled_wide_tbl %>% head(10)
+```
+
+Converse to this, the complete set of observations is missing for December 2015. We will thus remove these non-observations from our tibble. This can be done once and for all with `na.omit()` as shown in the code block below.
+
+```{r}
+p_dec_filled_wide_tbl <- p_dec_filled_wide_tbl %>% na.omit()
+p_dec_filled_wide_tbl %>% tail()
+
+p_dec_filled_long_tbl <-  p_dec_filled_wide_tbl %>% pivot_longer(-date)
+```
+
+Inspecting the temperature data, we see similar data issues as in the precipitation data set and can proceed accordingly for gap filling.
+
+```{r}
+#| label: fig-raw-temp-data-chirchik-meteo-stations
+#| warning: false
+#| fig-cap: "Raw temperature data from the meteorological stations Pskem (38462) and Chatkal (38471)"
+t_dec_tbl <- data %>% filter(type == "T") 
+t_dec_tbl %>% plot_time_series(date,data,
+                               .facet_vars  = code,
+                               .interactive = TRUE,
+                               .smooth      = FALSE,
+                               .title       = '',
+                               .y_lab       = "deg. Celsius",
+                               .x_lab       = "year"
+                               )
+```
+
+
+```{r}
+#| label: fig-temp-data-chirchik-meteo-stations-gap-filled
+#| warning: false
+#| fig-cap: "Temperature data gap filled with robust linear regression modeling."
+# First, we bring the data into the suitable format. 
+t_dec_wide_tbl <- t_dec_tbl %>% 
+  mutate(code = paste0('T',code %>% as.character())) %>% 
+  dplyr::select(date,data,code) %>% 
+  pivot_wider(names_from = "code",values_from = "data")
+
+# Second, we impute missing values.
+t_dec_filled_wide_tbl <- t_dec_wide_tbl  %>% 
+  impute_rlm(T38471 ~ T38462) %>% # Imputing precipitation at station 38471 using a robust linear regression model
+  impute_rlm(T38462 ~ T38471) # Imputing precipitation at station 38462 using a robust linear regression model
+
+t_dec_filled_long_tbl <- t_dec_filled_wide_tbl %>% 
+  pivot_longer(c('T38462','T38471')) 
+
+t_dec_filled_long_tbl %>% 
+  plot_time_series(date,value,
+                   .facet_vars  = name,
+                   .interactive = TRUE,
+                   .smooth      = FALSE,
+                   .title       = '',
+                   .y_lab       = "deg. Celsius",
+                   .x_lab       = "year"
+                   )
+```
+
+There are some irregularities in the temperature time series of Chatkal Meteorological Station in the first decade of the 20th century (tip: zoom in to see these more clearly). Note that these were not introduced by the gap filling technique that we used but are most likely wrong temperature readings or recordings. We will return to these in the outlier analysis below in @sec-anomalies-and-outliers.
+
+Any missing values left in the temperature time series? Let's check!
+
+```{r,message=FALSE}
+t_dec_filled_long_tbl %>% 
+  group_by(name) %>% 
+  summarize(n.na = sum(is.na(value)), n.na.perc = n.na/n()*100)
+```
+
+To see where the missing value are, we find them easily again by looking at the head and tail of the tibble.
+
+```{r}
+t_dec_filled_wide_tbl %>% head()
+```
+
+```{r}
+t_dec_filled_wide_tbl %>% tail()
+```
+
+Finally, we remove these non observations again as above with the function `na.omit()`. 
+
+```{r}
+t_dec_filled_wide_tbl <- t_dec_filled_wide_tbl %>% na.omit()
+t_dec_filled_long_tbl <- t_dec_filled_wide_tbl %>% pivot_longer(-date)
+```
+
+To deal with the missing values at the end of the observational record, we could also have used any other technique. Using the norm values however would have artificially reduced the variance in both cases as explained above. Furthermore and at least in the case of temperature, it is also questionable to what extent a norm calculated over the last 84 years is still representative given global warming. We will look in this important and interesting topic in the next section.
+
+## Anomalies and Outliers {#sec-anomalies-and-outliers}
+
+We use the function `timetk::plot_anomaly_diagnostics()` to investigate these anomalies in the time series. For discharge, we first log-transform the raw data with the following transformation to reduce the variance of the original data.
+
+$$
+\hat{q}(t) = log(q(t) + 1) 
+$$ where $\hat{q}(t)$ denotes the transformed discharge. Prior to the log transformation, 1 is added so as to avoid cases where discharge would be 0 and the logarithmic transform thus undefined. The transformation can easily be done with the `log1p()` function in R. Back-transformation is then via the function `expm1()` simply involves taking the exponent and subtracting 1 from the result. Figure \@ref(anomaliesQ) shows the result.
+
+Results are shown in @fig-anomalies-q, @fig-anomalies-p and @fig-anomalies-t below. 
+
+The exceptionally wet year 19169 shows up as anomalous in the Chatkal River Basin and at the downstream Charvak Reservoir inflow gauge.
+
+```{r}
+#| label: fig-anomalies-q
+#| fig.cap: "Anomaly diagnostics of discharge data. The transparent grey band shows the width of the normal range. The highly anomalous wet year of 1969 is clearly visible in the discharge record of the Chatkal river basin (Station 16279)."
+#| message: false
+q_dec_filled_long_tbl %>% 
+  plot_anomaly_diagnostics(date,
+                           value %>% log1p(),
+                           .facet_vars  = name,
+                           .frequency = 36,
+                           .interactive = TRUE,
+                           .title = "")
+```
+
+The investigation of precipitation anomalies shows a succession of regular anomalous wet events over time. It is interesting to see that the winter 1968/69 regularly anomalous at all three stations (@fig-anomalies-p, zoom in to investigate).
+
+```{r}
+#| label: fig-anomalies-p
+#| fig.cap: "Anomaly diagnostics of precipitation data."
+#| message: false
+p_dec_filled_long_tbl %>% 
+  plot_anomaly_diagnostics(date,
+                           value,
+                           .facet_vars  = name,
+                           .interactive = TRUE,
+                           .title = "")
+```
+
+While intuitively, we would have expected an exceptionally mild winter in 1968/69 due to the precipitation excess, the corresponding anomaly does not show up in the temperature record as shown in @fig-anomalies-t.
+
+```{r}
+#| label: fig-anomalies-t
+#| fig.cap: "Anomaly diagnostics of temperature data."
+#| message: false
+t_dec_filled_long_tbl %>%  
+  plot_anomaly_diagnostics(date,value,
+                           .facet_vars  = name,
+                           .interactive = TRUE,
+                           .title = "")
+```
+
+Apart from the identification of extremal periods since as the 1969 discharge year in the Chatkal river basin, the diagnostics of anomalies also helps to identify likely erroneous data records. In @fig-anomalies-t for example, when we zoom into the data of the series T38471 in the first decade of the 21st century, problems in relation to positive anomalies during the winter are visible in 4 instances. One explanation would be that in at least some instances, the data are erroneously recorded as positive values when in fact they were negative (see dates '2002-01-31', '2005-01-10' and '2007-02-28', Chatkal Station 38471).
+
+Obvious errors can be spotted like this and corrected. However, non-obvious data errors should be communicated with the data producing agency and replacement strategy jointly defined. If this is not possible, the values could be set to `NA` and then imputed as shown above.
+
+The discharge data is now ready to be used for modelling and we can move on to the next Chapter on [Geospatial Data](#sec-geospatial-data).

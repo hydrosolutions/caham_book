@@ -1,3 +1,4 @@
 # Part III: Hydrological Modeling & Applications {#sec-hydrological-modeling}
 
-A grand overview over different types of hydrological modeling approaches. Furthermore, real-world model applications are demonstrated.
+A grand overview over different types of hydrological modeling approaches. 
+Furthermore, real-world model applications are demonstrated.

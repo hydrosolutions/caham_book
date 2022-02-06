@@ -50,6 +50,7 @@ format:
   html:
     theme: cosmo
     code-link: true
+    number-depth: 3
   pdf:
     documentclass: scrreprt
 

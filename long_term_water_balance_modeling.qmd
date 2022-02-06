@@ -1,3 +1,15 @@
-## Long-term Water Balance Modeling {#sec-long-term-water-balance-modeling}
+## Long-term Water Balance Modeling {#sec-budyko-modeling}
 
-Budyko chapter with critical results there.
+In this Chapter, we investigate long-term mean catchment water balances from a large, regional perspective.
+
+### Introduction {#sec-budyko-introduction}
+
+### Data and Methods {#sec-budyko-data-and-methods}
+
+#### Data {#sec-budyko-data}
+
+#### Methods {#sec-budyko-methods}
+
+### Results {#sec-budyko-results}
+
+### Discussion and Conclusions {#sec-discussion-and-conclusions}

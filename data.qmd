@@ -1,4 +1,4 @@
-# Part II: Data Retrieval and Preparation {#sec-data}
+# Part II: Data Sources, Retrieval and Preparation {#sec-data}
 
 In this Chapter, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling.
 

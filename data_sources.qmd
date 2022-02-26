@@ -1,6 +1,8 @@
 # Sources of Relevant Data {#sec-data-sources}
 
-This Chapter provides an overview over available data sources. Except the discharge data, all is available via download from the web free of charge. The Chapter's Sections then describe the processing of these data and their preparation for modeling in detail.
+This Chapter provides an broad overview over relevant available data sources. All these data can be accessed via download from the web free of charge wxcept where otherwise mentioned.  
+
+The Chapter's @sec-discharge-station-data, @sec-geospatial-data, @sec-snow-and-glacier-data and @sec-climate-data describe in detail how these data can be prepared for hydrological modeling with RSMinerve. 
 
 ## Vector data {#sec-geospatial-data-sources}
 

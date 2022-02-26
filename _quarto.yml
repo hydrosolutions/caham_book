@@ -23,11 +23,11 @@ book:
     - study_guide_materials.qmd
     - part: hydrology_of_central_asia.qmd
       chapters: 
-        - short_history_of_central_asia_water.qmd
         - hydrological_systems.qmd
         - example_river_basins.qmd
     - part: data.qmd
       chapters:
+        - data_sources.qmd
         - discharge_station_data.qmd
         - geospatial_data.qmd
         - snow_and_glacier_data.qmd

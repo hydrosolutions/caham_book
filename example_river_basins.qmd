@@ -959,7 +959,7 @@ The resulting model can easily be visualized as is shown in @fig-resulting-koksu
 #| fig-cap: "The linear model in $eq-koksu-estimated-model is shown."
 ggplot(data_koksu_discharge_derivation_wide, aes(`16279`, Koksu)) +
   geom_point() + 
-  geom_smooth(method = "lm", se = FALSE, formula=y~0+x) +
+  geom_smooth(method = "lm", se = FALSE, formula = y~0+x) +
   xlab(bquote('Discharge at Gauge 16279 Khudaydod in '~m^3/s)) +
-  ylab (bquote('Koksu river discharge in '~m^3/s))
+  ylab(bquote('Koksu river discharge in '~m^3/s))
 ```

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<<<<<<< HEAD
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.62">
@@ -7,6 +8,14 @@
 <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software.">
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 2&nbsp; Case Study River Basins</title>
 <style>
+=======
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.3.62">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software.">
+  <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 3&nbsp; Case Study River Basins</title>
+  <style>
+>>>>>>> master
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -302,12 +311,17 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
 <ul>
+<<<<<<< HEAD
 <li>
 <a href="#sec-example-gunt-river-basin" class="nav-link active" data-scroll-target="#sec-example-gunt-river-basin"> <span class="header-section-number">2.1</span> Gunt River Basin</a>
 <ul class="collapse">
 <li><a href="#sec-gunt-basin-characterization" class="nav-link" data-scroll-target="#sec-gunt-basin-characterization"> <span class="header-section-number">2.1.1</span> Gunt Basin Characterization</a></li>
 <li><a href="#sec-gunt-basin-hydrology" class="nav-link" data-scroll-target="#sec-gunt-basin-hydrology"> <span class="header-section-number">2.1.2</span> Gunt Basin Hydrology</a></li>
 <li><a href="#sec-gunt-basin-climate" class="nav-link" data-scroll-target="#sec-gunt-basin-climate"> <span class="header-section-number">2.1.3</span> Gunt Basin Climate</a></li>
+=======
+<li><a href="#sec-example-gunt-river-basin" class="nav-link active" data-scroll-target="#sec-example-gunt-river-basin"> <span class="header-section-number">3.1</span> Gunt River Basin</a></li>
+<li><a href="#sec-example-chirchik-river-basin" class="nav-link" data-scroll-target="#sec-example-chirchik-river-basin"> <span class="header-section-number">3.2</span> Chirchik River Basin</a></li>
+>>>>>>> master
 </ul>
 </li>
 <li>
@@ -1247,10 +1261,19 @@ Tip
 <span class="va">quarterT</span><span class="op">$</span><span class="va">quarter</span> <span class="op">&lt;-</span> <span class="va">quarterT</span><span class="op">$</span><span class="va">quarter</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">.</span>, format <span class="op">=</span> <span class="st">"Q%q"</span><span class="op">)</span>
 
+<<<<<<< HEAD
 <span class="va">q1T</span> <span class="op">&lt;-</span> <span class="va">quarterT</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">quarter</span> <span class="op">==</span> <span class="st">'Q1'</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">quarter</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">pivot_longer</span><span class="op">(</span><span class="op">-</span><span class="va">date</span><span class="op">)</span>
 <span class="va">q2T</span> <span class="op">&lt;-</span> <span class="va">quarterT</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">quarter</span> <span class="op">==</span> <span class="st">'Q2'</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">quarter</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">pivot_longer</span><span class="op">(</span><span class="op">-</span><span class="va">date</span><span class="op">)</span>
 <span class="va">q3T</span> <span class="op">&lt;-</span> <span class="va">quarterT</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">quarter</span> <span class="op">==</span> <span class="st">'Q3'</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">quarter</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">pivot_longer</span><span class="op">(</span><span class="op">-</span><span class="va">date</span><span class="op">)</span>
 <span class="va">q4T</span> <span class="op">&lt;-</span> <span class="va">quarterT</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">quarter</span> <span class="op">==</span> <span class="st">'Q4'</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">quarter</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">pivot_longer</span><span class="op">(</span><span class="op">-</span><span class="va">date</span><span class="op">)</span>
+=======
+<p>Gunt and Chirchik River basins are discussed here in the subsections.</p>
+<section id="sec-example-gunt-river-basin" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-example-gunt-river-basin"><span class="header-section-number">3.1</span> Gunt River Basin</h2>
+</section>
+<section id="sec-example-chirchik-river-basin" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-example-chirchik-river-basin"><span class="header-section-number">3.2</span> Chirchik River Basin</h2>
+>>>>>>> master
 
 <span class="va">pQ1</span> <span class="op">&lt;-</span> <span class="va">q1T</span>  <span class="op">%&gt;%</span> 
   <span class="fu">plot_time_series</span><span class="op">(</span>.date_var <span class="op">=</span> <span class="va">date</span>,.value <span class="op">=</span> <span class="va">value</span>,.color_var <span class="op">=</span> <span class="va">name</span>,

@@ -23,19 +23,19 @@ book:
     - study_guide_materials.qmd
     - part: hydrology_of_central_asia.qmd
       chapters: 
-        - short_history_of_central_asia_water.qmd
         - hydrological_systems.qmd
         - example_river_basins.qmd
     - part: data.qmd
       chapters:
+        - data_sources.qmd
         - discharge_station_data.qmd
         - geospatial_data.qmd
         - snow_and_glacier_data.qmd
         - climate_data.qmd
     - part: hydrological_modeling.qmd
       chapters:
-        - long_term_water_balance_modeling.qmd
         - hydraulic_hydrological_modeling.qmd
+        - long_term_water_balance_modeling.qmd
         - modeling_using_predictive_inference.qmd
         - real_world_examples.qmd
   appendices:
@@ -50,6 +50,7 @@ format:
   html:
     theme: cosmo
     code-link: true
+    number-depth: 3
   pdf:
     documentclass: scrreprt
 

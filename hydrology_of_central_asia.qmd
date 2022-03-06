@@ -1,3 +1,15 @@
 # Part I: Hydrology of Semi-Arid Central Asia {#sec-hydrology-of-central-asia}
 
-Add a grand overview of Central Asian Hydrology here.
+The arid plains of Central Asia have been teeming with life thanks to the rivers cutting 
+through them and bringing water to the parched plains when its most needed, in the hot and dry 
+summer months. Why is it that the natural, undisturbed rivers swelled exactly during that time?
+How do we explain this phenomenon that has enabled for the Silk Road and unique cultural centers
+to emerge over the course of history and have brought riches to the communities there?
+
+This Chapter describes the key elements of the regional hydrology of semi-arid Central Asia that will
+help to understand this coincidence of nature. Leaving the large scale perspective, 2 example river
+basins are discussed in greater detail with a special focus on the runoff generation mechanisms there.
+
+Apart from looking at past data for explanation, a forward view will also be taken to discuss
+the recent and anticipated future hydrological changes. It will be highlighted how our current understanding
+of these changes will impact societies and the environment alike.

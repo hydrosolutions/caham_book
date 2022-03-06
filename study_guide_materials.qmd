@@ -105,7 +105,7 @@ Read the River Basin sample studies in [Part I: Chapter 3](#sec-example-river-ba
 | Annual norm discharge volume                          | 3.28 km^3^            |
 | Annual norm specific discharge                        | 239 mm                |
 | ***Climate***                                         |                       |
-| Mean basin temperature $T$ [@Karger_2017]             | -5.96 deg. Celsius    |
+| Mean basin temperature $T$ [@karger_2017]             | -5.96 deg. Celsius    |
 | Mean basin precipitation $P$ [@beck2020]              | 351 mm                |
 | Potential Evaporation $E_{pot}$ [@Trabucco2019]       | 929 mm                |
 | Aridity Index $\phi = E_{pot} / P$                    | 2.7                   |
@@ -119,7 +119,7 @@ Read the River Basin sample studies in [Part I: Chapter 3](#sec-example-river-ba
 | Snow and Ice                                          | 969 km^2^             |
 | Permanent Water Bodies                                | 80 km^2^              |
 | ***Land Ice***                                        |                       |
-| Total glacier area [@glims2005]                       | 875 km^2^             |
+| Total glacier area [@glims_global]                       | 875 km^2^             |
 | Total glacier volume (calculated with [@erasov_1968]) | 699 km^3^             |
 : As an example, key relevant basin statistics for Gunt river basin are shown with individual data sources indicated. Using the data available in the data pack, you should characterize your case study basin in a similar way. {#tbl-example-basin-characterization}
 

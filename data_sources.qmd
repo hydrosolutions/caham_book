@@ -1,0 +1,50 @@
+# Sources of Relevant Data {#sec-data-sources}
+
+This Chapter provides an broad overview over relevant available data sources. All these data can be accessed via download from the web free of charge wxcept where otherwise mentioned.  
+
+The Chapter's @sec-discharge-station-data, @sec-geospatial-data, @sec-snow-and-glacier-data and @sec-climate-data describe in detail how these data can be prepared for hydrological modeling with RSMinerve. 
+
+## Vector data {#sec-geospatial-data-sources}
+
+For our purpose, we define the area of interest (AOI) as 55 deg. E - 85. deg. E and 30 deg. N - 50 deg. N.. 
+
+Global political boundaries can be obtained from the Global Administrative Divisions database at [gadm.org](www.gadm.org){target="_blank"}. Except for Turkmenistan, data on first (Oblast) and second-level (Rayon) administrative divisions is available for all Central Asian states.
+
+Shapefiles of large river basins can be retrieved from the [Global Runoff Data Center](https://www.bafg.de/GRDC/EN/01_GRDC/grdc_node.html){target="_blank"}. Note that for the Central Asian region, the flat downstream areas of these basins are delineating natural hydrological borders. They do not account for man-made inter-basin transfers and thus would need to be corrected where necessary. 
+
+The river network can be obtained from the Global Runoff Data Center WMOBB data that was released in 2021. It can be downloaded via this [link](https://www.bafg.de/SharedDocs/ExterneLinks/GRDC/wmobb_shp_zip.html?nn=201274){target="_blank"}. With 161 MB, approx., data covering the whole globe can be downloaded in a straight forward manner. The global data can be clipped easily with the bounding box as defined above.
+
+Data for the large rivers can be extracted from the layer wmobb_rivnets_Q09_10 (containing line sections representing an upland area above 4'504 km^2^). The layer called wmobb_rivnets_Q08_09 contains line sections representing an upland area between 1'150 km^2^ and 4'504 km^2^ and, finally, the wmobb_rivnets_Q07_08 (containing line sections representing an upland area above between 487 and 1'150 km^2^) [@grdc_2020]. Smaller rivers can be further added to a QGIS project on a case per case base using the additional datasets in the files obtained from GRDC.
+
+In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan are available with [hydrosolutions GmbH](www.hydrosolutions.ch){target="_blank"} where requests for access to these data can be sent to. The locations were obtained from the Central Asian Hydrometeorological Organizations, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3. It should be emphasized that the location featured on the World Bank Group website [Hydrometeorological Services in Central Asia](https://www.arcgis.com/apps/Cascade/index.html?appid=ac03200e7b834193938d95c38b58a15b){target="_blank"} are not correctly georeferenced in most cases.
+
+Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200'000) from the corresponding region. The maps can be downloaded from <https://maps.vlasenko.net> and subsequently be georeferenced in QGIS with the `Raster/Georeferencr` tool there [@QGIS_software]. Data from northern Afghan rivers' stream flow characteristics and the location of gauging stations there can be obtained from [@usgs_529_2010].
+
+Permanent water bodies and courses can be obtained from the global HydroLakes Database [@hydrolakes_2016]. It can be downloaded via this [link](https://www.hydrosheds.org/pages/hydrolakes){target="_blank"}.
+
+Glacier data can be taken from the Randolph Glacier Inventory (RGI) 6.0. The inventory contains a global archive of glacier outlines and can be obtained via this [website](https://www.glims.org/RGI/){target="_blank"}. Information from 16'617 glaciers is available in the AOI. The corresponding data on glacier thickness and glacier thinning rates is available as complementary data [@farinotti_consensus_2019, @hugonnet_accelerated_2021]. More information on these data can be found in @sec-snow-and-glacier-data whereas galciers models are dicussed in a separate [Section](#sec-glacier-models) in the Chapter on [Hydrological Modeling](#sec-hydrological-modeling).
+
+Data on dams is available from the GOODD data set. Information from 88 dams in the region of interest is mapped [@goodd_2020]. The data is available from [Global Dams Watch](http://globaldamwatch.org/goodd/){target="_blank"}.
+
+## Raster Data {#sec-raster-data-sources}
+
+The NASA SRTM digital elevation model 1 Arc-second (30 m) global product is used as a DEM [@srtm_2020]. There are many ways to access these data, some more, some less convenient. An easy way to access these data is in QGIS by using the [SRTM-Downloader Plugin](https://github.com/hdus/SRTM-Downloader){target="_blank"}. For a web-based access it is recommended to use the [NASA EarthExplorer](https://earthexplorer.usgs.gov){target="_blank"}. Sample instructions on how to download DEM data from the EarthExplorer can for example be found by watching the following youtube tutorial.
+
+```{r}
+#| echo: false 
+vembedr::embed_url("https://www.youtube.com/watch?v=0YPFegTcL4w&t=248s")
+```
+
+Land cover information can be obtained from the Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2019: Globe data [@copernicus_landcover_2019]. The [Global Land Cover Viewer](https://lcviewer.vito.be/2015) allows to access, view and download annual land cover data from 2015 - 2019.
+
+High resolution climate data can be obtained from Climatologies at high resolution for the earth’s land surface areas (CHELSA) dataset via [www.chelsa-climate.org](https://chelsa-climate.org){target="_blank"}. For the Version 2.1 product, climatologies for the periods 1981 - 2010, 2011 - 2040, 2041 - 2070 and 2071 - 2100 for a large number of variables are available for [download as GeoTiff-files](https://envicloud.wsl.ch/#/?prefix=chelsa%2Fchelsa_V2%2FGLOBAL%2F){target="_blank"}. With regard to the daily data, it is recommended to use the [Global daily 1km land surface precipitation based on cloud cover-informed downscaling](https://chelsa-climate.org/daily-precipitation/){target="_blank"}. This precipitation product reflects actual conditions in high mountain Asia in a much better way than the precipitation from the CHELSA-W5E5 V1.1 product. For daily temperature, the data from the CHELSA-W5E5 V1.1 product can be downloaded for a given domain of interest via this [link](https://data.isimip.org/10.48364/ISIMIP.836809){target="_blank"}.
+
+:::{.callout-warning}
+Note that the daily high resolution climate fields for the entire Central Asia domain require a lot of storage space. Their processing for later analysis is computationally intensive. 
+:::
+
+The FLO1K, global maps of mean, maximum and minimum annual stream flow at 1 km resolution from 1960 through 2015 can be retrieved from this [website](https://figshare.com/collections/FLO1K_global_maps_of_mean_maximum_and_minimum_annual_streamflow_at_1_km_resolution_from_1960_through_2015/3890224){target="_blank"}. FLO1K delivers relevant data for water resources analyses at a global scale and yet high spatial resolution [@barbarossa_2018]. These data can be useful for long-term water balance assessments and for the study of the hydropower potential in the high mountain regions where flow measurements are sparse.
+
+The CHELSA V21 global daily high-resolution climatology, available from 01-01-1979 until 31-12-2011 was processed over the Central Asia domain to map climate trends, including on temperature, precipitation, snow fraction. The data is available upon request from this site: https://chelsa-climate.org [@karger_2017, @karger_2020, @karger_2021]{target="_blank"}. The CHELSA V21 product is corrected for snow undercatch in the high elevation ranges and thus is able to better represent actual high mountain precipitation than other available global climatologies [@beck_2020]. The aridity index (AI) fields were taken from the bio-climate CHELSA V21 data set and compared with the CGIAR AI product [@trabucco_2019]. Data on an additional 70 bio-climatic indicators were downloaded from the CHELSA V21 1980 - 2010 climatology and statistics extracted for each of the 277 gauged catchments, together with the AI.
+
+High-resolution crop disaggregated irrigated areas were mapped over the entire Central Asia domain by [hydrosolutions GmbH](www.hydrosolutions.ch){target="_blank"} (see also [@ragettli_2018] for more information). Like this 30 m crop maps were produced with Google Earth Engine using unsupervised classification for the years 2016 - 2020. These maps, in conjunction with estimates of irrigation water intake volumes and estimates of actual evapotranspiration help in irrigation scheme performance assessments. In hydrological modeling, these data can be used to introduce sectoral consumption estimates and help to come up with sound and effective basin planning.

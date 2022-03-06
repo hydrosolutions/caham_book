@@ -341,7 +341,8 @@ We use the function `timetk::plot_anomaly_diagnostics()` to investigate these an
 
 $$
 \hat{q}(t) = log(q(t) + 1) 
-$$ where $\hat{q}(t)$ denotes the transformed discharge. Prior to the log transformation, 1 is added so as to avoid cases where discharge would be 0 and the logarithmic transform thus undefined. The transformation can easily be done with the `log1p()` function in R. Back-transformation is then via the function `expm1()` simply involves taking the exponent and subtracting 1 from the result. Figure \@ref(anomaliesQ) shows the result.
+$$ 
+where $\hat{q}(t)$ denotes the transformed discharge. Prior to the log transformation, 1 is added so as to avoid cases where discharge would be 0 and the logarithmic transform thus undefined. The transformation can easily be done with the `log1p()` function in R. Back-transformation is then via the function `expm1()` simply involves taking the exponent and subtracting 1 from the result. @fig-anomalies-q shows the result.
 
 Results are shown in @fig-anomalies-q, @fig-anomalies-p and @fig-anomalies-t below. 
 

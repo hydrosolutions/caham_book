@@ -1,9 +1,11 @@
 # Real World Examples {#sec-real-world-examples}
 
-Here, we provide a tour of hydromet forecasting application and maybe the WEF Nexus dashboard as it will emerge over the years.
+Here, we provide a tour of model applications in the domain of the management of water resources in Central Asia. This Chapter is currently under active development.
 
-## iEasyHydro Digital Assistant {#sec-ieasy_hydro}
+**Please check back later.**
+
+<!-- ## iEasyHydro Digital Assistant {#sec-ieasy_hydro}
 
 ## Hydro4U Count4D Water-Energy-Food Accounting Software {#sec-hydro4u-count4d}
 
-## Challenges in Operational Model Deployment {#sec-challenges-in-operational-deployment}
+## Challenges in Operational Model Deployment {#sec-challenges-in-operational-deployment} -->

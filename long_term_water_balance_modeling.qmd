@@ -135,11 +135,5 @@ A strategy for hydrological modeling of the regional Central Asian hydrology usi
 ## Discussion and Conclusions {#sec-discussion-and-conclusions}
 
 
-```{r}
-test_this <- 1
-library(ggplot2)
-```
-
-
 
 

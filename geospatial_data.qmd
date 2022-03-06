@@ -124,7 +124,7 @@ Sample output results for our demonstration catchment are shown in @fig-graphica
 
 As mentioned in the previous Section, we need to post-process the SUBBASINS, RIVERS and JUNCTIONS shapefiles so that they correctly contain the required fields as shown in @fig-required-gis-input-files-data. A good way to post-process the files is to start with the RIVERS layer, the continue with the JUNCTIONS layer and to end with the SUBBASINS layer.
 
-### JUNCTIONS and RIVER Layers
+### JUNCTIONS and RIVER Layers {#sec_junctions_and_rivers_layer}
 
 In editing the junctions layer, the basic ideas are to edit the junctions layer in a way to remove junctions that are not needed, given the desired subdivision of the larger basin into subbasins. For the demo catchment shown in @fig-junctions-editing, the siutation is explained in greater detail.
 
@@ -151,7 +151,7 @@ The abbreviated field names are used in QGIS since field names are limited in sh
 
 ![The final rivers shapefile attribute table is shown with the only river highlighted (1). Very importantly, the junt_id field referes to the *downstream junction* where the river drains into.](./images/data/12_rivers_attribute_table.jpg){#fig-rivers-attribute-table}
 
-### SUBBASINS Layer
+### SUBBASINS Layer {#sec-subbasins-layer}
 
 Now, we are working on the subbasins. The major subbasins are highlighted in the following @fig-subbasin-names. We call them Chatkal River downstream, Chatkal River upstream and Sandalash River. These big subbasins can be understood as hydrological response units (HRUs) for hydrological modeling. 
 

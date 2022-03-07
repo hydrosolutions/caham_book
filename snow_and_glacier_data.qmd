@@ -244,7 +244,6 @@ The original data is available from the [data repository](https://zenodo.org/rec
 
 ```{r glacierDischarge, message=FALSE, warning=FALSE}
 #| fig.cap = "Glacier discharge derived from Miles et al., 2021."
-
 # Calculate glacier discharge using the glacierDischarge_HM function of the 
 # riversCentralAsia package. An empirical relationship between glacier thinning 
 # rates by Hugonnet et al., 2021 and glacier discharge by Miles et al., 2021.  

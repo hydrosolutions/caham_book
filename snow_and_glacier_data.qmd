@@ -32,7 +32,6 @@ From the downloaded data, only the SWE and the validity mask (showing the pixels
 
 ```{r swe, warning=FALSE, message=FALSE, message=FALSE}
 #| fig.cap = "Snow water equivalent map of October 1, 1998 (source; HMASR)." 
-#| out.width = 90%
 dem <- raster(paste0(data_path, "GIS/16076_DEM.tif"))
 basin <- st_read(paste0(data_path, "GIS/16076_Basin_outline.shp"), quiet = TRUE)
 
@@ -97,10 +96,10 @@ sca_masked <- mask(sca_masked, basin)
 # Visualize snow water equivalent
 tmap_mode("view")
 tm_shape(sca_masked$layer.1) + 
-  tm_raster(n = 6,           
-            palette = "Blues",          
-            alpha = 0.8,          
-            legend.show = TRUE,           
+  tm_raster(n = 6,
+            palette = "Blues",
+            alpha = 0.8,
+            legend.show = TRUE, 
             title = "SWE (-)") + 
   tm_shape(basin) + 
   tm_borders(col = "black", lwd = 0.6)
@@ -112,7 +111,6 @@ The Randolph Glacier Inventory (RGI) v6.0 [@rgi60] makes a consistent global gla
 
 ```{r rgi, message=FALSE, warning=FALSE}
 #| fig.cap = "DEM & Glaciers (light gray) of the demo basin." 
-#| out.width = 90%
 # Loading the data
 rgi <- st_read(paste0(data_path, "GIS/16076_Glaciers_per_subbasin.shp"), 
                quiet = TRUE) |> 
@@ -166,7 +164,6 @@ glacier_thickness <- mask(glacier_thickness |>
 
 ```{r thickness, message=FALSE, warning=FALSE}
 #| fig.cap = "Glacier thickness by Farinotti et al., 2019" 
-#| out.width = 90%
 tmap_mode("view")
 tm_shape(dem) + 
   tm_raster(n = 6, 
@@ -195,7 +192,6 @@ The original per-glacier time series of thinning rates can be downloaded from th
 
 ```{r thinning, message=FALSE, warning=FALSE}
 #| fig.cap = "Average glacier mass change by Hugonnet et al., 2021."
-#| out.width = 90%
 hugonnet <- read_csv(paste0(data_path, "/GLACIERS/Hugonnet/dh_13_rgi60_pergla_rates.csv"))
 # Explanation of variables:
 # - dhdt is the elevation change rate in meters per year,
@@ -248,7 +244,6 @@ The original data is available from the [data repository](https://zenodo.org/rec
 
 ```{r glacierDischarge, message=FALSE, warning=FALSE}
 #| fig.cap = "Glacier discharge derived from Miles et al., 2021."
-#| out.width = 90%
 # Calculate glacier discharge using the glacierDischarge_HM function of the 
 # riversCentralAsia package. An empirical relationship between glacier thinning 
 # rates by Hugonnet et al., 2021 and glacier discharge by Miles et al., 2021.  

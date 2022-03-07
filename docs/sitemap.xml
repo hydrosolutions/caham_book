@@ -1,99 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hydrosolutions.github.io/caham_book/index.html</loc>
-    <lastmod>2022-02-26T17:08:58.962Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/preface.html</loc>
-<<<<<<< HEAD
-    <lastmod>2022-03-01T08:42:26.694Z</lastmod>
-=======
-    <lastmod>2022-03-02T10:09:16.899Z</lastmod>
->>>>>>> master
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/study_guide_materials.html</loc>
-    <lastmod>2022-02-26T17:08:58.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/hydrology_of_central_asia.html</loc>
-    <lastmod>2022-02-26T17:08:58.965Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/hydrological_systems.html</loc>
-    <lastmod>2022-02-26T17:08:58.965Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/example_river_basins.html</loc>
-    <lastmod>2022-03-06T11:27:20.931Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/data.html</loc>
-    <lastmod>2022-03-06T16:37:55.115Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/data_sources.html</loc>
-    <lastmod>2022-03-06T16:37:32.734Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/discharge_station_data.html</loc>
-    <lastmod>2022-03-06T16:37:53.832Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/geospatial_data.html</loc>
-    <lastmod>2022-03-06T16:38:06.039Z</lastmod>
-  </url>
-  <url>
     <loc>https://hydrosolutions.github.io/caham_book/snow_and_glacier_data.html</loc>
-<<<<<<< HEAD
-    <lastmod>2022-02-26T17:08:59.016Z</lastmod>
-=======
-    <lastmod>2022-03-02T10:11:21.053Z</lastmod>
->>>>>>> master
+    <lastmod>2022-03-07T06:52:14.928Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/climate_data.html</loc>
-    <lastmod>2022-03-06T16:37:26.663Z</lastmod>
+    <lastmod>2022-03-07T06:52:14.932Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/hydrological_modeling.html</loc>
-    <lastmod>2022-03-06T19:44:03.484Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/long_term_water_balance_modeling.html</loc>
-    <lastmod>2022-02-28T13:37:14.530Z</lastmod>
+    <lastmod>2022-03-07T06:52:14.933Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/hydraulic_hydrological_modeling.html</loc>
-    <lastmod>2022-03-06T16:38:03.976Z</lastmod>
+    <lastmod>2022-03-07T06:52:14.933Z</lastmod>
   </url>
   <url>
-    <loc>https://hydrosolutions.github.io/caham_book/modeling_using_predictive_inference.html</loc>
-    <lastmod>2022-02-26T17:08:59.018Z</lastmod>
+    <loc>https://hydrosolutions.github.io/caham_book/long_term_water_balance_modeling.html</loc>
+    <lastmod>2022-03-07T06:52:14.934Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/real_world_examples.html</loc>
-<<<<<<< HEAD
-    <lastmod>2022-03-06T16:32:58.459Z</lastmod>
-=======
-    <lastmod>2022-02-28T09:09:02.682Z</lastmod>
->>>>>>> master
+    <lastmod>2022-03-07T06:52:14.934Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/appendix_a_free_software.html</loc>
-    <lastmod>2022-02-26T17:08:59.019Z</lastmod>
+    <lastmod>2022-03-07T06:52:14.935Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/appendix_b_riverscentralasia_r_toolbox.html</loc>
-    <lastmod>2022-02-26T17:08:59.019Z</lastmod>
+    <lastmod>2022-03-07T06:52:14.937Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/appendix_c_quick_guides.html</loc>
-    <lastmod>2022-02-26T17:08:59.023Z</lastmod>
+    <lastmod>2022-03-07T06:52:14.939Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/appendix_d_exercise_solutions.html</loc>
-    <lastmod>2022-02-26T17:08:59.025Z</lastmod>
+    <lastmod>2022-03-07T06:52:14.939Z</lastmod>
   </url>
 </urlset>

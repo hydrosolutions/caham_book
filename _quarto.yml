@@ -37,6 +37,7 @@ book:
         - hydraulic_hydrological_modeling.qmd
         - long_term_water_balance_modeling.qmd
         - modeling_using_predictive_inference.qmd
+        - glacier_modeling.qmd
         - real_world_examples.qmd
   appendices:
     - appendix_a_free_software.qmd

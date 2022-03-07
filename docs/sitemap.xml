@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/snow_and_glacier_data.html</loc>
-    <lastmod>2022-03-07T06:52:14.928Z</lastmod>
+    <lastmod>2022-03-07T11:37:54.283Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/climate_data.html</loc>
@@ -39,5 +39,9 @@
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/appendix_d_exercise_solutions.html</loc>
     <lastmod>2022-03-07T06:52:14.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hydrosolutions.github.io/caham_book/glacier_modeling.html</loc>
+    <lastmod>2022-03-07T11:42:50.179Z</lastmod>
   </url>
 </urlset>

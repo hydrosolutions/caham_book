@@ -35,11 +35,10 @@ Different callout blocks appear throughout the text. These include *Exercise*, *
 
 ::: callout-note
 ## EXERCISE
-
 Exercise boxes are highlighted in blue color. With the description of the exercise, hints and a link to the solution are provided. Wherever they appear in the text, exercises should be completed before starting the next course chapter.
 :::
 
-::: callout-tip
+::: callout-task
 ## TASK
 :::
 
@@ -64,6 +63,8 @@ print(paste("a is set to", a))
 
 
 ## Materials {#sec-materials .unnumbered}
+In the highly intensive hydrological modeling course at GKU, students have to pass 4 GRADED EXERCISEs to be admitted to the final presentation in addidion to preparatory home work. The following section describes the daily course content as well as the homework and the GRADED EXERCISEs with links to the relevant supporting chapters in the course book. The descriptions of the GRADED EXERCISEs are highlighted with exercise boxes.     
+
 
 ### Day 1: Introduction & Installation of Software {#sec-study-guide-day1 .unnumbered}
 
@@ -74,7 +75,7 @@ Read [Chapter 1: A short history of Water in Central Asia](#sec-short-history) a
 -   [RStudio](https://www.rstudio.com/products/rstudio/download/)\
 -   [RS Minerve](https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve/telechargement-rsm.html)
 
-If you have not used the software above before we recommend the following resources to get your started (remember, more detailed instructions are available in the [Appendix](#section-appendix-open-source-resources)):
+If you have not used the software above before we recommend the following resources to get your started (remember, more detailed instructions for most tasks are available in the [Appendix](#section-appendix-open-source-resources)):
 
 -   [QGIS training manual](https://docs.qgis.org/3.16/en/docs/training_manual/index.html)\
 -   [Modern Dive for getting started with R and RStudio](https://moderndive.com/index.html)\
@@ -82,14 +83,28 @@ If you have not used the software above before we recommend the following resour
 
 Inevitably, you will also perform a lot of geocomputations with R in the future. After all, a GIS system like QGIS is nothing more than a nicely packed bunch of geocomputation algorithms and a window for visualizing geospatial assets. Well, rest assured, all of this can be done inside R. It is recommended therefore that you also consult the following excellent online resource [Geocomputation with R](https://geocompr.robinlovelace.net/index.html).
 
-:::callout-tip
-#### TASK
-Find a peer or two with whom you will work on a basin of your selection. Download the data from the corresponding river basin an
+::: callout-note
+## HOMEWORK
+Day 1 involves a lot of preparatory homework:  
+- Reading the introductory chapters linked above and   
+- Downloading and installing the required software linked above.  
+
+The homework is not graded but completion is a requirement for being able to work through the course. 
 :::
 
-### Day 2: Catchment Characterization {#sec-study-guide-day2 .unnumbered}
+### Day 2: Hydrological modelling and processes
+Day 2 involves a continued introduction to the hydrological modelling process and a deepending of the understanding what hydrological models are used for as well as a first part on hydrological processes (the partitioning of rainfall, transfer of water through the hydrological compartments).
 
-Read the River Basin sample studies in [Part I: Chapter 3](#sec-example-river-basins) and familiarize yourself with the Data available in [Part II](#sec-data). Do the catchment characterization of the  basin that you selected to work on by filling in the Table @tbl-example-basin-characterization below. If you have downloaded the entire folder on your local drive, you already have all the data available for the analysis.
+::: callout-note
+## HOMEWORK
+- Roleplay on model uses. Read the [role play exercise](https://github.com/hydrosolutions/caham_book/blob/master/learningFiles/RoleplayModelUseCases.pdf). You will be assigned a role. With your study colleagues, discuss the questions and take notes (about 15 min). One person per group will briefly (1 min) present the answers to the questions. 
+- In preparation of tomorrows lecture and GRADED EXERCISE: Read the chapter on the [case studies of Central Asian river basins](#sec-example-river-basins) and on [Hydraulic-Hydrological Modeling] (#sec-hydraulic-hydrological-modeling).   
+
+The homework is not graded but supports reflection about the use of hydrological models and how to judge the quality of hydrological models on day 3. 
+:::
+
+### Day 3: Hydrological modelling concepts and Catchment Characterization {#sec-study-guide-day2 .unnumbered}
+Watch the [tutorial video] explaining one method for the catchment characterization. Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the catchment characterization of the basin that you selected to work on by filling in the Table @tbl-example-basin-characterization below. If you have downloaded the entire folder on your local drive, you already have all the data available for the analysis.
 
 | ATTRIBUTE                                             | VALUE                 |
 |-------------------------------------------------------|-----------------------|
@@ -105,12 +120,12 @@ Read the River Basin sample studies in [Part I: Chapter 3](#sec-example-river-ba
 | Annual norm discharge volume                          | 3.28 km^3^            |
 | Annual norm specific discharge                        | 239 mm                |
 | ***Climate***                                         |                       |
-| Mean basin temperature $T$ [@karger_2017]             | -5.96 deg. Celsius    |
-| Mean basin precipitation $P$ [@beck2020]              | 351 mm                |
-| Potential Evaporation $E_{pot}$ [@Trabucco2019]       | 929 mm                |
+| Mean basin temperature $T$ [@karger_2017]| -5.96 deg. Celsius    |
+| Mean basin precipitation $P$ [@beck_2020]              | 351 mm                |
+| Potential Evaporation $E_{pot}$ [@trabucco_2019]       | 929 mm                |
 | Aridity Index $\phi = E_{pot} / P$                    | 2.7                   |
-| Aridity Index [@Trabucco2019]                         | 3.6                   |
-| ***Land Cover [@CopernicusLandCover]***               |                       |
+| Aridity Index [@trabucco_2019]                         | 3.6                   |
+| ***Land Cover [@copernicus_landcover_2019]***               |                       |
 | Shrubland                                             | 8 km^2^               |
 | Herbaceous Vegetation                                 | 4'241 km^2^           |
 | Crop Land                                             | 0.5 km^2^             |
@@ -119,48 +134,70 @@ Read the River Basin sample studies in [Part I: Chapter 3](#sec-example-river-ba
 | Snow and Ice                                          | 969 km^2^             |
 | Permanent Water Bodies                                | 80 km^2^              |
 | ***Land Ice***                                        |                       |
-| Total glacier area [@glims_global]                       | 875 km^2^             |
+| Total glacier area [@rgi60]                       | 875 km^2^             |
 | Total glacier volume (calculated with [@erasov_1968]) | 699 km^3^             |
 : As an example, key relevant basin statistics for Gunt river basin are shown with individual data sources indicated. Using the data available in the data pack, you should characterize your case study basin in a similar way. {#tbl-example-basin-characterization}
 
-### Day 3: Geospatial Data & Introduction to Linear Reservoir Models {#sec-study-guide-day3 .unnumbered}
+::: callout-note
+## GRADED EXERCISE : Catchment characterization  
+Following the video tutorial, fill in the table above with the characteristic numbers of your catchment together with your colleague. Compare your numbers to the ones of the Gunt catchment (table above). Submit your table via email to the lecturer before the start of tomorrows lecture.   
+:::
 
-Read [Chapter 5 on Geospatial Data](#sec-geospatial-data) and prepare the GIS layers for import into RS Minerve for your sample catchment. Step-by-step instructions of how to do this are given there.
+### Day 4: Discharge and climate data
+Yet more data preparation is required before you can start modelling: The review of the basins discharge and climate forcing. 
 
-As homework, read the Chapter 9.2 and do the exercise on the linear reservoir model.
-[//]: # (TODO: Proper Chapter reference here!)
+::: callout-note
+## GRADED EXERCISE : Discharge characterization  
+Read the chapters on [discharge station data](##sec-discharge-station-data) and [climate data](#sec-climate-data) and, together with your colleague, perform a discharge characterization of your basin following the video tutorial. 
 
-### Day 4: Discussion of Types of Hydrological Models {#sec-study-guide-day4 .unnumbered}
+Submit your discharge characterization via email to your lecturer before the start of tomorrows lecture. 
+:::
+
+### Day 5: Discussion of Types of Hydrological Models {#sec-study-guide-day4 .unnumbered}
 
 Hydrological models in general are discussed. Consult the introductory Section of [Part III: Hydrological Modeling and Applications](#sec-hydrological-modeling). All three types of modeling approaches will be presented but with a focus on hydraulic-hydrological rainfall-runoff modeling.
 
-As homework, choose an R tutorial to work on from the [Appendix A: Software](#sec-open-resouces-software-R) which suits your skills. If you are already fluent in R, you can for example work on your visualization skills in R by producing nice plots of your sample catchment which you may include in the final presentation on the last day of the workshop. You may let yourselves be inspired by the R code supplied in this book.
+::: callout-note
+## HOMEWORK : RS Minerve tutorial  
+- Read the [modelling chapter](#sec-hydrological-modeling)  
+- Go through the RS Minerve tutorial (TODO LINK)  
 
-### Day 5: The HBV Model {#sec-study-guide-day5 .unnumbered}
+This homework is not graded but basic knowledge of RS Minerve is required for the second part of the course.  
+:::
 
-A commonly used hydrological model is introduced. Read Chapters [9.4 on the data preparation](#sec-rsminerve-data-preparation) and [6.5 on the HBV model](#sec-hbv-model) and the pre-requisite reading listed therein. It is recommended to do the tasks suggested in the course book to get more familiar with RSMinerve.
 
-As an exercise, you will implement a hydrological model of your catchment based on the catchment characterization that you performed on day 2 and the geospatial layers that you prepared on day 3.
+### Day 6 & 7: Model Calibration and Validation {#sec-study-guide-day6 .unnumbered}
 
-### Day 6: Model Calibration and Validation {#sec-study-guide-day6 .unnumbered}
+Read the chapter on [Model calibration and validation](#section-model-calibration-and-validation) and go through the example of the Nauvalisoy catchment which illustrates the iterative model refinement process.   
+Students will implement a hydrological model of their study catchment and calibrate it. 
 
-Read Chapter [6.6](#section-model-calibration-and-validation) and go through the example of the Nauvalisoy catchment which illustrates the iterative model refinement process.\
-As homework students will calibrate and validate the hydrological models of their own sample catchment.
+::: callout-note
+## GRADED EXERCISE : Model implementation and calibration in RS Minerve   
+- Read the [modelling chapter](#sec-hydrological-modeling)  
+- Implementing a hydrological model of your study basin in RS Minerve.     
 
-### Day 7: Case Studies {#sec-study-guide-day7 .unnumbered}
+Show your working model and calibration results to your lecturer during group work session on day 7.  
+:::
 
-Discussion of the calibration and validation exercise followed by a presentation of the Gunt basin case study.
-As homework students will write an abstract about your modeling work for the final conference. Instructions for abstract writing are available [here](./learningFiles/AbstractSubmissionGuide.pdf). The abstract submission deadline will be communicated at the beginning of the course.
+::: callout-note
+## GRADED EXERCISE : Abstract submission for student conference  
+- Carefully read the [abstract submission guidelines](https://github.com/hydrosolutions/caham_book/blob/master/learningFiles/AbstractSubmissionGuide.pdf) and write an abstract for your model.       
 
-### Day 8: Real-World Applications {#sec-study-guide-day8 .unnumbered}
+Submitt your abstract by Saturday, 10 a.m. Almaty time to your lecturer by email.  
+:::
 
-Presentation of examples of real-world applications of hydrological models.
 
-As homework, students will finalize the presentation of their course work. The presentation will have to submitted to the conference board prior to the start of the conference. Details will be communicated during the course.
-
-### Day 9: Student Conference & Course Wrap Up {#sec-study-guide-day9 .unnumbered}
+### Day 8: Student Conference & Course Wrap Up {#sec-study-guide-day9 .unnumbered}
 
 The last day of the course is organized as a student conference where students present their modeling work on their respective case study catchment. The groups need to prepare a presentation of 12 minutes duration. Each presentation will be followed by a 3 minutes Q&A session. After all the groups have presented, impressions and feedback will be shared by the teachers followed by a larger group discussion.
 
+Only students that have passed the GRADED EXERCISEs will be admitted to the student conference which consists the final exam. 
+
 At the end, students are invited to provide feedback with regard to their impression of the course. A key question will be hoe the course can be further improved to reach future students even more effectively.
 
+::: callout-note
+## FINAL EXAM : Model presentation  
+- Present an overview of your catchment, discharge characterization and your model implementation and results at the students conference.        
+:::
+
+## References

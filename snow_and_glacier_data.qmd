@@ -1,4 +1,5 @@
-## Snow and Glacier Data {#sec-snow-and-glacier-data}
+# Snow and Glacier Data {#sec-snow-and-glacier-data}
+
 ## Introduction
 The runoff of the rivers Syr Darya and Amu Darya consists of 65%-75% snow melt, 23% precipitation and 2-8% glacier melt approximately [@armstrong_runoff_2019]. In smaller, highly glaciated catchments, the glacier contribution to discharge can be more important [@khanal_variable_2021]. Generally, the cryosphere is a major contributor to the water balance in Central Asia [@barandun_state_2020]. While glacier runoff is a small contributor to the annual runoff, it is seasonally important as it covers the irrigation demand in summer, when snow melt is over [@kaser_contribution_2010]. 
 
@@ -244,7 +245,6 @@ The original data is available from the [data repository](https://zenodo.org/rec
 
 ```{r glacierDischarge, message=FALSE, warning=FALSE}
 #| fig.cap = "Glacier discharge derived from Miles et al., 2021."
-
 # Calculate glacier discharge using the glacierDischarge_HM function of the 
 # riversCentralAsia package. An empirical relationship between glacier thinning 
 # rates by Hugonnet et al., 2021 and glacier discharge by Miles et al., 2021.  
@@ -282,4 +282,5 @@ The glacier thickness data set is validated only at few locations as measurement
 
 @hugonnet_accelerated_2021 & @miles_health_2021 provide the uncertainties of their estimates for per-glacier glacier thinning & discharge rates in the data set itself. They typically lie around p/m 150%. 
 
- ## References
+ ## References {#sec-snow-and-glacier-data-references}
+ 

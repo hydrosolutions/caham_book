@@ -393,3 +393,7 @@ Apart from the identification of extremal periods since as the 1969 discharge ye
 Obvious errors can be spotted like this and corrected. However, non-obvious data errors should be communicated with the data producing agency and replacement strategy jointly defined. If this is not possible, the values could be set to `NA` and then imputed as shown above.
 
 The discharge data is now ready to be used for modelling and we can move on to the next Chapter on [Geospatial Data](#sec-geospatial-data).
+
+## References {#sec-discharge-station-data-references}
+
+

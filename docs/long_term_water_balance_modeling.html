@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
   <meta charset="utf-8">
-<<<<<<< HEAD
-  <meta name="generator" content="quarto-0.9.41">
-=======
-  <meta name="generator" content="quarto-0.3.62">
->>>>>>> master
+  <meta name="generator" content="quarto-0.9.71">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software.">
   <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
@@ -205,7 +201,7 @@
     <ul id="quarto-sidebar-section-hydrological_modelingqmd" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydraulic-Hydrological Modeling</span></a>
+  <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -220,7 +216,12 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Real World Examples</span></a>
+  <a href="./glacier_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of discharge from glacier melt</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Examples</span></a>
   </div>
 </li>
     </ul>
@@ -271,6 +272,7 @@
 </ul></li>
 <li><a href="#sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"> <span class="header-section-number">9.3</span> Results</a></li>
 <li><a href="#sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"> <span class="header-section-number">9.4</span> Discussion and Conclusions</a></li>
+<li><a href="#sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"> <span class="header-section-number">9.5</span> References</a></li>
 </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/long_term_water_balance_modeling.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -357,7 +359,7 @@ R_{N} = (1 + \gamma)L E
 <p>In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3 . Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200’000) from the corresponding region. The maps were downloaded from <a href="https://maps.vlasenko.net">https://maps.vlasenko.net</a> and subsequently geo-referenced in QGIS <span class="citation" data-cites="QGIS_software">(<a href="#ref-QGIS_software" role="doc-biblioref">QGIS Development Team 2021</a>)</span>. Data from northern Afghan rivers’ stream flow characteristics and the location of these gauging stations was taken from <span class="citation" data-cites="usgs_529_2010">(<a href="#ref-usgs_529_2010" role="doc-biblioref">Olson and Williams-Sether 2010</a>)</span>.</p>
 <p>For each gauge, the contributing area was delineated in R with the WhiteboxTools v2.0.0 and long-term norm mean discharge was obtained over variable observation periods between 1900 and 2018 was acquired. For a few selected stations, monthly and decadal time series data are available over the entire observational record. The FLO1K, global maps of mean, maximum and minimum annual stream flow at 1 km resolution from 1960 through 2015 were retrieved <span class="citation" data-cites="barbarossa_2018">(<a href="#ref-barbarossa_2018" role="doc-biblioref">Barbarossa et al. 2018</a>)</span>. The goodness of the FLO1K product in the Central Asia domain was validated at the locations of the 277 gauges through linear regression.</p>
 <p>Geospatial information on glaciers was taken from the Randolph Glacier Inventory (RGI) 6.0. Information from 16’617 glaciers was retrieved, together with glacier length, thickness and glacier thinning rates <span class="citation" data-cites="glims_global">Hugonnet et al. (<a href="#ref-hugonnet_accelerated_2021" role="doc-biblioref">2021</a>)</span>.</p>
-<p>The CHELSA V21 global daily high-resolution climatology, available from 01-01-1979 until 31-12-2011 was processed over the Central Asia domain to map climate trends, including on temperature, precipitation, snow fraction. The data is available upon request from this site: https://chelsa-climate.org <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span>. The CHELSA V21 product is corrected for snow undercatch in the high elevation ranges and thus is able to better represent actual high mountain precipitation than other available global climatologies <span class="citation" data-cites="beck_2020">(<a href="#ref-beck_2020" role="doc-biblioref"><strong>beck_2020?</strong></a>)</span>. The aridity index (AI) fields were taken from the bio-climate CHELSA V21 data set and compared with the CGIAR AI product <span class="citation" data-cites="trabucco_2019">(<a href="#ref-trabucco_2019" role="doc-biblioref"><strong>trabucco_2019?</strong></a>)</span>. Data on an additional 70 bio-climatic indicators were downloaded from the CHELSA V21 1980 - 2010 climatology and statistics extracted for each of the 277 gauged catchments, together with the AI.</p>
+<p>The CHELSA V21 global daily high-resolution climatology, available from 01-01-1979 until 31-12-2011 was processed over the Central Asia domain to map climate trends, including on temperature, precipitation, snow fraction. The data is available upon request from this site: https://chelsa-climate.org <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span>. The CHELSA V21 product is corrected for snow undercatch in the high elevation ranges and thus is able to better represent actual high mountain precipitation than other available global climatologies <span class="citation" data-cites="beck_2020">(<a href="#ref-beck_2020" role="doc-biblioref">Beck et al. 2020</a>)</span>. The aridity index (AI) fields were taken from the bio-climate CHELSA V21 data set and compared with the CGIAR AI product <span class="citation" data-cites="trabucco_2019">(<a href="#ref-trabucco_2019" role="doc-biblioref">Trabucco and Zomer 2019</a>)</span>. Data on an additional 70 bio-climatic indicators were downloaded from the CHELSA V21 1980 - 2010 climatology and statistics extracted for each of the 277 gauged catchments, together with the AI.</p>
 <p>High-resolution crop disaggregated irrigated areas were mapped over the entire Central Asia domain <span class="citation" data-cites="ragettli_2018">(<a href="#ref-ragettli_2018" role="doc-biblioref">Ragettli, Herberz, and Siegfried 2018</a>)</span>. Like this 30 m crop maps were produced with Google Earth Engine using unsupervised classification for the years 2016 - 2020. Vector information on the irrigation systems in the Chu and Talas River basins as well as from the Uzbek Fergana Oblast, including the land cadaster there, are available.</p>
 <p>Finally, data from the GOODD data set was used to retrieve information from 88 dams in the region of interest <span class="citation" data-cites="goodd_2020">(<a href="#ref-goodd_2020" role="doc-biblioref">Mulligan, Soesbergen, and Sáenz 2020</a>)</span>.</p>
 </section>
@@ -371,6 +373,9 @@ R_{N} = (1 + \gamma)L E
 </section>
 <section id="sec-discussion-and-conclusions" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="sec-discussion-and-conclusions"><span class="header-section-number">9.4</span> Discussion and Conclusions</h2>
+</section>
+<section id="sec-long-term-water-balance-modeling-references" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="sec-long-term-water-balance-modeling-references"><span class="header-section-number">9.5</span> References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
@@ -379,6 +384,9 @@ Arora, Vivek K. 2002. <span>“The Use of the Aridity Index to Assess Climate Ch
 </div>
 <div id="ref-barbarossa_2018" class="csl-entry" role="doc-biblioentry">
 Barbarossa, Valerio, Mark A. J. Huijbregts, Arthur H. W. Beusen, Hylke E. Beck, Henry King, and Aafke M. Schipper. 2018. <span>“Flo1k, Global Maps of Mean, Maximum and Minimum Annual Streamflow at 1 Km Resolution from 1960 Through 2015.”</span> <em>Scientific Data</em> 5 (1): 180052. <a href="https://doi.org/10.1038/sdata.2018.52">https://doi.org/10.1038/sdata.2018.52</a>.
+</div>
+<div id="ref-beck_2020" class="csl-entry" role="doc-biblioentry">
+Beck, Hylke E., Eric F. Wood, Tim R. McVicar, Mauricio Zambrano-Bigiarini, Camila Alvarez-Garreton, Oscar M. Baez-Villanueva, Justin Sheffield, and Dirk N. Karger. 2020. <span>“Bias Correction of Global High-Resolution Precipitation Climatologies Using Streamflow Observations from 9372 Catchments.”</span> <em>Journal of Climate</em> 33 (4): 1299–1315. <a href="https://doi.org/10.1175/JCLI-D-19-0332.1">https://doi.org/10.1175/JCLI-D-19-0332.1</a>.
 </div>
 <div id="ref-berghuijs_2020" class="csl-entry" role="doc-biblioentry">
 Berghuijs, W. R., S. J. Gnann, and R. A. Woods. 2020. <span>“Unanswered Questions on the Budyko Framework.”</span> <em>Hydrological Processes</em>.
@@ -445,6 +453,9 @@ Ragettli, Silvan, Timo Herberz, and Tobias Siegfried. 2018. <span>“<span class
 </div>
 <div id="ref-sposito_2017" class="csl-entry" role="doc-biblioentry">
 Sposito, Garrison. 2017. <span>“<span class="nocase">Understanding the Budyko Equation</span>.”</span> <em>Water</em> 9 (4): 236. <a href="https://doi.org/10.3390/w9040236">https://doi.org/10.3390/w9040236</a>.
+</div>
+<div id="ref-trabucco_2019" class="csl-entry" role="doc-biblioentry">
+Trabucco, Antonio, and Robert Zomer. 2019. <span>“<span class="nocase">Global Aridity Index and Potential Evapotranspiration (ET0) Climate Database v2</span>,”</span> January. <a href="https://doi.org/10.6084/m9.figshare.7504448.v3">https://doi.org/10.6084/m9.figshare.7504448.v3</a>.
 </div>
 <div id="ref-Zhang2015" class="csl-entry" role="doc-biblioentry">
 Zhang, D., Z. Cong, G. Ni, D. Yang, and S. Hu. 2015. <span>“<span class="nocase">Effects of snow ratio on annual runoff within the Budyko framework</span>.”</span> <em>Hydrology and Earth System Sciences</em> 19 (4): 1977–92. <a href="https://doi.org/10.5194/hess-19-1977-2015">https://doi.org/10.5194/hess-19-1977-2015</a>.
@@ -531,7 +542,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./hydraulic_hydrological_modeling.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydraulic-Hydrological Modeling</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

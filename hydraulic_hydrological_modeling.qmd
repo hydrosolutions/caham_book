@@ -1,6 +1,215 @@
 # Hydrological-Hydraulic Modeling {#sec-hydraulic-hydrological-modeling}
 
-Here, we provide an introduction to hydrological modeling using rainfall-runoff type models. This Chapter is currently under active development.
+Hydrological-hydraulic models are used for different purposes, including for the design of basin plans while taking into consideration different development options, for the study of effective water resources management schemes while taking into consideration the different types of sectoral users and uses of water in a basin (ideally also including minimal environmental flows), and for the detailed study of basin-scale climate impacts and their repercussions.
+
+This Chapter introduces combined hydrologic and hydraulic modeling using the freely available graphical modeling environment RSMinerve [@rsminerve_software; @rsminerve_um; @rsminerve_tm][^rs_minerve-1]. @fig-rsminervemodelpreview shows a screen shot of a model of the Gunt river basin setup in RSMinerve as a teaser.
+
+[^rs_minerve-1]: The reader is advised to consult the user manual and familiarizes themselves with the walk through examples that are discussed and presented there. They give a solid first hands-on introduction about the basic functionalities of the modeling environment.
+
+```{r}
+#| label: fig-rsminervemodelpreview
+#| echo: false
+#| fig-cap: "Screenshot of an RSMinerve model setup for Gunt river basin."
+knitr::include_graphics('./images/hydrological_modeling/rsminerveModelPreview_lr.png')
+```
+
+It should be noted that other modeling packages exist for hydrological-hydraulic modeling. Among others, these include
+
+-   [WEAP: Water Evaluation and Planning System](https://www.weap21.org){target="_blank"},
+-   [SWAT: Soil & Water Assessment Tool](https://swat.tamu.edu){target="_blank"}, and
+-   [Mike Hydro Basin](https://www.mikepoweredbydhi.com/products/mike-hydro-basin){target="_blank"}
+
+As some if not most of these modeling packages are license-based, the advantage of using the combination of [QGIS](https://www.qgis.org/en/site/), [R](https://www.r-project.org) and [RSMinerve](https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve.html) is that this is a completely free software suit for any user and use scenario.
+
+Departing from catchment GIS data, RS Minerve allows to quickly develop, test and calibrate different types of lumped conceptual precipitation runoff models while taking into account the evolution of water balances in glacier, snow, surface and subsurface compartments over time and in different sections in the catchment under consideration. This is demonstrated here for the Gunt River Basin in the Pamirs (see Chapter \@ref(GuntRB) for more information).
+
+The main goal in this Chapter is to familiarize the student on how to setup such model, calibrate and validate it for past and current climate conditions and then to **study climate change impacts in the basin**.
+
+
+
+## Prerequisites {#section-rsminerve-prerequisites}
+Before delving into this section of the course material, you should have at least:   
+
+* RS Minerve installed [How to install RS Minerve](#section-quickguides-how-to-download-and-install-rsminerve). This tutorial was written using RS Minerve 2.9.1.0. 
+* Read chapters 1 and 2 from the RS Minerve user manual [@rsminerve_um] (the manual can be downloaded from the CREALP website, see Section [How to install RS Minerve](#section-quickguides-how-to-download-and-install-rsminerve)).    
+* Familiarize yourself with RS Minerve by following Example 1 in the RS Minerve user manual.  
+* Read the HBV model description in the RS Minerve technical manual (Chapter 2.7) [@rsminerve_tm].   
+
+You may have to dig deeper into the user manual and the technical manual within the frame of the course but the above points are the minimum requirement to get started.   
+If you fulfill the prerequisites, you should be able to do the tutorial with the minimal description in the modeling section. However, detailed step-by-step descriptions are linked for each task. 
+
+
+## The general modeling process {#section-general-modelling-process}
+Hydrological modeling is an iterative process (see @fig-iterative-modelling-process). At the beginning, the purpose of the model has to be defined. The model goal determines the spatial and temporal resolution of the hydrological model. E.g. for analyzing the impact of climate change on seasonal, regional flows we are interested in the seasonal flow volumes whereas a model used for early warnings from floods requires high temporal resolution and a high model performance for threshold overflows. See for example @bloschl_scale_1995 for a thorough discussion of scales in hydrological modeling. Please note that the definition of the model goal also determines the performance criteria the model has to fulfill in order to be judged suitable for its purpose. As a next step, data about the catchment is gathered (see for example basin characterization in the Chapter [Case Studies](#CaseStudies)) and a first conceptual model of the dominant flow processes in the basin is drafted (e.g. low peaks and significant base flow point to large storage capacity in the basin whereas high peaks and low base flow indicate small storage capacity in the basin). The conceptual model of the river catchment is then implemented with a mathematical model (e.g. the HBV model in RS Minerve) and parameterized as well as possible (i.e. using reasonable estimates for initial parameter values). The model is then calibrated and validated (i.e. tested with a previously unseen data set) as described further below If the performance criteria for the model calibration are satisfied, a conscientious modeler performs a sensitivity analysis to gain confidence in the model. From each of these steps, the modeler can (and generally has to) go back to a previous step to gather more data, modify the conceptual model, adapt the model implementation, re-calibrate the model and/or re-evaluate the model sensitivity. Also, the modeler is aware of the inherent uncertainties of the data and the model (see for example @refsgaard_uncertainty_2007 for a discussion on how to include uncertainties in the modeling process). The described steps produce a model (or an ensemble of models) that satisfy the performance criteria, only now the modeler can start actually using the model for the purpose it was implemented for.   
+
+```{r}
+#| label: fig-iterative-modelling-process
+#| echo: false 
+#| fig-cap: "The modelling process is iterative."
+knitr::include_graphics("./images/hydrological_modeling/fig_modelling_process.png")
+```
+
+Modeling is an involved process requiring highly specialized knowledge and skills. A modeler has the responsibility to clearly state the underlying assumptions, uncertainties and limitations of their model, especially if it is to be used in decision making. This book chapter will guide you through the modeling process with the example of the Nauvalisoy catchment.  
+
+## The most simple model - the linear reservoir model {#section-rsminerve-why-model-introduction}
+Why do we do hydrological modeling? Typically we want to know how much river flow we can expect at a given time in the future so we can plan our water consumption ahead, harness against floods or implement measures against droughts. So how can we forecast river discharge? For example, one could use the long term seasonal average discharge as the likely future discharge. However, in some years we have high discharge and in some years we have low discharge (@fig-discharge-nauvalisoy). How to tell when you have which discharge?
+
+```{r}
+#| label: fig-discharge-nauvalisoy
+#| echo: false
+#| warning: false
+#| error: false
+#| fig-cap: "Seasonal discharge of the Nauvalisoy river illustrating the variability of the discharge."
+library(tidyverse)
+library(lubridate)
+library(tsibble)
+library(riversCentralAsia)
+
+seasonal_discharge <- ChirchikRiverBasin |>
+  dplyr::filter(code == "16298", 
+                year(date) > 1984, 
+                year(date) < 1993) |>
+  mutate(yearmonth = yearmonth(date)) |>
+  group_by(yearmonth) |>
+  summarize(`Q [m3/s]` = mean(data))
+
+ggplot(seasonal_discharge) + 
+  geom_line(aes(yearmonth, `Q [m3/s]` * 60*60*24*365*10^(-6))) + 
+  labs(x = "", y = "Q [10^6 m3/a]") + 
+  ylim(0, 500) + 
+  theme_bw()
+```
+
+Let's go back to the water balance: Where does the water in the river come from? Precipitation. When we compare precipitation and discharge time series we see that the two are related (@fig-precipitation-nauvalisoy).    
+
+```{r}
+#| label: fig-precipitation-nauvalisoy
+#| echo: false
+#| warning: false
+#| error: false
+#| fig-cap: "Discharge (red) and precipitation (grey) in the Nauvalisoy catchment."
+
+climate <- load_minerve_input_csv("../caham_data/SyrDarya/Chirchiq/RSMinerve/ERA5_Nauvalisoy_1981_2013.csv")
+
+seasonal_precipitation <- mutate(climate, yearmonth = yearmonth(date)) |>
+ dplyr::filter(type == "P") |>
+ group_by(yearmonth) |>
+ summarize(`P [mm]` = sum(value)) |>
+ dplyr::filter(year(yearmonth) > 1984,
+               year(yearmonth) < 1993)
+
+ggplot(seasonal_precipitation) +
+ geom_col(aes(yearmonth, `P [mm]`), fill = "gray") +
+ geom_line(data = seasonal_discharge,
+           aes(yearmonth, `Q [m3/s]` * 60*60*24*365*10^(-6))) +
+ labs(x = "", y = "P [mm], Q [10^6 m3/a]") +
+ ylim(0, 500) + 
+ theme_bw()
+```
+
+Higher precipitation in the catchment is positively correlated with higher discharge in the river with a delay. Or in other words: The discharge is the catchments hydrological response to precipitation. The relationship is can be expressed as follows: 
+
+$$
+Q \propto P \cdot K
+$$    
+
+In words this reads: Discharge (Q) is proportional to precipitation (P) times a transfer function (K) that defines the delay of the signal. The transfer function K describes how precipitation becomes river discharge and depends on the catchment characteristics, importantly on the storage capacity of the catchment. In reality, the transformation of precipitation to discharge is quite complex but we can simplify the reality and come up with a basic conceptual model of our river catchment: a large bath tube with the area of the catchment and an outlet at the bottom called the *linear reservoir model* (@fig-from-catchment-to-bucket).  
+
+```{r}
+#| label: fig-from-catchment-to-bucket
+#| echo: false
+#| fig-cap: "From the real-life system (left) to a linear reservoir (right)."
+knitr::include_graphics("images/hydrological_modeling/fig_fromCatchmentToBucket.png")
+```
+
+The linear reservoir model describes the discharge from the reservoir as linearly proportional to the storage in the reservoir:   
+
+$$
+Q(t) = 1/k \cdot S(t)
+$$
+
+Where Q is discharge, S is the storage and k is a constant called storage coefficient depending on the storage capacity of the reservoir. If k is small, the stored water will run out quickly, if k is large, the stored water will run out slowly. (t) indicate time dependent variables, i.e. variables that change over time.   
+Substitute the linear reservoir equation into the water balance:  
+
+$$
+P = Q + dS/dt \Leftrightarrow P = Q + k \cdot dQ/dt
+$$
+
+Where P is the *excess* precipitation, i.e. the precipitation that is not intercepted by plants or ponds but contributes to discharge. The above is a differential equation and can be re-arranged:  
+
+$$(P-Q) \cdot dt = k \cdot dQ$$
+
+and integrated and solved for Q(t) (dig out your mathematics!). In the example in the box below we discretized the water balance with the linear relationship between discharge and storage change in the reservoir:
+
+$$\frac{P_{t_1}+P_{t_1}}{2} - \frac{Q_{t1}+Q_{t_2}}{2} = \frac{k}{t_2-t_1} \cdot (Q_{t_2}-Q_{t_1})$$
+and solved the equation for $Q_{t_2}$ (Inspiration from @Pedersen1980).   
+We assume that at the beginning of our experiment, we don't have a discharge as the bucket is empty.   
+
+$$Q(t) = P(t) \cdot (1-e^{(-t/k)})$$
+
+This is the equation for the rising discharge curve. Once you turn off the recharge of the reservoir (once you stop pouring water into the bucket), the discharge from the bucket can be described as:  
+
+$$Q(t) = Q^* \cdot e^{-\tau/k}$$
+
+Which describes the receding limb of the hydrograph ([What is a hydrograph](#section-quickguides-what-is-a-hydrograph)) with $\tau$ being the time since the recharge stopped. 
+
+Understanding the linear reservoir model is the first steping stone to hydrological modeling as many concenptual models build up on linear reservoirs. 
+
+
+## The HBV model {#section-hbv-model}
+The HBV (Hydrologiska Byråns Vattenavdelning) model is a conceptual rainfall-runoff model which is suitable for many snow-fed river catchments [@bergstrom_development_1976; @lindstrom_development_1997]. We recommend you to study the short description of the HBV model in the RS Minerve technical manual [@rsminerve_tm]. Keep these 4 pages at hand for the following exercises so you can look up how the parameters influence the flow of water through the HBV model. A brief reminder of the HBV model implemented in RS Minerve is given in @fig-overview-hbv-model.  
+In RSMinerve, the catchment area is typically sub-divided into areas with similar hydrological properties, so called hydrological response units or HRUs, for which the discharge is computed individually. Several HRUs can be connected. This approach is often numerically more efficient than a gridded discretization of the catchment area.          
+
+```{r}
+#| label: fig-overview-hbv-model
+#| echo: false
+#| fig-cap: "The HBV model concept (source: RS MINERVE Technical Manual)."
+knitr::include_graphics("images/hydrological_modeling/fig_HBVconceptualModel.png")
+```
+
+Water enters the HBV model in the form of precipitation $P$, which is a model forcing provided by the user. Precipitation is separated into solid (snow fall $SF$) and liquid (rainfall $RF$) depending on the termperature $T$, the second model forcing provided by the user. The uppermost component of the HBV model is the snow model (the two top-most blue reservoirs in @fig-overview-hbv-model). A degree-day-melt model melts snow and refreezes water ($M_{sn}$).  
+The rainfall plus the snow melt are accumulated to the precipitation equivalent $P_{eq}$ which enters the uppermost soil layer represented in HBV by the soil humidity reservoir of the root zone. This non-linear reservoir represents the loss of water to direct evaporation and to plant evaporation. Potential evaporation $ETP$ thereby is another model forcing, albeit optional, as it can be provided by the user or calculated based on temperature and latitude by RS Minerve.  
+Water that is not evaporated or held in the root zone is recharged to deeper soil layers, the upper reservoir. The upper reservoir constitutes the unsaturated zone below the root zone and produces the direct runoff or near-surface runoff ($Q_r$) that occurs when the soils are saturated and the interflow ($Q_u$) which is a lateral discharge in the unsaturated zone.  
+Through deep percolation ($i_{Perc}$) water reaches the lower reservoir which corresponds to the saturated zone, the groundwater layer, and produces the baseflow or the lateral discharge of groundwater ($Q_l$). By the way, the lower reservoir is very similar to the linear reservoir discussed above with the exception of an upper storage limit ($SL$).  
+
+The several reservoirs of the HBV model come with a multitude of parameters (@fig-overview-hbv-model-parameters) which have to be adjusted such that the model reproduces the measured discharge of the basin, a process called model calibration which will be discussed in more detail further on in this chapter. Here we'd like you to note the number of model states and parameters or degrees of freedom the HBV model has and to compare it to the amount of measurements of model states that is actually available to constrain the model parameters.  
+
+```{r}
+#| label: fig-overview-hbv-model-parameters
+#| echo: false
+#| fig-cap: "The HBV model parameters (source RS MINERVE Technical Manual)."
+knitr::include_graphics("images/hydrological_modeling/fig_PARandIC.png")
+```
+
+In the HBV model, 6 parameters need to be constrained alone for the snow model (@fig-overview-hbv-model-parameters). Typically, measurements of the states of the model reservoirs ($SWE$ and $WH$, $Hum$, $SU$, $SL$) are not available. Thus, more often than not, parameters of hydrological models are solely calibrated based on the aggregated total discharge of a basin. A lot of care should be given to trying to constrain the model parameters using combinations of different approaches:  
+
+* Minimize the number of parameters in your model   
+    This is done by fixing the least sensitive parameters to literature values
+* Compare to parameter values from the literature for similar catchments
+* Look for data sets that may be used to calibrate parts of the model
+* Do not only minimize the error between the measured and the simulated discharge but look at all the models states and fluxes and make sure they are physically meaningful
+
+
+Luckily, research into suitable data products to further constrain hydrological models.   
+
+The simulated snow water equivalent may be compared to the snow water equivalend available from the High Mountain Asia Snow Reanalysis product so one variable can be used to . Water storage in the root zone, the soil or in the lower reservoirs are generally not available thus the  
+
+
+## The RS Minerve modelling environment
+The reader should already be familiar with RS Minerve through completion of example 1 in the RS Minerve user guide. The following paragraphs demonstrate how to implement a hydrological model in RS Minerve using an example basin from Central Asia.   
+
+### Loading GIS data
+
+
+### Loading climate data
+
+
+### Configuration
+
+
+## Model calibration
+The large number of parameters of the HBV model can be adjusted within reasonable ranges to make the simulated river discharge more similar to the measured discharge. This process is sometimes called history matching because past or historical measurements are used to adapt the model parameters.     
+
 
 ## References {#sec-hydrological-hydraulic-modeling-references}
 

@@ -1,6 +1,6 @@
-## Modeling Using Predictive Inference {#sec-modeling-using-predictive-inference}
+# Modeling Using Predictive Inference {#sec-modeling-using-predictive-inference}
 
-Here, we provide a tour d'horizon of time-series based hydrological models. This Chapter is currently under active development.
+##
 
 
 

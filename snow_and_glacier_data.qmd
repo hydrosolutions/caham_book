@@ -281,4 +281,5 @@ The glacier thickness data set is validated only at few locations as measurement
 
 @hugonnet_accelerated_2021 & @miles_health_2021 provide the uncertainties of their estimates for per-glacier glacier thinning & discharge rates in the data set itself. They typically lie around p/m 150%. 
 
- ## References
+ ## References {#sec-snow-and-glacier-data-references}
+ 

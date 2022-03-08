@@ -9,3 +9,5 @@ Here, we provide a tour of model applications in the domain of the management of
 ## Hydro4U Count4D Water-Energy-Food Accounting Software {#sec-hydro4u-count4d}
 
 ## Challenges in Operational Model Deployment {#sec-challenges-in-operational-deployment} -->
+
+## References {#sec-real-world-examples-references}

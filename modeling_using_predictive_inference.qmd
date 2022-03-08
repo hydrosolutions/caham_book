@@ -1,3 +1,8 @@
 ## Modeling Using Predictive Inference {#sec-modeling-using-predictive-inference}
 
-Budyko chapter with critical results there.
+Here, we provide a tour d'horizon of time-series based hydrological models. This Chapter is currently under active development.
+
+
+
+## References {#sec-modeling-using-predictive-inference-references}
+

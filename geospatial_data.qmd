@@ -175,6 +175,8 @@ As a final step, you have to manually add the numbers stored in the NAME field t
 
 ![The final attribute table of the subbasins file is shown. The elevation band identifiers have been added as suffixes with "_x" to the subbasin names where x denotes the number of the subbasin-specific elevation band.](./images/data/17_hru_final_attribute_table.jpg){#fig-hru-final-attribute-table}
 
+## References {#sec-geospatial-data-references}
+
 
 
 

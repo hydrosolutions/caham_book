@@ -3,8 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.71">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software.">
-  <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
+  <title>long_term_water_balance_modeling</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -34,14 +33,11 @@
   </style>
 
   <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="site_libs/quarto-nav/headroom.min.js"></script>
   <script src="site_libs/clipboard/clipboard.min.js"></script>
   <meta name="quarto:offset" content="./">
   <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
   <script src="site_libs/quarto-search/fuse.min.js"></script>
   <script src="site_libs/quarto-search/quarto-search.js"></script>
-  <link href="./modeling_using_predictive_inference.html" rel="next">
-  <link href="./hydraulic_hydrological_modeling.html" rel="prev">
   <script src="site_libs/quarto-html/quarto.js"></script>
   <script src="site_libs/quarto-html/popper.min.js"></script>
   <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,260 +71,64 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body class="floating">
+<body class="fullcontent">
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></h1>
-      <button type="button" class="quarto-btn-toggle btn">
-        <i class="bi bi-chevron-right"></i>
-      </button>
-    </div>
-  </nav>
-</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/hydrosolutions/caham_book" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-    </ul>
-</div>
-    </div>
-      </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-      </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./study_guide_materials.html" class="sidebar-item-text sidebar-link">Study Guide and Materials</a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a href="./hydrology_of_central_asia.html" class="sidebar-item-text sidebar-link">Part I: Hydrology of Semi-Arid Central Asia</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-hydrology_of_central_asiaqmd" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-hydrology_of_central_asiaqmd" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./hydrological_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./example_river_basins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study River Basins</span></a>
-  </div>
-</li>
-    </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a href="./data.html" class="sidebar-item-text sidebar-link">Part II: Data Sources, Retrieval and Preparation</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-dataqmd" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-dataqmd" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sources of Relevant Data</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./discharge_station_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discharge Station Data</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./geospatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geospatial Data</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./snow_and_glacier_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Snow and Glacier Data</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./climate_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Climate Data</span></a>
-  </div>
-</li>
-    </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">Part III: Hydrological Modeling &amp; Applications</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-hydrological_modelingqmd" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-hydrological_modelingqmd" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./long_term_water_balance_modeling.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./modeling_using_predictive_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./glacier_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of discharge from glacier melt</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Examples</span></a>
-  </div>
-</li>
-    </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-appendices" aria-expanded="true">Appendices</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-appendices" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-appendices" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Software</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendix_b_riverscentralasia_r_toolbox.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">R Toolbox riversCentralAsia</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendix_c_quick_guides.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quick Guides</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendix_d_exercise_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Exercise Solutions</span></a>
-  </div>
-</li>
-    </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-<h2 id="toc-title">Table of contents</h2>
-<ul>
-<li><a href="#sec-budyko-introduction" class="nav-link active" data-scroll-target="#sec-budyko-introduction"> <span class="header-section-number">9.1</span> Introduction</a></li>
-<li><a href="#sec-budyko-data-and-methods" class="nav-link" data-scroll-target="#sec-budyko-data-and-methods"> <span class="header-section-number">9.2</span> Data and Methods</a>
-<ul class="collapse">
-<li><a href="#sec-budyko-data" class="nav-link" data-scroll-target="#sec-budyko-data"> <span class="header-section-number">9.2.1</span> Data</a></li>
-<li><a href="#sec-budyko-methods" class="nav-link" data-scroll-target="#sec-budyko-methods"> <span class="header-section-number">9.2.2</span> Methods</a></li>
-</ul></li>
-<li><a href="#sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"> <span class="header-section-number">9.3</span> Results</a></li>
-<li><a href="#sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"> <span class="header-section-number">9.4</span> Discussion and Conclusions</a></li>
-<li><a href="#sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"> <span class="header-section-number">9.5</span> References</a></li>
-</ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/long_term_water_balance_modeling.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<header id="title-block-header">
-<h1 class="title display-7"><span id="sec-budyko-modeling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></span></h1>
-</header>
-
+<section id="sec-budyko-modeling" class="level1">
+<h1>Long-term Water Balance Modeling</h1>
 <p>In this Chapter, we investigate long-term mean catchment water balances from a large, regional perspective.</p>
-<section id="sec-budyko-introduction" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="sec-budyko-introduction"><span class="header-section-number">9.1</span> Introduction</h2>
+<section id="sec-budyko-introduction" class="level2">
+<h2 class="anchored" data-anchor-id="sec-budyko-introduction">Introduction</h2>
 <p>The general water balance of a catchment can be written as</p>
 <p><span id="eq-water-balance"><span class="math display">\[
 \Delta S = P - E - Q
-\qquad(9.1)\]</span></span></p>
+\qquad(1)\]</span></span></p>
 <p>where <span class="math inline">\(\Delta S\)</span> is net storage change in millimeter [mm], <span class="math inline">\(P\)</span> is precipitation in mm, <span class="math inline">\(E\)</span> is evaporation in mm, and <span class="math inline">\(Q\)</span> is specific discharge in mm. Evaporation is the phenomenon by which a substance is converted from its liquid into its vapor phase, independently of where it lies in nature <span class="citation" data-cites="miralles_2020">(<a href="#ref-miralles_2020" role="doc-biblioref">Miralles et al. 2020</a>)</span>. This definition of evaporation encompasses evaporation from inside leaves (transpiration), evaporation from bare soils, evaporation from intercepted precipitation (interception loss), evaporation from open water surfaces, and finally, evaporation over ice- and snow-covered surfaces (often referred to as sublimation).</p>
 <p>Over the period of a hydrological year and longer time scales, we expect <span class="math inline">\(\Delta S\)</span> to be 0 since neither water storage nor destorage happen over longer periods. This would of course not be true for catchments where for example man-made storage infrastructure was built over the period under consideration or for catchments with ongoing glacier melt over a prolonged time. If <span class="math inline">\(\Delta S = 0\)</span>, the above Equation @ref(eq:WB1) can be rewritten as</p>
 <p><span id="eq-long-term-water-balance-1"><span class="math display">\[
 Q = P - E
-\qquad(9.2)\]</span></span></p>
+\qquad(2)\]</span></span></p>
 <p>Dividing by <span class="math inline">\(P\)</span>, we get</p>
 <p><span id="eq-long-term-water-balance-2"><span class="math display">\[
 \frac{Q}{P} = 1 - \frac{E}{P}
-\qquad(9.3)\]</span></span></p>
+\qquad(3)\]</span></span></p>
 <p>where <span class="math inline">\(Q/P\)</span> can be called the runoff index and <span class="math inline">\(E/P\)</span> is the evaporation index or evaporative fraction.</p>
 <p>For a catchment, annual mean <span class="math inline">\(E\)</span> and <span class="math inline">\(Q\)</span> are governed by total <em>water supply</em> <span class="math inline">\(P\)</span> and the total available energy which is normally expressed as potential evaporation <span class="math inline">\(E_{pot}\)</span> and which denotes the (atmospheric) <em>water demand</em>. If <span class="math inline">\(E_{pot}\)</span> is small, the discharge <span class="math inline">\(Q\)</span> is normally bigger than evaporation <span class="math inline">\(E\)</span>. Similarly, if the available radiative energy is very high, the water demand <span class="math inline">\(E_{pot}\)</span> is very large and <span class="math inline">\(Q&lt;&lt;E\)</span> <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <span class="math inline">\(E_{pot}\)</span> and <span class="math inline">\(P\)</span> are thus the key determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio <span class="math inline">\(E_{pot} / P\)</span> aridity index <span class="citation" data-cites="budyko_1974">(<a href="#ref-budyko_1974" role="doc-biblioref">Budyko 1974</a>)</span>.</p>
 <p>As explained above, water demand is determined by energy. Solar radiation is the primary energy source for the earth-atmosphere system and the key driver of the hydrological cycle. At the earth’s surface, the net radiative flux <span class="math inline">\(R_N\)</span> is the energy that is available for a) heating and cooling of the soil (ground heat flux), b) changing the phase of water (latent heat flux), and c) heating or cooling air in the boundary layer thus causing atmospheric dynamics (sensible heat flux).</p>
 <p>This can be formalized with the following relationship</p>
 <p><span id="eq-energy-balance"><span class="math display">\[
 R_{N} = H_{S} + H_{L} + \Delta H_{G}
-\qquad(9.4)\]</span></span></p>
+\qquad(4)\]</span></span></p>
 <p>where <span class="math inline">\(R_{N}\)</span> is the net radiation [in W/m<sup>2</sup> = kg/s<sup>3</sup>], <span class="math inline">\(H_{S}\)</span> is the upward sensible heat flux, <span class="math inline">\(H_{L}\)</span> is the latent heat flux and <span class="math inline">\(\Delta H_{G}\)</span> the net ground heat flux. The latent heat flux is directly proportional to evaporation <span class="math inline">\(E\)</span>. Thus, <span class="math inline">\(H_{L} = L \cdot E\)</span> where <span class="math inline">\(L = 2.5 \cdot 10^{6}\)</span> J/kg [= m<sup>2</sup>/s<sup>2</sup>] is the latent heat of vaporization and <span class="math inline">\(E\)</span> is the actual evaporation in [m/s]. As in the case of the water balance, at the annual or longer time scales, we can neglect the heat storage effect in the ground and get</p>
 <p><span id="eq-long-term-energy-balance"><span class="math display">\[
 R_{N} = H_{S} + L \cdot E
-\qquad(9.5)\]</span></span></p>
+\qquad(5)\]</span></span></p>
 <p>With the Bowen ratio defined as the fraction of the sensible heat flux divided by the latent heat flux, i.e.</p>
 <p><span id="eq-bowen-ratio"><span class="math display">\[
 \gamma = \frac{H_{S}}{H_{L}} = \frac{H_{S}}{L \cdot E }
-\qquad(9.6)\]</span></span></p>
-<p>and by rearranging the terms, the long-term energy balance in Equation <a href="#eq-long-term-energy-balance">Equation&nbsp;<span>9.5</span></a> can simply be rewritten as</p>
+\qquad(6)\]</span></span></p>
+<p>and by rearranging the terms, the long-term energy balance in Equation <a href="#eq-long-term-energy-balance">Equation&nbsp;5</a> can simply be rewritten as</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio"><span class="math display">\[
 R_{N} = (1 + \gamma)L E
-\qquad(9.7)\]</span></span></p>
-<p>Using the fact that <span class="math inline">\(R_{N} = L E_{pot}\)</span>, where <span class="math inline">\(E_{pot}\)</span> is the potential evaporation, and dividing by precipitation, we can rewrite the above <a href="#eq-long-term-energy-balance-bowen-ratio">Equation&nbsp;<span>9.7</span></a> as</p>
+\qquad(7)\]</span></span></p>
+<p>Using the fact that <span class="math inline">\(R_{N} = L E_{pot}\)</span>, where <span class="math inline">\(E_{pot}\)</span> is the potential evaporation, and dividing by precipitation, we can rewrite the above <a href="#eq-long-term-energy-balance-bowen-ratio">Equation&nbsp;7</a> as</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio-aridity-index"><span class="math display">\[
 \frac{E_{pot}}{P} = (1 + \gamma) \frac{E}{P}
-\qquad(9.8)\]</span></span></p>
-<p>where the left-hand side is called the aridity index, i.e.&nbsp;<span class="math inline">\(\phi = E_{pot}/P\)</span> and <span class="math inline">\(E/P\)</span> is called the evaporative fraction or evaporation index as mentioned above. With this, <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index">Equation&nbsp;<span>9.8</span></a> from above can be written as a function of the Bowen ratio and the aridity index, i.e.</p>
+\qquad(8)\]</span></span></p>
+<p>where the left-hand side is called the aridity index, i.e.&nbsp;<span class="math inline">\(\phi = E_{pot}/P\)</span> and <span class="math inline">\(E/P\)</span> is called the evaporative fraction or evaporation index as mentioned above. With this, <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index">Equation&nbsp;8</a> from above can be written as a function of the Bowen ratio and the aridity index, i.e.</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio-aridity-index-final"><span class="math display">\[
 \frac{E}{P} = 1 - \frac{Q}{P} = \frac{\phi}{(1 + \gamma)}
-\qquad(9.9)\]</span></span></p>
-<p><span class="math inline">\(Q/P\)</span> is again the runoff index. Since the Bowen ratio is also water supply and energy demand limited, it too is a function of the aridity index and we can thus rewrite <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index-final">Equation&nbsp;<span>9.9</span></a> as</p>
+\qquad(9)\]</span></span></p>
+<p><span class="math inline">\(Q/P\)</span> is again the runoff index. Since the Bowen ratio is also water supply and energy demand limited, it too is a function of the aridity index and we can thus rewrite <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index-final">Equation&nbsp;9</a> as</p>
 <p><span id="eq-budyko-final-functional-form"><span class="math display">\[
 \frac{E}{P} = \frac{\phi}{1 + f(\phi)} = F[\phi]
-\qquad(9.10)\]</span></span></p>
+\qquad(10)\]</span></span></p>
 <p>The Budyko relationship thus allows for a simple parameterization of how the aridity index <span class="math inline">\(\phi\)</span> controls the long-term mean partitioning of precipitation into stream-flow and evaporation and it is capable of capturing the behavior of thousands of catchments around the world. This explains its growing popularity over recent years <span class="citation" data-cites="berghuijs_2020">(<a href="#ref-berghuijs_2020" role="doc-biblioref">Berghuijs, Gnann, and Woods 2020</a>)</span>.</p>
 <!-- ```{r budykoSpace, echo=FALSE,fig.cap="Basics of the Budyko framework. The x-axis contains the aridity index ($E_{pot}/P$) and the y-axis the evaporative fraction ($E/P$), which often is approximated by one minus the runoff ratio ($E/P = 1-Q/P$) because storage changes are assumed to be negligible at multi-year timescales. Together, these two axes form the two-dimensional Budyko space. Many catchments around the world fall around the Budyko curve (black solid line, see Equation below), including 410 US MOPEX catchments which are indicated by blue markers [@berghuijs_2020]."} -->
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/Budyko_Framework_Basics') -->
@@ -350,10 +150,10 @@ R_{N} = (1 + \gamma)L E
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/ChoudhuryEquation_StateSpace') -->
 <!-- ``` -->
 </section>
-<section id="sec-budyko-data-and-methods" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="sec-budyko-data-and-methods"><span class="header-section-number">9.2</span> Data and Methods</h2>
-<section id="sec-budyko-data" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="sec-budyko-data"><span class="header-section-number">9.2.1</span> Data</h3>
+<section id="sec-budyko-data-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="sec-budyko-data-and-methods">Data and Methods</h2>
+<section id="sec-budyko-data" class="level3">
+<h3 class="anchored" data-anchor-id="sec-budyko-data">Data</h3>
 <p>A large number of geospatial data were collected for the Central Asia region. The domain of interest was defined as 55 deg. E - 85. deg. E and 30 deg. N - 50 deg. N.. Shapefiles from the large river basin were retrieved from the <a href="https://www.bafg.de/GRDC/EN/01_GRDC/grdc_node.html">Global Runoff Data Center</a> and extracted for the following basins: Amu Darya, Chu, Issy Kul, Murghab-Harirud, Syr Darya and Talas. Where necessary, the polygons of the downstream flat areas were corrected to account for man-made water transfers via large canal systems and corresponding flow alterations across basins there. These large river basins define the area of interest (AOI).</p>
 <p>For the selected basins, the WMOBB River Network data was extracted from the layers wmobb_rivnets_Q09_10 (containing line sections representing an upland area above 4’504 km<sup>2</sup>), wmobb_rivnets_Q08_09 (containing line sections representing an upland area between 1’150 km<sup>2</sup> and 4’504 km<sup>2</sup>) and wmobb_rivnets_Q07_08 (containing line sections representing an upland area above between 487 and 1’150 km<sup>2</sup>) <span class="citation" data-cites="grdc_2020">(<a href="#ref-grdc_2020" role="doc-biblioref">GRDC, Koblenz, Germany: Federal Institute of Hydrology (BfG). 2020</a>)</span>. Permanent water bodies and courses were taken from the global HydroLakes Database <span class="citation" data-cites="hydrolakes_2016">(<a href="#ref-hydrolakes_2016" role="doc-biblioref">Messager et al. 2016</a>)</span>. Information on land cover were taken from the Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2019: Globe data <span class="citation" data-cites="copernicus_landcover_2019">(<a href="#ref-copernicus_landcover_2019" role="doc-biblioref">Buchhorn et al. 2019</a>)</span>. The NASA SRTM digital elevation model 1 Arc-second (30 m) global product was used as a DEM <span class="citation" data-cites="srtm_2020">(<a href="#ref-srtm_2020" role="doc-biblioref"><span>“NASA Shuttle Radar Topography Mission (SRTM)(2013)”</span> 2013</a>)</span>.</p>
 <p>In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3 . Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200’000) from the corresponding region. The maps were downloaded from <a href="https://maps.vlasenko.net">https://maps.vlasenko.net</a> and subsequently geo-referenced in QGIS <span class="citation" data-cites="QGIS_software">(<a href="#ref-QGIS_software" role="doc-biblioref">QGIS Development Team 2021</a>)</span>. Data from northern Afghan rivers’ stream flow characteristics and the location of these gauging stations was taken from <span class="citation" data-cites="usgs_529_2010">(<a href="#ref-usgs_529_2010" role="doc-biblioref">Olson and Williams-Sether 2010</a>)</span>.</p>
@@ -363,19 +163,19 @@ R_{N} = (1 + \gamma)L E
 <p>High-resolution crop disaggregated irrigated areas were mapped over the entire Central Asia domain <span class="citation" data-cites="ragettli_2018">(<a href="#ref-ragettli_2018" role="doc-biblioref">Ragettli, Herberz, and Siegfried 2018</a>)</span>. Like this 30 m crop maps were produced with Google Earth Engine using unsupervised classification for the years 2016 - 2020. Vector information on the irrigation systems in the Chu and Talas River basins as well as from the Uzbek Fergana Oblast, including the land cadaster there, are available.</p>
 <p>Finally, data from the GOODD data set was used to retrieve information from 88 dams in the region of interest <span class="citation" data-cites="goodd_2020">(<a href="#ref-goodd_2020" role="doc-biblioref">Mulligan, Soesbergen, and Sáenz 2020</a>)</span>.</p>
 </section>
-<section id="sec-budyko-methods" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="sec-budyko-methods"><span class="header-section-number">9.2.2</span> Methods</h3>
+<section id="sec-budyko-methods" class="level3">
+<h3 class="anchored" data-anchor-id="sec-budyko-methods">Methods</h3>
 <p>A strategy for hydrological modeling of the regional Central Asian hydrology using the Budyko framework was devised. The Budyko principle posits that, over the long-run, runoff at a particular location is governed by the long-term availability of water (supply) and energy (demand) there (Budyko M., 1974). Under this assumption, the evaporative fraction of a basin, i.e.&nbsp;the long-term mean actual evaporation divided by long-term mean precipitation, can be expressed as a function of the aridity index (long-term mean potential evaporation divided by long-term mean precipitation).</p>
 </section>
 </section>
-<section id="sec-budyko-results" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="sec-budyko-results"><span class="header-section-number">9.3</span> Results</h2>
+<section id="sec-budyko-results" class="level2">
+<h2 class="anchored" data-anchor-id="sec-budyko-results">Results</h2>
 </section>
-<section id="sec-discussion-and-conclusions" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="sec-discussion-and-conclusions"><span class="header-section-number">9.4</span> Discussion and Conclusions</h2>
+<section id="sec-discussion-and-conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="sec-discussion-and-conclusions">Discussion and Conclusions</h2>
 </section>
-<section id="sec-long-term-water-balance-modeling-references" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="sec-long-term-water-balance-modeling-references"><span class="header-section-number">9.5</span> References</h2>
+<section id="sec-long-term-water-balance-modeling-references" class="level2">
+<h2 class="anchored" data-anchor-id="sec-long-term-water-balance-modeling-references">References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
@@ -462,6 +262,7 @@ Zhang, D., Z. Cong, G. Ni, D. Yang, and S. Hu. 2015. <span>“<span class="nocas
 </div>
 </div>
 </section>
+</section>
 </main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -539,18 +340,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./hydraulic_hydrological_modeling.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./modeling_using_predictive_inference.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

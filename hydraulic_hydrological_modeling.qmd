@@ -249,9 +249,63 @@ In the same manner, draw a connection from the junction object (15149_gauge) to 
 Deactivate the connection mode by clicking the Select button (3). You can re-name the new objects by clicking on their names. The basic model layout is now finished but there are still a few required steps before we can run the model. 
 
 ### Loading climate data
+The hydrological model needs forcing data: Precipitation and Temperature. The following sections illustrate how to load the pre-processed climate data into RS Minerve. 
 
+Navigate to the Database tab (1) and click the Open button (2). This opens an explorer pop-up window where you choose csv files in the drop-down menu (3) and then select the file hist_obs_rsm.csv. Close the explorer window by pressing the Open button (hidden beneath the drop-down menu in @fig-rsm-load-db-01).
+
+![Loading climate forcing into RS Minerve](images/hydrological_modeling/rsm_loadDatabase_01.png){#fig-rsm-load-db-01}
+In the navigation window on the left, a data base icon will appear. Explore the Database by clicking on the triangle next to the icon. You can display the data in the data base by clicking on the Sensors (1), typically T, P and Q, in the navigation window. A time series plot will then appear in the main window. You can also explore the data in the table format by switching to the Values tab (2). 
+
+![Visualizing data base.](images/hydrological_modeling/rsm_loadDatabase_012.png){#fig-rsm-load-db-012}
+Note the time range of the forcing data (from Jan 1, 1979 0:00 to Dec. 21, 2011 0:00). The time range of the forcing determines the time range of the simulation. Also note the time interval between the data (daily data for the forcing and decadal data for the discharge).
+
+Click on ***New group*** (1, not visible because the name is already changed in @fig-rsm-load-db-02) and change the name of the group to Climate (2). In the dropdown menu select Input for the data category (3).  
+
+![Loading climate forcing into RS Minerve](images/hydrological_modeling/rsm_loadDatabase_02.png){#fig-rsm-load-db-02}
+
+We now move the discharge time series to a separate data group: Select Database (1) then click Add (2). A new group appears at the bottom of the data list (3). Select New group (3) and change the name (4) to Discharge and select Input from the dropdown menu (5).  
+
+![Loading climate forcing into RS Minerve](images/hydrological_modeling/rsm_loadDatabase_03.png){#fig-rsm-load-db-03}
+
+Navigate to the discharge time series Q (1) and do a right-click. In the pop-up window that appears select Cut (2). 
+
+![Cut the discharge time series from the climate data group.](images/hydrological_modeling/rsm_loadDatabase_04.png){#fig-rsm-load-db-04}
+
+Select Discharge (1) and click Add (2) to add a new data set (3). Right-click on New Dataset and select Paste to put the discharge sensor data at the new location. You can rename New Dataset.  
+
+![Paste the discharge time series to the discharge data group.](images/hydrological_modeling/rsm_loadDatabase_05.png){#fig-rsm-load-db-05}
+
+The database is now ready, next we need to link the data to the model objects. Navigate to the Model tab. Under Data source select the appropriate data groups for the station data objects and for the source objects (1) and select the appropriate Dataset (2). The names in the database tab should already be consistent with the ones in the objects and the linking for the weather stations works automatically. 
+
+![Linking the database to the model objects and time configuration.](images/hydrological_modeling/rsm_loadDatabase_06.png){#fig-rsm-load-db-06}
+Then adapt the Start and End of the simulation period (4). Start cannot be earlier than the first forcing in the database and End cannot be later than the last forcing in the database. The simulation period can, however, be shorter than the forcing time series. The simulation time step is 1 day and the recording time step is 1 month (4).  
+
+The for the linking of the discharge data with the source we still need to double-click on the source object in the  map (1) and select Q * Q in the drop-down menu (3). 
+
+![Linking the discharge with the source object](images/hydrological_modeling/rsm_loadDatabase_07.png){#fig-rsm-load-db-07}
 
 ### Configuration
+Last but not least we need to tell RS Minerve to compute the evaporation flux for us. This step needs to be done only once for each model and is described in the [Quick guide](@sec-quickguides-atapt-model-settings). Don't forget to save your model. 
+
+### First model run
+Now click Validation (1) to let RS Minerve test if the model is valid. 
+
+![Validation of the model.](images/hydrological_modeling/rsm_firstModelRun_01.png){#fig-rsm-first-run-01}
+In case the model is valid it will say so in the lower left corner of the RS Minerve window (2). A more detailed report appears in the output window on the right (3). The warning can be ignored as the discharge of the source is not a required input for the model simulation.  
+
+Now press Start (1). The simulation is done fairly quickly. With a double-click on the comparator object in the center window the output window fills with a lot of information. The Results table shows a number of indicators of model goodness. Please read Chapter 3 on the performance indicators in the technical manual [@rsminerve_tm] for the equations of each indicator. Here we will only briefly mention the most commonly encountered:  
+
+The root mean squared error (RSME) ranges from 0 to $\infty$ and should be minimized.
+
+The Nash-Sutcliffe efficiency (Nash) ranges from -$\infty$ to 1 and should be maximized. Nash of 0 means that the model has the same performance as the average of the measured data. 
+
+![First model run.](images/hydrological_modeling/rsm_firstModelRun_02.png){#fig-rsm-first-run-02}
+
+The graph (4) shows the measured discharge in blue (QReference) and the simulated discharge in green (QSimulation).   
+
+Note that QSimulation starts with 0. This is because RS Minerve initializes the initial water content of the HBV modules with 0 unless something else is specified. You should click Conditions on Dec. 12, 2011 (2), apply and re-run the model to obtain a properly initialized model. 
+
+The model produces the correct seasonality but the water balance is way off. We fix this by calibrating the model. This is a big task and will be treated in the next chapter.  
 
 
 ## Model calibration

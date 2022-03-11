@@ -2,14 +2,14 @@
 
 Hydrological-hydraulic models are used for different purposes, including for the design of basin plans while taking into consideration different development options, for the study of effective water resources management schemes while taking into consideration the different types of sectoral users and uses of water in a basin (ideally also including minimal environmental flows), and for the detailed study of basin-scale climate impacts and their repercussions.
 
-This Chapter introduces combined hydrologic and hydraulic modeling using the freely available graphical modeling environment RSMinerve [@rsminerve_software; @rsminerve_um; @rsminerve_tm][^rs_minerve-1]. @fig-rsminervemodelpreview shows a screen shot of a model of the Gunt river basin setup in RSMinerve as a teaser.
+This Chapter introduces combined hydrologic and hydraulic modeling using the freely available graphical modeling environment RS Minerve [@rsminerve_software; @rsminerve_um; @rsminerve_tm][^rs_minerve-1]. @fig-rsminervemodelpreview shows a screen shot of a model of the Gunt river basin setup in RS Minerve as a teaser.
 
 [^rs_minerve-1]: The reader is advised to consult the user manual and familiarizes themselves with the walk through examples that are discussed and presented there. They give a solid first hands-on introduction about the basic functionalities of the modeling environment.
 
 ```{r}
 #| label: fig-rsminervemodelpreview
 #| echo: false
-#| fig-cap: "Screenshot of an RSMinerve model setup for Gunt river basin."
+#| fig-cap: "Screenshot of an RS Minerve model setup for Gunt river basin."
 knitr::include_graphics('./images/hydrological_modeling/rsminerveModelPreview_lr.png')
 ```
 
@@ -19,7 +19,7 @@ It should be noted that other modeling packages exist for hydrological-hydraulic
 -   [SWAT: Soil & Water Assessment Tool](https://swat.tamu.edu){target="_blank"}, and
 -   [Mike Hydro Basin](https://www.mikepoweredbydhi.com/products/mike-hydro-basin){target="_blank"}
 
-As some if not most of these modeling packages are license-based, the advantage of using the combination of [QGIS](https://www.qgis.org/en/site/), [R](https://www.r-project.org) and [RSMinerve](https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve.html) is that this is a completely free software suit for any user and use scenario.
+As some if not most of these modeling packages are license-based, the advantage of using the combination of [QGIS](https://www.qgis.org/en/site/), [R](https://www.r-project.org) and [RS Minerve](https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve.html) is that this is a completely free software suit for any user and use scenario.
 
 Departing from catchment GIS data, RS Minerve allows to quickly develop, test and calibrate different types of lumped conceptual precipitation runoff models while taking into account the evolution of water balances in glacier, snow, surface and subsurface compartments over time and in different sections in the catchment under consideration. This is demonstrated here for the Gunt River Basin in the Pamirs (see Chapter \@ref(GuntRB) for more information).
 
@@ -158,7 +158,7 @@ Understanding the linear reservoir model is the first steping stone to hydrologi
 
 ## The HBV model {#section-hbv-model}
 The HBV (Hydrologiska Byråns Vattenavdelning) model is a conceptual rainfall-runoff model which is suitable for many snow-fed river catchments [@bergstrom_development_1976; @lindstrom_development_1997]. We recommend you to study the short description of the HBV model in the RS Minerve technical manual [@rsminerve_tm]. Keep these 4 pages at hand for the following exercises so you can look up how the parameters influence the flow of water through the HBV model. A brief reminder of the HBV model implemented in RS Minerve is given in @fig-overview-hbv-model.  
-In RSMinerve, the catchment area is typically sub-divided into areas with similar hydrological properties, so called hydrological response units or HRUs, for which the discharge is computed individually. Several HRUs can be connected. This approach is often numerically more efficient than a gridded discretization of the catchment area.          
+In RS Minerve, the catchment area is typically sub-divided into areas with similar hydrological properties, so called hydrological response units or HRUs, for which the discharge is computed individually. Several HRUs can be connected. This approach is often numerically more efficient than a gridded discretization of the catchment area.          
 
 ```{r}
 #| label: fig-overview-hbv-model
@@ -248,6 +248,8 @@ In the same manner, draw a connection from the junction object (15149_gauge) to 
 
 Deactivate the connection mode by clicking the Select button (3). You can re-name the new objects by clicking on their names. The basic model layout is now finished but there are still a few required steps before we can run the model. 
 
+With the present model we can now simulate discharge from rainfall and snow melt. We can further simulate the evolution of the water storage in different compartments in the catchments. What about glacier melt? Glacier melt can be simulated in RS Minerve with the GSM model. However, the GSM model is only marginally suitable for long-term scenario simulation. We therefore suggest a different glacier modeling strategy where discharge from glacier melt is simulated externally and then included into RS Minerve as a source. The process is described in Chapter @sec-glacier-modeling. 
+
 ### Loading climate data
 The hydrological model needs forcing data: Precipitation and Temperature. The following sections illustrate how to load the pre-processed climate data into RS Minerve. 
 
@@ -287,29 +289,98 @@ The for the linking of the discharge data with the source we still need to doubl
 ### Configuration
 Last but not least we need to tell RS Minerve to compute the evaporation flux for us. This step needs to be done only once for each model and is described in the [Quick guide](@sec-quickguides-atapt-model-settings). Don't forget to save your model. 
 
-### First model run
+### First model run {#sec-first-rsm-model-run}
 Now click Validation (1) to let RS Minerve test if the model is valid. 
 
 ![Validation of the model.](images/hydrological_modeling/rsm_firstModelRun_01.png){#fig-rsm-first-run-01}
 In case the model is valid it will say so in the lower left corner of the RS Minerve window (2). A more detailed report appears in the output window on the right (3). The warning can be ignored as the discharge of the source is not a required input for the model simulation.  
 
-Now press Start (1). The simulation is done fairly quickly. With a double-click on the comparator object in the center window the output window fills with a lot of information. The Results table shows a number of indicators of model goodness. Please read Chapter 3 on the performance indicators in the technical manual [@rsminerve_tm] for the equations of each indicator. Here we will only briefly mention the most commonly encountered:  
+Now press Start (1). The simulation is done fairly quickly. With a double-click on the comparator object in the center window the output window fills with a lot of information. The Results table shows a number of indicators of model goodness. Here we will only briefly mention the most commonly encountered. Please read Chapter 3 on the performance indicators in the technical manual [@rsminerve_tm] for the equations of each available indicator.   
 
-The root mean squared error (RSME) ranges from 0 to $\infty$ and should be minimized.
+The relative root mean squared error (RSME) ranges from 0 to $\infty$ and should be minimized.
+$$
+\text{RRMSE} = \frac{ \sqrt{ \frac{1}{N} \cdot \sum_{t=1}^N \Big( Q_{sim}(t) - Q_{obs}(t)\Big)^2}}{\overline{Q_{obs}(t)}}
+$$
 
 The Nash-Sutcliffe efficiency (Nash) ranges from -$\infty$ to 1 and should be maximized. Nash of 0 means that the model has the same performance as the average of the measured data. 
+$$
+\text{Nash} = 1 − \frac{\sum_{t=1}^{N} \Big( Q_{sim}(t) - Q_{obs}(t) \Big)^2}{\sum_{t=1}^{N} \Big( Q_{sim}(t) - \overline{Q_{obs}(t)} \Big)^2}
+$$
+Where $t$ is the simulation time step, $N$ is the number of simulation time steps, $Q_{sim}$ is the simulated discharge and $Q_{obs}$ is the observed discharge. $\overline{Q_{obs}}$ refers to the average of the observed discharge. 
+
+If your customer is especially interested in low discharge periods, the Nash coefficient for logarithm values is recommended (see @rsminerve_tm). There are further performance indicators focusing on the discharge volume (Relative Volume Bias) or on the exceedance of a threshold flow which can be specified in the parameters of the comparator. 
+
 
 ![First model run.](images/hydrological_modeling/rsm_firstModelRun_02.png){#fig-rsm-first-run-02}
 
 The graph (4) shows the measured discharge in blue (QReference) and the simulated discharge in green (QSimulation).   
 
-Note that QSimulation starts with 0. This is because RS Minerve initializes the initial water content of the HBV modules with 0 unless something else is specified. You should click Conditions on Dec. 12, 2011 (2), apply and re-run the model to obtain a properly initialized model. 
+Note that QSimulation starts with 0. This is because RS Minerve initializes the initial water content of the HBV modules with 0 unless something else is specified. You should click Conditions on Dec. 12, 2011 (2), apply and re-run the model to obtain a properly initialized model.  
 
-The model produces the correct seasonality but the water balance is way off. We fix this by calibrating the model. This is a big task and will be treated in the next chapter.  
+To view the default initial conditions (IC) and parameters of a model object (2), double-click on the model object in the main model window (1). You can edit the IC and parameters in the tables of the result window (2). You can view properties of several objects the IC viewer (and similarly in the parameters viewer) by clicking on the Initial conditions button in the Model Properties toolbar (3). Select the object type (4) and the zone (5) and scroll through the IC table (6). 
+
+![Viewing initial model states and model parameters](images/hydrological_modeling/rsm_firstModelRun_03.png){#fig-rsm-first-run-03}
+
+It is recommended to save a backup of the initial parameter set. During model model calibration experiments the modeler can sometimes end up with unrealistic parameter combinations and then it is appropriate to reset the model and start afresh. Click on Export P in the Model Properties toolbar to save the default parameters as a text file which can be imported using the Import P button. 
+
+
+The model produces the correct seasonality but the water balance is way off. The RS Minerve model produces more discharge than is observed at the monitoring station. We fix this by calibrating the model. This is a big task and will be treated in the next chapter.  
 
 
 ## Model calibration
-The large number of parameters of the HBV model can be adjusted within reasonable ranges to make the simulated river discharge more similar to the measured discharge. This process is sometimes called history matching because past or historical measurements are used to adapt the model parameters.     
+
+The large number of parameters of the HBV model can be adjusted within reasonable ranges to make the simulated river discharge more similar to the measured discharge. This model calibration process is sometimes also called history matching because past or historical measurements are used to adapt the model parameters. Mathematically speaking, model calibration is an optimization problem where the value of a performance indicator (or a combination of several performance indicators) is minimized. An example: The model calibration changes the parameters of the model such that the error between the observed and simulated discharge is minimized. 
+
+The simplest form of such an equation is given below where for each time step $t$, the difference between the simulated ($Q_{sim}$) and observed ($Q_{obs}$) discharge is computed. The simulated discharge depends on the parameters $\boldsymbol{P}$. The differences between the simulated and observed discharge are summed up to result in one value $\boldsymbol{E}$, depending on $\boldsymbol{P}$ which can be minimized by changing the parameters $\boldsymbol{P}$. 
+
+$$
+\min_{\boldsymbol{P}} \sum_{t=1}^{N} \Big( Q_{sim}(t, \boldsymbol{P}) - Q_{obs}(t)  \Big) = \min_{\boldsymbol{P}} \boldsymbol{E(\boldsymbol{P})}
+$$
+
+RS Minerve features implementations of several different performance indicators. The choice of the minimization function influences the calibration outcome. Two commonly used performance indicators are described [above]{@sec-first-rsm-model-run}. Please read the Chapter on the performance indicators of the RS Minerve technical manual [@rsminerve_tm] to also understand the other performance indicators.    
+
+Hydrological models are typically not well defined, i.e. multiple sets of parameter combinations will yield reasonable model performance. This property of hydrologial models is sometimes called the equifinality problem, i.e. several pathways lead to the same outcome. Modelers just have to live with this but there are several strategies to minimize the negative impact of the equifinality. 
+
+#### Calibration and validation 
+An important strategy to gain confidence into a model is to split the simulation period into a calibration period and a validation period. During calibration, the model parameters are adjusted to get a satisfying fit with the measured discharge. During the validation period the calibrated model is compared to discharge data that the model hasn't seen before, i.e. the model's ability to handle potentially different model input than it has seen during calibration (also called its ability to generalize) is revealed. For example, 30 years of discharge time series can be split into the first 10 years for model calibration (i.e. model calibration is done only over the first 10 years of the time series) and into the last 20 years for model validation. A good model should perform satisfactorily not only during calibration but also during validation. If the model validation period shows better model performance than the calibration period, the modeler should take a close look at the forcing and try to explain this.  
+
+In hydrology, it is recommended to do cross-validation, i.e. to calibrate and validate a model with several combinations of calibration and validation periods and to summarize the overall model performance and the resulting parameter combinations.    
+Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem [@bergstrom_principles_1991] gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today.  
+
+#### Warm-up period
+To overcome issues with the initial water content of the catchment, a warm-up or spin-up period is typically defined. For small basins with small storages (like the mountainous basins in Central Asia) one year of model warm up is typically sufficient to fill the models reservoir with an appropriate amount of water. The warm-up period is specified in the comparator properties and excluded from the automatic calibration process.  
+
+![Set up a spin-up period which is excluded from the model calibration. Open the object properties with a double-click on the comparator object in the main model window (1) and specify a 1-year spin-up period in seconds (2).](images/hydrological_modeling/rsm_calibration_01.png){#fig-rsm-calibration-01}
+
+#### Fixing of non-sensitive parameters
+Before starting a full automated calibration of the model, it is advisable to identify parameters which are not sensitive and to fix them to reasonable values. In a fist step, parameters of all HRUS in the catchments are assumed to be the same. Then, one by one, the parameters are varied (simultaneously in all HRUs) to assess the impact of the parameters on the resulting discharge. If one parameter value is not sensitive, i.e. if changing the parameter value does not significantly impact the discharge, it is fixed to a literature value. The following figures illustrate the procedure: 
+
+![Simulation results of a non-calibrated hydrological model.](images/hydrological_modeling/rsm_calibration_02.png){#fig-rsm-calibration-02}
+Remember the value of a performance indicator, for example the Nash efficiency. Then, open the Parameters window by pressing the Parameters button in the Model Properties toolbar (1), select HBV (2) and the default zone A (3) in the drop-down manus, and double the Melting factor ($\text{CFMax}$) (4). Apply the changes (5) and re-run the model.  
+
+![Manually changing parameter values to roughly assess parameter sensitivity.](images/hydrological_modeling/rsm_calibration_03.png){#fig-rsm-calibration-03}
+If the performance indicator becomes worse (e.g. more negative in the case of Nash), change the parameter to half of the original parameter value (2.5 in the present example and re-run the model). In the Chon Kemin example shown here, Nash will become less negative. We conclude that $\text{CFMax}$ is a sensitive parameter that should be calibrated. If the change of the parameter value does not produce a similar relative change of the performance indicator, the model is not highly sensitive to that specific parameter and it does not need to be calibrated.   
+
+#### Cross-validation
+It is good practice to validate your results with data from the literature and with other, publicly available data sets. Literature values may be useful to limit parameter ranges for the calibration and to verify the conceptual hydrological model. Data sets like the High Mountain Asia Snow Reanalysis data set can be used to verify the snow water balance (automated calibration of snow water equivalents is not currently possible in RS Minerve) and for flatter areas, soil remotely sensed moisture observations and evaporation products may be used to constrain the parameters of the root zone and upper soil box.  
+
+#### Calibration procedure
+It is advisable to not calibrate all parameters at the same time but to calibrate module by module from the top-most layer to the bottom-most layer (along the flow path of the water). I.e. start by calibrating the sensitive parameters of the snow module, then proceed to the root zone module, the upper soil module and last calibrate the parameters of the groundwater module. This procedure may not yield an absolute minimum of the objective function (the best performance indicators possible) but it will leave you with physically meaningful parameters which is what is important. 
+
+In between calibrations of individual parameters, switch to the model tab or to the selection and plot tab and look at the results of individual model components. Make sure you don't have accumulation of snow in the lower HRUs. Accumulation of snow is only allowed in glacierized HRUs. Also other water reservoirs may accidentally be filling up or emptying out, e.g. storage of the lower reservoir. Typically, the storage components in a hydrological system are more or less in steady-state (except for the glaciers). That means, that over several years, the water storage does not change much. If your model shows storage changes, they may be caused either by infrastructure or management changes (research) or by bad parameter sets. 
+You should further update the initial conditions of the model from time to time to make sure that they are consistent with the model parameters. 
+
+You may perform several calibrations using different performance indicators and different calibration periods. This will give you a set of parameters which partially represent the uncertainty of the hydrological model.  
+
+
+
+#### Automatic model calibration with RS Minerve
+RS Minerve offers several interesting expert tools, including the Calibrator. Open the calibrator tab by clicking the Expert button in the Modules toolbar and select Calibrator. A calibrator tab will open up (@fig-rsm-calibration-04). Follow the steps to set up your first calibration: Select the current calibration configuration (1). You may re-name it and save it (Export) for later use. Then select HBV (2) and Zone A (3) to tell the calibrator the objects that you want to calibrate parameters for. You also need to select the Comparator object based on which performance indicators will be computed (4). In the Parameters window, select one of your sensitive parameters and tick the box. Then you specify the performance indicator(s) that should be used in the calibration. You can combine several indicators with user defined weights, according to your preferences and needs. In this demo we use Nash with weight 1 (6) and Relative Volume Bias with weight 1 (7). Subsequently you specify the calibration period (8). Remember that you need to divide your modeling period in a calibration and a validation period. Once ready, press Start (9) and the calibrator starts spinning. You can monitor the progress of the calibration in the Summary results window (10) and in the Graphic results window (11).    
+
+![Setting up a model calibration.](images/hydrological_modeling/rsm_calibration_04.png){#fig-rsm-calibration-04}
+
+You proceed in the same way for all sensitive parameters and maybe re-calibrate some of the most sensitive ones. 
+The best parameter sets are transferred to your model tab but make sure to save a copy of the calibrated parameters. 
 
 
 ## References {#sec-hydrological-hydraulic-modeling-references}

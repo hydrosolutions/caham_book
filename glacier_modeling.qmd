@@ -1,10 +1,10 @@
-## Modeling of discharge from glacier melt {#sec-glacier-modeling}
+## Modeling of Discharge from Glacier Melt {#sec-glacier-modeling}
 
-The glacier melt modeling in RSMinerve [@rsminerve_tm] is done (at the time of writing, March 2022) with the GSM model which features a constant area and an unlimited glacier reservoir. It is suitable for short-term simulations of glacier melt where effects of glacier volume change can be neglected but it is not well suited for climate change impact studies where substantial changes in glacier volume are to be expected. However, by assuming that discharge from snow melt can be treated independently from discharge from glacier melt, the discharge contribution from glacier melt can be simulated in R and included as source into RSMinerve models. The following chapter relies on the basic understanding of the glacier mass balance in Chapter [TODO LINK TO CHAPTER TO BE WRITTEN] and describes the glacier modelling tools in the package ```riversCentralAsia``` and demonstrates how to use them for joint applied hydrological modelling with RSMinerve.  
+The glacier melt modeling in RSMinerve [@rsminerve_tm] is done (at the time of writing, March 2022) with the GSM model which features a constant area and an unlimited glacier reservoir. It is suitable for short-term simulations of glacier melt where effects of glacier volume change can be neglected but it is not well suited for climate change impact studies where substantial changes in glacier volume are to be expected. However, by assuming that discharge from snow melt can be treated independently from discharge from glacier melt, the discharge contribution from glacier melt can be simulated in R and included as source into RSMinerve models. The following chapter relies on the basic understanding of the glacier mass balance as presented and discussed in [Chapter Snow and Glacier Data](@sec-snow-and-glacier-data), describes the glacier modelling tools in the package ```riversCentralAsia``` and demonstrates how to use them for joint applied hydrological modelling with RSMinerve.  
 
-## Temperature index model
+## Temperature Index Model
 
-@hock_temperature_2003 describes several variants of the temperature index model for simulating glacier melt. The ```riversCentralAsia``` package implements the temperature index melt model described in [@hock_temperature_2003] in the function ```glacierMelt_TI``` (@eq-temperature-index-model).
+@hock_temperature_2003 describes several variants of the temperature index model for simulating glacier melt. The `riversCentralAsia` package implements the temperature index melt model described in [@hock_temperature_2003] in the function `glacierMelt_TI` (@eq-temperature-index-model).
 
 $$
 M = \biggl\{ \begin{array}{l, l}
@@ -15,7 +15,7 @@ $$ {#eq-temperature-index-model}
 
 where $M$ is the glacier melt in $mm/d$, $T$ is the daily average temperature in $^{\circ} C$. The two parameters $f_{M}$ and $T_{\text{threshold}}$ refer to the melt factor and the threshold temperature above which glacier melt occurs and need to be calibrated. They have the units $\frac{mm}{^{\circ} C \cdot d}$ and $^{\circ} C$ respectively. Glacier melt is calculated in daily time steps.
 
-## Glacier mass balance
+## Glacier Mass Balance
 
 The glacier mass balance is simplified to @eq-simplified-glacier-mass-balance: 
 
@@ -23,11 +23,11 @@ $$
 \Delta S = P-M = A_{\text{imbal}}
 $$ {#eq-simplified-glacier-mass-balance}
 
-where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($M$). Typically melt excesses precipitation and we have negative $\Delta S$, that is imbalance ablation, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
+where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($M$). Typically melt exceeds precipitation and we have negative $\Delta S$, that is imbalance ablation, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
 
-## Glacier volume development
+## Glacier Volume Development
 
-As glaciers melt, their volume changes. This has to be taken into account for the long-term simulation of glacier discharge. To determine the initial glacier volume the area of the geometry of the RGI v6.0 data set is multiplied with the average thickness of the glacier (the Farinotti data set). Please note that the data and the retrieval of the data are described in Part II of this book. Glaciers larger than 1km2 are sub-divided into elevation bands of 100m altitude to account for elevation dependent temperature forcing. The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
+As glaciers melt, their volume changes. This has to be taken into account for the long-term simulation of glacier discharge. To determine the initial glacier volume, the area of the geometry of the Randolph Glacier Inventory (RGI) v6.0 data set is multiplied with the average thickness of the glacier (the Farinotti data set). Please note that the data and the retrieval of the data are described in [Part II](@sec-data) of this book. Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
 
 For annual time step $t$, the evolution of the glacier volume is calculated as follows:
 
@@ -43,25 +43,26 @@ $$
 V(t+1) = V(t) + \Delta S = V(t) + \text{glacierImbalAbl}\bigl(M(t)\bigr) 
 $$ {#eq-step-wise-glacier-mass-balance-volume-update}
 
-$Q_{\text{glacier}}$ can be calibrated against glacier discharge derived from the Miles & Hugonnet data sets. The automated calibration is currently not included in the ```riversCentralAsia``` package.
+$Q_{\text{glacier}}$ can be calibrated against glacier discharge derived from the Miles & Hugonnet data sets. The automated calibration is currently not included in the `riversCentralAsia` package.
 
-The function ```glacierArea_RGIF()``` is an empirical scaling function analogue the inverse of the scaling function derived by @erasov_1968 but based on the modern RGI v6.0 glacier geometries and the glacier thickness data set by @farinotti_consensus_2019. The package ```riversCentralAsia``` implements volume-area and area-volume scaling functions based on both, Erashov and RGI-Farinotti data, allowing the estimation of glacier areas based on glacier volumes (```glacierArea_Erasov``` and ```glacierArea_RGIF```) and estimations of glacier volumes based on glacier areas (```glacierVolume_Erasov``` and ```glacierVolume_RGIF```).
+The function `glacierArea_RGIF()` is an empirical scaling function analogue the inverse of the scaling function derived by @erasov_1968 but based on the modern RGI v6.0 glacier geometries and the glacier thickness data set by @farinotti_consensus_2019. The package `riversCentralAsia` implements volume-area and area-volume scaling functions based on both, Erashov and RGI-Farinotti data, allowing the estimation of glacier areas based on glacier volumes (```glacierArea_Erasov``` and ```glacierArea_RGIF```) and estimations of glacier volumes based on glacier areas (```glacierVolume_Erasov``` and ```glacierVolume_RGIF```).
 
 The function ```glacierImbalAbl``` is an empirical scaling function relating glacier imbalance ablation, i.e. the glacier storage loss glacier melt. It is derived from the glacier discharge data set by @miles_health_2021 and the glacier thinning data set by @hugonnet_accelerated_2021.
 
-## Summary of workflow
-To model the contribution to discharge from glacier melt in a basin, the following steps are required:   
-\item Pre-processing of GIS layers  
-\item Pre-processing of climate forcing data  
-\item Calculation of daily glacier melt  
-\item Calculation of annual glacier masss balance  
-\item Scaling of annual glacier contribution to daily values  
-\item Aggregation of per glacier contribution to sub-basins (optional)
-\item Writing of RSMinerve source intput files  
-\item Integration of glacier discharge sources in RSMinerve   
+## Summary of Workflow
+To model the contribution to discharge from glacier melt in a basin, the following steps are required: 
+
+- Pre-processing of GIS layers  
+- Pre-processing of climate forcing data  
+- Calculation of daily glacier melt  
+- Calculation of annual glacier masss balance  
+- Scaling of annual glacier contribution to daily values  
+- Aggregation of per glacier contribution to sub-basins (optional)
+- Writing of RSMinerve source intput files  
+- Integration of glacier discharge sources in RSMinerve   
 
 
-## Propagation of uncertainty
+## Propagation of Uncertainty
 The initial glacier volume of each glacier is attributed an uncertainty of p/m 26%. This number is based on the average uncertainty of the glacier volume per RGI region reported in @farinotti_consensus_2019. The uncertainty of the area of the RGI v6.0 glacier outlines is not known. It is therefore assumed that the error of the glacier volume stems to 50% from the estimation of the glacier thickness and to 50% from the glacier area. We further assume that the errors of the glacier area and glacier thickness are un-correlated and can thus estimate the uncertainties of the glacier area data and the glacier thickness data to be p/m 13% each.
 
 For the non-linear relationships in ```glacierVolume_RGIF``` and ```glacierArea_RGIF```, the standard deviation of the residuals of the fit was computed. The estimated error of the fit is assumed to be equal plus/minus twice the standard deviation of the residuals and yields 31% and 53% respectively. The residuals are not normally distributed and their actual distribution is unknown. Further, uncorrelated errors and the applicability of linear error propagation are assumed. Therefore, the error of the function outputs is simply computed by adding the error of the function input to the error of the fit.
@@ -96,7 +97,11 @@ error_stats = tibble::tibble(
 
 ## Demonstration
 
-We demonstrate the above described method with the data from the Atbashy basin. Al required data is available from [the downloadable data package](https://www.dropbox.com/sh/mfm3lk2av1t74bw/AABw5ER3E3JOqjp-SdWfLol0a?dl=1){target="_blank"}.
+We demonstrate the above described method with the data from the Atbashy basin. 
+
+:::{.callout-warning}
+All required data is available from [the downloadable data package](https://www.dropbox.com/sh/mfm3lk2av1t74bw/AABw5ER3E3JOqjp-SdWfLol0a?dl=1){target="_blank"}. Note however that this folder required 12 GB of local storage space!
+:::
 
 ```{r}
 #| message: false
@@ -117,13 +122,13 @@ data_path <- "../caham_data/SyrDarya/Atbashy/"
 
 There will be a separate Section to demonstrate how to prepare the forcing. For now, we provide you with the pre-processed forcing data and give you just a brief overview over the data source.
 
-#### Historical temperatures
+#### Historical Temperatures
 
-As meteorological data for high elevations in Central Asia is very scarce we use the CHELSA v2.1 data set [@karger_climatologies_2017]. This is a global data set of forcing data for hydrolgical models based on ERA5 but corrected for biases and especially suited for high elevations. The daily CHELSA forcing has been cut to the Central Region by the originator of the data set, D. Karger, WSL and extracted to the hydrological response units of the glaciers in the Atbashy basin by T. Siegfried.
+As meteorological data for high elevations in Central Asia is very scarce we use the CHELSA v2.1 data set [@karger_2017]. This is a global data set of forcing data for hydrolgical models based on ERA5 but corrected for biases and especially suited for high elevations. The daily CHELSA forcing has been cut to the Central Region by the originator of the data set, D. Karger, WSL and extracted to the hydrological response units of the glaciers in the Atbashy basin by T. Siegfried.
 
 ```{r}
-#| label: histobs
-#| fig.cap: "Daily temperature time series of a small glacier (RGI60-13.08930) in the Atbashy basin. Data source: CHELSA v2.1." 
+#| label: fig-histobs
+#| fig-cap: "Daily temperature time series of a small glacier (RGI60-13.08930) in the Atbashy basin. Data source: CHELSA v2.1." 
 #| message: false
 #| warning: false
 hist_obs <- readRDS(file = paste0(data_path, "CLIMATE/hist_obs_glacier_tas.rds"))
@@ -135,13 +140,13 @@ ggplot(hist_obs) +
   theme_bw()
 ```
 
-#### Future temperatures
+#### Future Temperatures
 
 Future temperature development per glacier or elevation band is extracted from the 3 CMIP6 GCM models with highest priorities for the region downloaded from COPERNICUS. We take 4 socioeconomic scenarios into account, covering 4 different emission scenarios. The temperatures of the climate models are bias corrected using the CHELSA data and a quantile mapping method. More details in the climate data preparation section. 
 
 ```{r}
 #| label: fig-futsim
-#| fig.cap: "Annual historical (CHELSA) and future (CMIP6, Copernicus) temperature for glacier RGI60-13.08930. " 
+#| fig-cap: "Annual historical (CHELSA) and future (CMIP6, Copernicus) temperature for glacier RGI60-13.08930. " 
 #| message: false
 #| warning: false
 fut_sim <- readRDS(file = paste0(data_path, "CLIMATE/fut_sim_glacier_tas_qmapped.RDS"))
@@ -183,7 +188,7 @@ ggplot() +
 ```
 
 
-### Glacier geometry
+### Glacier Geometry
 ```{r}
 #| message: false
 #| warning: false
@@ -239,13 +244,13 @@ glaciers <- unique(rgi_elbands$RGIId)
 rgi_elbands$thickness_m = exact_extract(glacier_thickness, 
                                         rgi_elbands, "mean", progress = FALSE)
 ```
-### Processing of forcing
+### Processing of Forcing
 
 Temperature time series for each glacier/elevation band are available. @fig-temperature-elevation-bands} shows temperature time series extracted from the CHELSA data set on the example of one of the larger glaciers in the Atbashy basin. The data is aggregated to the hydrological year to better illustrate the temperature gradient over the elevation. The highest temperatures are measured at the lowest elevations and vice versa.
 
 ```{r}
 #| label: fig-temperature-elevation-bands
-#| fig.cap: "Temperature forcing for the elevation bands of a glacier. " 
+#| fig-cap: "Temperature forcing for the elevation bands of a glacier. " 
 #| message: false
 #| warning: false
 ggplot(hist_obs[, 1:9] |> 
@@ -266,13 +271,13 @@ ggplot(hist_obs[, 1:9] |>
   theme_bw()
 ```
 
-### Calculating glacier melt
+### Calculating Glacier Melt
 
 The code snippet below illustrates how to calculate the annual glacier melt of the catchment. @fig-glaciermeltcalculation shows daily melt rates for the different elevation bands of one of the larger glaciers (same as in the figure above). The highest melt occurs at low elevation bands.
 
 ```{r}
 #| label: fig-glaciermeltcalculation
-#| fig.cap: "Daily glacier melt per elevation band." 
+#| fig-cap: "Daily glacier melt per elevation band." 
 #| message: false
 #| warning: false
 MF_small = 1
@@ -305,13 +310,13 @@ ggplot(melt[, 1:9] |>
   theme_bw()
 ```
 
-### Compare to measured glacier melt
+### Compare to Measured Glacier Melt
 
 Aggregate the daily glacier melt to annual data and compare it to the observed glacier melt. Note that the glacier melt simulated with the temperature index model (sim) is never negative whereas the glacier mass change derived from @hugonnet_accelerated_2021 and @miles_health_2021 can be negative, indicating glacier growth.  
 
 ```{r}
 #| label: fig-glaciermeltcomparison
-#| fig.cap: "Daily glacier melt per elevation band." 
+#| fig-cap: "Daily glacier melt per elevation band." 
 #| message: false
 #| warning: false
 melt_a_eb <- melt |> 
@@ -377,13 +382,13 @@ ggplot() +
 
 The temperature index model can be calibrated with the specific glacier volume change provided by @hugonnet_accelerated_2021 (see @fig-glaciermeltcomparison}). For the moment, manual calibration of the parameters is required. 
 
-### Glacier mass balance
+### Glacier Mass Balance
 
 The following figure shows the components of the glacier mass balance for a few glaciers in the Atbashy basin.
 
 ```{r}
 #| label: fig-glaciermassbalance
-#| fig.cap: "Glacier area and volume development and total and imbalance discharge." 
+#| fig-cap: "Glacier area and volume development and total and imbalance discharge." 
 #| message: false
 #| warning: false
 glacier_balance <- glacierBalance(melt_a_eb = melt_a_eb, 
@@ -423,13 +428,13 @@ ggplot(glacier_balance |>
 
 We now have glacier discharge (Q_m3s) and the unsustainable contribution to glacier discharge, the imbalance ablation (Qimb_m3a) which is negative for glacier loss and positive for growing glaciers. We are only interested in the contribution of imbalance ablation to river discharge, that is, only the negative part of Qimb_m3a is relevant to us.
 
-## From annual to daily melt
+## From Annual to Daily Melt
 
 The glacier mass balance is done on a yearly basis (if not at lower frequency). Hydrological models, however, typically run at higher frequency, for example monthly or daily time steps. One simple method to distribute glacier discharge on a year is to scale it according to the daily melt computed.
 
 ```{r}
 #| label: fig-imbalabl-daily
-#| fig.cap: "Daily glacier discharge from imbalance ablation. " 
+#| fig-cap: "Daily glacier discharge from imbalance ablation. " 
 #| message: false
 #| warning: false
 
@@ -472,12 +477,12 @@ ggplot(imbalAbl_m3s |>
   theme_bw()
 ```
 
-# Aggregation to sub-basins
+# Aggregation to Sub-Basins
 Glacier discharge can be aggregated to sub-basin in RSMinerve. For this, a GIS layer needs to be prepared manually in QGIS because typically, the RGI v6.0 glacier outlines are not consistent with the river basin boundaries derived from SRTM. In QGIS the sub-basin layer is intersected with the RGI layer and the boundaries between the sub-basins are manually adjusted to be consistent with the glacier outlines. This step is important as any glaciers which are cut by sub-basin boundaries and thus are present in two different sub-basins will be counted doubly.
 
 ```{r}
 #| label: fig-glaciersbysubbasin
-#| fig.cap: "Glaciers coloured by sub-basin." 
+#| fig-cap: "Glaciers coloured by sub-basin." 
 #| message: false
 #| warning: false
 dem <- raster(paste0(data_path, "GIS/16076_DEM.tif"))
@@ -511,7 +516,7 @@ The code junk below shows how to aggregate the daily per-glacier imbalance ablat
 
 ```{r}
 #| label: fig-imbalAblSubbasin
-#| fig.cap: "Glacier discharge from imbalance ablation aggregated to sub-basins. " 
+#| fig-cap: "Glacier discharge from imbalance ablation aggregated to sub-basins. " 
 #| message: false
 #| warning: false
 Qimb_m3s_sub <- imbalAbl_m3s |>
@@ -531,9 +536,9 @@ ggplot(Qimb_m3s_sub |>
   theme_bw()
 ```
 
-## Writing input file for RS Minerve
+## Writing Input File for RSMinerve
 
-The input file format for RS Minerve is described in @rsminerve_tm, page 136.
+The input file format for RSMinerve is described in @rsminerve_tm, page 136.
 
 ```{r}
 #| eval: false

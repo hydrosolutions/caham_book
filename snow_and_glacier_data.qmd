@@ -1,6 +1,7 @@
 # Snow and Glacier Data {#sec-snow-and-glacier-data}
 
 ## Introduction
+
 The runoff of the rivers Syr Darya and Amu Darya consists of 65%-75% snow melt, 23% precipitation and 2-8% glacier melt approximately [@armstrong_runoff_2019]. In smaller, highly glaciated catchments, the glacier contribution to discharge can be more important [@khanal_variable_2021]. Generally, the cryosphere is a major contributor to the water balance in Central Asia [@barandun_state_2020]. While glacier runoff is a small contributor to the annual runoff, it is seasonally important as it covers the irrigation demand in summer, when snow melt is over [@kaser_contribution_2010]. 
 
 Among other things, climate impacts translate into long-term changes of runoff formation fractions and the distribution of runoff formation within the hydrological year. Typical rainfall-runoff models such as the HBV Model simulate the fractionation of precipitation into snow and rain with a temperature threshold method. Snow and liquid water reservoirs and corresponding fluxes are then accounted for. However, these models have only a limited understanding of glacier processes which are normally inadequate at best to estimate glacier contributions to discharge. 
@@ -9,9 +10,11 @@ The following section gives a brief overview over the available regional open so
 
 Please note that new (highly relevant and public) glacier data are released ever more frequently. The summary provided here refers to the latest data sets at the time of writing in February 2022.  
 
-We use the catchment of the gauging station on the Atabshy river, a tributary to the Naryn river in Central Asia as a demo site. If you’d like to reproduce the examples presented in this chapter you can download the zipped data in the example data set available [here](){target="_blank"}. You can extract the the downloaded data into a location of your choice and adapt the reference path below. The rest of the code will run as it is, provided you have the required r packages installed. The size of the data package is XX GB.
+We use the catchment of the gauging station on the Atabshy river, a tributary to the Naryn river in Central Asia as a demo site. If you’d like to reproduce the examples presented in this chapter you can download the zipped data in the example data set available [here](){target="_blank"}. You can extract the the downloaded data into a location of your choice and adapt the reference path below. The rest of the code will run as it is, provided you have the required r packages installed. The size of the data package is 14.1 GB.
 
-```{r setup, message=FALSE, warning=FALSE}
+```{r}
+#| message: false
+#| warning: false
 library(tmap)
 library(sf)
 library(raster)
@@ -31,8 +34,11 @@ data_path <- "../caham_data/SyrDarya/Atbashy/"
 
 From the downloaded data, only the SWE and the validity mask (showing the pixels where the snow water equivalent product is valid) is required. 
 
-```{r swe, warning=FALSE, message=FALSE, message=FALSE}
-#| fig.cap = "Snow water equivalent map of October 1, 1998 (source; HMASR)." 
+```{r}
+#| label: fig-swe
+#| warning: false
+#| message: false
+#| fig-cap: "Snow water equivalent map of October 1, 1998. (Source: HMASR)."
 dem <- raster(paste0(data_path, "GIS/16076_DEM.tif"))
 basin <- st_read(paste0(data_path, "GIS/16076_Basin_outline.shp"), quiet = TRUE)
 
@@ -110,8 +116,11 @@ tm_shape(sca_masked$layer.1) +
 ## Randolph Glacier Inventory (RGI)
 The Randolph Glacier Inventory (RGI) v6.0 [@rgi60] makes a consistent global glacier data base publicly available. It includes geo-located glacier geometry and some additional parameters like elevation, length, slope and aspect. A new version (v7) is under review at the time of writing beginning of 2022. For Central Asian water resources modelling, RGI regions 13 (Central Asia) and 14 (South Asia West) are relevant. You can download the glacier geometries for all RGI regions from [the GLIMS RGI v6.0 web site](https://www.glims.org/RGI/rgi60_dl.html){target="_blank"}. For this demo, the data for the Atbashy basin is available from the data download link given above.
 
-```{r rgi, message=FALSE, warning=FALSE}
-#| fig.cap = "DEM & Glaciers (light gray) of the demo basin." 
+```{r}
+#| label: fig-rgi
+#| message: false
+#| warning: false
+#| fig-cap: "DEM & Glaciers (light gray) of the demo basin." 
 # Loading the data
 rgi <- st_read(paste0(data_path, "GIS/16076_Glaciers_per_subbasin.shp"), 
                quiet = TRUE) |> 
@@ -130,16 +139,20 @@ tm_shape(dem) +
 ```
 
 
-## Glacier thickness
+## Glacier Thickness
 @farinotti_consensus_2019 make distributed glacier thickness maps available for each glacier in the RGI v6 data set. We have downloaded the required maps of glacier thickness for you and made them available in the download link above. We will refer to this data set as the glacier thickness data set or the Farinotti data set.
 
 The original glacier thickness data set is available from the [data collection](https://www.research-collection.ethz.ch/handle/20.500.11850/315707){target="_blank"} of @farinotti_consensus_2019 which is available from [the data section of their online article](https://www.nature.com/articles/s41561-019-0300-3){target="_blank"}.
 
 The following code chunk demonstrates how to extract glacier thickness data from the Farinotti data set.
 
-### How to extract glacier thickness
+### How to Extract Glacier Thickness
 
-```{r thicknessExtraction, eval=TRUE, message=FALSE, warning=FALSE}
+```{r}
+#| label: fig-thickness-extraction
+#| eval: true
+#| message: false
+#| warning: false
 # Get a list of all files in the glacier thickness data set. The files are named 
 # after the glacier ID in the RGI v6.0 data set (variable RGIId).  
 glacier_thickness_dir <- paste0(data_path, "GLACIERS/Farinotti/") 
@@ -163,8 +176,11 @@ glacier_thickness <- mask(glacier_thickness |>
                             projectRaster(crs = crs(dem)), basin)
 ```
 
-```{r thickness, message=FALSE, warning=FALSE}
-#| fig.cap = "Glacier thickness by Farinotti et al., 2019" 
+```{r}
+#| label: fig-thickness
+#| message: false
+#| warning: false
+#| fig-cap: "Glacier thickness by Farinotti et al., 2019" 
 tmap_mode("view")
 tm_shape(dem) + 
   tm_raster(n = 6, 
@@ -185,14 +201,17 @@ tm_shape(dem) +
 
 A more recent glacier thickness data set by @millan_ice_2022 estimates much larger ice reservoirs in the Himalayan region but similar goodness of fit for the glaciers in the Central Asian region as the Farinotti data set. The @millan_ice_2022 data set is not included in the present workflow yet but could be an alternative for the Farinotti data set. 
 
-## Glacier thinning rates
+## Glacier Thinning Rates
 
 @hugonnet_accelerated_2021 provide annual estimates of glacier thinning rates for each glacier in the RGI v6.0 data set. It is advised to not to rely on the annual data but rather on an average over at least 5 years to get reliable thinning rates for individual glaciers. We compare trends in glacier thinning rates to trends in computed glacier balance components. We will refer to this data set as the thinning rates data set or the *Hugonnet data set*. A copy of the Hugonnet thinning rates is included in the download link above.
 
 The original per-glacier time series of thinning rates can be downloaded from the [data repository](https://www.sedoo.fr/theia-publication-products/?uuid=c428c5b9-df8f-4f86-9b75-e04c778e29b9){target="_blank"} as described in the [github site](https://github.com/rhugonnet/ww_tvol_study){target="_blank"} linked under the code availability section of the [online paper](https://www.nature.com/articles/s41586-021-03436-z){target="_blank"} of @hugonnet_accelerated_2021.
 
-```{r thinning, message=FALSE, warning=FALSE}
-#| fig.cap = "Average glacier mass change by Hugonnet et al., 2021."
+```{r}
+#| label: fig-thinning
+#| message: false
+#| warning: false
+#| fig-cap: "Average glacier mass change by Hugonnet et al., 2021."
 hugonnet <- read_csv(paste0(data_path, "/GLACIERS/Hugonnet/dh_13_rgi60_pergla_rates.csv"))
 # Explanation of variables:
 # - dhdt is the elevation change rate in meters per year,
@@ -237,14 +256,17 @@ tm_shape(dem) +
   tm_borders(col = "black", lwd = 0.6)
 ```
 
-## Glacier discharge
+## Glacier Discharge
 
-@miles_health_2021 ran specific mass balance calculations over many glaciers larger than 2 km^2^ of High Mountain Asia. They provide the average glacier discharge between 2000 and 2016. The package \code{riversCentralAsia} includes an empirical relationship based on a regression between glacier thinning rates and glacier discharge which allows the estimation of glacier discharge. We will refer to this data set as the glacier discharge data set or the Miles data set. A copy of the glacier discharge data is available from the data download link provided above.
+@miles_health_2021 ran specific mass balance calculations over many glaciers larger than 2 km^2^ of High Mountain Asia. They provide the average glacier discharge between 2000 and 2016. The package `riversCentralAsia` includes an empirical relationship based on a regression between glacier thinning rates and glacier discharge which allows the estimation of glacier discharge. We will refer to this data set as the glacier discharge data set or the Miles data set. A copy of the glacier discharge data is available from the data download link provided above.
 
 The original data is available from the [data repository](https://zenodo.org/record/5119153#.Yfjv6-rMKF4){target="_blank"} linked in the [online version of the paper](https://www.nature.com/articles/s41467-021-23073-4){target="_blank"}.
 
-```{r glacierDischarge, message=FALSE, warning=FALSE}
-#| fig.cap = "Glacier discharge derived from Miles et al., 2021."
+```{r}
+#| label: fig-glacier-discharge
+#| message: false
+#| warning: false
+#| fig-cap: "Glacier discharge derived from Miles et al., 2021."
 # Calculate glacier discharge using the glacierDischarge_HM function of the 
 # riversCentralAsia package. An empirical relationship between glacier thinning 
 # rates by Hugonnet et al., 2021 and glacier discharge by Miles et al., 2021.  
@@ -272,15 +294,15 @@ tm_shape(dem) +
   tm_borders(col = "black", lwd = 0.6)
 ```
 
-## A note on the uncertainties of glacier data sets
+## A Note on the Uncertainties of the Glacier Data Sets
 
 The geometries of the RGI v6.0 data set are generally very good. If you simulate glacier discharge in a small catchment with few glaciers it is advisable to visually check the glacier geometries and make sure, all relevant glaciers in the basin are included in the RGI data set. You may have to manually add missing glaciers or correct the geometry.
 
 For some regions in Central Asia, [OpenStreetMap](https://www.openstreetmap.org/#map=6/40.684/66.076){target="_blank"} is an excellent reference for glacier locations and names in Central Asia. You can import the map layer in QGIS or also download individual GIS layers.
 
-The glacier thickness data set is validated only at few locations as measurements of glacier thickness are typically not available. @farinotti_consensus_2019 list an uncertainty range for the volume estimate in regions RGI 13 and 14 of 26% each. 
+The glacier thickness data set is validated only at few locations as measurements of glacier thickness are typically not available. @farinotti_consensus_2019 list an uncertainty range for the volume estimate in regions RGI 13 and 14 of 26 % each. 
 
-@hugonnet_accelerated_2021 & @miles_health_2021 provide the uncertainties of their estimates for per-glacier glacier thinning & discharge rates in the data set itself. They typically lie around p/m 150%. 
+@hugonnet_accelerated_2021 & @miles_health_2021 provide the uncertainties of their estimates for per-glacier glacier thinning & discharge rates in the data set itself. They typically lie around p/m 150 %. 
 
  ## References {#sec-snow-and-glacier-data-references}
  

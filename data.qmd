@@ -3,6 +3,7 @@
 In this Chapter and its Sections, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling. 
 
 Data include
+
 - in-situ station data,
 - geospatial data,
 - snow and glacier data, and
@@ -16,7 +17,7 @@ The @sec-snow-and-glacier-data and @climate-data demonstrate the generation of t
 
 The following diagram shows the entire modeling chain for hydrological modeling using RSMinerve. It shows that the data preparation step involves many interrelated components that partially depend on each other in a sequential way. This Chapter aims at carefully working through this modeling chain to carefully demonstrate the preparation of all the relevant data.
 
-![Example hydrological modeling chain that include data preparation, the implementation of the hydrological model and the analysis of results. As is visbile, the data preparation steps are quite substantial.](images/data/01_model_chain_cmip6_v3.png){#fig-climate-impact-model-chain}
+![Example hydrological modeling chain that include data preparation, the implementation of the hydrological model and the analysis of results. As is visbile, the data preparation steps are a very important part of hydrological modeling.](images/data/01_model_chain_cmip6_v3.jpg){#fig-climate-impact-model-chain}
 
 
 

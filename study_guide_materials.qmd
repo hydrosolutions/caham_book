@@ -108,7 +108,7 @@ Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the ca
 
 | ATTRIBUTE                                             | VALUE                 |
 |-------------------------------------------------------|-----------------------|
-| ***Geography*** [@srtmgl12020]                        |                       |
+| ***Geography*** [@srtm_2020]                        |                       |
 | Basin Area $A$                                        | 13'693 km^2^          |
 | Minimum Elevation $h_{min}$                           | 2'068 masl            |
 | Maximum Elevation $h_{max}$                           | 6'652 masl            |

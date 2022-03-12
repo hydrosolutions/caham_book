@@ -20,13 +20,13 @@ Daily gridded precipitation fields are generated merging data from the ERA5 rean
 The data for the Central Asia domain (55 deg. E - 85 deg. E and 30 deg. N - 50 deg. N) is very large and is not provided here for download (total storage requirements \> 1 TB). Please contact Tobias Siegfried via `siegfried@hydrosolutions.ch` for more information on how to obtain access the data of the entire domain.
 :::
 
-The high-resolution climate data derived with the CHELSA algorithm is corrected for the problem of snow-undercatch in the high mountain regions as described by [@beck2020]. What is snow-undercatch? Measuring precipitation correctly in high altitude regions is complex because of sublimation and blowing snow. An example of this is shown in @fig-snow-undercatch-spain for high elevation gauges in Spain. In a recent inter-comparison project carried out in Spain, it has been shown that undercatch poses significant problems in accurately measuring solid precipitation [@Buis_n_2017] in mountainous regions. Both, ERA-INTERIM and CHELSA themselves assimilate station data in their models and hence are affected by these *erroneous* measurements.
+The high-resolution climate data derived with the CHELSA algorithm is corrected for the problem of snow-undercatch in the high mountain regions as described by [@beck_2020]. What is snow-undercatch? Measuring precipitation correctly in high altitude regions is complex because of sublimation and blowing snow. An example of this is shown in @fig-snow-undercatch-spain for high elevation gauges in Spain. In a recent inter-comparison project carried out in Spain, it has been shown that undercatch poses significant problems in accurately measuring solid precipitation [@Buis_n_2017] in mountainous regions. Both, ERA-INTERIM and CHELSA themselves assimilate station data in their models and hence are affected by these *erroneous* measurements.
 
 ![Measured snow undercatch values in high-mountain stations in Spain. The values were determined within the World Meteorological Organization Solid Precipitation Intercomparison Experiment (WMO-SPICE). See text for more information and reference.](./images/data/18_snow_undercatch_spain.jpg){#fig-snow-undercatch-spain}
 
-[@beck2020] has recognized this and released monthly correction factors that are taken into account in the CHELSA algorithm (see @fig-beck-bias-correction-factors).
+[@beck_2020] has recognized this and released monthly correction factors that are taken into account in the CHELSA algorithm (see @fig-beck-bias-correction-factors).
 
-![Figure from [@beck2020], Supplementary Material. Plate d): Best estimate of global bias correction factors. Plate e): Lower bound estimate of global bias correction factors. Plate f): Upper bound of global bias correction factors. As is clearly visible, bias correction factors in high-mountain Asia, including the parts of Central Asia are significant.](./images/data/19_beck_bias_correction_factors.jpg){#fig-beck-bias-correction-factors}
+![Figure from [@beck_2020], Supplementary Material. Plate d): Best estimate of global bias correction factors. Plate e): Lower bound estimate of global bias correction factors. Plate f): Upper bound of global bias correction factors. As is clearly visible, bias correction factors in high-mountain Asia, including the parts of Central Asia are significant.](./images/data/19_beck_bias_correction_factors.jpg){#fig-beck-bias-correction-factors}
 
 The annual precipitation climatology, i.e. the long-term mean annual precipitation, from 1979 - 2011 is shown in @fig-annual-precipitation-climatology. As is easily visible and not further surprising, the mountainous regions receive the bulk of the precipitation, on average.
 
@@ -152,7 +152,7 @@ As an aside, the bias corrected precipitation climatology shows an interesting f
 
 #### Discharge Seasonality
 
-What about the seasonality of the CHELSA precipitation? Can it adequately reproduce the observed precipitation seasonality? If this would not be the case, we would have to reject the validity of the product and explore other high-resolution climatologies such as WorldClim V2 or CHPClim V1 (see [@beck2020] for more information on these products). Let us explore again the data of the Gunt River basin to answer this question.
+What about the seasonality of the CHELSA precipitation? Can it adequately reproduce the observed precipitation seasonality? If this would not be the case, we would have to reject the validity of the product and explore other high-resolution climatologies such as WorldClim V2 or CHPClim V1 (see [@beck_2020] for more information on these products). Let us explore again the data of the Gunt River basin to answer this question.
 
 First, we load and prepare all the required station precipitation and geospatial data. Then, we compute the monthly norms of these data for the period 1981-01-01 through 2010-12-31. Note that the meteorological station at Khorog is located at the same place as the discharge gauging station and has the 5-digit index 38954 (see also the dedicated [Example Catchments Chapter](#sec-example-gunt-river-basin) for more information).
 

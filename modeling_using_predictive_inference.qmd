@@ -1021,7 +1021,7 @@ So, for our model which we consiedered to be performing well above, we get the f
 ```{r benchmarkModelPerformance, warning = FALSE, fig.cap=""}
 #| label: fig-benchmark-model-performance
 #| warning: false
-#| fig-cap: "Benchamrk model performance assessment."
+#| fig-cap: "Benchmark model performance assessment."
 plot01 <- TRUE 
 te <- assess_fc_qual(model_fc_wide_tbl,plot01)
 te[[3]]
@@ -1045,5 +1045,5 @@ We start off with our `model_data` tibble and want to divide it into two sets, o
 Note, this Section is work in progress. Please check back later!
 :::
 
-## References {#sec-modeling-using-predictive-inference-references}
+# References {#sec-modeling-using-predictive-inference-references}
 

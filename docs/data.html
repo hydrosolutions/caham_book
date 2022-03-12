@@ -249,19 +249,33 @@
 <p>In this Chapter and its Sections, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling.</p>
 <p>Data include</p>
 <ul>
-<li>in-situ station data,</li>
 <li>geospatial data,</li>
+<li>in-situ station data,</li>
 <li>snow and glacier data, and</li>
 <li>climate reanalysis and projections data.</li>
 </ul>
 <p>As will become clear, the preparation of these data requires a substantial amount of work, local storage space and, in some instances, computational power.</p>
-<p>Data needs vary according to the modeling approach and the model chain. First, the preparation of the discharge data as described in <a href="discharge_station_data.html">Section&nbsp;<span>1</span></a> is a necessary step for data quality control independent of the type of hydrological modeling approach it is aimed for. The <a href="geospatial_data.html">Section&nbsp;<span>1</span></a> shows the necessary geospatial analysis steps for basin delineation and the generation of the required input files for physically-based modeling using RSMinerve as described in Chapter <a href="hydrological_modeling.html">Section&nbsp;<span>1</span></a> and the <span class="quarto-unresolved-ref">?sec-hydrological-hydraulic-modeling</span>.</p>
-<p>The <a href="snow_and_glacier_data.html">Section&nbsp;<span>6</span></a> and <span class="quarto-unresolved-ref">?climate-data</span> demonstrate the generation of time series data for individual hydrological response units with regard to glacier contributions and climate forcing.</p>
-<p>The following diagram shows the entire modeling chain for hydrological modeling using RSMinerve. It shows that the data preparation step involves many interrelated components that partially depend on each other in a sequential way. This Chapter aims at carefully working through this modeling chain to carefully demonstrate the preparation of all the relevant data.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Data needs vary according to the modeling approach. However, they always entail first a definition of the geometry of the river basin under consideration, second a subdivision of the basin into hydrological response units (HRUs) and third, the production of relevant time series for the individual HRUs, including climate forcing, glacier contributions, information on snow cover, etc..</p>
+</div>
+</div>
+<p>An overview of all data used is provided in the <a href="data_sources.html#sec-data-sources">Chapter 3 Sources of Relevant Data</a>. The preparation of the discharge data as described in <a href="discharge_station_data.html#sec-discharge-station-data">Chapter 4 Discharge Station Data</a> demonstrates the necessary steps for the quality control of the observed station data. This is an important step prior to any hydrological modeling, independent of the modeling approach used.</p>
+<p>The <a href="geospatial_data.html#sec-geospatial-data">Chapter 5 on Geospatial Data</a> shows the necessary geospatial analysis steps for basin delineation and the generation of the required input files for physically-based modeling using RSMinerve. These geospatial assets can then be loaded and processed in RSMinerve as shown in <a href="hydraulic_hydrological_modeling.html#sec-hydraulic-hydrological-modeling">PartIII Chapter 8 Hydrological-Hydraulic Modeling</a>.</p>
+<p><a href="snow_and_glacier_data.html">Chapter 6</a> introduces available snow and glacier data that can be used for hydrological modeling. It also demonstrates the generation of time series data for individual hydrological response units with regard to glacier contributions. The <a href="#climate-data">Chapter 7 Climate Data</a> discussed state-of-the-art high-resolution climate data for past observations of precipitation and temperature as well as climate projections and the processing and preparation of these data for hydrological modeling.</p>
+<p>The following diagram shows the entire modeling chain for hydrological modeling. It shows that the data preparation step involves many interrelated components that partially depend on each other in a sequential way. This Chapter aims at carefully working through this modeling chain to demonstrate the preparation of all the relevant data for the subsequent modeling application.</p>
 <div id="fig-climate-impact-model-chain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/data/01_model_chain_cmip6_v3.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1: Example hydrological modeling chain that include data preparation, the implementation of the hydrological model and the analysis of results. As is visbile, the data preparation steps are a very important part of hydrological modeling.</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1: Example hydrological modeling chain that include data preparation, the implementation of the hydrological model and the analysis of results. The data preparation steps are a very important part of hydrological modeling.</figcaption><p></p>
 </figure>
 </div>
 

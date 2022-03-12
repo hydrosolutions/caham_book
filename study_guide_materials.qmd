@@ -104,7 +104,7 @@ The homework is not graded but supports reflection about the use of hydrological
 :::
 
 ### Day 3: Hydrological modelling concepts and Catchment Characterization {#sec-study-guide-day2 .unnumbered}
-Watch the [tutorial video] explaining one method for the catchment characterization. Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the catchment characterization of the basin that you selected to work on by filling in the Table @tbl-example-basin-characterization below. If you have downloaded the entire folder on your local drive, you already have all the data available for the analysis.
+Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the catchment characterization of the basin that you selected to work on by filling in the Table @tbl-example-basin-characterization below. If you have downloaded the entire folder on your local drive, you already have all the data available for the analysis.
 
 | ATTRIBUTE                                             | VALUE                 |
 |-------------------------------------------------------|-----------------------|
@@ -121,11 +121,11 @@ Watch the [tutorial video] explaining one method for the catchment characterizat
 | Annual norm specific discharge                        | 239 mm                |
 | ***Climate***                                         |                       |
 | Mean basin temperature $T$ [@karger_2017]| -5.96 deg. Celsius    |
-| Mean basin precipitation $P$ [@beck_2020]              | 351 mm                |
-| Potential Evaporation $E_{pot}$ [@trabucco_2019]       | 929 mm                |
+| Mean basin precipitation $P$ [@beck_2020]             | 351 mm                |
+| Potential Evaporation $E_{pot}$ [@trabucco_2019]      | 929 mm                |
 | Aridity Index $\phi = E_{pot} / P$                    | 2.7                   |
-| Aridity Index [@trabucco_2019]                         | 3.6                   |
-| ***Land Cover [@copernicus_landcover_2019]***               |                       |
+| Aridity Index [@trabucco_2019]                        | 3.6                   |
+| ***Land Cover [@copernicus_landcover_2019]***         |                       |
 | Shrubland                                             | 8 km^2^               |
 | Herbaceous Vegetation                                 | 4'241 km^2^           |
 | Crop Land                                             | 0.5 km^2^             |
@@ -134,23 +134,55 @@ Watch the [tutorial video] explaining one method for the catchment characterizat
 | Snow and Ice                                          | 969 km^2^             |
 | Permanent Water Bodies                                | 80 km^2^              |
 | ***Land Ice***                                        |                       |
-| Total glacier area [@rgi60]                       | 875 km^2^             |
+| Total glacier area [@rgi60]                           | 875 km^2^             |
 | Total glacier volume (calculated with [@erasov_1968]) | 699 km^3^             |
 : As an example, key relevant basin statistics for Gunt river basin are shown with individual data sources indicated. Using the data available in the data pack, you should characterize your case study basin in a similar way. {#tbl-example-basin-characterization}
 
+There are four tutorial videos explaining how you can fill the above table. They are made available via the [dedicated CAHAM YouTube Channel](https://www.youtube.com/channel/UCxmA9SnaMnhODWFIkwC_vtg/playlists){target = "_blank"} that is accompanying this online textbook.
+
+The first video explains in detail how to process and extract geospatial raster and vector data.
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=opA2oHyvtOI")
+```
+
+The second tutorial video shows how to extract relevant climate data for the case study basin. 
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=RXD0NzVkTbw")
+```
+
+The third video covers extracting information from landcover for the basin under consideration.
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=PpAkgMv8nnw")
+```
+
+Finally, the last video shows you how to extract the relevant information on glaciers.
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=QVryL_ubc9M")
+```
+
 ::: callout-note
-## GRADED EXERCISE : Catchment characterization  
-Following the video tutorial, fill in the table above with the characteristic numbers of your catchment together with your colleague. Compare your numbers to the ones of the Gunt catchment (table above). Submit your table via email to the lecturer before the start of tomorrows lecture.   
+## GRADED EXERCISE 1: Catchment characterization  
+Following the video tutorial, fill in the table above with the characteristic numbers of your catchment together with your colleague. Compare your numbers to the ones of the Gunt catchment (table above). Note the submission deadline for Excercise 1 on Moodle.   
 :::
 
 ### Day 4: Discharge and climate data
-Yet more data preparation is required before you can start modelling: The review of the basins discharge and climate forcing. 
+Yet more data preparation is required before you can start modelling. The review of the basins discharge and climate forcing. 
 
 ::: callout-note
-## GRADED EXERCISE : Discharge characterization  
-Read the chapters on [discharge station data](##sec-discharge-station-data) and [climate data](#sec-climate-data) and, together with your colleague, perform a discharge characterization of your basin following the video tutorial. 
-
-Submit your discharge characterization via email to your lecturer before the start of tomorrows lecture. 
+## GRADED EXERCISE 2: Discharge characterization  
+Read the chapters on [discharge station data](##sec-discharge-station-data) and [climate data](#sec-climate-data) and, together with your colleague, perform a discharge characterization using the dedicated scripts in your case study's `./CODE/discharge_characterization/` folder. Note the submission deadline for Excercise 2 on Moodle!
 :::
 
 ### Day 5: Discussion of Types of Hydrological Models {#sec-study-guide-day4 .unnumbered}
@@ -168,22 +200,21 @@ This homework is not graded but basic knowledge of RS Minerve is required for th
 
 ### Day 6 & 7: Model Calibration and Validation {#sec-study-guide-day6 .unnumbered}
 
-Read the chapter on [Model calibration and validation](#section-model-calibration-and-validation) and go through the example of the Nauvalisoy catchment which illustrates the iterative model refinement process.   
-Students will implement a hydrological model of their study catchment and calibrate it. 
+Read the chapter on [Model calibration and validation](#section-model-calibration-and-validation) and go through the example of the Nauvalisoy catchment which illustrates the iterative model refinement process. As the ultimate goal, students will implement a hydrological model of their study catchment and calibrate it. 
 
 ::: callout-note
-## GRADED EXERCISE : Model implementation and calibration in RS Minerve   
+## GRADED EXERCISE 3: Model implementation and calibration in RS Minerve   
 - Read the [modelling chapter](#sec-hydrological-modeling)  
 - Implementing a hydrological model of your study basin in RS Minerve.     
 
-Show your working model and calibration results to your lecturer during group work session on day 7.  
+Note the submission deadline for Excercise 3 on Moodle!
 :::
 
 ::: callout-note
-## GRADED EXERCISE : Abstract submission for student conference  
+## GRADED EXERCISE 4: Abstract submission for student conference  
 - Carefully read the [abstract submission guidelines](https://github.com/hydrosolutions/caham_book/blob/master/learningFiles/AbstractSubmissionGuide.pdf) and write an abstract for your model.       
 
-Submitt your abstract by Saturday, 10 a.m. Almaty time to your lecturer by email.  
+Note the submission deadline for Excercise 4 on Moodle!
 :::
 
 
@@ -197,7 +228,9 @@ At the end, students are invited to provide feedback with regard to their impres
 
 ::: callout-note
 ## FINAL EXAM : Model presentation  
-- Present an overview of your catchment, discharge characterization and your model implementation and results at the students conference.        
+- Present an overview of your catchment, discharge characterization and your model implementation and results at the students conference.   
+
+Note that the presentations have to be uploaded to the moodle prior to the start of the conference.
 :::
 
 ## References

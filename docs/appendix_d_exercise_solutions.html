@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.74">
+<meta name="generator" content="quarto-0.9.83">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>appendix_d_exercise_solutions</title>
+<meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software.">
+<title>Modeling of Hydrological Systems in Semi-Arid Central Asia - Appendix D — Exercise Solutions</title>
 <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,8 +14,9 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./appendix_c_quick_guides.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -40,16 +42,212 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body class="fullcontent">
+<body class="floating">
 <div id="quarto-search-results"></div>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Appendix D — Exercise Solutions</h1>
+      <button type="button" class="quarto-btn-toggle btn">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/hydrosolutions/caham_book" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+<li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./study_guide_materials.html" class="sidebar-item-text sidebar-link">Study Guide and Materials</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a href="./hydrology_of_central_asia.html" class="sidebar-item-text sidebar-link">Part I: Hydrology of Semi-Arid Central Asia</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-hydrology_of_central_asiaqmd" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-hydrology_of_central_asiaqmd" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hydrological_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example_river_basins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study River Basins</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a href="./data.html" class="sidebar-item-text sidebar-link">Part II: Data Sources, Retrieval and Preparation</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-dataqmd" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-dataqmd" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sources of Relevant Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./discharge_station_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discharge Station Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./geospatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geospatial Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./snow_and_glacier_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Snow and Glacier Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./climate_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Climate Data</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">Part III: Hydrological Modeling &amp; Applications</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-hydrological_modelingqmd" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-hydrological_modelingqmd" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./long_term_water_balance_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modeling_using_predictive_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glacier_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-appendices" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-appendices" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-appendices" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Software</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_b_riverscentralasia_r_toolbox.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">R Toolbox riversCentralAsia</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_c_quick_guides.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quick Guides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_d_exercise_solutions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Exercise Solutions</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+<ul>
+<li>
+<a href="#sec-appendix-solutions-exercise1" class="nav-link active" data-scroll-target="#sec-appendix-solutions-exercise1"> <span class="header-section-number">D.1</span> Exercise on Linear Reservoir modelling</a>
+<ul class="collapse">
+<li><a href="#sec-solution-task1-experimental-setup" class="nav-link" data-scroll-target="#sec-solution-task1-experimental-setup">Task 1</a></li>
+<li><a href="#sec-solution-task2-perform-experiment" class="nav-link" data-scroll-target="#sec-solution-task2-perform-experiment">Task 2</a></li>
+<li><a href="#sec-solution-task3-simulate" class="nav-link" data-scroll-target="#sec-solution-task3-simulate">Task 3</a></li>
+</ul>
+</li>
+<li>
+<a href="#sec-appendix-solutions-hbv-exercises" class="nav-link" data-scroll-target="#sec-appendix-solutions-hbv-exercises"> <span class="header-section-number">D.2</span> Exercises on the HBV Model</a>
+<ul class="collapse">
+<li><a href="#sec-appendix-solutions-hbv-driving-forces" class="nav-link" data-scroll-target="#sec-appendix-solutions-hbv-driving-forces">Exercise: Driving Forces of the HBV Model</a></li>
+<li><a href="#sec-appendix-solutions-hbv-parameters-states" class="nav-link" data-scroll-target="#sec-appendix-solutions-hbv-parameters-states">Exercise - HBV Model States</a></li>
+<li><a href="#sec-appendix-solutions-plot-temperature-and-precipitation-1984" class="nav-link" data-scroll-target="#sec-appendix-solutions-plot-temperature-and-precipitation-1984">Exercise: Data Visualization in RSMinerve</a></li>
+<li><a href="#sec-appendix-solutions-compare-evaporation-methods" class="nav-link" data-scroll-target="#sec-appendix-solutions-compare-evaporation-methods">Exercise: Compare Evaporation Methods</a></li>
+<li><a href="#sec-appendix-solutions-common-calibration-issues" class="nav-link" data-scroll-target="#sec-appendix-solutions-common-calibration-issues">Exercise: Common Difficulties in Model Calibration</a></li>
+<li><a href="#sec-appendix-solutions-strategies-for-issues" class="nav-link" data-scroll-target="#sec-appendix-solutions-strategies-for-issues">Exercise: Strategies to Overcome some of the Model Calibration Difficulties</a></li>
+<li><a href="#exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered" class="nav-link" data-scroll-target="#exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered"> <span class="header-section-number">D.2.1</span> Exercise: Calibrate a Simple HBV Model {#sec-appendix-solutions-calibrated parameters .unnumbered}</a></li>
+</ul>
+</li>
+</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/appendix_d_exercise_solutions.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><section id="sec-exercise-solutions" class="level1"><h1>Exercise Solutions</h1>
-<section id="sec-appendix-solutions-exercise1" class="level2"><h2 class="anchored" data-anchor-id="sec-appendix-solutions-exercise1">Exercise on Linear Reservoir modelling</h2>
+<main class="content" id="quarto-document-content"><header id="title-block-header"><h1 class="title display-7"><span id="sec-exercise-solutions" class="quarto-section-identifier d-none d-lg-block">Appendix D — Exercise Solutions</span></h1>
+</header><section id="sec-appendix-solutions-exercise1" class="level2" data-number="D.1"><h2 data-number="D.1" class="anchored" data-anchor-id="sec-appendix-solutions-exercise1">
+<span class="header-section-number">D.1</span> Exercise on Linear Reservoir modelling</h2>
 <section id="sec-solution-task1-experimental-setup" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-solution-task1-experimental-setup">Task 1</h3>
 <section id="what-will-determine-the-flow-through-your-bucket" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="what-will-determine-the-flow-through-your-bucket">What will determine the flow through your bucket?</h4>
 <p>The flow through the bucket will be influenced by the volume to bottom area fraction of the bucket, the amount and speed of water added to the bucket and the size of the outlet hole.</p>
@@ -89,7 +287,7 @@ A couple of notes on measurement accuracy:</p>
 </ul>
 <div id="fig-solution1-example-setup" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/appendix_c_quick_guides/fig_experimentalSetup.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1: Example for material needed and example setup to perform the linear reservoir experiment. Add a minion with a stop watch or a smart phone to help you logging the discharge from the bucket.</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure D.1: Example for material needed and example setup to perform the linear reservoir experiment. Add a minion with a stop watch or a smart phone to help you logging the discharge from the bucket.</figcaption><p></p>
 </figure>
 </div>
 </section></section><section id="sec-solution-task2-perform-experiment" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-solution-task2-perform-experiment">Task 2</h3>
@@ -99,26 +297,27 @@ A couple of notes on measurement accuracy:</p>
 </section><section id="sec-solution-task3-simulate" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-solution-task3-simulate">Task 3</h3>
 <p>The height of the measured discharge peak can be best reproduced with k = 0.42. However, the measured discharge peaks 1s later than the simulated discharge peak.<br>
 Reasons for the discrepancy can be the shape of the linear reservoir, non-linear pouring speed, and measurement uncertainties.</p>
-</section></section><section id="sec-appendix-solutions-hbv-exercises" class="level2"><h2 class="anchored" data-anchor-id="sec-appendix-solutions-hbv-exercises">Exercises on the HBV Model</h2>
+</section></section><section id="sec-appendix-solutions-hbv-exercises" class="level2" data-number="D.2"><h2 data-number="D.2" class="anchored" data-anchor-id="sec-appendix-solutions-hbv-exercises">
+<span class="header-section-number">D.2</span> Exercises on the HBV Model</h2>
 <section id="sec-appendix-solutions-hbv-driving-forces" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-hbv-driving-forces">Exercise: Driving Forces of the HBV Model</h3>
-<p>The model drivers are precipitation, temperature and evaporation (P, T and ET in <strong>?@fig-overview-hbv-model</strong>). You need to provide time series of the model drivers to the model. Evaporation is typically not measured at climate stations but many empirical functions are available in the literature to estimate evaporation. RSMinerve offers the possibility to calculate evaporation based on temperature measurements and catchment location (you will do that later in this tutorial).</p>
+<p>The model drivers are precipitation, temperature and evaporation (P, T and ET in <a href="hydraulic_hydrological_modeling.html#fig-overview-hbv-model">Figure&nbsp;<span>8.6</span></a>). You need to provide time series of the model drivers to the model. Evaporation is typically not measured at climate stations but many empirical functions are available in the literature to estimate evaporation. RSMinerve offers the possibility to calculate evaporation based on temperature measurements and catchment location (you will do that later in this tutorial).</p>
 </section><section id="sec-appendix-solutions-hbv-parameters-states" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-hbv-parameters-states">Exercise - HBV Model States</h3>
 <p>The model states are the snow water equivalent height (SWE), the relative water content in the snow pack (WH), the humidity (Hum), the upper reservoir water level (SU) and the lower reservoir water level (SL). The model states are initialized using the initial conditions.</p>
 </section><section id="sec-appendix-solutions-plot-temperature-and-precipitation-1984" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-plot-temperature-and-precipitation-1984">Exercise: Data Visualization in RSMinerve</h3>
 <p>Simulate from the 01/01/1981 01:00:00 to 31/12/1983 23:00:00, then choose data from 31/12/1983 23:00:00 as the initial conditions and run the model from 01/01/1984 01:00:00 to 31/12/1984 23:00:00. Choose hourly output for the simulation results.<br>
-Open the Selection and plots tab by clicking on the Selection and plots button in the Modules toolbar and select simulated P and T from the Nauvalisoy station as shown in <a href="#fig-pt-nauvailsoy">Figure&nbsp;2</a>.</p>
+Open the Selection and plots tab by clicking on the Selection and plots button in the Modules toolbar and select simulated P and T from the Nauvalisoy station as shown in <a href="#fig-pt-nauvailsoy">Figure&nbsp;<span>D.2</span></a>.</p>
 <div id="fig-pt-nauvailsoy" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/appendix_c_quick_guides/fig116_plotPThourly.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 2: Hourly precipitation and temperature at the virtual Nauvalisoy weather station.</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure D.2: Hourly precipitation and temperature at the virtual Nauvalisoy weather station.</figcaption><p></p>
 </figure>
 </div>
 <p>Note: If you want to repeat a simulation with specific initial conditions, you can store them through Export IC in the Model Properties toolbar.</p>
 <p>The approximate temperature range is -13 deg. C. in December to 34 deg. C. in August. The annual precipitation is about 1.4 m (visualize Pcum and click on the last value of the time series). No precipitation falls during the summer months.</p>
 </section><section id="sec-appendix-solutions-compare-evaporation-methods" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-compare-evaporation-methods">Exercise: Compare Evaporation Methods</h3>
-<p>Figure <a href="#fig-evaporation-discharge">Figure&nbsp;3</a> shows the evaporation computed with various methods and the resulting discharge. Uniform evaporation should not be used for sub-annual modeling time steps for obvious reasons that ET shows a strong seasonality. The difference between the different methods by Turc, McGuinness and Oudin are within 5 % of total discharge which is negligible for a regional model.</p>
+<p>Figure <a href="#fig-evaporation-discharge">Figure&nbsp;<span>D.3</span></a> shows the evaporation computed with various methods and the resulting discharge. Uniform evaporation should not be used for sub-annual modeling time steps for obvious reasons that ET shows a strong seasonality. The difference between the different methods by Turc, McGuinness and Oudin are within 5 % of total discharge which is negligible for a regional model.</p>
 <div id="fig-evaporation-discharge" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/appendix_c_quick_guides/fig119_evaporationDischarge1984.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3: Hourly precipitation and temperature at the virtual Nauvalisoy weather station.</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure D.3: Hourly precipitation and temperature at the virtual Nauvalisoy weather station.</figcaption><p></p>
 </figure>
 </div>
 <p>For advanced modeling, the choice of the evaporation model may be relevant but only if a validation with measured data is possible.</p>
@@ -132,7 +331,7 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 </li>
 <li>The model is not perfect, it remains an approximation of the real system and may not incorporate all relevant processes of the hydrological cycle (e.g.&nbsp;water storage and transport in glaciers for the case of the HBV model or significant sub-surface water fluxes that very difficult to capture as for example in Karst regions).<br>
 </li>
-<li>Discharge measurements typically have uncertainties of 20 %. Particularly measurements at the lower and upper ends of the rating curve (i.e.&nbsp;the water table - discharge relationship) are typically prone to larger uncertainties (bonus question: think about why this is so!). Is the measurement location or the equipment not properly maintained, biases may grow over time. On the other hand, if the measurement method is updated and changed, the measured discharge may display a different pattern as was for example discussed in the data from Gunt River basin (<strong>?@sec-example-gunt-river-basin</strong>).</li>
+<li>Discharge measurements typically have uncertainties of 20 %. Particularly measurements at the lower and upper ends of the rating curve (i.e.&nbsp;the water table - discharge relationship) are typically prone to larger uncertainties (bonus question: think about why this is so!). Is the measurement location or the equipment not properly maintained, biases may grow over time. On the other hand, if the measurement method is updated and changed, the measured discharge may display a different pattern as was for example discussed in the data from Gunt River basin (<a href="example_river_basins.html#sec-example-gunt-river-basin">Section&nbsp;<span>2.1</span></a>).</li>
 </ol></section><section id="sec-appendix-solutions-strategies-for-issues" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-appendix-solutions-strategies-for-issues">Exercise: Strategies to Overcome some of the Model Calibration Difficulties</h3>
 <ol type="1">
 <li>Over-parameterization:<br>
@@ -156,7 +355,8 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 <li>Square-root filters or data assimilation algorithms are able to account for non-correlated measurement errors (they are not implemented in RSMinerve and not topic of this course). Error bands for the measurements should be adapted when communicating model results.</li>
 </ol>
 <p>Most of the above points will be discussed in more detail during this course.</p>
-</section><section id="exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered" class="level3"><h3 class="anchored" data-anchor-id="exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered">Exercise: Calibrate a Simple HBV Model {#sec-appendix-solutions-calibrated parameters .unnumbered}</h3>
+</section><section id="exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered" class="level3" data-number="D.2.1"><h3 data-number="D.2.1" class="anchored" data-anchor-id="exercise-calibrate-a-simple-hbv-model-sec-appendix-solutions-calibrated-parameters-.unnumbered">
+<span class="header-section-number">D.2.1</span> Exercise: Calibrate a Simple HBV Model {#sec-appendix-solutions-calibrated parameters .unnumbered}</h3>
 <p>The parameter set of the calibrated model are: ::: {.cell} ::: {.cell-output-stdout}</p>
 <pre><code>
 
@@ -180,7 +380,7 @@ Open the Selection and plots tab by clicking on the Selection and plots button i
 <p>You can import the calibrated parameters via Import P in the Model Properties toolbar (note that the calibrated parameters are available for download <a href="https://www.dropbox.com/s/6512a22h2lrga7p/nauvalisoy_PAR_calibrated.txt?dl=1">here</a>.</p>
 
 
-</section></section></section></main><!-- /main --><script type="application/javascript">
+</section></section></main><!-- /main --><script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();
@@ -255,7 +455,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./appendix_c_quick_guides.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quick Guides</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

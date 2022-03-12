@@ -121,15 +121,15 @@ tm_shape(gunt_dem_hillshade) +
   tm_text("StationName", size = .75, auto.placement = TRUE, just = "left")
 ```
 
-The Table below summarizes key basin statistics that are relevant from the hydro-climatological perspective. Data from various sources are summarized here. These data are presented in Section II of the book in @sec-data and discussed in great detail there.
+The Table below summarizes key basin statistics that are relevant from the hydro-climatological perspective. Data from various sources are summarized here. These data are presented in [Section II on Data](#sec-data)  and discussed in great detail there.
 
-The basin area has been derived from the basin shapefile. Raster statistics of the SRTM digital elevation model [@srtmgl12020], the climate raster files as well as the land cover raster are calculated using the QGIS `Raster Layer Statistics` processing toolbox algorithm. The land ice total polygon area is computed with the Statistical Summary Option in QGIS.
+The basin area has been derived from the basin shapefile. Raster statistics of the SRTM digital elevation model [@srtm_2020], the climate raster files as well as the land cover raster are calculated using the QGIS `Raster Layer Statistics` processing toolbox algorithm. The land ice total polygon area is computed with the Statistical Summary Option in QGIS.
 
-The norm hydrological year discharge and the corresponding norm cold and warm season discharge values have been computed with data from the Tajik Hydrometeorological Service. The mean basin precipitation is computed using a state-of-the-art bias corrected high-resolution reanalysis product [@karger_2017, @karger_2020, @karger_2021, @beck2020]. Such data will also be used for hydro-climatological modeling in later Chapters. Potential evaporation is from [@Trabucco2019] using the Penman-Montieth equation.
+The norm hydrological year discharge and the corresponding norm cold and warm season discharge values have been computed with data from the Tajik Hydrometeorological Service. The mean basin precipitation is computed using a state-of-the-art bias corrected high-resolution reanalysis product [@karger_2017, @karger_2020, @karger_2021, @beck_2020]. Such data will also be used for hydro-climatological modeling in later Chapters. Potential evaporation is from [@Trabucco2019] using the Penman-Montieth equation.
 
 | ATTRIBUTE                                             | VALUE              |
 |------------------------------------------------|-------------------------|
-| ***Geography*** [@srtmgl12020]                        |                    |
+| ***Geography*** [@srtm_2020]                        |                    |
 | Basin Area $A$                                        | 13'693 km^2^       |
 | Minimum Elevation $h_{min}$                           | 2'068 masl         |
 | Maximum Elevation $h_{max}$                           | 6'652 masl         |
@@ -142,11 +142,11 @@ The norm hydrological year discharge and the corresponding norm cold and warm se
 | Annual norm specific discharge                        | 239 mm             |
 | ***Climate***                                         |                    |
 | Mean basin temperature $T$ [@karger_2017]             | -5.96 deg. Celsius |
-| Mean basin precipitation $P$ [@beck2020]              | 351 mm             |
-| Potential Evaporation $E_{pot}$ [@Trabucco2019]       | 929 mm             |
+| Mean basin precipitation $P$ [@beck_2020]              | 351 mm             |
+| Potential Evaporation $E_{pot}$ [@trabucco_2019]       | 929 mm             |
 | Aridity Index $\phi = E_{pot} / P$                    | 2.7                |
-| Aridity Index [@Trabucco2019]                         | 3.6                |
-| ***Land Cover [@CopernicusLandCover]***               |                    |
+| Aridity Index [@trabucco_2019]                         | 3.6                |
+| ***Land Cover [@copernicus_landcover_2019]***               |                    |
 | Shrubland                                             | 8 km^2^            |
 | Herbaceous Vegetation                                 | 4'241 km^2^        |
 | Crop Land                                             | 0.5 km^2^          |
@@ -155,7 +155,7 @@ The norm hydrological year discharge and the corresponding norm cold and warm se
 | Snow and Ice                                          | 969 km^2^          |
 | Permanent Water Bodies                                | 80 km^2^           |
 | ***Land Ice***                                        |                    |
-| Total glacier area [@glims2005]                       | 875 km^2^          |
+| Total glacier area [@glims_global]                       | 875 km^2^          |
 | Total glacier volume (calculated with [@erasov_1968]) | 699 km^3^          |
 
 : Key relevant basin statistics for Gunt river basin. Individual data sources are indicated. Note that the hydrological year in Central Asia is defined as starting from October in year 1 and lasts until end of September in the subsequent year 2. More information on the relevance of hydrological year-based water accounting is given below. {#tbl-gunt-basin-characterization}
@@ -587,7 +587,7 @@ chirchik_river_data %>%
               ylab('m^3/month')
 ```
 
-First, cold season discharge in quarter 1 (Q1) and Q4 have a slightly increasing trend. Converse to this, the warm season quarterly trends are not uniform where Q2 trends are strongly increasing and Q3 trends are markedly decreasing. This is in line with what one would expect from a warming climate, i.e. that the snow-melt driven hydrograph peak flows shift in their timing towards earlier towards spring. At the same time, Q3 warm season discharge diminishes because of the earlier snow melt, assuming no changes in the precipitated water (compare also with the findings in @sec-gunt-river-basin where a high elevation basin from the Pamir mountains is discussed). We will investigate the available climate and precipitation record of Chirchik River basin in the following section.
+First, cold season discharge in quarter 1 (Q1) and Q4 have a slightly increasing trend. Converse to this, the warm season quarterly trends are not uniform where Q2 trends are strongly increasing and Q3 trends are markedly decreasing. This is in line with what one would expect from a warming climate, i.e. that the snow-melt driven hydrograph peak flows shift in their timing towards earlier towards spring. At the same time, Q3 warm season discharge diminishes because of the earlier snow melt, assuming no changes in the precipitated water (compare also with the findings in @sec-example-gunt-river-basin where a high elevation basin from the Pamir mountains is discussed). We will investigate the available climate and precipitation record of Chirchik River basin in the following section.
 
 ```{r}
 #| label: fig-chirchik-min-max-mean-quarterly-discharge
@@ -795,9 +795,9 @@ pQ1 + pQ2 + pQ3 + pQ4 + plot_layout(guides = 'collect') & theme(legend.position 
 
 Apart from a generally increasing trend in temperature, especially in the cold seasons, there are also significant positive anomalies since the year 2000 at Station 38462 in the maximum winter (Q1) temperatures. Changes in the fraction of precipitation falling as snow are expected under such developments.
 
-We can in fact compute these changes with high resolution daily climate fields that are nowadays available (see @karger_2017, @karger_2020 and @karger_2021 and also more on these in @sec-data). @fig-snow-cover-fraction-change-chirchik-river-basin shows the corresponding results.
+We can in fact compute these changes with high resolution daily climate fields that are nowadays available (see @karger_2017, @karger_2020 and @karger_2021 and also more on these in the corresponding [Section on Snow and Glacier Data](#sec-snow-and-glacier-data) further below). @fig-snow-cover-fraction-change-chirchik-river-basin shows the corresponding results.
 
-![Changes in fractional snow cover in the in the Western Tien Shan mountains, including the Chirchik River basin. Shown are percentage changes over the period 1980 - 2011. Changes in snow cover fraction was computed using CHELSA V21 daily precipitation and temperature with a liquid-solid temperature threshold value of 1 deg. C.. (\@karger_2017, \@karger_2020, \@karger_2021).](/images/example_river_basins/snowcover_fraction_change_chirchik_lr.jpg){#fig-snow-cover-fraction-change-chirchik-river-basin}
+![Changes in fractional snow cover in the in the Western Tien Shan mountains, including the Chirchik River basin. Shown are percentage changes over the period 1980 - 2011. Changes in snow cover fraction was computed using CHELSA V21 daily precipitation and temperature with a liquid-solid temperature threshold value of 1 deg. C.. (Data from @karger_2017, @karger_2020 and @karger_2021).](/images/example_river_basins/snowcover_fraction_change_chirchik_lr.jpg){#fig-snow-cover-fraction-change-chirchik-river-basin}
 
 The atmospheric warming between 1980 and 2011 (this is period for which daily precipitation and temperature fields are available at 1 km^2^ resolution) has lead to a reduction of the fraction of the total precipitation falling as snow between 5 - 24 % within the elevation range from 800 masl to 1'500 masl, approx. Changes for pixels where the trend is not significant at the 95 % confidence level are not shown, i.e., they are transparent. In the region shown, no significant positive trends could be identified over the period of consideration. Finally, at higher elevations in the Chirchik River basin, no significant changes can be seen in most places.
 
@@ -963,3 +963,6 @@ ggplot(data_koksu_discharge_derivation_wide, aes(`16279`, Koksu)) +
   xlab(bquote('Discharge at Gauge 16279 Khudaydod in '~m^3/s)) +
   ylab(bquote('Koksu river discharge in '~m^3/s))
 ```
+
+# References {#sec-example-river-basins-references}
+

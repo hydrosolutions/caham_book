@@ -1,0 +1,184 @@
+# (PART) Part I Hydrological Systems {#Part1_Hydrological_Systems .unnumbered}
+
+# Hydrological Systems in Central Asia {#HydrologicalSystems}
+
+```{r Front_Figure_HydroSystems, echo = FALSE}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/NarynRiver.jpeg')
+```
+
+**Upstream Naryn, Kyrgyzstan. Source: Tobias Siegfried, hydrosolutions GmbH.**
+
+## Regional Hydro-Climatological Features
+
+The inhomogeneity of the relief structure causes Central Asia to be the territory of immense contrasts. Here, extreme aridity in the hot deserts of the plains and, only 100 km away, abundant humidity and snowfields in the mountains where precipitation levels can range between 1'000 mm/a up to 2'000 mm/a. The uneven distribution of water bodies is striking. The mountains of Central Asia are riddled with an extremely branched river network consisting of more than ten thousand watercourses. In the flat foothill areas surrounding the mountain ranges, another branching river network is found which consists of irrigation channels, which do not contribute to the runoff of the core rivers, but rather divert the water from the river network and diffuse it in the irrigated oases where much of it gets evapotranspirated.
+
+Central Asia is spreading over approximately 4 million km^2^, including the territories of Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan [@cia_worldfactbook]. In the vast plains that cover around 70% of the total territory, there are only very few rivers which have scarcely any tributaries from the point they leave the mountain areas all the way to their mouth. Abundant solar radiation, high temperatures, small amounts of precipitation, a lack of humidity, unstable snow cover, slight slopes, geological structures[^hydro_systems-1], etc., hinder the formation of surface flows in the plains of Central Asia, despite their big importance for the local agricultural production there. Only the largest rivers, such as Syr Darya, Amu Darya, and Ili are able to survive hundreds of kilometers of deserts and reach the most important landlocked reservoirs -- the Aral Sea and Lake Balkhash [@shults_RiversOfMiddleAsia]. Figure \@ref(fig:riversMap) shows an overview of the region.
+
+[^hydro_systems-1]: namely the distribution of sand and loess relief types, where the former are more permeable and the latter contain more moisture
+
+```{r riversMap, echo = FALSE, fig.cap = 'Map highlighting the Central Asian rivers network (rivers are shown in blue color). The dense river network in the mountainous areas starkly contrasts with the sparse one in the plains. Source: Zoï Environment Network.'}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/waterFormationUseCentralAsiaZoi.jpg')
+```
+
+All Central Asian river basins are endorheic with no water draining out of the region but only evaporating back to the atmosphere. This emphasizes the importance of moisture transfer as an important mechanism in the region region since the formation of substantial watercourses in the mountains is followed by their complete dissipation in the plains, including in the irrigated oases and the terminal lakes, i.e. the Aral Sea and Lake Balkash.
+
+In the boreal summer, tropical air masses form in the plains of Central Asia. At that time, even cold air masses coming from the north heat quickly. There is no possibility for temperature differences between the lower and the middle troposphere to occur which explains the horizontal uniformity of high temperatures during summer.
+
+Contrary to this, the temperature differences in the region are highest in January during the peak of the boreal winter. As the territory of Central Asia is unprotected from the north, it is under the influence of dry, exceptionally cold air masses originating from the Arctic region and Siberia. These air masses can cause sharp frosts. The further the Siberian or Arctic air masses penetrate towards the west and the south, the more their temperature increase. This explains the big difference in air temperatures during winter between the north and the south of Central Asia. Cold air intrusions are often accompanied by the influx of warm air from the tropics. The cold waves taking turns with hot air masses cause unsteady frost in the plains and, together with generally low precipitation values, do not allow for the formation of a significant snow pack there [@shults_RiversOfMiddleAsia].
+
+//TODO: properly reference Section here. As is discussed further below, the winter snow cover in the high mountain ranges plays an essential role in runoff formation in the spring and summer months and is thus of key relevant to irrigation agriculture in the downstream and for hydropower production (see Section \~\ref{sec:runoffFormation} below). Understanding the atmospheric mechanisms resulting in favorable conditions for winter precipitation is thus essential. With a warming climate and the associated increase of evapotranspiration in the downstream plains and the loss of glacier storage in the mountainous areas, a solid understanding of snow pack formation becomes even more pertinent.
+
+[@gerlitz_2018] discusses how the position of the westerly jet stream is connected with the frontal trajectories and the westerly disturbances which are the main moisture sources if the region. The relative position of these planetary wave tracks and their associated westerly flows to the orographic mountain barriers plays thus a key role. The main precipitation events migrate over the winter season from south to north. The southern parts of central Asia, particularly the windward slopes of the Karakorum and Hindu Kush mountain ranges, receive high amounts of winter precipitation (December-January-February), which reaches up to 60% of the total annual precipitation. During spring the zone of maximum precipitation migrates northward, reaches the Pamir plateau in March, and continues to Tien Shan in April/May. The interaction of tropical air masses from the Arabian Golf with westerly flow in Central Asia is another important moisture source for the region.
+
+Using data of the ERA-Interim reanalysis, [@gerlitz_2018] classifies 8 weather types (WT) based on typical regional pressure field patterns over a domain covering 20\degree - 60\degree N and 50\degree - 90\degree E. Like this, large-scale features of winter circulation patterns in Central Asia can be captured. WT are analyzed with regard to the spatial anomalies of temperature and precipitation. Figures \@ref(fig:tempWT) and \@ref(fig:precipWT) show results. In these Figures, the individual plates WT 1 - 8 are labeled according to the main circulation feature over Central Asia, i.e. a Rossby ridge (R) or trough (T)\footnote{Acronyms in the figures indicate the major features (and their centers of action) for each WT: anti-cyclonic anomaly (AC), cyclonic anomaly (C), central Asia ([CA]), Kazakhstan ([KAZ]), Mongolia ([MON]), and Indian Ocean and Indian subcontinent ([Indic]).}.
+
+Generally, it can be observed that configurations that are associated with a Rossby trough over Central Asia lead to an intensification of westerly moisture fluxes (WT 3, WT 7, and WT 8). If there is, however, a Rossby ridge type configuration as shown in WT 1, WT 2, and WT 4 panels of Figures \@ref(fig:tempWT) and \@ref(fig:precipWT), moisture fluxes are northward-shifted and precipitation suppressed [@gerlitz_2018].
+
+```{r tempWT, echo = FALSE, fig.cap = 'Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly temperature for each weather type (WT 1 - WT 8). Values are depicted in standard deviations for each grid cell, respectively. Arrows indicate anomalies of the 500-hPa ERA-Interim wind field [@gerlitz_2018].'}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/fig_WT_T_Anomalies.png')
+```
+
+```{r precipWT, echo = FALSE, fig.cap = 'Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly precipitation sums for each weather type. Values are depicted relative to the seasonal mean 6-hourly precipitation sum ((100)^-1^) for each grid cell, respectively. Arrows indicate anomalies of vertically integrated moisture fluxes [@gerlitz_2018].'}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/fig_WT_T_Anomalies.png')
+```
+
+Precipitation is extremely unevenly distributed in the region. 20% of the plain area receives less than 100 mm, while 91% of the territory receives less than 300 mm of precipitation a year with an overall average of 173 mm. The mountains are thus an important climatological and hydrological factor, since they are the places where the water condensates and where the rivers and groundwater originate. Although the range of precipitation levels is wide (60 mm - 2'500 mm), the mountains receive on average more than three times more precipitation than the plains, and the low temperatures favor its accumulation in the solid state [@shults_RiversOfMiddleAsia].
+
+The influence of the relief is notable also when speaking of precipitation distribution during the year. The high ground areas in Central Asia are witnessing an almost even distribution of precipitation on monthly basis, whereas at the same time, in the inner parts of high mountain ridges there is more precipitation in summer. Such a distribution of precipitation in the inner parts of mountain ridges is a consequence of high condensation levels in summer due to intense evaporation taking place in snow melting areas or, less often, on water surfaces.
+
+A typical example showing the influence of the local water vapor emission on annual distribution of precipitation could be the Issyk Kul Lake Basin. There the percentage of precipitation received during summer and the second half of spring, so from May to August, is sometimes reaching even 80% of the total annual precipitation amount, all thanks to the evaporation of the water from the lake and the emergence of thermal convection and subsequent moisture recycling.
+
+The areas that are characterized by a predominant precipitation during summertime are the Central Tian Shan and Eastern Pamir, where the difference between the summer and the rest of the year is so big that during summer 60% of all annual precipitation is received.
+
+The predominance of the precipitation during summer in case of mountains with steep slopes (15° - 30°) causes fast and abundant snowmelt runoff which is directed to the lower areas and then turns into a river network. Thanks to a large amount of precipitation, relatively low evaporation levels and steep slopes, all rivers of Central Asia, including the largest ones such as Amu Daria, Syr Daria, Ili or Zeravshan, arise in the mountains. Arising in the high ground area, these rivers are mainly fed by snow, glaciers and snow patches melting, as well as by groundwater that, again, were all formed by the same sources.
+
+Due to the presence of the vertical thermal gradient, the start of the positive air temperature season, and consequently, the start of the ice and snow melting season does not take place at the same time uniformly. Rather, the snow melting process is of protracted nature and the higher the mountains are in a particular catchment, the later the snow-melt floods take place on rivers that are emerging there.
+
+The melting process starts last in the permanent snow and glaciers regions. Because of this, the rivers, which are fed by snowmelt in the upper parts of the catchment area, are of great importance for the irrigation of crop fields, since they are characterized by the most significant water runoff during July and August, at which point the irrigated plains experience severe drought and when irrigated crops have the highest water demand.
+
+The rivers having this kind of a runoff regime (nivo-glacial) are Pyandzh and Vakhsh Rivers, as well as the ones deriving from them, such as Amu Darya, Chu, Zeravshan, Talas and Ili Rivers with its numerous tributaries. These rivers all feature a small variability of annual runoff. This is partly a result of the regulating effect of the zone of eternal snows and ice and is very important from the perspective of agricultural production in the downstream. These rivers are thus particularly valuable, not only for irrigation but also as a source of hydroelectric power.
+
+Rivers originating from the low mountains but being fed mainly by the snowmelt (nival regime rivers), are characterized by the early floods (March-May) and a sharp variability of annual runoff, since the amount of water is almost entirely determined by the snow reserves in the mountains which were accumulated in the previous winter season.
+
+Finally, the watercourses originating from the lowest parts of mountains or from low mountains, (nivo-pluvial regime rivers), which in comparison to other regimes receive much more liquid precipitation, are characterized by large amounts of water, often saturated by sediment, passing during short periods of time. These are so-called mudflows. These watercourses often dry up during summer because of a decrease in supplies from groundwater.
+
+When entering the plains, the rivers of Central Asia form wide-spreading alluvial fans consisting of materials brought by them from the mountains. Here the rivers are usually divided into several channels, and a large part of water is filtered by these sediments. The large quantities of groundwater in these alluvial fans, which appear due to this process, mostly protrude from the earth surface at the edges these alluvial fans, causing the small rivers that are fed by groundwater, so-called Karasu rivers, to emerge, which are also used for irrigation.
+
+The relief thus has an extremely strong and many-sided impact on runoff formation processes. This influence is mediated through climatic factors, on which the recharge of the rivers, as well as the processes of thawing of snow and ice, etc., depend. In this regard, both the average water content, consistency of the annual runoff and its distribution over a year, as well as other characteristics of the river runoff cannot be considered independently from key relief factors, first and foremost altitude. All this demands a careful and comprehensive analysis of the impact of the relief on runoff processes.
+
+## Regional Water Balance {#chap:regionalWaterBalance}
+
+It is instructive to show the opposite hydrological functions of mountain versus flat areas of Central Asia by means of simple water balance considerations.
+
+The water balance equation for mountain area, broadly defined, can be written as follows:
+
+```{=tex}
+\begin{equation}
+    (\#eq:regWB)
+    p = e + q_{s} + q_{g}
+\end{equation}
+```
+whereby $p$ represents the average long-term amount of precipitation and condensation of water vapor from the atmosphere, $e$ the average long-term evaporation, $q_{s}$ the average long-term surface outflow and $q_{g}$ the average outflow of groundwater. This equation shows that the mountain area receives moisture only from the atmosphere and rainfall which precipitates within its limits and evaporates only partially. The remainder part of it flows down in the form of surface and underground drainage. Sharp partition of a relief in the mountain area, and consequently, a deep natural drainage is the reason why groundwater is almost entirely connected to the river network already in the mountain area. The Meso-Cenozoic deposits, containing waterproof horizons, and the Paleozoic massifs on the border with the flat areas obstruct groundwater flows. Thus, the groundwater inflow to the flat areas makes no more than 10% - 15% of the surface one and therefore it can be neglected in the first equation.
+
+Then the water balance equation will have the following appearance:
+
+```{=tex}
+\begin{equation}
+    (\#eq:regWB2)
+    p = e + q_{s}
+\end{equation}
+```
+Based on available data, the rate of surface outflow $q_{s}$ can be calculated quite precisely: 155 billion m^3^ or 201 mm annually. River basin-specific surface runoff values are provided in Table. It is impossible to measure the amount of the accumulated water vapor in the mountains accurately just by observation, so we have to proceed from the rate of the runoff, for which we need to know the value of runoff coefficient. The last can be approximately considered as equal to 0.35 (see also next Section). Then, $p$ equals 575 mm and $e$, as follows, 575 mm - 201 mm = 374 mm.
+
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Basin Name                      | Area (km^2^) | Runoff (m^3^/s) | Runoff entering flatlands (m^3^/s) | Runoff Coeff.\ |
+|                                 |              |                 |                                    | (l/ (s km^2^)) |
++:================================+:=============+:================+:===================================+:===============+
+| Caspian Sea                     | 29'700       | 22              | 12                                 | 0.74           |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Endhoreic Basins of TUK and AFG | 193'300      | 180             | 155                                | 0.93           |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Amu Darya                       | 227'300      | 2'500           | 2'500                              | 11             |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Syr Darya                       | 150'100      | 1'200           | 1'200                              | 8              |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Chu and Talas River Basin       | 37'540       | 190             | 190                                | 5.1            |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Lake Issyk Kul                  | 12'600       | 115             | \-                                 | 9.1            |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Southern Balkash Lake           | 119'000      | 800             | 800                                | 6.7            |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+| Total                           | 769'600      | 5'007           | 4'857                              | 6.5            |
++---------------------------------+--------------+-----------------+------------------------------------+----------------+
+
+: (\#tab:simple-WB-Rivers) Key water balance basin statistics of selected large basins in Central Asia.
+
+It should be noted that the rate of surface water inflow to the flatlands is smaller than the runoff which is generated in the mountain areas as part of it is utilized in the mountain area for irrigation purposes (the rivers of Turkmenistan are in this regard an especially good example), or it evaporates from a surface like of the Lake Issyk Kul and other smaller lakes.
+
+If, from the mountain area, we exclude reservoirs of the river Atrek and the rivers of Turkmenistan and Afghanistan with no runoff which, occupying the big space (29% of all mountain area of Central Asia), excel in a minute quantity of rainfall and exclusively low water levels, separate elements of water balance will be expressed by the following sizes: $p$ = 675 mm\footnote{In this case, the runoff coefficient is taken equal to 0.40 taking into account the increase in the average height of the mountain area.} , $q_{s}$ = 270 mm and $e$ = 405 mm. In this case, the water balance of mountain area shows its hydrological essence even more clearly.
+
+The equation of water balance for the flat area can be written in the form of
+
+$$
+p + q_{i} = e 
+$$
+
+where $q_{i}$ represents the surface inflow of water.
+
+We neglect underground outflow in the flat area as, even when it takes place, it is absolutely insignificant. The average amount of rainfall calculated by planimetering of the isohyetal map is equal to 173 mm. The rate of inflow of water is equal to the outflow of water from mountain area, i. e. $q_{s} = q_{i} = 155 \cdot 10^{9} \text{ m} ^{3}$. After making its way down to the flat area, which includes the surface of the Aral Sea and Lake Balkhash, the surface inflow of the rivers reaches 124 mm and the evaporation is $e = p + q_{i} = 173 \text{ mm} + 124 \text{ mm} = 297 \text{ mm}$. It is noteworthy to mention that from the entire moisture appearing in the flat area, 58% nevertheless is from atmospheric precipitation, despite its rather insignificant absolute amount.
+
+Comparing the two water balance equations shows that the mountain areas receive 575 mm of moisture from the atmosphere of which 374 mm evaporates back to the atmosphere and 201 mm reach the downstream flat area in the form of a surface runoff. Conversely to this, the flat areas receive 297 mm of water from direct precipitation and from inflow of mountain runoff. All of this water evaporates back to the atmosphere.
+
+To summarize, it is clear that in the area of runoff formation, $p > e$, in the area of runoff losses $p < e$, and that in the area of runoff balance $p\approx e$. In each area where the runoff processes show the same orientation, its origin, distribution in time and space, and also the intensity of processes can however vary. In this sense, depending mainly on local topography (generally speaking, depending on the altitude, orientation and exposure of a reservoir to humid air masses), the specific runoff, the persistence of the annual runoff and its distribution over a year, as well as other characteristics of the river flow can sharply differ in different parts of the area of runoff formation, as it was already discussed above. On the other hand, the intensity of runoff losses, their distribution over a year, etc. within the area of runoff losses, considerably depend on the economic activities and features of climatic conditions.
+
+## Runoff Formation
+
+The process of runoff formation is critically determined by the generation of direct runoff from liquid precipitation and the melting of snow and ice over the course of a hydrological year. Considering carefully the individual components for basins under consideration is important in order to properly understand the runoff regimes of individual rivers and for conceptualizing key processes for mathematical modeling.
+
+```{r ZonesOfRunoffFormation, echo = FALSE, fig.cap = 'Map of the upper Syr Darya and Amu Darya catchments. The catchments are outlined. Colors encode topographic height. Basin outlets (red dots) are chosen to correspond to the confluence of the two main rivers for each catchment. Topographic data is from [@USGS_2020].'}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/fig_AmuSyrDarya.png')
+```
+
+First, we study the role of glacier melt. For this, it is instructive to start to look at the condition of discharge formation in the Amu Darya and Syr Darya basins (see Figure \@ref(fig:ZonesOfRunoffFormation)). More specifically, we compare the two main subcatchments of the Vakhsh and Pyandzh Rivers in the Amu Darya and the Naryn and Kara Darya catchments in the Syr Darya[^hydro_systems-2]. In the first two reservoirs, the mountains exceeding 5'000 m occupy 6.2% of their area, and the mountains higher than 4'000 m --- 42%, in case of reservoirs of the second two rivers, the mountains exceeding 5'000 m occupy less than 1% of their area and the ones with altitudes over 4'000 m --- only 4%. Figure \@ref(fig:AmuSyrDaryaHypsography) shows the basins' hypsographic curves.
+
+[^hydro_systems-2]: (The emerging river after the confluence of the Vakhsh and Pyandzh rivers is called Amu Darya whereas the Syr Darya emerges after the confluence of the Naryn and Kara Darya rivers.)
+
+Even if we take into account that in the case of the basins of Pyandzh and Vakhsh the snow line is on average located at the height of 4'600 m --- 4'500 m and in case of the basins of Naryn and Kara Darya at 4'000 m - 3'900 m, 19% --- 22% of the reservoirs of Pyandzh and Vakhsh is located above the snow line, and in case of reservoirs of Naryn and Kara Darya it is only 4% --- 5%. The role of glaciers in the annual distribution of runoff is thus more substantial in the case of the Amu Darya as compared to the Syr Darya. And to come to an informed conclusion, one has to take into account all land ice features, including their altitude.
+
+```{r AmuSyrDaryaHypsography, echo = FALSE, fig.cap = 'Hypsographic curves of the upper Syr Darya and Amu Darya catchments. The SRTM topographic model was used for the calculation of the curves [@USGS_2020].'}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/fig_AmuSyrDarya_HypsographicCurves.png')
+```
+
+Data on land ice can be obtained from the Global Land Ice Measurements from Space glacier database GLIMS [@glims_global]. The Global Land Ice Measurements from Space (GLIMS) project at NSIDC has implemented a database of glacier outlines from around the world and other information about glaciers that includes the metadata on how those outlines were derived. At \<www.glims.org\>, one can download outlines and metadata for glaciers in a choice of different formats, including KML (for viewing in Google Earth), ESRI shapefiles, GMT (Generic Mapping Tools), MapInfo, or GML (Geography Markup Language). Figure \@ref(fig:AmuDaryaGlaciers) shows a sample visualization of the GLIMS data for the zone of runoff formation of the Amu Darya. The data will also be utilized in Chapter @ref(\#HydrologicalSystems) below to obtain good ideas of the subcatchments' glaciation levels.
+
+```{r AmuDaryaGlaciers, echo = FALSE, fig.cap = 'Visualization of the GLIMS data glaciation in the Vaksh-Pyandzh basin. The light blue shaded polygons show land ice on top of the underlying digital elevation model.'}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/fig_VakshPyandz_GLIMS.png')
+```
+
+Figure \@ref(fig:elDistGlaciers) shows the distribution of mean glacier elevations of the Randolph Glacier Inventory 6.0 dataset in the GLIMS database. The center of mass for the Amu Darya is at 4'827 masl whereas it is at 4'110 masl for the Syr Darya.
+
+```{r elDistGlaciers, echo=FALSE, fig.cap='Distribution of mean glacier elevations as extract from the GLIMS database. Only data from the Randolph Glacier Inventory 6.0 was used as subset of the complete GLIMS record. For the computation of the mean elevation, SRTM data was utilized.'}
+knitr::include_graphics('_bookdown_files/FIG_HYDRO_SYSTEMS/fig_GlacierElevationDistribution.png')
+```
+
+Since the GLIMS database contains contains the shapes of glaciers as geometric features, we can calculate easily calculate areas that the individual glaciers cover and then utilize scaling relationships between surface area and volume to estimate total ice storage in the individual Central Asian catchments. [@Aizen_2007] reports such scaling relationship for the Central Asian region. As a function of glacier area, they are
+
+$$
+V = 0.03782 S^{1.23} \text{ for } S< 0.1 \text{ km}^2 \\
+V = \frac{0.03332 S ^ {1.08} e^{0.1219 L}}{L^{0.08846}} \text{ for } 0.1 < S < 25 \text{ km}^2 \\
+V = 0.01848 S + 0.021875 S^{1.3521} \text{ for } S > 25 \text{ km}^2
+$$
+
+where $S$ is the area of a glacier, $L$ the length of the glacier and $V$ the computed volume from the scaling relationship. The length $L$ of the individual glaciers can be approximated by subtracting the minimum glacier elevation from the corresponding maximum elevation. Like this, we can compute land ice volumes of the Amu Darya and Syr Darya basins in an approximate yet scientific way.
+
+Alternatively, we can use the much simpler volume area scaling relationship as reported by Erashov [@erasov_1968].
+
+$$
+  V = 0.027 * S^{1.5}
+$$ where again, $S$ is the area of the glaciers in km^2^ and $V$ is the computed volume using the simple scaling relationship.
+
+## Average Multi-Year Runoff
+
+## Annual Runoff Fluctuations
+
+Here, maybe also take a long-term view over the 20th century and even longer, by looking at e.g. Issy Kul Lake Level variations.

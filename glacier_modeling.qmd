@@ -577,6 +577,6 @@ write.table(output, file = writefilename, col.names = FALSE,
 ```
 
 ## Implementation in RS Minerve
-In RS Minerve, a source object is placed for each sub-basin containing glaciers. The RS Minerve input file written above is then read into the database and connected to the appropriate source objects in the model window. The RS Minerve model including glacier discharge can now be run.  
+In RSMinerve, a source object is placed for each sub-basin containing glaciers. The RSMinerve input file written above is then read into the database and connected to the appropriate source objects in the model window. The RSMinerve model including glacier discharge can now be run.  
 
 ## References

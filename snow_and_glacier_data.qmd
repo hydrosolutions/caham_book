@@ -302,7 +302,6 @@ For some regions in Central Asia, [OpenStreetMap](https://www.openstreetmap.org/
 
 The glacier thickness data set is validated only at few locations as measurements of glacier thickness are typically not available. @farinotti_consensus_2019 list an uncertainty range for the volume estimate in regions RGI 13 and 14 of 26 % each. 
 
-@hugonnet_accelerated_2021 & @miles_health_2021 provide the uncertainties of their estimates for per-glacier glacier thinning & discharge rates in the data set itself. They typically lie around p/m 150 %. 
+@hugonnet_accelerated_2021 & @miles_health_2021 provide the uncertainties of their estimates for per-glacier glacier thinning & discharge rates in the data set itself. They typically lie around $\pm$ 150%. 
 
- ## References {#sec-snow-and-glacier-data-references}
- 
+# References {#sec-snow-and-glacier-data-references}

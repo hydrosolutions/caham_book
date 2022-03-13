@@ -84,6 +84,10 @@ With a warming climate and the associated increase of evapotranspiration in the 
 
 ![Changes in fractional snow cover in the in the Western Tien Shan mountains, including the Chirchik River basin. Shown are percentage changes over the period 1980 - 2011. Changes in the snow cover fraction was computed at the pixel level using the high-resolution CHELSA V21 daily precipitation and temperature [@karger_2017, @karger_2020 and @karger_2021] with a liquid-solid temperature threshold value of 1 deg. C.](/images/example_river_basins/snowcover_fraction_change_chirchik_lr.jpg){#fig-hydrosystems-snow-cover-fraction-change-chirchik-river-basin}
 
+Through the reduction of precipitation stored as snow in the mountain regions, there is a consensus that the discharge regimes in the region will be impacted. These impacts can be quantified with hydrological models, as we will show in this Coursebook. An example of such expected changes is provided in @fig-atbashy-climate-impact-on-discharge. More information on the modeling approach is provided in the [Chapter Hydrological-hydraulic Modeling](#sec-hydrological-hydraulic-modeling) whereas data and modeling requirements are discussed in [Part II Data](#sec-data).  
+
+![Using the CMIP6 ssp585 climate scenario, the computed climate impacts on the discharge regime of Atbashy River (left tributary to the Naryn and located in Kyrgystan) is shown. The simulation results suggest that the peak discharge will shift towards spring and that peak flows will decrease in the basin for the different target periods in the future.](/images/hydrology_of_central_asia/20_atbashy_discharge_projections.jpg){#fig-atbashy-climate-impact-on-discharge}
+
 ## Zone of Runoff Formation {#sec-zone-of-runoff-formation}
 
 Using the aridity index $\phi$ for classification, the main zones of runoff formation are shown in @fig-zones-of-runoff-formation. The aridity index denotes the fraction of long-term precipitation, i.e. the **total atmospheric water supply**, divided by the long-term mean potential evapotranspiration which is the **total atmospheric water demand** (see also the [Chapter Long-term Water Balance Modeling](#sec-budyko-modeling) for more information).
@@ -142,7 +146,7 @@ These data were derived with a unsupervised classification approach using Google
 
 The main planted crops in the region for the year 2020 are shown in @fig-main-crops. This figure is also derived from remotely senses data and shows the crop disaggergated irrigated land (Source: [hydrosolutions GmbH](www.hydrosolutions.ch)).    
 
-![Crop disagregated irrigated areas. The main crops are shown color encoded for the year 2020. Despite its declining significance, cotton remains the dominant irrigated crop in the region.](/images/hydrology_of_central_asia/16_central_asia_crops.jpg){#fig-main-crops}
+![Crop disagregated irrigated areas. The main crops are shown color encoded for the year 2020. Despite its declining significance, cotton remains the dominant irrigated crop in the region. Source: [hydrosolutions GmbH](www.hydrosolutions.ch).](/images/hydrology_of_central_asia/16_central_asia_crops.jpg){#fig-main-crops}
 
 ## Regional Water Balance {#sec-regional-water-balance}
 

@@ -2,8 +2,6 @@
 
 In this Chapter, we investigate long-term mean catchment water balances from a large, regional perspective. 
 
-
-
 ## Introduction {#sec-budyko-introduction}
 
 The general water balance of a catchment can be written as
@@ -100,7 +98,13 @@ where $n$ is a catchment-specific parameter which accounts for factors such as v
 
 <!-- ```{r ChoudhuryEquationStateSpace, echo=FALSE,fig.cap="$n$ is determining the shape of the Budyko Curve. Note how large values of $n$ favour evaporation over discharge. Note that $E_{pot}$ is denoted with $E_{0}$. Figure taken from [@yang_2008]."} -->
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/ChoudhuryEquation_StateSpace') -->
-<!-- ``` -->
+
+<!-- 
+Check Sources on net radiation:
+- https://www.sciencedirect.com/topics/earth-and-planetary-sciences/net-radiation
+and there especially
+- https://www.sciencedirect.com/science/article/pii/B9780124095489103537
+and there Chapter 4.03.4.1.1 Net radiation estimation and partitioning -->
 
 ## Data and Methods {#sec-budyko-data-and-methods}
 

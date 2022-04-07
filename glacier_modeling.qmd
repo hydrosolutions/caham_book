@@ -1,10 +1,10 @@
 ## Modeling of Discharge from Glacier Melt {#sec-glacier-modeling}
 
-The glacier melt modeling in RSMinerve [@rsminerve_tm] is done (at the time of writing, March 2022) with the GSM model which features a constant area and an unlimited glacier reservoir. It is suitable for short-term simulations of glacier melt where effects of glacier volume change can be neglected but it is not well suited for climate change impact studies where substantial changes in glacier volume are to be expected. However, by assuming that discharge from snow melt can be treated independently from discharge from glacier melt, the discharge contribution from glacier melt can be simulated in R and included as source into RSMinerve models. The following chapter relies on the basic understanding of the glacier mass balance as presented and discussed in [Chapter Snow and Glacier Data](@sec-snow-and-glacier-data), describes the glacier modelling tools in the package ```riversCentralAsia``` and demonstrates how to use them for joint applied hydrological modelling with RSMinerve.  
+The glacier melt modeling in RSMinerve [@rsminerve_tm] is done (at the time of writing, March 2022) with the GSM model which features a constant area and an unlimited glacier reservoir. It is suitable for short-term simulations of glacier melt where effects of glacier volume change can be neglected but it is not well suited for climate change impact studies where substantial changes in glacier volume are to be expected. However, by assuming that discharge from snow melt can be treated independently from discharge from glacier melt, the discharge contribution from glacier melt can be simulated in R and included as source into RSMinerve models. The following chapter relies on the basic understanding of the glacier mass balance as presented and discussed in [Chapter Snow and Glacier Data](@sec-snow-and-glacier-data), describes the glacier modelling tools in the package `riversCentralAsia` and demonstrates how to use them for joint applied hydrological modelling with RSMinerve.  
 
 ## Temperature Index Model
 
-@hock_temperature_2003 describes several variants of the temperature index model for simulating glacier melt. The `riversCentralAsia` package implements the temperature index melt model described in [@hock_temperature_2003] in the function `glacierMelt_TI` (@eq-temperature-index-model).
+One of the arguably simplest models to describe glacier melt (or snow melt) is the temperature index model. @hock_temperature_2003 describes several variants of the temperature index model for simulating glacier melt. The `riversCentralAsia` package implements the simplest temperature index melt model described in [@hock_temperature_2003] in the function `glacierMelt_TI` (@eq-temperature-index-model), requiring only temperature time series and 2 parameters as input.
 
 $$
 M = \biggl\{ \begin{array}{l, l}
@@ -27,7 +27,9 @@ where the change of water storage ($\Delta S$) is equal to the precipitation ($P
 
 ## Glacier Volume Development
 
-As glaciers melt, their volume changes. This has to be taken into account for the long-term simulation of glacier discharge. To determine the initial glacier volume, the area of the geometry of the Randolph Glacier Inventory (RGI) v6.0 data set is multiplied with the average thickness of the glacier (the Farinotti data set). Please note that the data and the retrieval of the data are described in [Part II](@sec-data) of this book. Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
+As glaciers melt, their volume changes. This has to be taken into account for the long-term simulation of glacier discharge. To determine the initial glacier volume, the area of the geometry of the Randolph Glacier Inventory (RGI) v6.0 data set is multiplied with the average thickness of the glacier (the Farinotti data set). From the combination of these two data sets, the well established area-volume relationship by @erasov_1968 can be verified (see section on [Area-Volume scaling](#glacier-area-volume-scaling)). 
+
+Please note that the data and the retrieval of the data are described in [Part II](@sec-data) of this book. Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
 
 For annual time step $t$, the evolution of the glacier volume is calculated as follows:
 
@@ -45,9 +47,9 @@ $$ {#eq-step-wise-glacier-mass-balance-volume-update}
 
 $Q_{\text{glacier}}$ can be calibrated against glacier discharge derived from the Miles & Hugonnet data sets. The automated calibration is currently not included in the `riversCentralAsia` package.
 
-The function `glacierArea_RGIF()` is an empirical scaling function analogue the inverse of the scaling function derived by @erasov_1968 but based on the modern RGI v6.0 glacier geometries and the glacier thickness data set by @farinotti_consensus_2019. The package `riversCentralAsia` implements volume-area and area-volume scaling functions based on both, Erashov and RGI-Farinotti data, allowing the estimation of glacier areas based on glacier volumes (```glacierArea_Erasov``` and ```glacierArea_RGIF```) and estimations of glacier volumes based on glacier areas (```glacierVolume_Erasov``` and ```glacierVolume_RGIF```).
+The function `glacierArea_RGIF()` is an empirical scaling function analogue the inverse of the scaling function derived by @erasov_1968 but based on the modern RGI v6.0 glacier geometries and the glacier thickness data set by @farinotti_consensus_2019. Section [Area-volume scaling](#glacier-area-volume-scaling) shows the derivation of the scaling relationship and its comparison to the relationship proposed by @erasov_1968. The package `riversCentralAsia` implements volume-area and area-volume scaling functions based on both, Erashov and RGI-Farinotti data, allowing the estimation of glacier areas based on glacier volumes (`glacierArea_Erasov` and `glacierArea_RGIF`) and estimations of glacier volumes based on glacier areas (`glacierVolume_Erasov` and `glacierVolume_RGIF`).
 
-The function ```glacierImbalAbl``` is an empirical scaling function relating glacier imbalance ablation, i.e. the glacier storage loss glacier melt. It is derived from the glacier discharge data set by @miles_health_2021 and the glacier thinning data set by @hugonnet_accelerated_2021.
+The function `glacierImbalAbl` is an empirical scaling function relating glacier imbalance ablation, i.e. the glacier melt from storage loss. It is derived from the glacier discharge data set by @miles_health_2021 and the glacier thinning data set by @hugonnet_accelerated_2021 (see section on [glacier discharge-thinning scaling](#glacier-discharge-thinning-scaling) for the derivation of the relationship).
 
 ## Summary of Workflow
 To model the contribution to discharge from glacier melt in a basin, the following steps are required: 
@@ -65,7 +67,7 @@ To model the contribution to discharge from glacier melt in a basin, the followi
 ## Propagation of Uncertainty
 The initial glacier volume of each glacier is attributed an uncertainty of p/m 26%. This number is based on the average uncertainty of the glacier volume per RGI region reported in @farinotti_consensus_2019. The uncertainty of the area of the RGI v6.0 glacier outlines is not known. It is therefore assumed that the error of the glacier volume stems to 50% from the estimation of the glacier thickness and to 50% from the glacier area. We further assume that the errors of the glacier area and glacier thickness are un-correlated and can thus estimate the uncertainties of the glacier area data and the glacier thickness data to be p/m 13% each.
 
-For the non-linear relationships in ```glacierVolume_RGIF``` and ```glacierArea_RGIF```, the standard deviation of the residuals of the fit was computed. The estimated error of the fit is assumed to be equal plus/minus twice the standard deviation of the residuals and yields 31% and 53% respectively. The residuals are not normally distributed and their actual distribution is unknown. Further, uncorrelated errors and the applicability of linear error propagation are assumed. Therefore, the error of the function outputs is simply computed by adding the error of the function input to the error of the fit.
+For the non-linear relationships in `glacierVolume_RGIF` and `glacierArea_RGIF`, the standard deviation of the residuals of the fit was computed. The estimated error of the fit is assumed to be equal plus/minus twice the standard deviation of the residuals and yields 31% and 53% respectively. The residuals are not normally distributed and their actual distribution is unknown. Further, uncorrelated errors and the applicability of linear error propagation are assumed. Therefore, the error of the function outputs is simply computed by adding the error of the function input to the error of the fit.
 
 $$
 \varepsilon_{V} = \varepsilon_{A} + \varepsilon_{\text{glacierVolume RGIF}} = 0.26 + 0.31 = 0.57
@@ -95,6 +97,136 @@ error_stats = tibble::tibble(
 ```
 
 
+## Area-volume scaling {#glacier-area-volume-scaling}
+
+The best known scaling relationships for Central Asian glaciers is the Erasov scaling function (@eq-erasov). 
+
+$$
+V_{\text{Erasov}} = 0.027 \cdot A^{1.5}
+$$ {#eq-erasov}
+
+Where $A$ is the glacier area in $km^2$ and $V_{\text{Erasov}}$ is the glacier volume in $km^3$. 
+
+The following code snippet shows how the area volume relationship is re-fitted using the glacier outlines from RGI v6.0 and the glacier thickness data set by @farinotti_consensus_2019. 
+
+```{r}
+# Loading the necessary libraries
+library(sf, quietly = TRUE)
+library(tidyverse, quietly = TRUE)
+library(gridExtra, quietly = TRUE)
+library(broom, quietly = TRUE)
+devtools::install_github("hydrosolutions/riversCentralAsia", quiet = TRUE)
+library(riversCentralAsia, quietly = TRUE)
+
+
+# Load the RGIv6.0 data set of the RGI region of Central Asia
+rgi <- st_read("../caham_data/central_asia_domain/glaciers/RGIv60/13_rgi60_CentralAsia.shp", 
+               quiet = TRUE) |> 
+  sf::st_make_valid() 
+
+rgi <- rgi |> 
+  dplyr::select(RGIId) |> 
+  mutate(Area_m2 = as.numeric(st_area(rgi)))
+
+# Load the average glacier thickness per glacier
+# See section on snow and glacier data for the code snippet on how to extract 
+# the glacier thickness data. To extract the data for the entire Central Asian 
+# region takes a several hours on a recent personal computer. 
+load("../caham_data/central_asia_domain/glaciers/Farinotti/glacier_thickness_extractedRGIreg13.RData")
+
+rgi <- rgi |> 
+  left_join(glacier_thickness |> 
+              dplyr::select(RGIId, mean), by = "RGIId") |> 
+  rename(thickness_m = mean) |> 
+  mutate(Volume_m3 = Area_m2 * thickness_m)
+
+# Prepare the data for curve fitting. Exclude Fedchenko glacier as it is 
+# so much larger than all other glaciers in RGI region 13.   
+data <- rgi |> 
+  st_drop_geometry() |> 
+  dplyr::select(RGIId, Area_m2, thickness_m, Volume_m3) |> 
+  mutate(Area_km2 = Area_m2 * 10^(-6), 
+         Volume_km3 = Volume_m3 * 10^(-9)) |> 
+  dplyr::filter(Area_km2 < 300) |> 
+  drop_na() 
+
+# Fit a model of similar shape as Erasovs area-volume relationship. 
+# V = 0.027 * A ^1.5
+# Note: We use the expected error of the glacier thickness estimate of 0.26 
+# (as reported by Farinotti et al., 2019) to weight the least squares. 
+err <- 0.26
+nlVAw <- nls(Volume_km3 ~ a * Area_km2^b, 
+             data = data, 
+             weights = data$Area_km2*0+1/err^2, 
+             start = list(a = 0.05, b = 1.2))
+
+# Add the modeled volume to the "observed" volume. 
+data_nlVAw <- data |> 
+  mutate(.fitted = augment(nlVAw)$.fitted, 
+         .fitted_km3 = .fitted, 
+         .resid = augment(nlVAw)$.resid, 
+         .relresid = .resid/.fitted_km3, 
+         .se = 2*sd(.relresid), 
+         .lb = ifelse(.fitted_km3*(1- .se) < 0, 0, .fitted_km3*(1- .se)), 
+         .ub = .fitted_km3*(1+ .se), 
+         Volume_Erasov_km3 = glacierVolume_Erasov(Area_km2))
+```
+
+
+```{r}
+#| fig-cap: "Glacier volume and glacier area estimated with different methods."
+#| label: fig-glacier-varea-volume-scaling
+#| warning: false
+#| message: false
+#| error: false
+# Plotting the results
+a <- ggplot(data_nlVAw) + 
+  geom_ribbon(aes(Area_km2, .fitted_km3, ymin = .lb, ymax = .ub),
+              colour = NA, alpha = 0.2, fill = "forestgreen") +
+  geom_point(aes(Area_km2, Volume_km3, colour = "Obs"), size = 0.4, 
+             alpha = 0.4) + 
+  geom_point(aes(Area_km2, Volume_Erasov_km3, colour = "Erasov"), size = 0.4, 
+             alpha = 0.4) + 
+  geom_point(aes(Area_km2, .fitted_km3, colour = "Sim"), 
+             alpha = 0.4, size = 0.4) + 
+  scale_colour_manual(name = "Legend", 
+                      values = c("Obs" = "black", "Erasov" = "green", 
+                                 "Sim" = "forestgreen")) + 
+  ylab(expression("Volume [" * km^3 * "]")) + 
+  xlab(expression("Area [" * km^2 * "]")) + 
+  theme_bw()
+b <- ggplot(data_nlVAw) + 
+  geom_ribbon(aes(Area_km2, .fitted_km3, ymin = .lb, ymax = .ub),
+              colour = NA, alpha = 0.2, fill = "forestgreen") +
+  geom_point(aes(Area_km2, Volume_km3, colour = "Obs"), size = 0.4, 
+             alpha = 0.4) + 
+  geom_point(aes(Area_km2, Volume_Erasov_km3, colour = "Erasov"), size = 0.4, 
+             alpha = 0.4) + 
+  geom_point(aes(Area_km2, .fitted_km3, colour = "Sim"), 
+             alpha = 0.4, size = 0.4) + 
+  scale_colour_manual(name = "Legend", 
+                      values = c("Obs" = "black", "Erasov" = "green", 
+                                 "Sim" = "forestgreen")) + 
+  ylab(expression("Volume [" * km^3 * "]")) + 
+  xlab(expression("Area [" * km^2 * "]")) + 
+  ylim(c(0, 4)) + 
+  xlim(c(0, 20)) + 
+  theme_bw()
+grid.arrange(a, b, nrow = 1)
+```
+
+@fig-glacier-varea-volume-scaling shows the glacier volume estimate with different methods vs. the glacier area. For small glaciers with an area $< 10 km^2$ Erasov (@eq-erasov) performs better than the newly fitted data from RGI and Farinotti (@eq-volume-rgif). For glaciers larger than $10 km^2$ area, the newly fitted function `glacierVolume_RGIF` should be used. 
+
+$$
+V_{\text{RGIF}}= a \cdot A^{b}
+$$ {#eq-volume-rgif}
+
+With $A$ being the glacier area in $km^2$, $V_{\text{RGIF}}$ beging the glacier volume in $km^3$, and the parameters $a=$ `r as.numeric(round(nlVAw$m$getPars()[1], digits = 3))` and $b=$ `r as.numeric(round(nlVAw$m$getPars()[2], digits = 3))`. The newly fitted scaling relationship is implemented as `glacierVolume_RGIF` in the package `riversCentralAsia`, the Erasov scaling relationship is implemented as `glacierVolume_Erasov`. 
+
+## Glacier discharge-thinning scaling {#glacier-discharge-thinning-scaling}
+
+
+
 ## Demonstration
 
 We demonstrate the above described method with the data from the Atbashy basin. 
@@ -106,13 +238,14 @@ All required data is available from [the downloadable data package](https://www.
 ```{r}
 #| message: false
 #| warning: false
-library(tmap)
-library(sf)
-library(raster)
-library(exactextractr)
-library(tidyverse)
-library(lubridate)
-library(riversCentralAsia)
+library(tmap, quietly = TRUE)
+library(sf, quietly = TRUE)
+library(raster, quietly = TRUE)
+library(exactextractr, quietly = TRUE)
+library(tidyverse, quietly = TRUE)
+library(lubridate, quietly = TRUE)
+devtools::install_github("hydrosolutions/riversCentralAsia", quiet = TRUE)
+library(riversCentralAsia, quietly = TRUE)
 # Path to the data directory downloaded from the download link provided above. 
 # Here the data is extracted to a folder called atbashy_glacier_demo_data
 data_path <- "../caham_data/SyrDarya/Atbashy/"

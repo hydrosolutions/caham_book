@@ -151,6 +151,8 @@ tm_shape(dem, name = "DEM") +
 
 @farinotti_consensus_2019 make distributed glacier thickness maps available for each glacier in the RGI v6 data set. As the data set is large, we have downloaded the required maps of glacier thickness for you and made them available in the download link above. We will refer to this data set as the glacier thickness data set or the Farinotti data set.
 
+Please note that @farinotti_consensus_2019 provide ice thickness. This can be converted to water equivalents by assuming a ice density of 900 $km/m^3$, e.g. 100 $m$ glacier thickness translates to a water column of about 90 $m$. 
+
 The original glacier thickness data set is available from the [data collection](https://www.research-collection.ethz.ch/handle/20.500.11850/315707){target="_blank"} of @farinotti_consensus_2019 which is available from [the data section of their online article](https://www.nature.com/articles/s41561-019-0300-3){target="_blank"}.
 
 The following code chunk demonstrates how to extract glacier thickness data from the Farinotti data set.

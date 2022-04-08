@@ -17,19 +17,28 @@ where $M$ is the glacier melt in $mm/d$, $T$ is the daily average temperature in
 
 ## Glacier Mass Balance
 
-The glacier mass balance is simplified to @eq-simplified-glacier-mass-balance: 
+The glacier mass balance is given as [@oneel_reanalysis_2019]: 
 
 $$
-\Delta S = P-M = A_{\text{imbal}}
+\Delta S = \text{ablation} + \text{accumulation}
+$$ {#eq-general-glacier-mass-balance}
+where $\text{ablation}$ denotes the ablation of glacier mass, i.e. glacier mass loss, and $\text{accumulation}$ is the accumulation of glacier mass, i.e. glacier mass growth. Glacier ablation can be modeled using a temperature index model like the one introduced above. Note that the ablation term is a negative number.  
+
+Many processes contribute to glacier ablation and accumulation, e.g. [@cogley_glossary_2011, @benn_glaciers_2010]. The most dominant accumulation processes in high mountain areas are snow fall, avalanches and wind-blown snow. In high mountain regions, glacier ablation is driven by the energy balance at the glacier-air interface [@hock_glacier_2005].     
+
+The glacier mass balance can be simplified to @eq-simplified-glacier-mass-balance: 
+$$
+\Delta S = P-\text{Melt} \approx Q_{\text{Gl,imbal}}
 $$ {#eq-simplified-glacier-mass-balance}
 
-where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($M$). Typically melt exceeds precipitation and we have negative $\Delta S$, that is imbalance ablation, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
+where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($\text{Melt}$). Typically melt exceeds precipitation and we have negative $\Delta S$, that is imbalance ablation $Q_{\text{Gl,imbal}}$, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
+
 
 ## Glacier Volume Development
 
-As glaciers melt, their volume changes. This has to be taken into account for the long-term simulation of glacier discharge. To determine the initial glacier volume, the area of the geometry of the Randolph Glacier Inventory (RGI) v6.0 data set is multiplied with the average thickness of the glacier (the Farinotti data set). From the combination of these two data sets, the well established area-volume relationship by @erasov_1968 can be verified (see section on [Area-Volume scaling](#glacier-area-volume-scaling)). 
+As glaciers melt, their volume changes. This has to be taken into account for the long-term simulation of glacier discharge. To determine the initial glacier volume, the area of the geometry of the Randolph Glacier Inventory (RGI) v6.0 data set is multiplied with the average thickness of the glacier (the Farinotti data set). From the combination of these two data sets, the well established area-volume relationship by @erasov_1968 can be verified (see section on [Area-Volume scaling](#glacier-area-volume-scaling)). Please note that the data and the retrieval of the data are described in [Part II](@sec-data) of this book. 
 
-Please note that the data and the retrieval of the data are described in [Part II](@sec-data) of this book. Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
+Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The glacier mass loss is distributed on the glacier as follows: The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
 
 For annual time step $t$, the evolution of the glacier volume is calculated as follows:
 
@@ -223,7 +232,22 @@ $$ {#eq-volume-rgif}
 
 With $A$ being the glacier area in $km^2$, $V_{\text{RGIF}}$ beging the glacier volume in $km^3$, and the parameters $a=$ `r as.numeric(round(nlVAw$m$getPars()[1], digits = 3))` and $b=$ `r as.numeric(round(nlVAw$m$getPars()[2], digits = 3))`. The newly fitted scaling relationship is implemented as `glacierVolume_RGIF` in the package `riversCentralAsia`, the Erasov scaling relationship is implemented as `glacierVolume_Erasov`. 
 
+The area-volume scaling by Erasov and with updated parameters (RGIF) can be reversed. Thereby it is possible to update the glacier area as a function of the glacier volume. 
+
+$$
+A_{Erasov} = log\big( \big)
+$$ {#eq-area-erasov}
+
+
+
+
 ## Glacier discharge-thinning scaling {#glacier-discharge-thinning-scaling}
+For hydrological modeling, not only the glacier mass changes but also the seasonal contributions of glacier melt to river discharge is of importance. Annual glacier elevation change rates (like for example the data set by @hugonnet_accelerated_2021) describe (simplified) glacier imbalance ablation. However, glaciers contribute also the balance ablation to river discharge, i.e. the glacier melt which is equivalent to the glacier accumulation.  
+The simulation results by @miles_health_2021 yield both balance and imbalance ablation as well as total glacier discharge for thousands of glaciers in High Mountain Asia. By deriving an empirical relationship between the glacier elevation change rates by @hugonnet_accelerated_2021 and total glacier discharge by @miles_health_2021, it is possible to estimate the glacier contribution to river discharge. 
+
+```{r}
+
+```
 
 
 

@@ -2,7 +2,29 @@
 
 The glacier melt modeling in RSMinerve [@rsminerve_tm] is done (at the time of writing, March 2022) with the GSM model which features a constant area and an unlimited glacier reservoir. It is suitable for short-term simulations of glacier melt where effects of glacier volume change can be neglected but it is not well suited for climate change impact studies where substantial changes in glacier volume are to be expected. However, by assuming that discharge from snow melt can be treated independently from discharge from glacier melt, the discharge contribution from glacier melt can be simulated in R and included as source into RSMinerve models. The following chapter relies on the basic understanding of the glacier mass balance as presented and discussed in [Chapter Snow and Glacier Data](@sec-snow-and-glacier-data), describes the glacier modelling tools in the package `riversCentralAsia` and demonstrates how to use them for joint applied hydrological modelling with RSMinerve.  
 
-## Temperature Index Model
+
+## Glacier Mass Balance
+
+We shift the focus from the catchment to one single glacier within the catchment. Instead of calculating the water balance over the river catchment, we calculate the balance over the glacier. 
+
+![Simplified illustration of a glacierized river basin with elevation bands in dashed lines. The zoom is on one of the larger glaciers which can itself be discretized into elevation bands. The glacier mass loss is substracted from the lower most elevation band in increasing elevation.](images/hydrological_modeling/glacier_modeling_zoom_in_elevation_bands.png){#fig-glacier-model-zoom-in}
+
+The glacier mass balance is given in @#eq-general-glacier-mass-balance [@oneel_reanalysis_2019]. 
+
+$$
+\Delta S = \text{ablation} + \text{accumulation}
+$$ {#eq-general-glacier-mass-balance}
+where $\text{ablation}$ denotes the ablation of glacier mass, i.e. glacier mass loss, and $\text{accumulation}$ is the accumulation of glacier mass, i.e. glacier mass growth. Glacier ablation can be modeled using a temperature index model (described in the next section). Note that the ablation term is a negative number.  
+Many processes contribute to glacier ablation and accumulation, e.g. [@cogley_glossary_2011, @benn_glaciers_2010]. The most dominant accumulation processes in high mountain areas are snow fall, avalanches and wind-blown snow. In high mountain regions, glacier ablation is driven by the energy balance at the glacier-air interface [@hock_glacier_2005]. For most regional hydrological modeling tasks, is is sufficient to simplify the glacier mass balance to @eq-simplified-glacier-mass-balance [@oneel_reanalysis_2019].       
+
+$$
+\Delta S = P-\text{Melt} \approx Q_{\text{Gl,imbal}}
+$$ {#eq-simplified-glacier-mass-balance}
+
+where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($\text{Melt}$). Typically melt exceeds precipitation and we have negative $\Delta S$, that is imbalance ablation $Q_{\text{Gl,imbal}}$, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
+
+
+### Temperature Index Model
 
 One of the arguably simplest models to describe glacier melt (or snow melt) is the temperature index model. @hock_temperature_2003 describes several variants of the temperature index model for simulating glacier melt. The `riversCentralAsia` package implements the simplest temperature index melt model described in [@hock_temperature_2003] in the function `glacierMelt_TI` (@eq-temperature-index-model), requiring only temperature time series and 2 parameters as input.
 
@@ -15,30 +37,18 @@ $$ {#eq-temperature-index-model}
 
 where $M$ is the glacier melt in $mm/d$, $T$ is the daily average temperature in $^{\circ} C$. The two parameters $f_{M}$ and $T_{\text{threshold}}$ refer to the melt factor and the threshold temperature above which glacier melt occurs and need to be calibrated. They have the units $\frac{mm}{^{\circ} C \cdot d}$ and $^{\circ} C$ respectively. Glacier melt is calculated in daily time steps.
 
-## Glacier Mass Balance
-
-The glacier mass balance is given as [@oneel_reanalysis_2019]: 
-
-$$
-\Delta S = \text{ablation} + \text{accumulation}
-$$ {#eq-general-glacier-mass-balance}
-where $\text{ablation}$ denotes the ablation of glacier mass, i.e. glacier mass loss, and $\text{accumulation}$ is the accumulation of glacier mass, i.e. glacier mass growth. Glacier ablation can be modeled using a temperature index model like the one introduced above. Note that the ablation term is a negative number.  
-
-Many processes contribute to glacier ablation and accumulation, e.g. [@cogley_glossary_2011, @benn_glaciers_2010]. The most dominant accumulation processes in high mountain areas are snow fall, avalanches and wind-blown snow. In high mountain regions, glacier ablation is driven by the energy balance at the glacier-air interface [@hock_glacier_2005].     
-
-The glacier mass balance can be simplified to @eq-simplified-glacier-mass-balance: 
-$$
-\Delta S = P-\text{Melt} \approx Q_{\text{Gl,imbal}}
-$$ {#eq-simplified-glacier-mass-balance}
-
-where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($\text{Melt}$). Typically melt exceeds precipitation and we have negative $\Delta S$, that is imbalance ablation $Q_{\text{Gl,imbal}}$, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
-
 
 ## Glacier Volume Development
 
 As glaciers melt, their volume changes. This has to be taken into account for the long-term simulation of glacier discharge. To determine the initial glacier volume, the area of the geometry of the Randolph Glacier Inventory (RGI) v6.0 data set is multiplied with the average thickness of the glacier (the Farinotti data set). From the combination of these two data sets, the well established area-volume relationship by @erasov_1968 can be verified (see section on [Area-Volume scaling](#glacier-area-volume-scaling)). Please note that the data and the retrieval of the data are described in [Part II](@sec-data) of this book. 
 
-Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The glacier mass loss is distributed on the glacier as follows: The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
+Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The total glacier volume is distributed to the elevation bands proportionally to their size. 
+
+$$
+V_{\text{elBands}} = V_{tot} \cdot \frac{A_{\text{elBands}}{A_{tot}}
+$$
+
+The glacier mass loss is distributed on the glacier as follows: The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
 
 For annual time step $t$, the evolution of the glacier volume is calculated as follows:
 
@@ -196,11 +206,11 @@ a <- ggplot(data_nlVAw) +
              alpha = 0.4) + 
   geom_point(aes(Area_km2, Volume_Erasov_km3, colour = "Erasov"), size = 0.4, 
              alpha = 0.4) + 
-  geom_point(aes(Area_km2, .fitted_km3, colour = "Sim"), 
+  geom_point(aes(Area_km2, .fitted_km3, colour = "RGIF"), 
              alpha = 0.4, size = 0.4) + 
   scale_colour_manual(name = "Legend", 
                       values = c("Obs" = "black", "Erasov" = "green", 
-                                 "Sim" = "forestgreen")) + 
+                                 "RGIF" = "forestgreen")) + 
   ylab(expression("Volume [" * km^3 * "]")) + 
   xlab(expression("Area [" * km^2 * "]")) + 
   theme_bw()
@@ -211,11 +221,11 @@ b <- ggplot(data_nlVAw) +
              alpha = 0.4) + 
   geom_point(aes(Area_km2, Volume_Erasov_km3, colour = "Erasov"), size = 0.4, 
              alpha = 0.4) + 
-  geom_point(aes(Area_km2, .fitted_km3, colour = "Sim"), 
+  geom_point(aes(Area_km2, .fitted_km3, colour = "RGIF"), 
              alpha = 0.4, size = 0.4) + 
   scale_colour_manual(name = "Legend", 
                       values = c("Obs" = "black", "Erasov" = "green", 
-                                 "Sim" = "forestgreen")) + 
+                                 "RGIF" = "forestgreen")) + 
   ylab(expression("Volume [" * km^3 * "]")) + 
   xlab(expression("Area [" * km^2 * "]")) + 
   ylim(c(0, 4)) + 
@@ -232,12 +242,13 @@ $$ {#eq-volume-rgif}
 
 With $A$ being the glacier area in $km^2$, $V_{\text{RGIF}}$ beging the glacier volume in $km^3$, and the parameters $a=$ `r as.numeric(round(nlVAw$m$getPars()[1], digits = 3))` and $b=$ `r as.numeric(round(nlVAw$m$getPars()[2], digits = 3))`. The newly fitted scaling relationship is implemented as `glacierVolume_RGIF` in the package `riversCentralAsia`, the Erasov scaling relationship is implemented as `glacierVolume_Erasov`. 
 
-The area-volume scaling by Erasov and with updated parameters (RGIF) can be reversed. Thereby it is possible to update the glacier area as a function of the glacier volume. 
+The area-volume scaling by Erasov and the area-volume scaling with updated parameters (RGIF) can be reversed. Thereby it is possible to update the glacier area as a function of the glacier volume. 
 
 $$
-A_{Erasov} = log\big( \big)
+A = \exp \Bigg( \frac{\log V  - \log a}{b}\Bigg)
 $$ {#eq-area-erasov}
 
+where $V$ is the glacier volume in $km^3$ and $A$ is the glacier area in $km^2$. The parameters $a$ and $b$ are the parameters of the Erasov scaling function or the RGIF scaling function. The equations are implemented in the `riversCentralAsia` package as `glacierArea_Erasov` and `glacierArea_RGIF` respectively.  
 
 
 

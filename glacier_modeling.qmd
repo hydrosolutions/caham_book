@@ -146,48 +146,75 @@ rgi <- st_read("../caham_data/central_asia_domain/glaciers/RGIv60/13_rgi60_Centr
 rgi <- rgi |> 
   dplyr::select(RGIId) |> 
   mutate(Area_m2 = as.numeric(st_area(rgi)))
+```
 
-# Load the average glacier thickness per glacier
-# See section on snow and glacier data for the code snippet on how to extract 
-# the glacier thickness data. To extract the data for the entire Central Asian 
+
+```{r}
+#| eval: false
+#  To extract the data for the entire Central Asian 
 # region takes a several hours on a recent personal computer. 
+# Get a list of the glacier thickness maps from Farinotti and Huss
+glacier_thickness_dir <- "<local_path_to_adapt>/FARINOTTI_Glacier_Thickness/composite_thickness_RGI60-13/RGI60-13/"
+filelist <- list.files(path = glacier_thickness_dir, pattern = ".tif$", 
+                       full.names = TRUE)
+# Filter the glacier thickness file list for the glacier ids in the RGI data set 
+# (if a subset is to be analysed). 
+#filelist <- filelist[sapply(rgi$RGIId, grep, filelist)]
+
+# Get the mean glacier thickness for each of the glaciers in filelist. 
+glacier_thickness <- NULL
+res <- NULL
+for (glacier in c(1:length(filelist))) {
+  rgiid <- str_extract(filelist[glacier], "RGI60-13.\\d{5}")
+  rast <- raster(filelist[glacier])
+  temp <- exact_extract(rast, 
+                        rgi$geometry[rgi$RGIId == rgiid], 
+                        fun = c("weighted_mean", "weighted_sum"), 
+                        weights = "area") |> 
+    mutate(RGIId = rgiid)
+  glacier_thickness <- rbind(glacier_thickness, temp)
+}
+glacier_thickness <- glacier_thickness |> 
+  rename(Vice_s_m3 = weighted_sum)
+
+save(glacier_thickness, 
+     file = "../caham_data/central_asia_domain/glaciers/Farinotti/glacier_thickness_extractedRGIreg13.RData")
+```
+
+
+```{r}
+# Load the average glacier thickness per glacier
 load("../caham_data/central_asia_domain/glaciers/Farinotti/glacier_thickness_extractedRGIreg13.RData")
 
 rgi <- rgi |> 
   left_join(glacier_thickness |> 
-              dplyr::select(RGIId, mean), by = "RGIId") |> 
-  rename(thickness_m = mean) |> 
+              dplyr::select(RGIId, weighted_mean), by = "RGIId") |> 
+  rename(thickness_m = weighted_mean) |> 
   mutate(Volume_m3 = Area_m2 * thickness_m)
 
 # Prepare the data for curve fitting. Exclude Fedchenko glacier as it is 
 # so much larger than all other glaciers in RGI region 13.   
 data <- rgi |> 
-  st_drop_geometry() |> 
+  st_drop_geometry() |>
   dplyr::select(RGIId, Area_m2, thickness_m, Volume_m3) |> 
   mutate(Area_km2 = Area_m2 * 10^(-6), 
          Volume_km3 = Volume_m3 * 10^(-9)) |> 
-  dplyr::filter(Area_km2 < 300) |> 
+  dplyr::filter(Area_km2 < 200) |> 
   drop_na() 
 
 # Fit a model of similar shape as Erasovs area-volume relationship. 
 # V = 0.027 * A ^1.5
-# Note: We use the expected error of the glacier thickness estimate of 0.26 
-# (as reported by Farinotti et al., 2019) to weight the least squares. 
-err <- 0.26
+# Note: We use the inverse of the glacier area to weight the fitting to not 
+# favor glaciers with large areas in the fit.   
 nlVAw <- nls(Volume_km3 ~ a * Area_km2^b, 
              data = data, 
-             weights = data$Area_km2*0+1/err^2, 
+             weights = 1/data$Area_km2,  #  
              start = list(a = 0.05, b = 1.2))
 
 # Add the modeled volume to the "observed" volume. 
 data_nlVAw <- data |> 
   mutate(.fitted = augment(nlVAw)$.fitted, 
-         .fitted_km3 = .fitted, 
-         .resid = augment(nlVAw)$.resid, 
-         .relresid = .resid/.fitted_km3, 
-         .se = 2*sd(.relresid), 
-         .lb = ifelse(.fitted_km3*(1- .se) < 0, 0, .fitted_km3*(1- .se)), 
-         .ub = .fitted_km3*(1+ .se), 
+         Volume_RGIF_km3 = .fitted, 
          Volume_Erasov_km3 = glacierVolume_Erasov(Area_km2))
 ```
 
@@ -200,13 +227,11 @@ data_nlVAw <- data |>
 #| error: false
 # Plotting the results
 a <- ggplot(data_nlVAw) + 
-  geom_ribbon(aes(Area_km2, .fitted_km3, ymin = .lb, ymax = .ub),
-              colour = NA, alpha = 0.2, fill = "forestgreen") +
   geom_point(aes(Area_km2, Volume_km3, colour = "Obs"), size = 0.4, 
              alpha = 0.4) + 
   geom_point(aes(Area_km2, Volume_Erasov_km3, colour = "Erasov"), size = 0.4, 
              alpha = 0.4) + 
-  geom_point(aes(Area_km2, .fitted_km3, colour = "RGIF"), 
+  geom_point(aes(Area_km2, Volume_RGIF_km3, colour = "RGIF"), 
              alpha = 0.4, size = 0.4) + 
   scale_colour_manual(name = "Legend", 
                       values = c("Obs" = "black", "Erasov" = "green", 
@@ -215,13 +240,11 @@ a <- ggplot(data_nlVAw) +
   xlab(expression("Area [" * km^2 * "]")) + 
   theme_bw()
 b <- ggplot(data_nlVAw) + 
-  geom_ribbon(aes(Area_km2, .fitted_km3, ymin = .lb, ymax = .ub),
-              colour = NA, alpha = 0.2, fill = "forestgreen") +
   geom_point(aes(Area_km2, Volume_km3, colour = "Obs"), size = 0.4, 
              alpha = 0.4) + 
   geom_point(aes(Area_km2, Volume_Erasov_km3, colour = "Erasov"), size = 0.4, 
              alpha = 0.4) + 
-  geom_point(aes(Area_km2, .fitted_km3, colour = "RGIF"), 
+  geom_point(aes(Area_km2, Volume_RGIF_km3, colour = "RGIF"), 
              alpha = 0.4, size = 0.4) + 
   scale_colour_manual(name = "Legend", 
                       values = c("Obs" = "black", "Erasov" = "green", 
@@ -234,13 +257,13 @@ b <- ggplot(data_nlVAw) +
 grid.arrange(a, b, nrow = 1)
 ```
 
-@fig-glacier-varea-volume-scaling shows the glacier volume estimate with different methods vs. the glacier area. For small glaciers with an area $< 10 km^2$ Erasov (@eq-erasov) performs better than the newly fitted data from RGI and Farinotti (@eq-volume-rgif). For glaciers larger than $10 km^2$ area, the newly fitted function `glacierVolume_RGIF` should be used. 
+@fig-glacier-varea-volume-scaling shows the glacier volume estimate with different methods vs. the glacier area. For small glaciers with an area of $< 10 km^2$ approximately, Erasov (@eq-erasov) performs better than the newly fitted data from RGI and Farinotti (@eq-volume-rgif). For glaciers larger than approximately $10 km^2$ area, the newly fitted function `glacierVolume_RGIF` should be used. 
 
 $$
 V_{\text{RGIF}}= a \cdot A^{b}
 $$ {#eq-volume-rgif}
 
-With $A$ being the glacier area in $km^2$, $V_{\text{RGIF}}$ beging the glacier volume in $km^3$, and the parameters $a=$ `r as.numeric(round(nlVAw$m$getPars()[1], digits = 3))` and $b=$ `r as.numeric(round(nlVAw$m$getPars()[2], digits = 3))`. The newly fitted scaling relationship is implemented as `glacierVolume_RGIF` in the package `riversCentralAsia`, the Erasov scaling relationship is implemented as `glacierVolume_Erasov`. 
+With $A$ being the glacier area in $km^2$, $V_{\text{RGIF}}$ beging the glacier volume in $km^3$, and the parameters $a=$ `r as.numeric(round(nlVAw$m$getPars()[1], digits = 4))` and $b=$ `r as.numeric(round(nlVAw$m$getPars()[2], digits = 3))`. The newly fitted scaling relationship is implemented as `glacierVolume_RGIF` in the package `riversCentralAsia`, the Erasov scaling relationship is implemented as `glacierVolume_Erasov`. 
 
 The area-volume scaling by Erasov and the area-volume scaling with updated parameters (RGIF) can be reversed. Thereby it is possible to update the glacier area as a function of the glacier volume. 
 

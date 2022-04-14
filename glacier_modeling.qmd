@@ -15,13 +15,13 @@ $$
 \Delta S = \text{ablation} + \text{accumulation}
 $$ {#eq-general-glacier-mass-balance}
 where $\text{ablation}$ denotes the ablation of glacier mass, i.e. glacier mass loss, and $\text{accumulation}$ is the accumulation of glacier mass, i.e. glacier mass growth. Glacier ablation can be modeled using a temperature index model (described in the next section). Note that the ablation term is a negative number.  
-Many processes contribute to glacier ablation and accumulation, e.g. [@cogley_glossary_2011, @benn_glaciers_2010]. The most dominant accumulation processes in high mountain areas are snow fall, avalanches and wind-blown snow. In high mountain regions, glacier ablation is driven by the energy balance at the glacier-air interface [@hock_glacier_2005]. For most regional hydrological modeling tasks, is is sufficient to simplify the glacier mass balance to @eq-simplified-glacier-mass-balance [@oneel_reanalysis_2019].       
+Many processes contribute to glacier ablation and accumulation, e.g. [@cogley_glossary_2011, @benn_glaciers_2010]. The most dominant accumulation processes in high mountain areas are snow fall, avalanches and wind-blown snow. In high mountain regions, glacier ablation is driven by the energy balance at the glacier-air interface [@hock_glacier_2005]. For most regional hydrological modeling tasks, is is sufficient to simplify the glacier mass balance to @eq-simplified-glacier-mass-balance [@oneel_reanalysis_2019]. A glacier that is in balance will melt the equivalent of the long-term average precipitation during the warm summer months, called balance ablation [@pritchard_asias_2019].       
 
 $$
 \Delta S = P-\text{Melt} \approx Q_{\text{Gl,imbal}}
 $$ {#eq-simplified-glacier-mass-balance}
 
-where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($\text{Melt}$). Typically melt exceeds precipitation and we have negative $\Delta S$, that is imbalance ablation $Q_{\text{Gl,imbal}}$, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
+where the change of water storage ($\Delta S$) is equal to the precipitation ($P$) minus the glacier melt ($\text{Melt}$). Since temperatures are increasing globally melt typically exceeds precipitation and we have negative $\Delta S$, that is imbalance ablation $Q_{\text{Gl,imbal}}$, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.
 
 
 ### Temperature Index Model
@@ -45,10 +45,10 @@ As glaciers melt, their volume changes. This has to be taken into account for th
 Glaciers larger than 1km^2^ are sub-divided into elevation bands of 100 m altitude to account for elevation dependent temperature forcing. The total glacier volume is distributed to the elevation bands proportionally to their size. 
 
 $$
-V_{\text{elBands}} = V_{tot} \cdot \frac{A_{\text{elBands}}{A_{tot}}
+V_{\text{elBands}} = V_{tot} \cdot \frac{A_{\text{elBands}}}{A_{tot}}
 $$
 
-The glacier mass loss is distributed on the glacier as follows: The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
+The glacier mass loss has to be distributed over the glacier. A commonly used method is the Huss- or $\delta h$-parameterization [@huss_future_2010] who employ a non-linear empirical function. As data for calibration of this function is not available to us we decided to attribute glacier melt to elevation bands. The large glaciers melt from the lowest elevation band to the highest elevation band whereby the glacier melt is subtracted from the glacier volume of lowest elevation band that is still glacierized. The small glaciers are not spatially discretized and thus they are melted homogeneously.
 
 For annual time step $t$, the evolution of the glacier volume is calculated as follows:
 
@@ -131,7 +131,9 @@ The following code snippet shows how the area volume relationship is re-fitted u
 ```{r}
 # Loading the necessary libraries
 library(sf, quietly = TRUE)
+library(raster, quietly = TRUE)
 library(tidyverse, quietly = TRUE)
+library(lubridate, quietly = TRUE)
 library(gridExtra, quietly = TRUE)
 library(broom, quietly = TRUE)
 devtools::install_github("hydrosolutions/riversCentralAsia", quiet = TRUE)
@@ -257,7 +259,9 @@ b <- ggplot(data_nlVAw) +
 grid.arrange(a, b, nrow = 1)
 ```
 
-@fig-glacier-varea-volume-scaling shows the glacier volume estimate with different methods vs. the glacier area. For small glaciers with an area of $< 10 km^2$ approximately, Erasov (@eq-erasov) performs better than the newly fitted data from RGI and Farinotti (@eq-volume-rgif). For glaciers larger than approximately $10 km^2$ area, the newly fitted function `glacierVolume_RGIF` should be used. 
+@fig-glacier-varea-volume-scaling shows the glacier volume estimate with different methods vs. the glacier area. The two functions perform similarly for small glaciers, i.e. Erasov is still valid. For large glaciers the two parameter sets differ. However, the uncertainties of the glacier volume estimates are larger than the difference between the two functions so Erasov can still be considered to be valid also for larger glaciers though we use the RGIF fit here which is based on more and newer data. 
+
+Based on the large data set, the empirical glacier area-volume relationship based on the RGI v6.0 glacier outlines and the glacier thickness by @farinotti_consensus_2019 may be more suitable for large glaciers in Central Asia.  
 
 $$
 V_{\text{RGIF}}= a \cdot A^{b}
@@ -280,9 +284,57 @@ For hydrological modeling, not only the glacier mass changes but also the season
 The simulation results by @miles_health_2021 yield both balance and imbalance ablation as well as total glacier discharge for thousands of glaciers in High Mountain Asia. By deriving an empirical relationship between the glacier elevation change rates by @hugonnet_accelerated_2021 and total glacier discharge by @miles_health_2021, it is possible to estimate the glacier contribution to river discharge. 
 
 ```{r}
+#| fig-cap: "Empirical relationship between glacier mass change rate and total glacier ablation derived from data by Hugonnet et al., 2021 and Miles et al., 2021."
+#| label: fig-glacierTotalAblationHM 
+# Load long-term glacier thinning rates by Hugonnet et al., 2021
+# dmdtda corresponds to the glacier mass change in m water equivalents per year
+hugonnet <- read_csv("../caham_data/central_asia_domain/glaciers/Hugonnet/dh_13_rgi60_pergla_rates.csv")  |> 
+  tidyr::separate(period, c("start", "end"), sep = "_") |> 
+  mutate(start = as_date(start, "%Y-%m-%d"), 
+         end = as_date(end, "%Y-%m-%d"), 
+         period = round(as.numeric(end - start, units = "days")/366)) |> 
+  dplyr::filter(period == 20)
 
+# Load glacier ablation data by Miles et al., 2021 and filter to the Central 
+# Asian domain
+miles <- read_csv("../caham_data/central_asia_domain/glaciers/Miles/Miles2021_Glaciers_summarytable_20210721.csv") |>
+  dplyr::filter(grepl("RGI60-13.", RGIID), 
+                VALID == 1)
+
+# Merge the two data sets by glacier
+mhcompare <- left_join(miles, hugonnet, by = c("RGIID" = "rgiid")) 
+
+lm_dmdtdaQ_growth <- lm(formula = totAbl ~ dmdtda, 
+                          data = mhcompare |>
+                            dplyr::filter(dmdtda > 0))
+lm_dmdtdaQ_melt <- lm(formula = totAbl ~ dmdtda, 
+                          data = mhcompare |>
+                            dplyr::filter(dmdtda <= 0))
+
+data_lmdmdtdaQ_growth <- mhcompare |> 
+  dplyr::filter(dmdtda > 0) |> 
+  mutate(totAbl_growth = broom::augment(lm_dmdtdaQ_growth)$.fitted)
+
+data_lmdmdtdaQ_melt <- mhcompare |> 
+  dplyr::filter(dmdtda <= 0) |> 
+  mutate(totAbl_melt = broom::augment(lm_dmdtdaQ_melt)$.fitted)
+
+ggplot() + 
+  geom_vline(xintercept = 0) + 
+  geom_point(data = mhcompare, aes(x = dmdtda, y = totAbl), size = 0.2) + 
+  geom_line(data = data_lmdmdtdaQ_growth |> dplyr::filter(dmdtda <= 0.5), 
+            aes(x = dmdtda, y = totAbl_growth), colour = "green") + 
+  geom_line(data = data_lmdmdtdaQ_growth |> dplyr::filter(dmdtda > 0.5), 
+            aes(x = dmdtda, y = -269787.7), colour = "green", linetype = 2) + 
+  geom_line(data = data_lmdmdtdaQ_melt |> dplyr::filter(dmdtda >= -1), 
+            aes(x = dmdtda, y = totAbl_melt), colour = "red") + 
+  geom_line(data = data_lmdmdtdaQ_melt |> dplyr::filter(dmdtda < -1), 
+            aes(x = dmdtda, y = -1121811), colour = "red", linetype = 2) + 
+  labs(x = "Hugonnet glacier mass change [m weq/a]", 
+       y = "Miles total glacier ablation [m3/a]") + 
+  theme_bw()
 ```
-
+The function `glacierTotalAblation_HM` of the package `riversCentralAsia` implements the empirical relationship between glacier mass change and total glacier ablation shown in @fig-glacierTotalAblationHM.  
 
 
 ## Demonstration

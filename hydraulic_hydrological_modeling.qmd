@@ -327,7 +327,7 @@ It is recommended to save a backup of the initial parameter set. During model mo
 The model produces the correct seasonality but the water balance is way off. The RS Minerve model produces more discharge than is observed at the monitoring station. We fix this by calibrating the model. This is a big task and will be treated in the next chapter.  
 
 
-## Model calibration
+## Model calibration {#sec-model-calibration}
 
 The large number of parameters of the HBV model can be adjusted within reasonable ranges to make the simulated river discharge more similar to the measured discharge. This model calibration process is sometimes also called history matching because past or historical measurements are used to adapt the model parameters. Mathematically speaking, model calibration is an optimization problem where the value of a performance indicator (or a combination of several performance indicators) is minimized. An example: The model calibration changes the parameters of the model such that the error between the observed and simulated discharge is minimized. 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.83">
+<meta name="generator" content="quarto-0.9.46">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.">
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 8&nbsp; Hydrological-Hydraulic Modeling</title>
@@ -256,7 +256,7 @@
 <li><a href="#sec-first-rsm-model-run" class="nav-link" data-scroll-target="#sec-first-rsm-model-run"> <span class="header-section-number">8.5.5</span> First model run</a></li>
 </ul>
 </li>
-<li><a href="#model-calibration" class="nav-link" data-scroll-target="#model-calibration"> <span class="header-section-number">8.6</span> Model calibration</a></li>
+<li><a href="#sec-model-calibration" class="nav-link" data-scroll-target="#sec-model-calibration"> <span class="header-section-number">8.6</span> Model calibration</a></li>
 <li><a href="#sec-hydrological-hydraulic-modeling-references" class="nav-link" data-scroll-target="#sec-hydrological-hydraulic-modeling-references"> <span class="header-section-number">8.7</span> References</a></li>
 </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/hydraulic_hydrological_modeling.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -524,7 +524,7 @@ This is done by fixing the least sensitive parameters to literature values</li>
 </div>
 <p>It is recommended to save a backup of the initial parameter set. During model model calibration experiments the modeler can sometimes end up with unrealistic parameter combinations and then it is appropriate to reset the model and start afresh. Click on Export P in the Model Properties toolbar to save the default parameters as a text file which can be imported using the Import P button.</p>
 <p>The model produces the correct seasonality but the water balance is way off. The RS Minerve model produces more discharge than is observed at the monitoring station. We fix this by calibrating the model. This is a big task and will be treated in the next chapter.</p>
-</section></section><section id="model-calibration" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="model-calibration">
+</section></section><section id="sec-model-calibration" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="sec-model-calibration">
 <span class="header-section-number">8.6</span> Model calibration</h2>
 <p>The large number of parameters of the HBV model can be adjusted within reasonable ranges to make the simulated river discharge more similar to the measured discharge. This model calibration process is sometimes also called history matching because past or historical measurements are used to adapt the model parameters. Mathematically speaking, model calibration is an optimization problem where the value of a performance indicator (or a combination of several performance indicators) is minimized. An example: The model calibration changes the parameters of the model such that the error between the observed and simulated discharge is minimized.</p>
 <p>The simplest form of such an equation is given below where for each time step <span class="math inline">\(t\)</span>, the difference between the simulated (<span class="math inline">\(Q_{sim}\)</span>) and observed (<span class="math inline">\(Q_{obs}\)</span>) discharge is computed. The simulated discharge depends on the parameters <span class="math inline">\(\boldsymbol{P}\)</span>. The differences between the simulated and observed discharge are summed up to result in one value <span class="math inline">\(\boldsymbol{E}\)</span>, depending on <span class="math inline">\(\boldsymbol{P}\)</span> which can be minimized by changing the parameters <span class="math inline">\(\boldsymbol{P}\)</span>.</p>
@@ -536,7 +536,7 @@ This is done by fixing the least sensitive parameters to literature values</li>
 <section id="calibration-and-validation" class="level4"><h4 class="anchored" data-anchor-id="calibration-and-validation">Calibration and validation</h4>
 <p>An important strategy to gain confidence into a model is to split the simulation period into a calibration period and a validation period. During calibration, the model parameters are adjusted to get a satisfying fit with the measured discharge. During the validation period the calibrated model is compared to discharge data that the model hasn’t seen before, i.e.&nbsp;the model’s ability to handle potentially different model input than it has seen during calibration (also called its ability to generalize) is revealed. For example, 30 years of discharge time series can be split into the first 10 years for model calibration (i.e.&nbsp;model calibration is done only over the first 10 years of the time series) and into the last 20 years for model validation. A good model should perform satisfactorily not only during calibration but also during validation. If the model validation period shows better model performance than the calibration period, the modeler should take a close look at the forcing and try to explain this.</p>
 <p>In hydrology, it is recommended to do cross-validation, i.e.&nbsp;to calibrate and validate a model with several combinations of calibration and validation periods and to summarize the overall model performance and the resulting parameter combinations.<br>
-Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem <span class="citation" data-cites="bergstrom_principles_1991">(<a href="#ref-bergstrom_principles_1991" role="doc-biblioref"><strong>bergstrom_principles_1991?</strong></a>)</span> gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today.</p>
+Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem <span class="citation" data-cites="bergstrom_principles_1991">(<a href="#ref-bergstrom_principles_1991" role="doc-biblioref">Bergström 1991</a>)</span> gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today.</p>
 </section><section id="warm-up-period" class="level4"><h4 class="anchored" data-anchor-id="warm-up-period">Warm-up period</h4>
 <p>To overcome issues with the initial water content of the catchment, a warm-up or spin-up period is typically defined. For small basins with small storages (like the mountainous basins in Central Asia) one year of model warm up is typically sufficient to fill the models reservoir with an appropriate amount of water. The warm-up period is specified in the comparator properties and excluded from the automatic calibration process.</p>
 <div id="fig-rsm-calibration-01" class="quarto-figure quarto-figure-center anchored">
@@ -569,6 +569,9 @@ Interested readers are refered to the literature for a more thorough discussion 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-bergstrom_development_1976" class="csl-entry" role="doc-biblioentry">
 Bergström, Sten. 1980. <span>“Development and Application of a Conceptual Runoff Model for <span>Scandinavian</span> Catchments.”</span> {SMHI} {Report} Nr Rho 7. Lund Institute of Technology/University of Lund.
+</div>
+<div id="ref-bergstrom_principles_1991" class="csl-entry" role="doc-biblioentry">
+———. 1991. <span>“Principles and <span>Confidence</span> in <span>Hydrological</span> <span>Modelling</span>.”</span> <em>Hydrology Research</em> 22 (2): 123–36. <a href="https://doi.org/10.2166/nh.1991.0009">https://doi.org/10.2166/nh.1991.0009</a>.
 </div>
 <div id="ref-bloschl_scale_1995" class="csl-entry" role="doc-biblioentry">
 Blöschl, G., and M. Sivapalan. 1995. <span>“Scale Issues in Hydrological Modelling: <span>A</span> Review.”</span> <em>Hydrological Processes</em> 9 (3-4): 251–90. https://doi.org/<a href="https://doi.org/10.1002/hyp.3360090305">https://doi.org/10.1002/hyp.3360090305</a>.

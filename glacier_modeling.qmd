@@ -9,7 +9,7 @@ We shift the focus from the catchment to one single glacier within the catchment
 
 ![Simplified illustration of a glacierized river basin with elevation bands in dashed lines. The zoom is on one of the larger glaciers which can itself be discretized into elevation bands. The glacier mass loss is substracted from the lower most elevation band in increasing elevation.](images/hydrological_modeling/glacier_modeling_zoom_in_elevation_bands.png){#fig-glacier-model-zoom-in}
 
-The glacier mass balance is given in @#eq-general-glacier-mass-balance [@oneel_reanalysis_2019]. 
+The glacier mass balance is given in @eq-general-glacier-mass-balance [@oneel_reanalysis_2019]. 
 
 $$
 \Delta S = \text{ablation} + \text{accumulation}

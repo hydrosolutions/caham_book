@@ -6,7 +6,7 @@ The Chapter's @sec-discharge-station-data, @sec-geospatial-data, @sec-snow-and-g
 
 ## Vector data {#sec-geospatial-data-sources}
 
-For our purpose, we define the area of interest (AOI) as 55 deg. E - 85. deg. E and 30 deg. N - 50 deg. N.. 
+For our purpose, we define the area of interest (AOI) as 55 deg. E - 85. deg. E and 30 deg. N - 50 deg. N..
 
 Global political boundaries can be obtained from the Global Administrative Divisions database at [gadm.org](www.gadm.org){target="_blank"}. Except for Turkmenistan, data on first (Oblast) and second-level (Rayon) administrative divisions is available for all Central Asian states.
 

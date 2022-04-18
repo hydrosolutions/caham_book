@@ -1,87 +1,92 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.83">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.">
-  <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
 
-  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="site_libs/quarto-nav/headroom.min.js"></script>
-  <script src="site_libs/clipboard/clipboard.min.js"></script>
-  <meta name="quarto:offset" content="./">
-  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-  <script src="site_libs/quarto-search/fuse.min.js"></script>
-  <script src="site_libs/quarto-search/quarto-search.js"></script>
-  <link href="./modeling_using_predictive_inference.html" rel="next">
-  <link href="./hydraulic_hydrological_modeling.html" rel="prev">
-  <script src="site_libs/quarto-html/quarto.js"></script>
-  <script src="site_libs/quarto-html/popper.min.js"></script>
-  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="site_libs/quarto-html/anchor.min.js"></script>
-  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-  <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
-  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <script id="quarto-search-options" type="application/json">{
-    "location": "sidebar",
-    "copy-button": false,
-    "collapse-after": 2,
-    "panel-placement": "start",
-    "type": "textbox",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
-    }
-  }</script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.267">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.">
+
+<title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<link href="./modeling_using_predictive_inference.html" rel="next">
+<link href="./hydraulic_hydrological_modeling.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+
 </head>
+
 <body class="floating">
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></h1>
-      <button type="button" class="quarto-btn-toggle btn">
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
@@ -139,11 +144,11 @@
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
         <a href="./hydrology_of_central_asia.html" class="sidebar-item-text sidebar-link">Part I: Hydrology of Semi-Arid Central Asia</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-hydrology_of_central_asiaqmd" aria-expanded="true">
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-hydrology_of_central_asiaqmd" class="collapse list-unstyled sidebar-section depth1 show">  
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hydrological_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></a>
@@ -159,11 +164,11 @@
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
         <a href="./data.html" class="sidebar-item-text sidebar-link">Part II: Data Sources, Retrieval and Preparation</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-dataqmd" aria-expanded="true">
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-dataqmd" class="collapse list-unstyled sidebar-section depth1 show">  
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sources of Relevant Data</span></a>
@@ -194,11 +199,11 @@
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
         <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">Part III: Hydrological Modeling &amp; Applications</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-hydrological_modelingqmd" aria-expanded="true">
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-hydrological_modelingqmd" class="collapse list-unstyled sidebar-section depth1 show">  
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a>
@@ -228,12 +233,12 @@
   </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-appendices" aria-expanded="true">Appendices</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-appendices" aria-expanded="true">
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-appendices" class="collapse list-unstyled sidebar-section depth1 show">  
+    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Software</span></a>
@@ -262,24 +267,45 @@
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc">
-<h2 id="toc-title">Table of contents</h2>
-<ul>
-<li><a href="#sec-budyko-introduction" class="nav-link active" data-scroll-target="#sec-budyko-introduction"> <span class="header-section-number">9.1</span> Introduction</a></li>
-<li><a href="#sec-budyko-data-and-methods" class="nav-link" data-scroll-target="#sec-budyko-data-and-methods"> <span class="header-section-number">9.2</span> Data and Methods</a>
-<ul class="collapse">
-<li><a href="#sec-budyko-data" class="nav-link" data-scroll-target="#sec-budyko-data"> <span class="header-section-number">9.2.1</span> Data</a></li>
-<li><a href="#sec-budyko-methods" class="nav-link" data-scroll-target="#sec-budyko-methods"> <span class="header-section-number">9.2.2</span> Methods</a></li>
-</ul></li>
-<li><a href="#sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"> <span class="header-section-number">9.3</span> Results</a></li>
-<li><a href="#sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"> <span class="header-section-number">9.4</span> Discussion and Conclusions</a></li>
-<li><a href="#sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"> <span class="header-section-number">9.5</span> References</a></li>
-</ul>
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-budyko-introduction" id="toc-sec-budyko-introduction" class="nav-link active" data-scroll-target="#sec-budyko-introduction"> <span class="header-section-number">9.1</span> Introduction</a></li>
+  <li><a href="#sec-budyko-data-and-methods" id="toc-sec-budyko-data-and-methods" class="nav-link" data-scroll-target="#sec-budyko-data-and-methods"> <span class="header-section-number">9.2</span> Data and Methods</a>
+  <ul class="collapse">
+  <li><a href="#sec-budyko-data" id="toc-sec-budyko-data" class="nav-link" data-scroll-target="#sec-budyko-data"> <span class="header-section-number">9.2.1</span> Data</a></li>
+  <li><a href="#sec-budyko-methods" id="toc-sec-budyko-methods" class="nav-link" data-scroll-target="#sec-budyko-methods"> <span class="header-section-number">9.2.2</span> Methods</a></li>
+  </ul></li>
+  <li><a href="#sec-budyko-results" id="toc-sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"> <span class="header-section-number">9.3</span> Results</a></li>
+  <li><a href="#sec-discussion-and-conclusions" id="toc-sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"> <span class="header-section-number">9.4</span> Discussion and Conclusions</a></li>
+  <li><a href="#sec-long-term-water-balance-modeling-references" id="toc-sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"> <span class="header-section-number">9.5</span> References</a></li>
+  </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/long_term_water_balance_modeling.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<header id="title-block-header">
-<h1 class="title display-7"><span id="sec-budyko-modeling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></span></h1>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-budyko-modeling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></span></h1>
+</div>
+
+<div>
+  <div class="description">
+    This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.
+  </div>
+</div>
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
 </header>
 
 <p>In this Chapter, we investigate long-term mean catchment water balances from a large, regional perspective.</p>
@@ -299,7 +325,7 @@ Q = P - E
 \frac{Q}{P} = 1 - \frac{E}{P}
 \qquad(9.3)\]</span></span></p>
 <p>where <span class="math inline">\(Q/P\)</span> can be called the runoff index and <span class="math inline">\(E/P\)</span> is the evaporation index or evaporative fraction.</p>
-<p>For a catchment, annual mean <span class="math inline">\(E\)</span> and <span class="math inline">\(Q\)</span> are governed by total <em>water supply</em> <span class="math inline">\(P\)</span> and the total available energy which is normally expressed as potential evaporation <span class="math inline">\(E_{pot}\)</span> and which denotes the (atmospheric) <em>water demand</em>. If <span class="math inline">\(E_{pot}\)</span> is small, the discharge <span class="math inline">\(Q\)</span> is normally bigger than evaporation <span class="math inline">\(E\)</span>. Similarly, if the available radiative energy is very high, the water demand <span class="math inline">\(E_{pot}\)</span> is very large and <span class="math inline">\(Q&lt;&lt;E\)</span> <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <span class="math inline">\(E_{pot}\)</span> and <span class="math inline">\(P\)</span> are thus the key determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio <span class="math inline">\(E_{pot} / P\)</span> aridity index <span class="citation" data-cites="budyko_1974">(<a href="#ref-budyko_1974" role="doc-biblioref">Budyko 1974</a>)</span>.</p>
+<p>For a catchment, annual mean <span class="math inline">\(E\)</span> and <span class="math inline">\(Q\)</span> are governed by total <em>water supply</em> <span class="math inline">\(P\)</span> and the total available energy which is normally expressed as potential evaporation <span class="math inline">\(E_{pot}\)</span> and which denotes the (atmospheric) <em>water demand</em>. If <span class="math inline">\(E_{pot}\)</span> is small, the discharge <span class="math inline">\(Q\)</span> is normally bigger than evaporation <span class="math inline">\(E\)</span>. Similarly, if the available radiative energy is very high, the water demand <span class="math inline">\(E_{pot}\)</span> is very large and <span class="math inline">\(Q \ll E\)</span> <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <span class="math inline">\(E_{pot}\)</span> and <span class="math inline">\(P\)</span> are thus the key determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio <span class="math inline">\(E_{pot} / P\)</span> aridity index <span class="citation" data-cites="budyko_1974">(<a href="#ref-budyko_1974" role="doc-biblioref">Budyko 1974</a>)</span>.</p>
 <p>As explained above, water demand is determined by energy. Solar radiation is the primary energy source for the earth-atmosphere system and the key driver of the hydrological cycle. At the earth’s surface, the net radiative flux <span class="math inline">\(R_N\)</span> is the energy that is available for a) heating and cooling of the soil (ground heat flux), b) changing the phase of water (latent heat flux), and c) heating or cooling air in the boundary layer thus causing atmospheric dynamics (sensible heat flux).</p>
 <p>This can be formalized with the following relationship</p>
 <p><span id="eq-energy-balance"><span class="math display">\[
@@ -346,7 +372,12 @@ R_{N} = (1 + \gamma)L E
 <p>where <span class="math inline">\(n\)</span> is a catchment-specific parameter which accounts for factors such as vegetation type and coverage, soil type and topography, etc. (see e.g. <span class="citation" data-cites="Zhang2015">Zhang et al. (<a href="#ref-Zhang2015" role="doc-biblioref">2015</a>)</span> for more information). In other words, <span class="math inline">\(n\)</span> integrates the net effects of all controls of of the evaporative fraction other than aridity. The Figure @ref(fig:ChoudhuryEquationStateSpace) shows the control of <span class="math inline">\(n\)</span> over the shape of the Budyko Curve.</p>
 <!-- ```{r ChoudhuryEquationStateSpace, echo=FALSE,fig.cap="$n$ is determining the shape of the Budyko Curve. Note how large values of $n$ favour evaporation over discharge. Note that $E_{pot}$ is denoted with $E_{0}$. Figure taken from [@yang_2008]."} -->
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/ChoudhuryEquation_StateSpace') -->
-<!-- ``` -->
+<!-- 
+Check Sources on net radiation:
+- https://www.sciencedirect.com/topics/earth-and-planetary-sciences/net-radiation
+and there especially
+- https://www.sciencedirect.com/science/article/pii/B9780124095489103537
+and there Chapter 4.03.4.1.1 Net radiation estimation and partitioning -->
 </section>
 <section id="sec-budyko-data-and-methods" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="sec-budyko-data-and-methods"><span class="header-section-number">9.2</span> Data and Methods</h2>
@@ -462,6 +493,7 @@ Zhang, D., Z. Cong, G. Ni, D. Yang, and S. Hu. 2015. <span>“<span class="nocas
 </div>
 </div>
 </section>
+
 </main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -552,6 +584,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 </body></html>

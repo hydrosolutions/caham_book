@@ -1,7 +1,7 @@
 /* quarto syntax highlight colors */
 :root {
   --quarto-hl-ot-color: #00769E;
-  --quarto-hl-at-color: #677623;
+  --quarto-hl-at-color: #657422;
   --quarto-hl-ss-color: #20794D;
   --quarto-hl-an-color: #5E5E5E;
   --quarto-hl-fu-color: #4758AB;
@@ -40,7 +40,12 @@ code span {
   color: #00769E;
 }
 
-div.sourceCode {
+code.sourceCode > span {
+  color: #00769E;
+}
+
+div.sourceCode,
+div.sourceCode pre.sourceCode {
   color: #00769E;
 }
 
@@ -49,7 +54,7 @@ code span.ot {
 }
 
 code span.at {
-  color: #677623;
+  color: #657422;
 }
 
 code span.ss {
@@ -150,3 +155,5 @@ code span.dv {
 code span.kw {
   color: #00769E;
 }
+
+/*# sourceMappingURL=debc5d5d77c3f9108843748ff7464032.css.map */

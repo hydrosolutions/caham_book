@@ -391,7 +391,7 @@ Koksu however, with a basin area of 392 km$^2$, is ungauged. Its discharge contr
 
 ### Chirchik Basin Characterization {#sec-chirchik-basin-characterization}
 
-This Section available data to characterize the Chirchik River Basin from the hydro-climatological perspective. Data access and modeling is further described in Chapter @sec-data in Part II and Part III @sec-hydrological-modeling of this Book.
+This Section available data to characterize the Chirchik River Basin from the hydro-climatological perspective. Data access and modeling is further described in the Section on Data @sec-data in Part II and Part III @sec-hydrological-modeling of this Book.
 
 The available discharge data is shown in @fig-chirchick-river-available-data. These are near complete historic records. See above @fig-chirchik-river-basin-overview for the station locations.
 
@@ -524,7 +524,7 @@ chirchik_river_data %>%
                             .title = "")
 ```
 
-Discharge seasonality of the gauging stations downstream of Charvak reservoir is shown below. Note that we only have monthly values for Ugam station which explains the appearance of the weekly plot in the upper right panel of \@ref(fig:seasonalitySmallTribs).
+Discharge seasonality of the gauging stations downstream of Charvak reservoir is shown below. Note that we only have monthly values for Ugam station which explains the appearance of the weekly plot in the upper right panel of @fig-chirchik-seasonality-small-tributaries.
 
 ```{r}
 #| label: fig-chirchik-seasonality-small-tributaries
@@ -893,7 +893,7 @@ In summary, the general global warming trend is clearly visible in in-situ stati
 The construction of the Charvak reservoir and the subsequent water impoundment of the rivers water in the reservoir led to a destruction of the previous gauge that measured Chatkal discharge, including the contribution from the Koksu right-tributary. To be able to estimate the Koksu discharge contribution to the Charvak reservoir, even after the impoundment, an empirical relationship between Chatkal river discharge and Koksu was established. The procedure allows for the more or less precise estimation of Koksu discharge, even in the absence of direct measurements, as described below.
 
 ::: callout-note
-The model shown here to estimate Koksu discharge using measured quantities at Khudaydod is a simple type of an empirical model. You will learn more about such types of models in @sec-modeling-using-predictive-inference.
+The model shown here to estimate Koksu discharge using measured quantities at Khudaydod is a simple type of an empirical model. You will learn more about such types of models in @sec-em.
 :::
 
 Before the closure of the Charvak dam and the subsequent filling of the reservoir in and after 1974, the Uzbek experts from the Hydrometeorological Agency started a detailed 3-years measurement comparison campaign at Charvak gauge and at gauge 16279 in Khudaydod (see @fig-chirchik-river-basin-overview). Both are located on Chatkal river

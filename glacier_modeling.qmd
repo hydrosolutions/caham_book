@@ -342,7 +342,7 @@ The function `glacierTotalAblation_HM` of the package `riversCentralAsia` implem
 We demonstrate the above described method with the data from the Atbashy basin. 
 
 :::{.callout-warning}
-All required data is available from [the downloadable data package](https://www.dropbox.com/sh/mfm3lk2av1t74bw/AABw5ER3E3JOqjp-SdWfLol0a?dl=1){target="_blank"}. Note however that this folder required 12 GB of local storage space!
+All required data is available from [the downloadable data package](https://www.dropbox.com/sh/mfm3lk2av1t74bw/AABw5ER3E3JOqjp-SdWfLol0a?dl=1){target="_blank"}. Note however that this folder requires 12 GB of local storage space if you download it.
 :::
 
 ```{r}

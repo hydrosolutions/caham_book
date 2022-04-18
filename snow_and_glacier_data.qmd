@@ -6,11 +6,11 @@ The runoff of the rivers Syr Darya and Amu Darya consists of 65%-75% snow melt, 
 
 Among other things, climate impacts translate into long-term changes of runoff formation fractions and the distribution of runoff formation within the hydrological year. Figure shows a simplified illustration of the changes in runoff regime as glaciers shrink (example of a heavily glaciated basin) [@hock_ipccHMA_2019].
 
-![Simplified illustration of the changes in runoff as glaciers disappear from a heavily glaciated basin. Image source @hock_ipccHMA_2019.](images/glacier_data_section/IPPC_special_report_HighMountainAreas_2019.png){#fig-discharge-as-glaciers-melt}
+The following section gives a brief overview over the available regional open source data regarding Central Asias cryosphere. A later chapter on [Glacier Modeling](@sec-glacier-modeling) will then focus on the modelling of the cryosphere. 
 
 By the end of the century, a reduction of 50% to 80% of glacier mass has to be expected in Central Asia [@marzeion_partitioning_2020], depending on the socio-economic pathway. As the cryosphere acts as a natural seasonal to multi-year water reservoir, the loss of this storage capacity has a large impact on downstream food and energy production and on the environment with associated economic loss [@rasul_global_2019].
 
-Typical rainfall-runoff models such as the HBV Model simulate the fractionation of precipitation into snow and rain with a temperature threshold method. Snow and liquid water reservoirs and corresponding fluxes are then accounted for. However, these models have only a limited understanding of glacier processes which are normally inadequate at best to estimate glacier contributions to discharge.
+We use the catchment of the gauging station on the Atbashy river, a tributary to the Naryn river in Central Asia as a demo site. If you’d like to reproduce the examples presented in this chapter you can download the zipped data in the example data set available [here](https://www.dropbox.com/sh/v2yckkjs9x4xj4t/AADo8edoVvZ9dfCYkn9oQnSha?dl=0){target="_blank"}. You can extract the the downloaded data into a location of your choice and adapt the reference path below. The rest of the code will run as it is, provided you have the required r packages installed. The size of the data package is 14.1 GB.
 
 The following section gives a brief overview over the available regional open source data regarding Central Asias cryosphere. A [later chapter](#sec-glacier-modeling) will then focus on the modelling of the cryosphere.
 

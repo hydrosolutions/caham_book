@@ -214,16 +214,17 @@ RS Minerve offers limited GIS utilities. You can, for example, change the colors
 To automatically generate the model structure, make sure, the 3 required GIS layers are loaded (section above), then click on the Creation button in the Model Management toolbox (1). The model creation configuration window will pop up where you select the appropriate attributes for each model layer from the drop-down menus (2, 4). Tick the Altitude (Z) option in the Subbasins properties and select the Z attribute (3) to let RS Minerve know the altitude of each HRU.  
 
 ![Configuration of the model creation utilities. Selecting the appropriate attributes from the GIS layers.](images/hydrological_modeling/rsm_autoModelCreation_01.png){#fig-rsm-auto-model-creation-01}
+
 Then select all sub-basins in the Allocate SubBasins Type window (5) and click on the model object selector (6). 
 
 Select the HBV model (1) and click the Allocate Subbasins button (2). 
 
 ![Configuration of the model creation utilities. Selecting hydrological models for each HRU.](images/hydrological_modeling/rsm_autoModelCreation_02.png){#fig-rsm-auto-model-creation-02}
-All the sub-basins should now display the red HBV icon (@fig-rsm-auto-model-creation-03). 
 
-Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown). 
+All the sub-basins should now display the red HBV icon as shown in @fig-rsm-auto-model-creation-03. Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown). 
 
 ![Configuration of the model creation utilities. Selecting hydrodynamic stream flow models for each river section.](images/hydrological_modeling/rsm_autoModelCreation_03.png){#fig-rsm-auto-model-creation-03}
+
 Finally, press the Create Model button in the lower right corner of the RS Minerve window (4). If the model creation process is successful, the message ***Creation model finished.*** appears in the lower left corner of the RS Minerve window (5). If the model creation process is not successful, an error message will appear instead at the same location which will support you in identifying the problem. 
 
 You can now switch to the Model tab and look at the automatically generated model layout (@fig-rsm-auto-model-creation-04). 

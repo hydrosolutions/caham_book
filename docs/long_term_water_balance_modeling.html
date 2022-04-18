@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-  <meta charset="utf-8">
-<<<<<<< Updated upstream
-  <meta name="generator" content="quarto-0.9.46">
-=======
-  <meta name="generator" content="quarto-0.9.172">
->>>>>>> Stashed changes
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.">
-  <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
 
-  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="site_libs/quarto-nav/headroom.min.js"></script>
-  <script src="site_libs/clipboard/clipboard.min.js"></script>
-  <meta name="quarto:offset" content="./">
-  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-  <script src="site_libs/quarto-search/fuse.min.js"></script>
-  <script src="site_libs/quarto-search/quarto-search.js"></script>
-  <link href="./modeling_using_predictive_inference.html" rel="next">
-  <link href="./hydraulic_hydrological_modeling.html" rel="prev">
-  <script src="site_libs/quarto-html/quarto.js"></script>
-  <script src="site_libs/quarto-html/popper.min.js"></script>
-  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="site_libs/quarto-html/anchor.min.js"></script>
-  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-  <link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
-  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <script id="quarto-search-options" type="application/json">{
-    "location": "sidebar",
-    "copy-button": false,
-    "collapse-after": 3,
-    "panel-placement": "start",
-    "type": "textbox",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
-    }
-  }</script>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.267">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.">
+
+<title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<link href="./modeling_using_predictive_inference.html" rel="next">
+<link href="./hydraulic_hydrological_modeling.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+
 </head>
+
 <body class="floating">
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -266,30 +267,46 @@
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc">
-<h2 id="toc-title">Table of contents</h2>
-<ul>
-<li><a href="#sec-budyko-introduction" class="nav-link active" data-scroll-target="#sec-budyko-introduction"> <span class="header-section-number">9.1</span> Introduction</a></li>
-<li><a href="#sec-budyko-data-and-methods" class="nav-link" data-scroll-target="#sec-budyko-data-and-methods"> <span class="header-section-number">9.2</span> Data and Methods</a>
-<ul class="collapse">
-<li><a href="#sec-budyko-data" class="nav-link" data-scroll-target="#sec-budyko-data"> <span class="header-section-number">9.2.1</span> Data</a></li>
-<li><a href="#sec-budyko-methods" class="nav-link" data-scroll-target="#sec-budyko-methods"> <span class="header-section-number">9.2.2</span> Methods</a></li>
-</ul></li>
-<li><a href="#sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"> <span class="header-section-number">9.3</span> Results</a></li>
-<li><a href="#sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"> <span class="header-section-number">9.4</span> Discussion and Conclusions</a></li>
-<li><a href="#sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"> <span class="header-section-number">9.5</span> References</a></li>
-</ul>
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-budyko-introduction" id="toc-sec-budyko-introduction" class="nav-link active" data-scroll-target="#sec-budyko-introduction"> <span class="header-section-number">9.1</span> Introduction</a></li>
+  <li><a href="#sec-budyko-data-and-methods" id="toc-sec-budyko-data-and-methods" class="nav-link" data-scroll-target="#sec-budyko-data-and-methods"> <span class="header-section-number">9.2</span> Data and Methods</a>
+  <ul class="collapse">
+  <li><a href="#sec-budyko-data" id="toc-sec-budyko-data" class="nav-link" data-scroll-target="#sec-budyko-data"> <span class="header-section-number">9.2.1</span> Data</a></li>
+  <li><a href="#sec-budyko-methods" id="toc-sec-budyko-methods" class="nav-link" data-scroll-target="#sec-budyko-methods"> <span class="header-section-number">9.2.2</span> Methods</a></li>
+  </ul></li>
+  <li><a href="#sec-budyko-results" id="toc-sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"> <span class="header-section-number">9.3</span> Results</a></li>
+  <li><a href="#sec-discussion-and-conclusions" id="toc-sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"> <span class="header-section-number">9.4</span> Discussion and Conclusions</a></li>
+  <li><a href="#sec-long-term-water-balance-modeling-references" id="toc-sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"> <span class="header-section-number">9.5</span> References</a></li>
+  </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/long_term_water_balance_modeling.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<header id="title-block-header" class="quarto-title-block default">
 
-<div class="quarto-title"><h1 class="title display-7"><span id="sec-budyko-modeling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></span></h1><div class="quarto-description"><p>This text is intended for the modern study of hydrology and mathematical modeling of 
-hydrological systems in semi-arid Central Asia. It is geared towards students and teachers 
-that would like to learn about these topics in an applied manner. The book adopts an 
-open-educational philosophy and promotes the use of open data and free of charge software.
-This is the 2022 release of the book.
-</p></div></div></header>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-budyko-modeling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></span></h1>
+</div>
+
+<div>
+  <div class="description">
+    This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.
+  </div>
+</div>
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
 
 <p>In this Chapter, we investigate long-term mean catchment water balances from a large, regional perspective.</p>
 <section id="sec-budyko-introduction" class="level2" data-number="9.1">
@@ -392,7 +409,6 @@ and there Chapter 4.03.4.1.1 Net radiation estimation and partitioning -->
 <h2 data-number="9.5" class="anchored" data-anchor-id="sec-long-term-water-balance-modeling-references"><span class="header-section-number">9.5</span> References</h2>
 
 
-
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-ARORA2002164" class="csl-entry" role="doc-biblioentry">
 Arora, Vivek K. 2002. <span>“The Use of the Aridity Index to Assess Climate Change Effect on Annual Runoff.”</span> <em>Journal of Hydrology</em> 265 (1): 164–77. https://doi.org/<a href="https://doi.org/10.1016/S0022-1694(02)00101-4">https://doi.org/10.1016/S0022-1694(02)00101-4</a>.
@@ -477,6 +493,7 @@ Zhang, D., Z. Cong, G. Ni, D. Yang, and S. Hu. 2015. <span>“<span class="nocas
 </div>
 </div>
 </section>
+
 </main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -567,6 +584,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 </body></html>

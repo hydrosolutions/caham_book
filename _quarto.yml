@@ -17,7 +17,7 @@ book:
   repo-branch: master
   repo-actions: [edit]
   sharing: [facebook, linkedin]
-  date: "2022 Release"
+  date: "03/04/2022"
   chapters:
     - index.qmd
     - preface.qmd

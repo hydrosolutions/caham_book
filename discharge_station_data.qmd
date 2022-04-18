@@ -69,14 +69,14 @@ You can get more information about the available data by typing `?ChirchikRiverB
 
 It is advisable to check at this stage for missing data in time series and to fill gaps where present. Are there missing data? How can these be filled so as to arrive at complete time series that are required for hydrological modeling?
 
-As can be seen in Figure @fig-discharge-data-chirchik-river-basin, close inspection of the time series indeed reveals some missing data in the 1940ies. 
+As can be seen in @fig-discharge-data-chirchik-river-basin, close inspection of the time series indeed reveals some missing data in the 1940ies. 
 
 ::: callout-tip
 Note, @fig-discharge-data-chirchik-river-basin is an interactive figure where you can zoom in. Try it and zoom into the 1940ies to visualize the missing data fore clearly. You can zoom out again by clicking the *Autoscale* hover over. For the viualization of time series, we normally use the excellent [timetk R Package](https://business-science.github.io/timetk/). Check it out and try yourself!
 :::
 
 ```{r}
-#| label: fig-discharge-data-chirchick-river-basin
+#| label: fig-discharge-data-chirchik-river-basin
 #| fig.cap: "Discharge data of selected gauges in the upstream zone of runoff formation in the Chirchik River Basin. Data Source: Uzbek Hydrometeorological Service."
 #| warning: false
 q_dec_tbl %>% plot_time_series(date,data,

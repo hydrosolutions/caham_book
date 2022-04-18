@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/index.html</loc>
+<<<<<<< Updated upstream
     <lastmod>2022-04-18T06:33:40.591Z</lastmod>
+=======
+    <lastmod>2022-04-02T13:52:04.627Z</lastmod>
+>>>>>>> Stashed changes
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/preface.html</loc>
@@ -30,7 +34,11 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/data_sources.html</loc>
+<<<<<<< Updated upstream
     <lastmod>2022-04-18T06:33:40.603Z</lastmod>
+=======
+    <lastmod>2022-04-02T13:52:04.628Z</lastmod>
+>>>>>>> Stashed changes
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/discharge_station_data.html</loc>
@@ -42,7 +50,11 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/snow_and_glacier_data.html</loc>
+<<<<<<< Updated upstream
     <lastmod>2022-04-18T06:33:40.649Z</lastmod>
+=======
+    <lastmod>2022-04-02T13:52:04.655Z</lastmod>
+>>>>>>> Stashed changes
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/climate_data.html</loc>
@@ -58,7 +70,11 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/long_term_water_balance_modeling.html</loc>
+<<<<<<< Updated upstream
     <lastmod>2022-04-18T06:33:40.657Z</lastmod>
+=======
+    <lastmod>2022-04-02T13:55:58.850Z</lastmod>
+>>>>>>> Stashed changes
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/modeling_using_predictive_inference.html</loc>

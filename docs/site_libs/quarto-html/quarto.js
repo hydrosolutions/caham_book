@@ -8,10 +8,17 @@ const sectionChanged = new CustomEvent("quarto-sectionChanged", {
 window.document.addEventListener("DOMContentLoaded", function (_event) {
   const tocEl = window.document.querySelector('nav[role="doc-toc"]');
   const sidebarEl = window.document.getElementById("quarto-sidebar");
+<<<<<<< Updated upstream
   const leftTocEl = window.document.getElementById("quarto-sidebar-toc-left");
   const marginSidebarEl = window.document.getElementById(
     "quarto-margin-sidebar"
   );
+=======
+  const marginSidebarEl = window.document.getElementById(
+    "quarto-margin-sidebar"
+  );
+
+>>>>>>> Stashed changes
   // function to determine whether the element has a previous sibling that is active
   const prevSiblingIsActiveLink = (el) => {
     const sibling = el.previousElementSibling;

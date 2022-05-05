@@ -234,9 +234,9 @@ The daily CHELSA V21 climate forcing data can be using for hydrological modeling
 
 ![The time arrow is shown point from left to the right. The availability of corresponding data is indicated for what we call the *historical* reference period (hist_...) and the *future* scenario period (fut_...).](./images/data/23_hist_obs_sim_and_fut_sim.jpg){#fig-hist-obs-sim-and-fut-sim}
 
-To start with, we need to divide the total period of interest into a *historic* period and a *future* period. The historic period in @fig-hist-obs-sim-and-fut-sim is highlighted in orange color and ranges from 1979 through 2010. It is the period for which we have *observed* climate forcing data from the CHELSA dataset and gauge data available at the same time. As will be discussed in the [Chapter on hydrological modeling](#sec-hydraulic-hydrological-modeling), it is also the period which we use to calibrate and validate our hydrological model. 
+To start with, we need to divide the total period of interest into a *historic* period and a *future* period. The historic period in @fig-hist-obs-sim-and-fut-sim is highlighted in dark grey color and ranges from 1979 through 2010. It is the period for which we have *observed* climate forcing data from the CHELSA dataset and gauge data available at the same time. As will be discussed in the [Chapter on hydrological modeling](#sec-hydraulic-hydrological-modeling), it is also the period which we use to calibrate and validate our hydrological model. 
 
-What we call the future period is highlighted by the blue arrow in @fig-hist-obs-sim-and-fut-sim. Admittedly, the years from 2011 through 2022 are not in our current future (this edition of the book is written and published in 2022), so it really is just a matter of definition. It is this period over which we want to study climate impacts under different scenarios. 
+What we call the future period is highlighted by the light gray arrow in @fig-hist-obs-sim-and-fut-sim. Admittedly, the years from 2011 through 2022 are not in our current future (this edition of the book is written and published in 2022), so it really is just a matter of definition. It is this period over which we want to study climate impacts under different scenarios. 
 
 ### Global Circulation Models {#sec-global-circulation-models}
 
@@ -312,6 +312,9 @@ For each scenario, we select 4 high priority GCM models for the preparation of d
 : Model names, models and host institution where the GCM models have been developed. {#tbl-gcm-models-institutions}
 
 GCM Model data can be downloaded from the climate store on the dedicated [Copernicus website](https://cds.climate.copernicus.eu/cdsapp#!/dataset/projections-cmip6?tab=form){target="_blank"}. 
+:::{.callout-caution} 
+Some of the GCM models used in CMIP6 show high sensitivity to warming processes [@zelinka_causes_2020] and a larger than average uncertainty of the transient climate response (TCR). TCR a metric for "the amount of global warming in the year in which atmospheric CO2 concentrations have finally doubled after having steadily increased by 1% every year" [@hausfather_climate_2022]). @hausfather_climate_2022 suggest to exclude models with high TCR beyond the 66% likelihood range (given for example in @tokarska_past_2020) from a climate projection study. The UK model we use (see above) is among the models with high TCR. We keep the model in our ensemble for now, being aware of its limitations.       
+:::
 
 :::{.callout-important} 
 Each GCM model is different from the others. Some model leap days, some don't. Some assume that each month has 30 days, other don't. The preprocessing steps required to make the outputs of these models is very time consuming and is not recommendened for beginners. Therefore, please download the pre-processed climate scenarios for the Central Asia domain from this [online repository](https://www.dropbox.com/sh/5131zeerp73t4rk/AABlLB9nMBy3qAoCJUbKm2BNa?dl=0){target="_blank"}.

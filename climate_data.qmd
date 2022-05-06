@@ -184,7 +184,9 @@ p_monthly_mean_38954 %>%
   geom_line() + 
   xlab("Month") + 
   ylab("mm/month") +
-  ggtitle("Monthly precipitation climatology from 1981 - 2010, Station 38954")
+  ggtitle("Monthly precipitation climatology from 1981 - 2010, Station 38954") + 
+  theme_bw() + 
+  scale_x_continuous(breaks = c(1:12))
 ```
 
 We can extract the mean monthly values from the CHELSA SpatRaster data and then compare it to station data.
@@ -219,7 +221,9 @@ p_monthly_mean %>%
   geom_line() + 
   xlab("Month") + 
   ylab("mm/month") +
-  ggtitle("Comparison of station and CHELSA precipitation climatologies")
+  ggtitle("Comparison of station and CHELSA precipitation climatologies") + 
+  theme_bw() + 
+  scale_x_continuous(breaks = c(1:12))
 ```
 As is evident by looking at @fig-comparison-precipitation-climatologies, the CHELSA product can adequatly reproduce the seasonality of the local precipitation climatology and is only slightly overestimation absolute values. However, with regard to the later, this argument is not necessarily valied as we compare local point measurements with raster data with a resolution of 1 km^2^. A more thorow comparsion would generate an interpolated climatology field from station data and then compare these fields. However, as data is very scarce in this large basin, we do not have the means to perform such analysis.
 
@@ -269,7 +273,7 @@ As is indicated in @fig-gcm-concept, GCM runs from the historic period from 1979
 
 ### CMIP6 Climate Scenarios {#sec-cmip6-climate-scenarios}
 
-What are the future scenarios that we are interest in? The global climate science community has worked hard under the within the Phase 6 of the Coupled Model Intercomparison Project (CMIP6) the define relevant future scenarios that are describing different climate forcing trajectories. The paper by [@o_neill_2016] is the refernce source with regard to detailed descriptions of the scenarios. We are interested to cover and study a broad range of possible hydrological future states and thus select 4 distrinct shared socioeconomic pathway (SSP) scenarios that cover this entire possible range. 
+What are the future scenarios that we are interest in? The global climate science community has worked hard under the Phase 6 of the Coupled Model Intercomparison Project (CMIP6) the define relevant future scenarios that are describing different climate forcing trajectories. The paper by [@o_neill_2016] is the reference source with regard to detailed descriptions of the scenarios. We are interested to cover and study a broad range of possible hydrological future states and thus select 4 distinct shared socioeconomic pathway (SSP) scenarios that cover this entire possible range. 
 
 The SSPs are based on *five narratives* describing broad socioeconomic trends that possibly shape future society. These are intended to span the range of plausible futures. The narratives are (taken from [@rihai_2017]):
 
@@ -936,6 +940,39 @@ for (idxGCM in 1:length(gcm_Models_Scenarios)) {
                    col_names = FALSE)
 }
 ```
+
+
+#### Elevation dependent impact of climate change
+The CHELSA v2.1 data set includes elevation dependent changes of forcing over time. That is, temperatures in high elevation bands (higher elevation band numbers in figure below) heat up more quickly than in lower elevation bands. Similarly is the change in precipitation more extreme in high elevation bands than in low elevation bands. Elevation dependent warming is discussed for example in @mountain_research_initiative_edw_working_group_elevationdependent_2015. 
+```{r, fig.cap="Changes in temperature and precipitation over time are elevation dependent in the Chon Kemin basin. Data source: CHELSA v2.1. "}
+forcing <- load_minerve_input_csv("../caham_data/student_case_study_basins/15149_ChonKemin/RS_MINERVE/fut_sim_bcsd_GFDL-ESM4_ssp585_ChonKemin_2012_2099.csv")
+
+forcinga <- forcing |> 
+  mutate(year = hyear(date)) |> 
+  group_by(year, basin, type) |> 
+  summarise(value = ifelse(type == "T", mean(value), sum(value))) |> 
+  ungroup() |>  
+  distinct() |> 
+  dplyr::filter(year > min(year) & year < max(year)) |> 
+  separate(basin, into = c("nameA", "nameB", "band"), sep = "_") |> 
+  mutate(band = factor(band, levels = c(1:11))) |> 
+  unite("name", c(nameA, nameB), sep = "_")
+
+forcingatrend <- forcinga |> 
+  group_by(name, band, type) |> 
+  mutate(diff = value - first(value)) |> 
+  ungroup() |> 
+  mutate(type = ifelse(type == "P", "P [mm/a]", "T [deg C]"))
+
+ggplot(forcingatrend) +  
+  geom_line(aes(year, diff, colour = band)) + 
+  facet_wrap("type", scales = "free_y") +
+  scale_colour_viridis_d() + 
+  ylab("Variable(t) - Variable(t=1)") + 
+  theme_bw()
+```
+
+
 
 ## References {#sec-climate-data-references}
 

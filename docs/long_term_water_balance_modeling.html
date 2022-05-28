@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.267">
+<meta name="generator" content="quarto-0.9.471">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.">
+<meta name="description" content="2022 release">
 
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
 <style>
@@ -37,24 +37,6 @@ div.csl-indent {
 }
 </style>
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<link href="./modeling_using_predictive_inference.html" rel="next">
-<link href="./hydraulic_hydrological_modeling.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -77,9 +59,9 @@ div.csl-indent {
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-</head>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./"><link href="/modeling_using_predictive_inference.html" rel="next"><link href="/hydraulic_hydrological_modeling.html" rel="prev"><script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet"><link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"><link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet"></head>
 
-<body class="floating">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -292,11 +274,9 @@ div.csl-indent {
 
 <div>
   <div class="description">
-    This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.
+    2022 release
   </div>
 </div>
-
-
 
 
 <div class="quarto-title-meta">
@@ -314,47 +294,47 @@ div.csl-indent {
 <p>The general water balance of a catchment can be written as</p>
 <p><span id="eq-water-balance"><span class="math display">\[
 \Delta S = P - E - Q
-\qquad(9.1)\]</span></span></p>
+\tag{9.1}\]</span></span></p>
 <p>where <span class="math inline">\(\Delta S\)</span> is net storage change in millimeter [mm], <span class="math inline">\(P\)</span> is precipitation in mm, <span class="math inline">\(E\)</span> is evaporation in mm, and <span class="math inline">\(Q\)</span> is specific discharge in mm. Evaporation is the phenomenon by which a substance is converted from its liquid into its vapor phase, independently of where it lies in nature <span class="citation" data-cites="miralles_2020">(<a href="#ref-miralles_2020" role="doc-biblioref">Miralles et al. 2020</a>)</span>. This definition of evaporation encompasses evaporation from inside leaves (transpiration), evaporation from bare soils, evaporation from intercepted precipitation (interception loss), evaporation from open water surfaces, and finally, evaporation over ice- and snow-covered surfaces (often referred to as sublimation).</p>
 <p>Over the period of a hydrological year and longer time scales, we expect <span class="math inline">\(\Delta S\)</span> to be 0 since neither water storage nor destorage happen over longer periods. This would of course not be true for catchments where for example man-made storage infrastructure was built over the period under consideration or for catchments with ongoing glacier melt over a prolonged time. If <span class="math inline">\(\Delta S = 0\)</span>, the above Equation @ref(eq:WB1) can be rewritten as</p>
 <p><span id="eq-long-term-water-balance-1"><span class="math display">\[
 Q = P - E
-\qquad(9.2)\]</span></span></p>
+\tag{9.2}\]</span></span></p>
 <p>Dividing by <span class="math inline">\(P\)</span>, we get</p>
 <p><span id="eq-long-term-water-balance-2"><span class="math display">\[
 \frac{Q}{P} = 1 - \frac{E}{P}
-\qquad(9.3)\]</span></span></p>
+\tag{9.3}\]</span></span></p>
 <p>where <span class="math inline">\(Q/P\)</span> can be called the runoff index and <span class="math inline">\(E/P\)</span> is the evaporation index or evaporative fraction.</p>
 <p>For a catchment, annual mean <span class="math inline">\(E\)</span> and <span class="math inline">\(Q\)</span> are governed by total <em>water supply</em> <span class="math inline">\(P\)</span> and the total available energy which is normally expressed as potential evaporation <span class="math inline">\(E_{pot}\)</span> and which denotes the (atmospheric) <em>water demand</em>. If <span class="math inline">\(E_{pot}\)</span> is small, the discharge <span class="math inline">\(Q\)</span> is normally bigger than evaporation <span class="math inline">\(E\)</span>. Similarly, if the available radiative energy is very high, the water demand <span class="math inline">\(E_{pot}\)</span> is very large and <span class="math inline">\(Q \ll E\)</span> <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <span class="math inline">\(E_{pot}\)</span> and <span class="math inline">\(P\)</span> are thus the key determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio <span class="math inline">\(E_{pot} / P\)</span> aridity index <span class="citation" data-cites="budyko_1974">(<a href="#ref-budyko_1974" role="doc-biblioref">Budyko 1974</a>)</span>.</p>
 <p>As explained above, water demand is determined by energy. Solar radiation is the primary energy source for the earth-atmosphere system and the key driver of the hydrological cycle. At the earth’s surface, the net radiative flux <span class="math inline">\(R_N\)</span> is the energy that is available for a) heating and cooling of the soil (ground heat flux), b) changing the phase of water (latent heat flux), and c) heating or cooling air in the boundary layer thus causing atmospheric dynamics (sensible heat flux).</p>
 <p>This can be formalized with the following relationship</p>
 <p><span id="eq-energy-balance"><span class="math display">\[
 R_{N} = H_{S} + H_{L} + \Delta H_{G}
-\qquad(9.4)\]</span></span></p>
+\tag{9.4}\]</span></span></p>
 <p>where <span class="math inline">\(R_{N}\)</span> is the net radiation [in W/m<sup>2</sup> = kg/s<sup>3</sup>], <span class="math inline">\(H_{S}\)</span> is the upward sensible heat flux, <span class="math inline">\(H_{L}\)</span> is the latent heat flux and <span class="math inline">\(\Delta H_{G}\)</span> the net ground heat flux. The latent heat flux is directly proportional to evaporation <span class="math inline">\(E\)</span>. Thus, <span class="math inline">\(H_{L} = L \cdot E\)</span> where <span class="math inline">\(L = 2.5 \cdot 10^{6}\)</span> J/kg [= m<sup>2</sup>/s<sup>2</sup>] is the latent heat of vaporization and <span class="math inline">\(E\)</span> is the actual evaporation in [m/s]. As in the case of the water balance, at the annual or longer time scales, we can neglect the heat storage effect in the ground and get</p>
 <p><span id="eq-long-term-energy-balance"><span class="math display">\[
 R_{N} = H_{S} + L \cdot E
-\qquad(9.5)\]</span></span></p>
+\tag{9.5}\]</span></span></p>
 <p>With the Bowen ratio defined as the fraction of the sensible heat flux divided by the latent heat flux, i.e.</p>
 <p><span id="eq-bowen-ratio"><span class="math display">\[
 \gamma = \frac{H_{S}}{H_{L}} = \frac{H_{S}}{L \cdot E }
-\qquad(9.6)\]</span></span></p>
+\tag{9.6}\]</span></span></p>
 <p>and by rearranging the terms, the long-term energy balance in Equation <a href="#eq-long-term-energy-balance">Equation&nbsp;<span>9.5</span></a> can simply be rewritten as</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio"><span class="math display">\[
 R_{N} = (1 + \gamma)L E
-\qquad(9.7)\]</span></span></p>
+\tag{9.7}\]</span></span></p>
 <p>Using the fact that <span class="math inline">\(R_{N} = L E_{pot}\)</span>, where <span class="math inline">\(E_{pot}\)</span> is the potential evaporation, and dividing by precipitation, we can rewrite the above <a href="#eq-long-term-energy-balance-bowen-ratio">Equation&nbsp;<span>9.7</span></a> as</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio-aridity-index"><span class="math display">\[
 \frac{E_{pot}}{P} = (1 + \gamma) \frac{E}{P}
-\qquad(9.8)\]</span></span></p>
+\tag{9.8}\]</span></span></p>
 <p>where the left-hand side is called the aridity index, i.e.&nbsp;<span class="math inline">\(\phi = E_{pot}/P\)</span> and <span class="math inline">\(E/P\)</span> is called the evaporative fraction or evaporation index as mentioned above. With this, <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index">Equation&nbsp;<span>9.8</span></a> from above can be written as a function of the Bowen ratio and the aridity index, i.e.</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio-aridity-index-final"><span class="math display">\[
 \frac{E}{P} = 1 - \frac{Q}{P} = \frac{\phi}{(1 + \gamma)}
-\qquad(9.9)\]</span></span></p>
+\tag{9.9}\]</span></span></p>
 <p><span class="math inline">\(Q/P\)</span> is again the runoff index. Since the Bowen ratio is also water supply and energy demand limited, it too is a function of the aridity index and we can thus rewrite <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index-final">Equation&nbsp;<span>9.9</span></a> as</p>
 <p><span id="eq-budyko-final-functional-form"><span class="math display">\[
 \frac{E}{P} = \frac{\phi}{1 + f(\phi)} = F[\phi]
-\qquad(9.10)\]</span></span></p>
+\tag{9.10}\]</span></span></p>
 <p>The Budyko relationship thus allows for a simple parameterization of how the aridity index <span class="math inline">\(\phi\)</span> controls the long-term mean partitioning of precipitation into stream-flow and evaporation and it is capable of capturing the behavior of thousands of catchments around the world. This explains its growing popularity over recent years <span class="citation" data-cites="berghuijs_2020">(<a href="#ref-berghuijs_2020" role="doc-biblioref">Berghuijs, Gnann, and Woods 2020</a>)</span>.</p>
 <!-- ```{r budykoSpace, echo=FALSE,fig.cap="Basics of the Budyko framework. The x-axis contains the aridity index ($E_{pot}/P$) and the y-axis the evaporative fraction ($E/P$), which often is approximated by one minus the runoff ratio ($E/P = 1-Q/P$) because storage changes are assumed to be negligible at multi-year timescales. Together, these two axes form the two-dimensional Budyko space. Many catchments around the world fall around the Budyko curve (black solid line, see Equation below), including 410 US MOPEX catchments which are indicated by blue markers [@berghuijs_2020]."} -->
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/Budyko_Framework_Basics') -->
@@ -362,13 +342,13 @@ R_{N} = (1 + \gamma)L E
 <p>Figure @ref(fig:budykoSpace) shows a plot of data from catchments in the US for which consistent long-term hydro-climatological data records are available. Individual catchments’ aridity indices are plotted against evaporative fractions, averaged over many years. The catchment data plots along the Budyko curve in the two-dimensional Budyko space as indicated in the Figure where the Budyko curve is defined as</p>
 <p><span id="eq-original-budyko-curve-equation"><span class="math display">\[
 \frac{E}{P} = \left[ \frac{E_{pot}}{P} \text{tanh} \left( \frac{P}{E_{pot}} \right) \left( 1 - \text{exp} \left( - \frac{E_{pot}}{P} \right) \right) \right]^{1/2}
-\qquad(9.11)\]</span></span></p>
+\tag{9.11}\]</span></span></p>
 <p>This non-parametric relationship between the aridity index and the evaporative fraction was developed by M. Budyko <span class="citation" data-cites="budyko_1951">(<a href="#ref-budyko_1951" role="doc-biblioref">Budyko 1951</a>)</span>.</p>
 <p>The Budyko space is delineated by the demand and supply limits. Catchments within the space should theoretically fall below the supply limit (<span class="math inline">\(E/P = 1\)</span>) and the demand limit (<span class="math inline">\(E/E_{pot} = 1\)</span>), but tend to approach these limits under very arid or very wet conditions <span class="citation" data-cites="berghuijs_2020">(<a href="#ref-berghuijs_2020" role="doc-biblioref">Berghuijs, Gnann, and Woods 2020</a>)</span>. The data from the US shows that a large percentage of in-between catchment variability can be explained by the Budyko curve. After the seminal work Budyko in the last century, the evidence for a strong universal relationship between aridity and evaporative fraction via the Budyko curve has since grown. As catchment hydrology still lacks a comprehensive theory that could explain this simple behavior across diverse catchments <span class="citation" data-cites="gentine_2012">Gentine et al. (<a href="#ref-gentine_2012" role="doc-biblioref">2012</a>)</span>, the ongoing debate about the the underlying reasons for this relationship continues (see e.g. <span class="citation" data-cites="padron_2017 berghuijs_2020">(<a href="#ref-padron_2017" role="doc-biblioref">Padron et al. 2017</a>; <a href="#ref-berghuijs_2020" role="doc-biblioref">Berghuijs, Gnann, and Woods 2020</a>)</span>).</p>
 <p>While almost all catchments plot within a small envelope of the original Budyko curve, systematic deviations are nevertheless observed from the original Budyko curve. Several new expressions for <span class="math inline">\(F[\phi]\)</span> were therefore developed to describe the long-term catchment water balance with one parameter (see e.g. <span class="citation" data-cites="budyko_1974">Budyko (<a href="#ref-budyko_1974" role="doc-biblioref">1974</a>)</span>; <span class="citation" data-cites="sposito_2017">Sposito (<a href="#ref-sposito_2017" role="doc-biblioref">2017</a>)</span>; <span class="citation" data-cites="choudhury_1999">Choudhury (<a href="#ref-choudhury_1999" role="doc-biblioref">1999</a>)</span>). One popular equation using only 1 parameter is the Choudhury equation which relates the aridity index <span class="math inline">\(\phi\)</span> to the evaporative fraction <span class="math inline">\(E/P\)</span> in the following way</p>
 <p><span id="eq-choudhury-1"><span class="math display">\[
 \frac{E}{P} = \left[ 1 + \left( \frac{E_{pot}}{P} \right) ^{-n} \right]^{1/n}
-\qquad(9.12)\]</span></span></p>
+\tag{9.12}\]</span></span></p>
 <p>where <span class="math inline">\(n\)</span> is a catchment-specific parameter which accounts for factors such as vegetation type and coverage, soil type and topography, etc. (see e.g. <span class="citation" data-cites="Zhang2015">Zhang et al. (<a href="#ref-Zhang2015" role="doc-biblioref">2015</a>)</span> for more information). In other words, <span class="math inline">\(n\)</span> integrates the net effects of all controls of of the evaporative fraction other than aridity. The Figure @ref(fig:ChoudhuryEquationStateSpace) shows the control of <span class="math inline">\(n\)</span> over the shape of the Budyko Curve.</p>
 <!-- ```{r ChoudhuryEquationStateSpace, echo=FALSE,fig.cap="$n$ is determining the shape of the Budyko Curve. Note how large values of $n$ favour evaporation over discharge. Note that $E_{pot}$ is denoted with $E_{0}$. Figure taken from [@yang_2008]."} -->
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/ChoudhuryEquation_StateSpace') -->
@@ -495,7 +475,7 @@ Zhang, D., Z. Cong, G. Ni, D. Yang, and S. Hu. 2015. <span>“<span class="nocas
 </section>
 
 </main> <!-- /main -->
-<script type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();
@@ -516,7 +496,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
     setTimeout(function() {
+      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection

@@ -256,7 +256,7 @@ The difference in resolution is striking with the CHELSA data having having a ho
 #| fig-cap: "Comparison of CHELSA temperature climatology (left) and the GCM climate field of the historical run of the model GFDL-ESM4 (right)."
 #| echo: false
 
-chelsa_file <- "../../../../../../../../Documents/ca_large_files/CA_CLIMATE_PROJECTIONS/CHELSA_V21_1979_2018/CHELSA_tas__1979_55_85_30_50_V.2.1.nc"
+chelsa_file <- "../../../../../../../../../Documents/ca_large_files/CA_CLIMATE_PROJECTIONS/CHELSA_V21_1979_2018/CHELSA_pr_1979_55_85_30_50_V.2.1.nc"
 
 chelsa_data <- terra::rast(chelsa_file)
 plot(chelsa_data[[1]])

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.267">
+<meta name="generator" content="quarto-0.9.471">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="description" content="This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.">
+
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 5&nbsp; Geospatial Data</title>
 <style>
 code{white-space: pre-wrap;}
@@ -14,13 +17,7 @@ div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 </style>
-<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./snow_and_glacier_data.html" rel="next">
-<link href="./discharge_station_data.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -39,34 +36,44 @@ ul.task-list{list-style: none;}
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><link href="site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
-</head>
-<body class="floating">
+}</script>
+<link href="site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./"><link href="/snow_and_glacier_data.html" rel="next"><link href="/discharge_station_data.html" rel="prev"><script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet"><link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"><link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet"></head>
+
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geospatial Data</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/hydrosolutions/caham_book" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-<li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
             <i class="bi bi-bi-facebook pe-1"></i>
           Facebook
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
             <i class="bi bi-bi-linkedin pe-1"></i>
           LinkedIn
           </a>
@@ -82,7 +89,7 @@ ul.task-list{list-style: none;}
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
   </div>
@@ -104,8 +111,8 @@ ul.task-list{list-style: none;}
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hydrological_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></a>
   </div>
@@ -116,7 +123,7 @@ ul.task-list{list-style: none;}
   </div>
 </li>
     </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
         <a href="./data.html" class="sidebar-item-text sidebar-link">Part II: Data Sources, Retrieval and Preparation</a>
@@ -124,8 +131,8 @@ ul.task-list{list-style: none;}
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sources of Relevant Data</span></a>
   </div>
@@ -151,7 +158,7 @@ ul.task-list{list-style: none;}
   </div>
 </li>
     </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
         <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">Part III: Hydrological Modeling &amp; Applications</a>
@@ -159,8 +166,8 @@ ul.task-list{list-style: none;}
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a>
   </div>
@@ -186,7 +193,7 @@ ul.task-list{list-style: none;}
   </div>
 </li>
     </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
         <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
@@ -194,8 +201,8 @@ ul.task-list{list-style: none;}
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Software</span></a>
   </div>
@@ -216,38 +223,41 @@ ul.task-list{list-style: none;}
   </div>
 </li>
     </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#sec-geospatial-data-prerequisites" id="toc-sec-geospatial-data-prerequisites" class="nav-link active" data-scroll-target="#sec-geospatial-data-prerequisites"> <span class="header-section-number">5.1</span> Geospatial Data Prerequisites</a></li>
+  <li><a href="#sec-geospatial-data-prerequisites" id="toc-sec-geospatial-data-prerequisites" class="nav-link active" data-scroll-target="#sec-geospatial-data-prerequisites"> <span class="header-section-number">5.1</span> Geospatial Data Prerequisites</a></li>
   <li><a href="#sec-catchment-delineation" id="toc-sec-catchment-delineation" class="nav-link" data-scroll-target="#sec-catchment-delineation"> <span class="header-section-number">5.2</span> Catchment Delineation</a></li>
   <li><a href="#sec-preparation-of-rsminerve-input-files" id="toc-sec-preparation-of-rsminerve-input-files" class="nav-link" data-scroll-target="#sec-preparation-of-rsminerve-input-files"> <span class="header-section-number">5.3</span> Preparation of RSMinerve Input files</a></li>
-  <li>
-<a href="#sec-post-processing-results-shapefiles" id="toc-sec-post-processing-results-shapefiles" class="nav-link" data-scroll-target="#sec-post-processing-results-shapefiles"> <span class="header-section-number">5.4</span> Post-Processing Results Shapefiles</a>
+  <li><a href="#sec-post-processing-results-shapefiles" id="toc-sec-post-processing-results-shapefiles" class="nav-link" data-scroll-target="#sec-post-processing-results-shapefiles"> <span class="header-section-number">5.4</span> Post-Processing Results Shapefiles</a>
   <ul class="collapse">
-<li><a href="#sec_junctions_and_rivers_layer" id="toc-sec_junctions_and_rivers_layer" class="nav-link" data-scroll-target="#sec_junctions_and_rivers_layer"> <span class="header-section-number">5.4.1</span> JUNCTIONS and RIVER Layers</a></li>
+  <li><a href="#sec_junctions_and_rivers_layer" id="toc-sec_junctions_and_rivers_layer" class="nav-link" data-scroll-target="#sec_junctions_and_rivers_layer"> <span class="header-section-number">5.4.1</span> JUNCTIONS and RIVER Layers</a></li>
   <li><a href="#sec-subbasins-layer" id="toc-sec-subbasins-layer" class="nav-link" data-scroll-target="#sec-subbasins-layer"> <span class="header-section-number">5.4.2</span> SUBBASINS Layer</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#sec-geospatial-data-references" id="toc-sec-geospatial-data-references" class="nav-link" data-scroll-target="#sec-geospatial-data-references"> <span class="header-section-number">5.5</span> References</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/geospatial_data.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/geospatial_data.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title"><span id="sec-geospatial-data" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geospatial Data</span></span></h1>
 </div>
 
 <div>
   <div class="description">
-    This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.
+    <p>This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.</p>
   </div>
 </div>
-
-
 
 
 <div class="quarto-title-meta">
@@ -257,11 +267,14 @@ ul.task-list{list-style: none;}
   </div>
   
 
-</header><p>This Section follows the steps shown in <a href="data.html#fig-climate-impact-model-chain">Figure&nbsp;<span>1</span></a> for geospatial data and explains in a hands-on manner how to arrive at and process the required data for later inclusion in the hydrological-hydraulic model RSMinerve.</p>
+</header>
+
+<p>This Section follows the steps shown in <a href="data.html#fig-climate-impact-model-chain">Figure&nbsp;<span>1</span></a> for geospatial data and explains in a hands-on manner how to arrive at and process the required data for later inclusion in the hydrological-hydraulic model RSMinerve.</p>
 <p>Why bother to first derive the catchment shape of a basin under consideration, it’s subbasins, its rivers and junctions? While it is true that we do not need to take this detour in RSMinerve and can start to assemble the model components piece by piece by hand, such an approach quickly gets very tedious and labour intensive. Imageine, for a moment a large watershed such as the Gunt River basin which covers a total area of more than 13’000 km<sup>2</sup> over an elevation range of 4’000 meters [m], approximately. If we were to decide on manually entering information of 20 elevation bands that act as hydrological response units for each of the four subbasin, the task quickly becomes unmanageable.</p>
 <p>This is where the automatic derivation of the model structure from GIS shapefiles comes in handy and can greatly make our lives easier. This is why we are focusing on the prepartion of these layers as shown in the <a href="#fig-required-gis-input-files-data">Figure&nbsp;<span>5.1</span></a> in this Section. The requirements for GIS layers for import in RSMinerve are summarized in the Figure which shows the concept for a small, stylized catchment with 4 subbasins that each contributes to flow generation without further subdivisions, e.g.&nbsp;into elevation bands.</p>
 <div id="fig-required-gis-input-files-data" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/02_required_GIS_Input_Files.png" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/02_required_GIS_Input_Files.png" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.1: Required GIS input files for RS Minerve. See corresponding user manual for more information.</figcaption><p></p>
 </figure>
 </div>
@@ -281,8 +294,8 @@ Note
 <p>The reader should be aware that the generation of these GIS files is a time consuming and iterative process and requires manual post-processing after their automatic generation. The result, however, will greatly simplify the hydrologial model generation in a next step. Hence, it is important to proerly familiarze yourself will all the neceessary preparatory steps.</p>
 </div>
 </div>
-<section id="sec-geospatial-data-prerequisites" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="sec-geospatial-data-prerequisites">
-<span class="header-section-number">5.1</span> Geospatial Data Prerequisites</h2>
+<section id="sec-geospatial-data-prerequisites" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-geospatial-data-prerequisites"><span class="header-section-number">5.1</span> Geospatial Data Prerequisites</h2>
 <p>Here, a local installation of QGIS and a basic understanding of Geographic Information Systems are required. Please see <span class="quarto-unresolved-ref">?sec-study-guide-materials</span> for more information how to install QGIS.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -294,7 +307,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="appendix_c_quick_guides.html">Section&nbsp;<span>C</span></a> in the Appendix walks you through in detailed manner of many of the required steps in the Chapter. Therefore, please also consult the resources there.</p>
+<p><a href="appendix_c_quick_guides.html"><span>Chapter&nbsp;C</span></a> in the Appendix walks you through in detailed manner of many of the required steps in the Chapter. Therefore, please also consult the resources there.</p>
 </div>
 </div>
 <p>There are very many online resources that can be consulted for learning QGIS. You can google them or start with a video tutorial like the following one.</p>
@@ -308,8 +321,9 @@ Tip
 </div>
 </div>
 <p>To process the data for your case study pack, make sure that you downloaded the corresponding files via this <a href="https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0">link</a>. Depending on the catchment you have chosen, the files are either in the folder ./AMUDARYA, ./CHIRCHIK, ./CHU or ./SYRDAYA.</p>
-</section><section id="sec-catchment-delineation" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="sec-catchment-delineation">
-<span class="header-section-number">5.2</span> Catchment Delineation</h2>
+</section>
+<section id="sec-catchment-delineation" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-catchment-delineation"><span class="header-section-number">5.2</span> Catchment Delineation</h2>
 <p>Assuming that you have downloaded the catchment data folder of your choice, the corresponding DEM file should be loaded in a new, empty QGIS project. Prior to do this, make sure that the projects projection is in UTM (<a href="appendix_c_quick_guides.html#sec-change-project-projection-qgis">How to change the projection of a project</a>). Check the projection of the DEM layer and reproject it if necessary (<a href="appendix_c_quick_guides.html#sec-quick-guides-verify-projection-reproject">how to</a>).</p>
 <p>If you do not have a DEM available to start with, the process of downloading one is straight forward. Probably the easiest way is to install the QGIS SRTM3 plugin (<a href="appendix_c_quick_guides.html#sec-srtm-plugin">how to</a>). An alternative way is to download it via the USGS Earth Explorer (<a href="#sec-earth-explorer-download-srtm">how to</a>). Both solutions requires you to register an Earth Explorer Account (<a href="appendix_c_quick_guides.html#sec-register-with-earth-explorer">how to register</a>). Finally and after downloading the DEM tiles for the region of interest, the tiles need to be merged (<a href="appendix_c_quick_guides.html#sec-merge-srtm-tiles">how to merge DEM tiles</a>).</p>
 <p>Typically, geospatial data from open sources is stored in the standard projection WGS84 (EPSG:4326). The WGS84 is in degrees, minutes and seconds but for hydrological analysis it is more convenient to have spatial layers in the UTM projection. Look up in which UTM Zone your catchment lies and re-project to that zone. In the example of the Chirchiq basin, the preferred UTM zone is 42N, i.e.&nbsp;EPSG:32642.</p>
@@ -328,7 +342,8 @@ Tip
 <p>To derive the the catchment area upstream of the discharge gauge that we have loaded in the previous step, the DEM is traced upstream until elevation values do not increase any more, i.e.&nbsp;until the boundary of the watershed is reached. The SRTM DEM contains the rounded average elevation in each cell of about 25 - 30 meters [m] resolution. Due to the averaging and rounding it may happen, that in a SRTM DEM, an upstream river cell contains lower elevations than the downstream river cell. If the catchment delineation algorithm reaches such a situation, it stops, thinking it has reached the boundary of the watershed. To avoid this, cells that form local depressions should be filled to form a river bed which is continuously increasing in elevation in the upstream direction until it reaches the watershed boundary.</p>
 <p>In QGIS, there are several methods that can fill terrain depressions. We are using the <code>r.fill.dir</code> algorithm to perform this task. <a href="#fig-fill-sinks">Figure&nbsp;<span>5.2</span></a> shows the process in detail. First, we make sure that we have loaded the DEM in the correct projection. Second, we open the Processing Toolbox and type <code>r.fill.dir</code> in the search bar and then double click on the corresponding algorithm. Third, in the openend window, we ensure that the DEM is selected under the <em>Elevation</em> header. On top of that, the <em>Flow Direction</em> and <em>Problem Areas</em> output files are not needed and their checkboxes unchecked.</p>
 <div id="fig-fill-sinks" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/03_fill_sinks.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/03_fill_sinks.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.2: Filling sinks in a DEM with the <code>r.fill.dir</code> algorithm.</figcaption><p></p>
 </figure>
 </div>
@@ -341,7 +356,8 @@ Tip
 </ol>
 <p>We show the process in detail here.</p>
 <div id="fig-r-watershed-algo" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/04_r_watershed_algo.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/04_r_watershed_algo.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.3: Running the <code>r.watershed</code> algorithm. Select the sink-filled DEM, set the minimum size of the exterior watershed to 200’000, check the box in Use positive flow accumulation even for likely underestimation.</figcaption><p></p>
 </figure>
 </div>
@@ -362,18 +378,21 @@ Tip
 </div>
 <p>Once it is ensured that the gauge is correctly located on the stream, we are ready to delieate the upstream area by using the <code>r.water.outlet</code> algorithm. For this, zoom in to display a close up of the gauge and select and open the <code>r.water.outlet</code> window. The algorithm only needs two inputs, i.e.&nbsp;the <em>Drainage direction</em> raster and the coordinates of the outlet point. Instead of manually entering them, you can just click on the mapto select precise point of the gauge location which will transfer the coordinates to the algorithm’s interface. After pressing run, the <em>Basin</em> raster will be computed. <a href="#fig-r-water-outlet">Figure&nbsp;<span>5.4</span></a> shows the process.</p>
 <div id="fig-r-water-outlet" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/05_r_water_outlet.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/05_r_water_outlet.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.4: Basin delineation using the <code>r.water.outlet</code> algorithm. The resulting <em>Basin</em> raster can easily be polygonized.</figcaption><p></p>
 </figure>
 </div>
 <p>As a final step, you should polygonize the <em>Basin</em> raster. We are now ready to run the process model which generates the required shapefiles for further processing in RSMinerve. The resulting vectorized basin can be stored in the corresponding folder on the local computer.</p>
 <p>The process can be repeated for any other basin in a similar manner. Note also that in the case you have several gauges to map the upstream areas from, the <em>Flow accumulation</em> as well as the <em>Drainage direction</em> rasters can be computed once, stored, and reused again for all gauges.</p>
 <p>We now have all the necessary files to process them in the <strong>Graphical Modeler</strong> model that is provided with the learning pack.</p>
-</section><section id="sec-preparation-of-rsminerve-input-files" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="sec-preparation-of-rsminerve-input-files">
-<span class="header-section-number">5.3</span> Preparation of RSMinerve Input files</h2>
+</section>
+<section id="sec-preparation-of-rsminerve-input-files" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-preparation-of-rsminerve-input-files"><span class="header-section-number">5.3</span> Preparation of RSMinerve Input files</h2>
 <p>You can download the <strong>Graphical Modeler</strong> model from the <a href="https://www.dropbox.com/sh/0fph5jqoc8v2bat/AABfZTl67rqV1BN7H5nZyYx9a?dl=0">Students_CaseStudyPacks online repository</a>. The model file is called <em>rsminerve_gis_files_preparation_2022_win_os.model3</em> and should be downloaded in your local working directory. The model can then be loaded via the Processing/Graphical Modeler menu in QGIS. Once you have loaded the model, you should see the model pop up on your screen as is shown in a similar fashion in <a href="#fig-graphical-modeler">Figure&nbsp;<span>5.5</span></a>.</p>
 <div id="fig-graphical-modeler" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/06_graphical_modeler.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/06_graphical_modeler.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.5: The <strong>Graphical Modeler</strong> model rsminerve_gis_files_preparation_2022_win_os.model3 is shown in a graphical manner in the right window (1). When you click Run, the parameters specification window on the left will pop up (2). See text for further explanations</figcaption><p></p>
 </figure>
 </div>
@@ -382,7 +401,8 @@ Tip
 <p>Prior to the execution of the model (script), the parameters have to be set in a careful manner. For some of the parameter values, a first best guess might produce outcomes that are not a the required level of detail or, alternatively, too detailed. Depending on the basin under consideration, an iterative approach normally must be followed to arrive at the desired output as is explained in the following.</p>
 <p>In <a href="#fig-graphical-modeler-parameters">Figure&nbsp;<span>5.6</span></a>, we show a meaningful parameter selection for the Chatkal River basin in the Case Studies pack (Gauge 16279). The basin and gauge shapefiles as well as the DEM are the geospatial assets that need to be specified are shown in (1), (5) and (4). The following parameters are important to set correctly</p>
 <div id="fig-graphical-modeler-parameters" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/06_graphical_modeler_parameters.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/06_graphical_modeler_parameters.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.6: Parameter selection menu of the <strong>Graphical Modeler</strong> rsminerve_gis_files_preparation_2022_win_os.model3 model. The detailed description of the input elements as well as parameter values chosen is explained in the main text.</figcaption><p></p>
 </figure>
 </div>
@@ -393,7 +413,8 @@ Tip
 <li>River Network Level (8): Here you set a number between 1 and 8. The lower the number, the higher the number of tributaries and subtributaries that will be delineated for the RIVERS output shapefile. If you choose 8, this means that normally only the river’s main stem will be delineated. This is relevant for the case where not further subdivisions into small subbasins is desired for modeling in RSMinerve. 7 is a robust choice if only the main tributaries should be delineated.</li>
 </ul>
 <div id="fig-graphical-modeler-elevation-bands-table" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/07_graphical_modeler_elevation_bands_table.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/07_graphical_modeler_elevation_bands_table.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.7: The elevation bands table is shown. It shows the user customizable elevation band intervals. The example shows the specification of 9 elevation bands (HRUs) of 500 m spacing between each. For each HRU and for each subbasin, a corrsponding hydrological model will be configured in RSMinerve</figcaption><p></p>
 </figure>
 </div>
@@ -412,18 +433,21 @@ Tip
 </div>
 <p>Sample output results for our demonstration catchment are shown in <a href="#fig-graphical-modeler-results">Figure&nbsp;<span>5.8</span></a>.</p>
 <div id="fig-graphical-modeler-results" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/08_graphical_modeler_results.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/08_graphical_modeler_results.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.8: Resulting output of the <strong>Graphical Modeler</strong> model for Chatkal River basin. The next step is to clean up manually the SUBBASINS, RIVERS and JUNCTIONS shapefiles.</figcaption><p></p>
 </figure>
 </div>
-</section><section id="sec-post-processing-results-shapefiles" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="sec-post-processing-results-shapefiles">
-<span class="header-section-number">5.4</span> Post-Processing Results Shapefiles</h2>
+</section>
+<section id="sec-post-processing-results-shapefiles" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-post-processing-results-shapefiles"><span class="header-section-number">5.4</span> Post-Processing Results Shapefiles</h2>
 <p>As mentioned in the previous Section, we need to post-process the SUBBASINS, RIVERS and JUNCTIONS shapefiles so that they correctly contain the required fields as shown in <a href="#fig-required-gis-input-files-data">Figure&nbsp;<span>5.1</span></a>. A good way to post-process the files is to start with the RIVERS layer, the continue with the JUNCTIONS layer and to end with the SUBBASINS layer.</p>
-<section id="sec_junctions_and_rivers_layer" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="sec_junctions_and_rivers_layer">
-<span class="header-section-number">5.4.1</span> JUNCTIONS and RIVER Layers</h3>
+<section id="sec_junctions_and_rivers_layer" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="sec_junctions_and_rivers_layer"><span class="header-section-number">5.4.1</span> JUNCTIONS and RIVER Layers</h3>
 <p>In editing the junctions layer, the basic ideas are to edit the junctions layer in a way to remove junctions that are not needed, given the desired subdivision of the larger basin into subbasins. For the demo catchment shown in <a href="#fig-junctions-editing">Figure&nbsp;<span>5.9</span></a>, the siutation is explained in greater detail.</p>
 <div id="fig-junctions-editing" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/09_junctions_editing.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/09_junctions_editing.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.9: The Figure shows the output files of the <strong>Graphical Modeler</strong> model. For this demonstration catchment, the only junction that we want to keep (apart from the outflow junction located at the gauge) is the one highlighted with the red arrow which marks the confluence of the two major upstream tributaries.</figcaption><p></p>
 </figure>
 </div>
@@ -443,7 +467,8 @@ Tip
 <p>Once we have removed the junctions that are not needed, we can very easily also remote the river lines that are not needed. Generally, we do not need river sections above the most upstream junctions for any given subbasin within the river basin or the river basin itself.</p>
 <p>If we follow these guides, we end up with the results shown in <a href="#fig-junctions-rivers-final-edits">Figure&nbsp;<span>5.10</span></a>. After editing the attribute tables of these shapefiles, the files are ready for import in RSMinerve.</p>
 <div id="fig-junctions-rivers-final-edits" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/10_junctions_rivers_final_edits.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/10_junctions_rivers_final_edits.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.10: Final edited shapefiles with the unnecessary junctions and river stretches removed. The two red arrows point to the two remaining junctions and the blue arrow shows the river stretch that is left.</figcaption><p></p>
 </figure>
 </div>
@@ -454,53 +479,66 @@ Tip
 </ul>
 <p>The abbreviated field names are used in QGIS since field names are limited in shapefiles. The fields and values of the final junctions shapefile are shown in <a href="#fig-junctions-attribute-table">Figure&nbsp;<span>5.11</span></a>. Compare this with the edited final attribute table of the rivers shapefile as shown in <a href="#fig-rivers-attribute-table">Figure&nbsp;<span>5.12</span></a>.</p>
 <div id="fig-junctions-attribute-table" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/11_junctions_attribute_table.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/11_junctions_attribute_table.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.11: The final attribute table of the demo junctions shapefile is shown. (1) denotes the fields for the donwstream outlet junction and (2) shows the values for the upstream junction. The naming convention has to be understood in the context of the naming convention using in the RIVERS shapefile</figcaption><p></p>
 </figure>
 </div>
 <div id="fig-rivers-attribute-table" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/12_rivers_attribute_table.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/12_rivers_attribute_table.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.12: The final rivers shapefile attribute table is shown with the only river highlighted (1). Very importantly, the junt_id field referes to the <em>downstream junction</em> where the river drains into.</figcaption><p></p>
 </figure>
 </div>
-</section><section id="sec-subbasins-layer" class="level3" data-number="5.4.2"><h3 data-number="5.4.2" class="anchored" data-anchor-id="sec-subbasins-layer">
-<span class="header-section-number">5.4.2</span> SUBBASINS Layer</h3>
+</section>
+<section id="sec-subbasins-layer" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="sec-subbasins-layer"><span class="header-section-number">5.4.2</span> SUBBASINS Layer</h3>
 <p>Now, we are working on the subbasins. The major subbasins are highlighted in the following <a href="#fig-subbasin-names">Figure&nbsp;<span>5.13</span></a>. We call them Chatkal River downstream, Chatkal River upstream and Sandalash River. These big subbasins can be understood as hydrological response units (HRUs) for hydrological modeling.</p>
 <div id="fig-subbasin-names" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/13_subbasins_names.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/13_subbasins_names.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.13: The major subbasins of Chatkal River basin above Gauge 16279 are shown. (1) is Chatkal downstream, (2) is Sandalash River and (3) is Chatkal upstream.</figcaption><p></p>
 </figure>
 </div>
 <p>However, do not forget that we have classified the entire basin into zones of elevation bands. These are shown in the <a href="#fig-subbasin-names">Figure&nbsp;<span>5.13</span></a> as polygons with black outlines from the shapefile layer BasinElevationBands_poly_fixed.shp. Exactly 7 elevation bands (or, in other words, HRUs) were delineated with the <strong>Graphical Modeler</strong> like this. We need to somehow <em>intersect</em> the subbasin HRUs with the elevation bands to generate elevation band HRUs for each subbasin. We will show the steps required to achieve this in the following.</p>
 <p>First, we prepare the attribute table of the subbasins shapefile. The way this is done correctly for the demonstration catchment is shown in <a href="#fig-subbasins-attribute-table">Figure&nbsp;<span>5.14</span></a>. The attribute table contains two fields, i.e., basin_name and junct_id. We name the downstream and upstream sections of the Chatkal River with chatkal_ds and chatkal_us correspondingly. The cells of the field junct_id are populated with the name of the corresponding downstream junction where the subbasin drains into. Since both, the subbasin chatkal_us and sandalash drain into the junction upstream_junct, the later appears in both cells of the junct_id field for these rivers.</p>
 <div id="fig-subbasins-attribute-table" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/14_subbasins_attribute_table.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/14_subbasins_attribute_table.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.14: Subbasins attribute table after adding the required fields and entires as per the requirements of RSMinerve. (1) is for the downstream part of Chatkal River, (2) is for the upstream part of Chatkal River and (3) is for Sandalash River.</figcaption><p></p>
 </figure>
 </div>
 <p>Second, we clean up and prepare the attribute table for intersecting with the subbasins layer in a thrid step. The attribute table of the layer BasinElevationbands_Poly_fixed contains three fields, i.e., ID, VALUE and NAME from which you can safely delete the ID and VALUE fields. What remains is the NAME field that contains a unique identifier for the elevation bands in ascending order, starting from the lowest. <a href="#fig-elevation-bands-attribute-table">Figure&nbsp;<span>5.15</span></a> shows the attribute table.</p>
 <div id="fig-elevation-bands-attribute-table" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/15_elevation_bands_attribute_table.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/15_elevation_bands_attribute_table.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.15: The attribute table of the elevation bands shapefile is shown after the fields ID and VALUE have been removed (1). When an elevation band is selected in te edit mode, the corresponding geometry is highlighted on the map as is shown by the arrows (2).</figcaption><p></p>
 </figure>
 </div>
 <p>Third, we need to intersect the elevation bands shapefile with the subbasins shapefile. This can easily be accomplished using the <strong>Vector/Geoprocessing/Intersection</strong> tool in QGIS. When you select the Intersection Algorithm, make sure that you set the elevation bands shapefile as the <strong>Input layer</strong> and set subbasins shapefile as the <strong>Overlay Layer</strong>. When executed, you receive an attribute table that looks as the one shown in <a href="#fig-hru-attribute-table">Figure&nbsp;<span>5.16</span></a>.</p>
 <div id="fig-hru-attribute-table" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/16_hru_attribute_table.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/16_hru_attribute_table.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.16: The attribute table resulting from the Intersection Algorithm. You now have to manually add the numbers of the Name field as suffix to the existing names of the basin_name field.</figcaption><p></p>
 </figure>
 </div>
 <p>As a final step, you have to manually add the numbers stored in the NAME field to the basin names in the field basin_name. After this is done, you can safely delete the NAME field and have proudly completed the required steps to setup the GIS shapefiles that can be used as input to the RSMinerve hydrological-hydraulic modeling tool. <a href="#fig-hru-final-attribute-table">Figure&nbsp;<span>5.17</span></a> shows the result.</p>
 <div id="fig-hru-final-attribute-table" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/data/17_hru_final_attribute_table.jpg" class="img-fluid figure-img"></p>
+<figure class="figure">
+<p><img src="./images/data/17_hru_final_attribute_table.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 5.17: The final attribute table of the subbasins file is shown. The elevation band identifiers have been added as suffixes with “_x” to the subbasin names where x denotes the number of the subbasin-specific elevation band.</figcaption><p></p>
 </figure>
 </div>
-</section></section><section id="sec-geospatial-data-references" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="sec-geospatial-data-references">
-<span class="header-section-number">5.5</span> References</h2>
+</section>
+</section>
+<section id="sec-geospatial-data-references" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-geospatial-data-references"><span class="header-section-number">5.5</span> References</h2>
 
 
-</section></main><!-- /main --><script type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();
@@ -521,7 +559,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
     setTimeout(function() {
+      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
@@ -575,7 +616,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./discharge_station_data.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discharge Station Data</span></span>
       </a>          

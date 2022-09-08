@@ -194,6 +194,8 @@ Luckily, research into suitable data products to further constrain hydrological 
 
 The simulated snow water equivalent may be compared to the snow water equivalend available from the High Mountain Asia Snow Reanalysis product so one variable can be used to . Water storage in the root zone, the soil or in the lower reservoirs are generally not available thus the  
 
+## The GSM model
+
 
 ## The RS Minerve modelling environment
 The reader should already be familiar with RS Minerve through completion of example 1 in the RS Minerve user guide. The following paragraphs demonstrate how to automatically implement a hydrological model in RS Minerve using an example basin from Central Asia. The basin of the river Chon Kemin hereby serves as a demonstration site.    

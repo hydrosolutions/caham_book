@@ -125,7 +125,7 @@ tm_shape(max(sca_masked, na.rm = TRUE)) +
 
 For operational hydrological modelling, the MODIS snow covered area product has to be used (see for example Modsnow).
 
-## Glacier outlines
+## Glacier outlines #sec-glacier-outlines
 
 The Randolph Glacier Inventory (RGI) v6.0 [@rgi60] makes a consistent global glacier data base publicly available. It includes geo-located glacier geometry and some additional parameters like elevation, length, slope and aspect. A new version (v7) is under review at the time of writing (September 2022). For Central Asian water resources modelling, RGI regions 13 (Central Asia) and 14 (South Asia West) are relevant. The glacier geometries for all RGI regions are available from [the GLIMS RGI v6.0 web site](https://www.glims.org/RGI/rgi60_dl.html){target="_blank"}. For this demo, the data for the Atbashy basin is available from the data download link given above.
 

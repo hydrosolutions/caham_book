@@ -226,7 +226,7 @@ RS Minerve offers limited GIS utilities. You can, for example, change the colors
 
 ![View the attribute table of an example layer in RS Minerve.](images/hydrological_modeling/rsm_loadGISdata_03.png){#fig-rsm-load-gis-data-03}
 
-### Automatic model generation
+### Automatic model generation {#sec-RSM-automatic-model-generation}
 To automatically generate the model structure, make sure, the 3 required GIS layers are loaded (section above), then click on the Creation button in the Model Management toolbox (1). The model creation configuration window will pop up where you select the appropriate attributes for each model layer from the drop-down menus (2, 4). Tick the Altitude (Z) option in the Subbasins properties and select the Z attribute (3) to let RS Minerve know the altitude of each HRU.  
 
 ![Configuration of the model creation utilities. Selecting the appropriate attributes from the GIS layers.](images/hydrological_modeling/rsm_autoModelCreation_01.png){#fig-rsm-auto-model-creation-01}
@@ -237,7 +237,9 @@ Select the HBV model (1) and click the Allocate Subbasins button (2).
 
 ![Configuration of the model creation utilities. Selecting hydrological models for each HRU.](images/hydrological_modeling/rsm_autoModelCreation_02.png){#fig-rsm-auto-model-creation-02}
 
-All the sub-basins should now display the red HBV icon as shown in @fig-rsm-auto-model-creation-03. Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown). 
+All the sub-basins should now display the red HBV icon as shown in @fig-rsm-auto-model-creation-03. If you have glaciers in your basin and prepared your subbasins layer accordingly (see @sec-preparation-of-rsminerve-input-files), you now select the glacier HRUs and allocate GSM objects to them. 
+
+Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown). 
 
 ![Configuration of the model creation utilities. Selecting hydrodynamic stream flow models for each river section.](images/hydrological_modeling/rsm_autoModelCreation_03.png){#fig-rsm-auto-model-creation-03}
 
@@ -247,11 +249,13 @@ You can now switch to the Model tab and look at the automatically generated mode
 
 ![Automatically generated model layout of the Chon Kemin catchment.](images/hydrological_modeling/rsm_autoModelCreation_04.png){#fig-rsm-auto-model-creation-04}
 
-The river stretch is no longer required. Delete it by selecting it with a left-click on the river object and then pressing delete in the Editing Tools menu in the header bar. 
+The river stretch is no longer required. Delete it by selecting it with a left-click on the river object and then pressing delete in the Editing Tools menu in the header bar.
 
 You can beautify the model view by loading a background image of the Chon Kemin catchment (for example a screen shot from QGIS, @fig-rsm-auto-model-creation-05) and by re-arranging the HRUs (click and drag) and climate stations for better readability. 
 
 ![Load a background image into RS Minerve by clicking Background (1) Load (2) , selecting the image (3) and pressing Open (4). Exit the background image editing mode by clicking (1) again.](images/hydrological_modeling/rsm_autoModelCreation_05.png){#fig-rsm-auto-model-creation-05}
+
+If you have generated GSM model objects, each of them will have a virtual weather station assigned to it. We approximate the weather forcing on the glaciers with the weather forcing in the respective HBV HRU for which we have already prepared the input file (see @sec-climate-data). We delete the automatically generated station objects connected to the GSM objects and connect the station objects of the appropriate HBV object (same elevation layer) to the GSM objects. Stations at high elevations in glaciated basins thus are connected to both HBV and GSM model objects.   
 
 Now we need to add a comparator and a source object in order to be able to compare the simulated river discharge to the observed discharge. Step-by-step you need to click on the Source object in the model object list (1). A small faucet icon will appear en lieu of your customary cursor icon. Move your cursor to an appropriate location in the map window and click to place the source object (2). Do the same for the comparator object: activate it by clicking the object (3) and place it with a click in the map window (4).
 

@@ -195,6 +195,18 @@ Luckily, research into suitable data products to further constrain hydrological 
 The simulated snow water equivalent may be compared to the snow water equivalend available from the High Mountain Asia Snow Reanalysis product so one variable can be used to . Water storage in the root zone, the soil or in the lower reservoirs are generally not available thus the  
 
 ## The GSM model
+Similar to the HBV model, the GSM model separates precipitation into solid and liquid precipitation, depending on temperatures, and features a snow pack module. In addition to the HBV snow module, the GSM snow module allows the seasonal varying of the snow melt coefficient using a sinusoidal modulation. Details can be read in the RS MINERVE technical manual [@rsminerve_tm] (see @fig-overview-gsm-model). 
+
+```{r}
+#| label: fig-overview-gsm-model
+#| echo: false
+#| fig-cap: "The GSM model concept (source: RS MINERVE Technical Manual)."
+knitr::include_graphics("images/hydrological_modeling/fig_GSMconceptualModel.png")
+```
+
+The melting of the snow pack yields the so called equivalent precipitation. Runoff from snow melt is subsequently produced through release from a linear reservoir. Glacier area is assumed to be constant in the GSM model and glacier melt only occurs when the snow cover above the glacier has melted away. Also the glacier melt coefficient can be modulated according to a sinusoidal function, analogue to the snow melt coefficient. Runoff from glacier melt is then produced after transformation of the glacier melt signal through a linear reservoir. 
+
+Attention: RS MINERVE does not implement a glacier mass balance with GSM. Significant factors like the change of the glacier geometry as a glacier is melting, are neglected. Further, RS MINERVEs GSM implementation assumes an infinitive glacier reservoir. That means that glacier melt is produced even if glacier thickness becomes negative. This is typically not an issue during short term simulations of a couple of decades. For climate change impact studies however, the production of glacier melt despite negative glacier thickness is a problem. 
 
 
 ## The RS Minerve modelling environment

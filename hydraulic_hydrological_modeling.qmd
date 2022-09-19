@@ -206,6 +206,8 @@ knitr::include_graphics("images/hydrological_modeling/fig_GSMconceptualModel.png
 
 The melting of the snow pack yields the so called equivalent precipitation. Runoff from snow melt is subsequently produced through release from a linear reservoir. Glacier area is assumed to be constant in the GSM model and glacier melt only occurs when the snow cover above the glacier has melted away. Also the glacier melt coefficient can be modulated according to a sinusoidal function, analogue to the snow melt coefficient. Runoff from glacier melt is then produced after transformation of the glacier melt signal through a linear reservoir. 
 
+The GSM model has a large number of model parameters which need to be calibrated. Snow height data on glaciers is generally not available but in recent years, estimates on glacier thickness, thinning rates or glacier discharge rates have become publicly available (see @sec-snow-and-glacier-data). This data may be used to guide GSM model calibration (see @sec-model-calibration). 
+
 Attention: RS MINERVE does not implement a glacier mass balance with GSM. Significant factors like the change of the glacier geometry as a glacier is melting, are neglected. Further, RS MINERVEs GSM implementation assumes an infinitive glacier reservoir. That means that glacier melt is produced even if glacier thickness becomes negative. This is typically not an issue during short term simulations of a couple of decades as long as glaciers do not disappear during the simulation period. For climate change impact studies however, smaller glaciers are expected to disappear completely. 
 
 For simple, linear models with no downstream water uses implemented, the glacier discharge can be set to zero after the simulation run. For more complex models with downstream water uses however, a simulation needs to be stopped regularly to check the status of the glacier thickness. If the glacier volume in a HRU has melted away, glacier melt in that HRU needs to be turned off. This can for example be done by setting the melt coefficients to 0. 
@@ -366,10 +368,10 @@ Hydrological models are typically not well defined, i.e. multiple sets of parame
 An important strategy to gain confidence into a model is to split the simulation period into a calibration period and a validation period. During calibration, the model parameters are adjusted to get a satisfying fit with the measured discharge. During the validation period the calibrated model is compared to discharge data that the model hasn't seen before, i.e. the model's ability to handle potentially different model input than it has seen during calibration (also called its ability to generalize) is revealed. For example, 30 years of discharge time series can be split into the first 10 years for model calibration (i.e. model calibration is done only over the first 10 years of the time series) and into the last 20 years for model validation. A good model should perform satisfactorily not only during calibration but also during validation. If the model validation period shows better model performance than the calibration period, the modeler should take a close look at the forcing and try to explain this.  
 
 In hydrology, it is recommended to do cross-validation, i.e. to calibrate and validate a model with several combinations of calibration and validation periods and to summarize the overall model performance and the resulting parameter combinations.    
-Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem [@bergstrom_principles_1991] gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today.  
+Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem [@bergstrom_principles_1991] gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today. 
 
 #### Warm-up period
-To overcome issues with the initial water content of the catchment, a warm-up or spin-up period is typically defined. For small basins with small storages (like the mountainous basins in Central Asia) one year of model warm up is typically sufficient to fill the models reservoir with an appropriate amount of water. The warm-up period is specified in the comparator properties and excluded from the automatic calibration process.  
+To overcome issues with the initial water content of the catchment, a warm-up or spin-up period is typically defined. For small basins with small storage (like the mountainous basins in Central Asia) one year of model warm up is typically sufficient to fill the models reservoir with an appropriate amount of water. The warm-up period is specified in the comparator properties and excluded from the automatic calibration process.  
 
 ![Set up a spin-up period which is excluded from the model calibration. Open the object properties with a double-click on the comparator object in the main model window (1) and specify a 1-year spin-up period in seconds (2).](images/hydrological_modeling/rsm_calibration_01.png){#fig-rsm-calibration-01}
 
@@ -377,7 +379,7 @@ To overcome issues with the initial water content of the catchment, a warm-up or
 Before starting a full automated calibration of the model, it is advisable to identify parameters which are not sensitive and to fix them to reasonable values. In a fist step, parameters of all HRUS in the catchments are assumed to be the same. Then, one by one, the parameters are varied (simultaneously in all HRUs) to assess the impact of the parameters on the resulting discharge. If one parameter value is not sensitive, i.e. if changing the parameter value does not significantly impact the discharge, it is fixed to a literature value. The following figures illustrate the procedure: 
 
 ![Simulation results of a non-calibrated hydrological model.](images/hydrological_modeling/rsm_calibration_02.png){#fig-rsm-calibration-02}
-Remember the value of a performance indicator, for example the Nash efficiency. Then, open the Parameters window by pressing the Parameters button in the Model Properties toolbar (1), select HBV (2) and the default zone A (3) in the drop-down manus, and double the Melting factor ($\text{CFMax}$) (4). Apply the changes (5) and re-run the model.  
+Remember the value of a performance indicator, for example the Nash efficiency. Then, open the Parameters window by pressing the Parameters button in the Model Properties toolbar (1), select HBV (2) and the default zone A (3) in the drop-down menu, and double the Melting factor ($\text{CFMax}$) (4). Apply the changes (5) and re-run the model.  
 
 ![Manually changing parameter values to roughly assess parameter sensitivity.](images/hydrological_modeling/rsm_calibration_03.png){#fig-rsm-calibration-03}
 If the performance indicator becomes worse (e.g. more negative in the case of Nash), change the parameter to half of the original parameter value (2.5 in the present example and re-run the model). In the Chon Kemin example shown here, Nash will become less negative. We conclude that $\text{CFMax}$ is a sensitive parameter that should be calibrated. If the change of the parameter value does not produce a similar relative change of the performance indicator, the model is not highly sensitive to that specific parameter and it does not need to be calibrated.   
@@ -386,12 +388,45 @@ If the performance indicator becomes worse (e.g. more negative in the case of Na
 It is good practice to validate your results with data from the literature and with other, publicly available data sets. Literature values may be useful to limit parameter ranges for the calibration and to verify the conceptual hydrological model. Data sets like the High Mountain Asia Snow Reanalysis data set can be used to verify the snow water balance (automated calibration of snow water equivalents is not currently possible in RS Minerve) and for flatter areas, soil remotely sensed moisture observations and evaporation products may be used to constrain the parameters of the root zone and upper soil box.  
 
 #### Calibration procedure
-It is advisable to not calibrate all parameters at the same time but to calibrate module by module from the top-most layer to the bottom-most layer (along the flow path of the water). I.e. start by calibrating the sensitive parameters of the snow module, then proceed to the root zone module, the upper soil module and last calibrate the parameters of the groundwater module. This procedure may not yield an absolute minimum of the objective function (the best performance indicators possible) but it will leave you with physically meaningful parameters which is what is important. 
+It is advisable to not calibrate all parameters at the same time but to calibrate module by module from the top-most layer to the bottom-most layer (along the flow path of the water). I.e. in the case of the HBV model, start by calibrating the sensitive parameters of the snow module, then proceed to the root zone module, the upper soil module and last calibrate the parameters of the groundwater module. This procedure may not yield an absolute minimum of the objective function (the best performance indicators possible) but it will leave you with physically meaningful parameters which is what is important. 
 
-In between calibrations of individual parameters, switch to the model tab or to the selection and plot tab and look at the results of individual model components. Make sure you don't have accumulation of snow in the lower HRUs. Accumulation of snow is only allowed in glacierized HRUs. Also other water reservoirs may accidentally be filling up or emptying out, e.g. storage of the lower reservoir. Typically, the storage components in a hydrological system are more or less in steady-state (except for the glaciers). That means, that over several years, the water storage does not change much. If your model shows storage changes, they may be caused either by infrastructure or management changes (research) or by bad parameter sets. 
+In between calibrations of individual parameters, switch to the model tab or to the selection and plot tab and look at the results of individual model components. Make sure you don't have accumulation of snow in the lower HRUs. Accumulation of snow may only be justified in glacierized HRUs. Also other water reservoirs may accidentally be filling up or emptying out, e.g. storage of the lower reservoir. Typically, the storage components in a hydrological system are more or less in steady-state (except for the glaciers). That means, that over several years, the water storage does not change much. If your model shows storage changes, they may be caused either by infrastructure or management changes (research) or by bad parameter sets. 
 You should further update the initial conditions of the model from time to time to make sure that they are consistent with the model parameters. 
 
 You may perform several calibrations using different performance indicators and different calibration periods. This will give you a set of parameters which partially represent the uncertainty of the hydrological model.  
+
+
+#### Manual calibration of GSM parameters
+As mentioned above, publicly available data like glacier thinning rates and simulated glacier runoff data may be used to manually calibrate parameters of the GSM model objects. Such data typically has large uncertainties, in the order of 100 %, but it at least allows to make sure that simulated glacier runoff is in a reasonable order of magnitude. 
+
+GSM simulation results (glacier thickness HGlacier and glacier discharge QGlacier) from RS MINERVE can be exported in the RS MINERVE Selection and Plots tab and read into R where the data is compared to the above mentioned literature data. 
+
+The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. 
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(sf)
+library(riversCentralAsia)
+
+Object_IDs <- st_read("../caham_data/SyrDarya/Atbashy/GIS/16076_HRU.shp") |> 
+  st_drop_geometry() 
+
+gsm_objects <- Object_IDs |> 
+  dplyr::filter(str_detect(name, "Gl"))
+
+data <- tibble(
+  Model = rep("Model chon_kemin_model", (length(gsm_objects$name))*2), 
+  Object = rep("GSM", (length(gsm_objects$name)*2)), 
+  ID = c(gsm_objects$name, gsm_objects$name), 
+  Variable = c(rep("Qglacier (m3/s)", length(gsm_objects$name)), 
+               rep("Hglacier (m)", length(gsm_objects$name)))
+)
+
+writeSelectionCHK(filepath = "../RSMINERVE/HQ_glaciers.chk", 
+                  data = data, 
+                  name = "HQglaciers")
+```
 
 
 

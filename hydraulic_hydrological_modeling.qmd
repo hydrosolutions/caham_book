@@ -405,7 +405,12 @@ As mentioned above, publicly available data like glacier thinning rates and simu
 
 GSM simulation results (glacier thickness HGlacier and glacier discharge QGlacier) from RS MINERVE can be exported in the RS MINERVE Selection and Plots tab and read into R where the data is compared to the above mentioned literature data. 
 
-The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. The following code chunk demonstrates how a check node file can be prepared to read out simulated glacier discharge and glacier thickness from an uncalibrated version of the Gunt river model.  
+The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. The model calibration should start with the snow module. We use the High Mountain Asia Snow Reanalysis Produce which provides snow water equivalent at high resolution [@liu_hmasr_data_2021]. 
+
+# TODO Snow data calibration
+
+
+The following code chunk demonstrates how a check node file can be prepared to read out simulated glacier discharge and glacier thickness from an uncalibrated version of the Gunt river model.  
 
 ```{r}
 #| eval: false

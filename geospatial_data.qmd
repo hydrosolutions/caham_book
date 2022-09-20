@@ -116,7 +116,7 @@ In @fig-graphical-modeler-parameters, we show a meaningful parameter selection f
 You will very likely have to iterate and run the model a couple of times to achieve the desired results. Try it yourself! Note that if you get an error message that POLYGONS.shp was not found, try increasing the Channel Network Cutoff Value by 50 % - 70 %.
 :::
 
-Sample output results for our demonstration catchment are shown in @fig-graphical-modeler-results.
+Sample output results for our demonstration catchment are shown in @fig-graphical-modeler-results. The resulting layers for this demonstration are available in the [data pack](https://www.dropbox.com/sh/5hujg5xc7qf1c3p/AABYrTUs_iFpXaRhJD3qoZ6Ca?dl=0){target="_blank"}. We are, however, not quite done yet. 
 
 ![Resulting output of the **Graphical Modeler** model for Chatkal River basin. The next step is to clean up manually the SUBBASINS, RIVERS and JUNCTIONS shapefiles.](./images/data/08_graphical_modeler_results.jpg){#fig-graphical-modeler-results}
 
@@ -175,11 +175,13 @@ As a final step, you have to manually add the numbers stored in the NAME field t
 
 ![The final attribute table of the subbasins file is shown. The elevation band identifiers have been added as suffixes with "\_x" to the subbasin names where x denotes the number of the subbasin-specific elevation band.](./images/data/17_hru_final_attribute_table.jpg){#fig-hru-final-attribute-table}
 
+Using the tool **Zonal Statistics** from the Processing Toolbox, you can extract the mean elevation for each hydrological response unit. Save the elevation in a field named Z. The resulting GIs layers produced with the above described steps are available in the [data pack](https://www.dropbox.com/sh/cuw9v7j0bta7amu/AADgFOJFTZQOceSvOjlx2rc0a?dl=0){target="_blank"}  
+
 #### Intersecting with glacier outlines
 
 If glaciers are present in the basin, discharge from glacier melt can be simulated using the GSM model in RS MINERVE. The SUBBASINS layer can be intersected with the glacier outlines from the Randolph Glacier Inventory (RGI) v6.0 data set [see section on glacier outlines](#sec-glacier-outlines). The following step-by-step instructions show how to further process the SUBBASINS layer to for later automated model generation.
 
-In the students case study pack you fill find a GIS layer with the glacier outlines from the Randolph Glacier Inventory (RGI), clipped to the case study basin. The RGI glacier outlines are not always consistent with the basin boundaries derived using the process modeler in QGIS as described above because the two data sets are based on different data sources and spatial resolution. We therefore start out by estimating the glacier area and volume for each of the RGI glaciers in the basin. Open the field calculator in the attribute table of the RGI glaciers layer and estimate the glacier area in $m^2$ for each glacier using the formula `$area` (see @fig-glacier_area_field_calculator).
+In the data pack of the book, you will find a GIS layer named 16279_RGI_Glaciers with the glacier outlines from the Randolph Glacier Inventory (RGI), clipped to the case study basin. The RGI glacier outlines are not always consistent with the basin boundaries derived using the process modeler in QGIS as described above because the two data sets are based on different data sources and spatial resolution. We therefore start out by estimating the glacier area and volume for each of the RGI glaciers in the basin. Open the field calculator in the attribute table of the RGI glaciers layer and estimate the glacier area in $m^2$ for each glacier using the formula `$area` (see @fig-glacier_area_field_calculator).
 
 ![Calculate the glacier area using the field calculator. Use descriptive output field names and add units where possible (in this example we choose the name `Area_m2`). Make sure to choose decimal numbers for the output field type](./images/data/17_0_calculate_glacier_area_in_field_calculator.png){#fig-glacier_area_field_calculator}
 
@@ -192,6 +194,6 @@ We now prepare the layer for the GSM objects. Intersect the glaciers layer with 
 
 We now aggregate the glacier area and volume in each elevation band using the field calculator and the formulas `sum(Area_m2, group_by := basin_name)` and `sum(Volume_m3, group_by := basin_name)`. The layer is then dissolved using the tool **Vector/Geoprocessing/Dissolve** with the dissolve field basin_name. This merges all features with the same basin_name into one geometric feature of the layer. The fields RGIId, Area_m2 and Volume_m3 are now obsolete and can be removed. We thus now have the total glacier area and volume for each glaciated HRU in the study basin. For simulating runoff formation with the GSM model, we still need an initial glacier thickness which we obtain using the field calculator and dividing the total glacier volume in the HRU by the total glacier area in the HRU. This gives us a total glacier thickness in the basin which is available for melt. 
 
-Now we can clean up the layer and merge it with the HBV elevation bands layer we prepared and saved earlier. We don't need the field Tot_Volume_m3 and remove it. You then merge the two vector layers and are ready to import them into RS MINERVE for automated model generation. You may want to edit the names of the features for the GSM objects with a prefix *glacier* or *gl* so that you recognize which hydrological model to assign to which HRU in RS MINERVE (see @sec-RSM-automatic-model-generation).  
+Now we can clean up the layer and merge it with the HBV elevation bands layer we prepared and saved earlier. You may want to edit the names of the features for the GSM objects with a prefix *glacier* or *gl* so that you recognize which hydrological model to assign to which HRU in RS MINERVE (see @sec-RSM-automatic-model-generation). You then merge the two vector layers and are ready to import them into RS MINERVE for automated model generation. We save the layer under the name 16297_Chatkal_RSM_HRU.   
 
 ## References {#sec-geospatial-data-references}

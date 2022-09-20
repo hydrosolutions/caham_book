@@ -239,7 +239,9 @@ Select the HBV model (1) and click the Allocate Subbasins button (2).
 
 ![Configuration of the model creation utilities. Selecting hydrological models for each HRU.](images/hydrological_modeling/rsm_autoModelCreation_02.png){#fig-rsm-auto-model-creation-02}
 
-All the sub-basins should now display the red HBV icon as shown in @fig-rsm-auto-model-creation-03. If you have glaciers in your basin and prepared your subbasins layer accordingly (see @sec-preparation-of-rsminerve-input-files), you now select the glacier HRUs and allocate GSM objects to them. 
+All the sub-basins should now display the red HBV icon as shown in @fig-rsm-auto-model-creation-03. If you have glaciers in your basin and prepared your subbasins layer accordingly (see @sec-preparation-of-rsminerve-input-files), you now select the glacier HRUs and allocate GSM objects to them (@fig-rsm-auto-model-creation-03-GSM). 
+
+![Configuration of the model creation utilities when glacier runoff is simulated using GSM. Assign HBV model objects to all non-glacierised HRUs intended for modelling with HBV and GSM model objects for glacierised HRUs.](images/hydrological_modeling/rsm_autoModelCreation_03_GSM.png){#fig-rsm-auto-model-creation-03-GSM}
 
 Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown). 
 
@@ -257,7 +259,9 @@ You can beautify the model view by loading a background image of the Chon Kemin 
 
 ![Load a background image into RS Minerve by clicking Background (1) Load (2) , selecting the image (3) and pressing Open (4). Exit the background image editing mode by clicking (1) again.](images/hydrological_modeling/rsm_autoModelCreation_05.png){#fig-rsm-auto-model-creation-05}
 
-If you have generated GSM model objects, each of them will have a virtual weather station assigned to it. We approximate the weather forcing on the glaciers with the weather forcing in the respective HBV HRU for which we have already prepared the input file (see @sec-climate-data). We delete the automatically generated station objects connected to the GSM objects and connect the station objects of the appropriate HBV object (same elevation layer) to the GSM objects. Stations at high elevations in glaciated basins thus are connected to both HBV and GSM model objects.   
+If you have generated GSM model objects, each of them will have a virtual weather station assigned to it. We approximate the weather forcing on the glaciers with the weather forcing in the respective HBV HRU for which we have already prepared the input file (see @sec-climate-data). We delete the automatically generated station objects connected to the GSM objects and connect the station objects of the appropriate HBV object (same elevation layer) to the GSM objects. Stations at high elevations in glaciated basins thus are connected to both HBV and GSM model objects (@fig-rsm-auto-model-creation-05-GSM). Attention, do not forget to specify the initial glacier thickness in the initial conditions of the GSM model objects. 
+
+![If GSM model objects are created, delete the automatically generated virtual weather stations connected to the GSM model objects and connect the GSM model objects to the virtual weather station objects of the HBV model objects in the same elevation band and sub-basin. ](images/hydrological_modeling/rsm_autoModelCreation_05_GSM.png){#fig-rsm-auto-model-creation-05-GSM}
 
 Now we need to add a comparator and a source object in order to be able to compare the simulated river discharge to the observed discharge. Step-by-step you need to click on the Source object in the model object list (1). A small faucet icon will appear en lieu of your customary cursor icon. Move your cursor to an appropriate location in the map window and click to place the source object (2). Do the same for the comparator object: activate it by clicking the object (3) and place it with a click in the map window (4).
 
@@ -401,33 +405,444 @@ As mentioned above, publicly available data like glacier thinning rates and simu
 
 GSM simulation results (glacier thickness HGlacier and glacier discharge QGlacier) from RS MINERVE can be exported in the RS MINERVE Selection and Plots tab and read into R where the data is compared to the above mentioned literature data. 
 
-The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. 
+The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. The following code chunk demonstrates how a check node file can be prepared to read out simulated glacier discharge and glacier thickness from an uncalibrated version of the Gunt river model.  
 
 ```{r}
 #| eval: false
 library(tidyverse)
+library(lubridate)
 library(sf)
+library(ncdf4)
 library(riversCentralAsia)
 
-Object_IDs <- st_read("../caham_data/SyrDarya/Atbashy/GIS/16076_HRU.shp") |> 
+# Read in the HRU names
+Object_IDs <- st_read("../caham_data/AmuDarya/17050_Gunt/GIS/17050_hru_GSM.shp") |> 
   st_drop_geometry() 
 
+# Get a list of glacierised HRUs (their name starts with "gl")
 gsm_objects <- Object_IDs |> 
-  dplyr::filter(str_detect(name, "Gl"))
+  dplyr::filter(str_detect(name, "gl_"))
 
+# Prepare a tibble with the variables to be written to the check node file
 data <- tibble(
-  Model = rep("Model chon_kemin_model", (length(gsm_objects$name))*2), 
+  Model = rep("Model Gunt", (length(gsm_objects$name))*2), 
   Object = rep("GSM", (length(gsm_objects$name)*2)), 
   ID = c(gsm_objects$name, gsm_objects$name), 
   Variable = c(rep("Qglacier (m3/s)", length(gsm_objects$name)), 
                rep("Hglacier (m)", length(gsm_objects$name)))
 )
 
-writeSelectionCHK(filepath = "../RSMINERVE/HQ_glaciers.chk", 
-                  data = data, 
-                  name = "HQglaciers")
+# Write the check node file
+writeSelectionCHK(
+  filepath = "../caham_data/AmuDarya/17050_Gunt/RS_MINERVE/HQ_glaciers.chk", 
+  data = data, 
+  name = "HQglaciers"  # Name of the selection that will appear in RS MINERVE
+)
 ```
 
+In the Selection and plots tab in RS MINERVE, click on Import and select the file HQ_glaciers.chk. You will see a new selection now called HQglaciers. You can now save the simulation results as csv by clicking the Export Results to... button. We call the file Gunt_Results_HQglaciers.csv and read it in as demonstrated below:
+
+```{r}
+#| fig-cap: "Simulated glacier height and discharge from an uncalibrated model of the Gunt river basin illustrating that glacier elevations can become negative."
+#| label: fig-hqgl-raw
+#| warning: false
+#| message: false
+#| error: false
+hqgl <- readResultCSV("../caham_data/AmuDarya/17050_Gunt/RS_MINERVE/Gunt_Results_HQglaciers.csv") |> 
+  mutate(object = ifelse(str_detect(model, "gl_"), "GSM", "HBV"), 
+         # Extract ID of elevation band for plotting
+         layer = str_extract(model, "\\d+"),  
+         layer = factor(layer, levels = c(1:11)))
+
+ggplot(hqgl |> 
+         mutate(Hyear = hyear(date)) |> 
+         group_by(Hyear, layer, variable, unit) |> 
+         summarise(date = last(date), 
+                   value = ifelse(variable == "Qglacier", 
+                                  mean(value), 
+                                  last(value))) |> 
+         ungroup()) + 
+  geom_line(aes(date, value, colour = layer), alpha = 0.6, size = 0.8) + 
+  scale_colour_viridis_d() + 
+  facet_wrap(c("variable", "unit"), scales = "free_y") + 
+  theme_bw()
+```
+
+The above plot show how glacier thickness can go below 0. As this hydrological model is very simple, we can correct the glacier thickness and discharge after the simulation. 
+
+```{r}
+#| fig-cap: "Corrected, simulated glacier height and discharge from an uncalibrated model of the Gunt river basin. Glacier thickness cannot become negative."
+#| label: fig-hqgl-raw
+#| warning: false
+#| message: false
+#| error: false
+hqgl_corrected <- hqgl |> 
+  pivot_wider(values_from = value, names_from = c(variable, unit), 
+              names_sep = "|") |> 
+  mutate("Qglacier|m3/s" = ifelse(`Hglacier|m` <= 0, 0, `Qglacier|m3/s`), 
+         "Hglacier|m" = ifelse(`Hglacier|m` <= 0, 0, `Hglacier|m`)) |> 
+  pivot_longer(c(`Qglacier|m3/s`, `Hglacier|m`), values_to = "value", 
+               names_to = c("variable", "unit"), names_sep = "\\|")
+
+ggplot(hqgl_corrected |> 
+         mutate(Hyear = hyear(date)) |> 
+         group_by(Hyear, layer, variable, unit) |> 
+         summarise(date = last(date), 
+                   value = ifelse(variable == "Qglacier", 
+                                  mean(value), 
+                                  last(value))) |> 
+         ungroup()) + 
+  geom_line(aes(date, value, colour = layer), alpha = 0.6, size = 0.8) + 
+  scale_colour_viridis_d() + 
+  facet_wrap(c("variable", "unit"), scales = "free_y") + 
+  theme_bw()
+```
+
+Glacier discharge as well as glacier thickness can be compared to literature data. By manually adjusting the GSM model parameters, both simulated glacier discharge and glacier thickness can become more similar to the literature data.  
+##### Example glacier thickness
+Simulated glacier thinning rates may be compared to observed thinning rates by @hugonnet_accelerated_2021. The observed thinning rates are available by glacier while the simulated thinning rates are by HRU. We aggregate both data sets to the basin level (see @ fig-obs-hugonnet-gunt-raw). 
+```{r}
+#| fig-cap: "Average observed (Source: Hugonnet et al., 2021) in the Gunt river basin and simulated glacier thinning rates from an uncalibrated hydrological model of the Gunt river basin."
+#| label: fig-obs-hugonnet-gunt-raw
+#| warning: false
+#| message: false
+#| error: false
+# Read in the RGI glaciers shape cut to the Gunt basin to filter the Hugonnet
+# data set
+# Read in glacier geometries
+rgi <- st_read("../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_RGI_glaciers.shp") |> 
+  dplyr::select(RGIId, Area_m2, Volume_m3) 
+
+# Glacier volume was already estimated in QGIS. You can also do this in R using 
+# the following example code:  
+# demo <- rgi |> 
+#   mutate(Area_m2 = as.numeric(st_area(rgi)), 
+#          Volume_m3 = glacierVolume_Erasov(Area_m2/10^6)*10^9)
+
+# Path to data for the Central Asian domain
+data_path <- "../caham_data/central_asia_domain/glaciers/"
+
+hugonnet <- read_csv(paste0(data_path, "Hugonnet/dh_13_rgi60_pergla_rates.csv"))
+# Explanation of variables (see documentation by Hugonnet et al., 2021):
+# - dhdt is the elevation change rate in meters per year,
+# - dvoldt is the volume change rate in meters cube per year,
+# - dmdt is the mass change rate in gigatons per year,
+# - dmdtda is the specific-mass change rate in meters water-equivalent per year.
+
+# Filter the basin glaciers from the Hugonnet data set. 
+hugonnet <- hugonnet |> 
+  dplyr::filter(rgiid %in% unique(rgi$RGIId)) |> 
+  tidyr::separate(period, c("start", "end"), sep = "_") |> 
+  mutate(start = as_date(start, format = "%Y-%m-%d"), 
+         end = as_date(end, format = "%Y-%m-%d"), 
+         period = round(as.numeric(end - start, units = "days")/366))
+
+# Join the Hugonnet data set to the RGI data set to be able to plot the thinning
+glaciers_hugonnet <- rgi |> 
+  left_join(hugonnet |> 
+              dplyr::select(rgiid, start, dmdtda, err_dmdtda, period) |> 
+              dplyr::filter(start == as_date("2000-01-01"), 
+                            period == 10),  
+            by = c("RGIId" = "rgiid")) |> 
+  group_by(start, period) |> 
+  summarise(dmdtda = mean(dmdtda, na.rm = TRUE), 
+            err_dmdtda = mean(err_dmdtda, na.rm = TRUE)) |> 
+  ungroup() 
+
+sim_delta_Hglacier <- hqgl_corrected |> 
+  # Filter the simulated glacier thickness to the same period as the observed
+  dplyr::filter(variable == "Hglacier", 
+                date >= as_date("2000-01-01") & date < as_date("2011-01-01"))|> 
+  mutate(Hyear = hyear(date)) |> 
+  group_by(Hyear, model, unit) |> 
+  summarise(Hglacier = last(value)) |>
+  ungroup() |> 
+  # Calculate glacier thickness change
+  pivot_wider(names_from = model, values_from = Hglacier) |> 
+  mutate(across(starts_with("gl"), ~ .x - lag(.x))) |> 
+  drop_na() |> 
+  pivot_longer(-c(Hyear, unit), names_to = "model", values_to = "dHgl/dt") |> 
+  group_by(model) |> 
+  summarise("sd(dHgl/dt)" = sd(`dHgl/dt`, na.rm = TRUE), 
+            "dHgl/dt" = mean(`dHgl/dt`, na.rm = TRUE)) |> 
+  ungroup() |> 
+  mutate(model = gsub("gl_", "", model)) |> 
+  # Aggregate by basin
+  summarise("sd(dHgl/dt)" = mean(`sd(dHgl/dt)`, na.rm = TRUE), 
+            "dHgl/dt" = mean(`dHgl/dt`, na.rm = TRUE))
+
+# Combine observed and simulated average glacier thinning in one variable 
+compareH <- glaciers_hugonnet |> 
+  st_drop_geometry() |> 
+  dplyr::select(dmdtda, err_dmdtda) |> 
+  transmute(Source = "Obs", 
+            "dH/dt [m]" = dmdtda, 
+            lb = dmdtda - err_dmdtda, 
+            ub = dmdtda + err_dmdtda) |> 
+  add_row(sim_delta_Hglacier |> 
+            mutate(Source = "Sim", 
+                   lb = `dHgl/dt` - `sd(dHgl/dt)`, 
+                   ub = `dHgl/dt` + `sd(dHgl/dt)`) |>
+            rename("dH/dt [m]" = `dHgl/dt`) |> 
+            select(-`sd(dHgl/dt)`)) 
+
+ggplot(compareH) + 
+  geom_errorbar(aes(Source, ymin = lb, ymax = ub), 
+                width = 0.2) + 
+  geom_col(aes(Source, `dH/dt [m]`, fill = Source), 
+           colour = "black", position = "dodge") + 
+  geom_hline(yintercept = 0, size = 0.4) + 
+  xlab("") + 
+  theme_bw()
+```
+
+The average observed thinning rate is 2 cm/a and the simulated thinning rate is 34 cm/a. The simulated thinning remains within the uncertainty of the observed thinning rates but may be overestimated in the model. Let's have a look ad glacier discharge data sets. 
+
+##### Example glacier discharge
+Glacier discharge estimates in High Mountain Asia by @miles_health_2021 are among the best currently available as they calculate the specific mass balance of the glacier. 
+```{r}
+#| fig-cap: "Average observed (Source: Miles et al., 2021) in the Gunt river basin and simulated glacier discharge rates from an uncalibrated hydrological model of the Gunt river basin."
+#| label: fig-obs-hugonnet-gunt-raw
+#| warning: false
+#| message: false
+#| error: false
+# Load glacier ablation data by Miles et al., 2021 and filter to the Central 
+# Asian domain
+# Limitation: Miles et al. report average total Ablation in m3/a for the years 
+# 2000 to 2016. Our historical forcing time series only goes until the end of 
+# 2011, that means that the averaging periods for the comparison of the 
+# observed and simulated glacier discharge do not overlap.  
+# Further, Miles et al. only cover glaciers with areas > 2 km2. The observed 
+# glacier discharge over the basin is therefore likely underestimated. 
+miles <- read_csv(paste0(data_path,
+                         "Miles/Miles2021_Glaciers_summarytable_20210721.csv")) |>
+  dplyr::filter(grepl("RGI60-13.", RGIID), 
+                VALID == 1) |> 
+  dplyr::select(RGIID, totAbl, totAblsig)
+
+glaciers_miles <- rgi |> 
+  st_drop_geometry() |> 
+  left_join(miles, by = c("RGIId" = "RGIID")) |> 
+  summarise(totAbl = sum(-totAbl, na.rm = TRUE), 
+            totAblsig = sum(totAblsig, na.rm = TRUE)) |> 
+  ungroup() 
+
+sim_Qglacier <- hqgl |> 
+  dplyr::filter(variable == "Qglacier", 
+                date >= as_date("2000-01-01"))|> 
+  mutate(Hyear = hyear(date)) |> 
+  group_by(Hyear, model, unit) |> 
+  summarise(Qglacier = mean(value), 
+            sdQgl = sd(value)) |>
+  ungroup() |> 
+  group_by(model) |> 
+  summarise(Qglacier = sum(Qglacier)*60*60*24*365, # m3/s to m3/a
+            sdQgl = sum(sdQgl)*60*60*24*365) |> 
+  ungroup() |> 
+  mutate(model = gsub("_Gl", "", model)) |> 
+  summarise(Qglacier = sum(Qglacier), 
+            sdQgl = mean(sdQgl))
+
+compareQ <- glaciers_miles |> 
+  transmute(Source = "Obs", 
+            "Q [10^6 m3/a]" = totAbl, 
+            lb = totAbl - totAblsig, 
+            ub = totAbl + totAblsig) |> 
+  add_row(sim_Qglacier |> 
+            transmute(Source = "Sim", 
+                      "Q [10^6 m3/a]" = Qglacier, 
+                      lb = Qglacier - sdQgl, 
+                      ub = Qglacier + sdQgl)) |> 
+  mutate(`Q [10^6 m3/a]` = `Q [10^6 m3/a]`*10^(-6), 
+         lb = lb/10^6, 
+         ub = ub/10^6)
+
+ggplot(compareQ) + 
+  geom_errorbar(aes(Source, ymin = lb, ymax = ub), 
+                width = 0.2) + 
+  geom_col(aes(Source, `Q [10^6 m3/a]`, fill = Source), 
+           colour = "black", position = "dodge") + 
+  geom_hline(yintercept = 0, size = 0.4) + 
+  xlab("") + 
+  theme_bw()
+```
+
+The observed glacier discharge is estimated at about 30 million m3/a whereas the simulated glacier discharge is estimated at about 1500 million m3/a. In the case of glacier discharge
+
+@rounce_glacier_2020 simulate glacier discharge in High Mountain Asia using the Python Glacier Evolution Model (PyGEM) and make their data publicly available [@rounce_high_2020]. Let's compare our simulation results to theirs. The below code snipped demonstrates how the PyGEM simulation results can be extracted for a given basin. We have pre-computed the data for the Gunt catchment. 
+
+```{r}
+#| eval: false
+glaciers <- rgi$RGIId
+
+# Here we read in all nc files in a folder. For this example, we only use one 
+ncfilelist <- list.files(path = paste0(data_path, "PyGEM"), pattern = ".nc$", 
+                         full.names = TRUE)
+ncfilelist <- ncfilelist[str_detect(ncfilelist, "_R13_")]
+
+glac_melt_basin <- NULL
+glac_runoff_basin <- NULL
+offglac_runoff_basin <- NULL
+glac_volume_basin <- NULL
+
+for (ncfile in ncfilelist) {
+  
+  # Get the rcp identifyer from the file name
+  rcp <- str_extract(ncfile, "rcp\\d{2}")
+  
+  # Open a file for reading
+  file <- nc_open(ncfile)
+  
+  # Get the RGI IDs and the glacier indices used in the PyGEM data set
+  rgiid <- ncvar_get(file, "RGIId")
+  pygem_indices <- ncvar_get(file, "glac")
+  
+  # Identify the indices of the glaciers we are interested in in the nc file
+  rgi_indices <- which(rgiid %in% glaciers)
+  
+  # Get dates for the monthly time series. 
+  # The time series starts on October 1, 1999. 
+  time <- ncvar_get(file, "time")  # In days
+  date <- as_date("1999-10-01") + time
+  
+  # Get dates for the annual time series. 
+  year <- ncvar_get(file, "year_plus1")
+  date_annual <- as_date(paste(year, "10", "01", sep = "-"))
+  
+  # Get the glacier volume and discharge for the selected glaciers
+  glac_melt_monthly <- ncvar_get(file, "glac_melt_monthly")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = as.character(date)) |> 
+    tidyr::pivot_longer(-date, names_to = "RGIId", values_to = "glac_melt_mweq") |> 
+    mutate(rcp = rcp) 
+  glac_melt_monthly_std <- ncvar_get(file, "glac_melt_monthly_std")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = as.character(date)) |> 
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_melt_std_mweq") |> 
+    mutate(rcp = rcp) 
+  
+  glac_runoff_monthly <- ncvar_get(file, "glac_runoff_monthly")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_runoff_m3") |>
+    mutate(rcp = rcp)
+  glac_runoff_monthly_std <- ncvar_get(file, "glac_runoff_monthly_std")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_runoff_std_m3") |>
+    mutate(rcp = rcp)
+  
+  offglac_runoff_monthly <- ncvar_get(file, 
+                                      "offglac_runoff_monthly")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "offglac_runoff_m3") |>
+    mutate(rcp = rcp) 
+  offglac_runoff_monthly_std <- ncvar_get(file, 
+                                      "offglac_runoff_monthly_std")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "offglac_runoff_std_m3") |>
+    mutate(rcp = rcp) 
+  
+  # Aggregate to annual date for the basin
+  glac_melt_basin <- rbind(glac_melt_basin, 
+    glac_melt_monthly |> 
+      left_join(glac_melt_monthly_std, by = c("date", "RGIId", "rcp")) |> 
+      mutate(date = as_date(paste(hyear(date), "10", "01", sep = "-"))) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(glac_melt_mweq, na.rm = TRUE), 
+                lb = sum(glac_melt_mweq - glac_melt_std_mweq, na.rm = TRUE), 
+                ub = sum(glac_melt_mweq + glac_melt_std_mweq, na.rm = TRUE)) |> 
+      ungroup())
+  
+  glac_runoff_basin <- rbind(glac_runoff_basin, 
+    glac_runoff_monthly |> 
+      left_join(glac_runoff_monthly_std, by = c("date", "RGIId", "rcp")) |> 
+      mutate(date = as_date(paste(hyear(date), "10", "01", sep = "-"))) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(glac_runoff_m3, na.rm = TRUE), 
+                lb = sum(glac_runoff_m3 - glac_runoff_std_m3, na.rm = TRUE), 
+                ub = sum(glac_runoff_m3 + glac_runoff_std_m3, na.rm = TRUE)) |> 
+      ungroup())
+  
+  offglac_runoff_basin <- rbind(offglac_runoff_basin, 
+    offglac_runoff_monthly |> 
+      left_join(offglac_runoff_monthly_std, by = c("date", "RGIId", "rcp")) |> 
+      mutate(date = as_date(paste(hyear(date), "10", "01", sep = "-"))) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(offglac_runoff_m3, na.rm = TRUE), 
+                lb = sum(offglac_runoff_m3 - offglac_runoff_std_m3, na.rm = TRUE), 
+                ub = sum(offglac_runoff_m3 + offglac_runoff_std_m3, na.rm = TRUE)) |> 
+      ungroup())
+  
+  
+  
+  # Read annual volume development and standard deviation
+  glac_volume_annual <- ncvar_get(file, "glac_volume_annual")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = date_annual) |> 
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_volume_km3ice") |> 
+    mutate(rcp = rcp)
+  glac_volume_annual_std <- ncvar_get(file, 
+                                      "glac_volume_annual_std")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = date_annual) |> 
+    pivot_longer(-date, names_to = "RGIId", 
+                 values_to = "glac_volume_std_km3ice") |> 
+    mutate(rcp = rcp)
+  
+  # Aggregate to basin level
+  glac_volume_basin <- rbind(glac_volume_basin, 
+    glac_volume_annual |> 
+      left_join(glac_volume_annual_std, by = c("date", "RGIId", "rcp")) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(glac_volume_km3ice, na.rm = TRUE), 
+                lb = sum(glac_volume_km3ice - glac_volume_std_km3ice, na.rm = TRUE), 
+                ub = sum(glac_volume_km3ice + glac_volume_std_km3ice, na.rm = TRUE)) |> 
+      ungroup())
+  
+}
+
+save(glac_runoff_basin, glac_volume_basin, 
+     file = "../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData")
+```
+
+```{r}
+#| fig-cap: "Average observed (Source: Rounce et al., 2020) in the Gunt river basin and simulated glacier thinning rates from an uncalibrated hydrological model of the Gunt river basin."
+#| label: fig-obs-hugonnet-gunt-raw
+#| warning: false
+#| message: false
+#| error: false
+load("../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData")
+
+glac_runoff_basin <- glac_runoff_basin |> 
+  dplyr::filter(year(date) <= 2011) |>  # Filter same period as simulation
+  group_by(rcp) |> 
+  summarise(mean = mean(mean), 
+            lb = mean(lb), 
+            ub = mean(ub)) |> 
+  ungroup()
+
+compareQ2 <- compareQ |> 
+  dplyr::filter(Source == "Sim") |> 
+  add_row(tibble(
+    Source = "Obs", 
+    "Q [10^6 m3/a]" = glac_runoff_basin$mean/10^6, 
+    lb = glac_runoff_basin$lb/10^6, 
+    ub = glac_runoff_basin$ub/10^6
+  ))
+
+ggplot(compareQ2) + 
+  geom_errorbar(aes(Source, ymin = lb, ymax = ub), 
+                width = 0.2) + 
+  geom_col(aes(Source, `Q [10^6 m3/a]`, fill = Source), 
+           colour = "black", position = "dodge") + 
+  geom_hline(yintercept = 0, size = 0.4) + 
+  xlab("") + 
+  theme_bw()
+```
+The uncalibrated hyrological model grossly overestimates glacier discharge. It is necessary to adjust the model parameters to produce less glacier discharge. 
 
 
 #### Automatic model calibration with RS Minerve

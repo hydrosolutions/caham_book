@@ -400,17 +400,139 @@ You should further update the initial conditions of the model from time to time 
 You may perform several calibrations using different performance indicators and different calibration periods. This will give you a set of parameters which partially represent the uncertainty of the hydrological model.  
 
 
-#### Manual calibration of GSM parameters
-As mentioned above, publicly available data like glacier thinning rates and simulated glacier runoff data may be used to manually calibrate parameters of the GSM model objects. Such data typically has large uncertainties, in the order of 100 %, but it at least allows to make sure that simulated glacier runoff is in a reasonable order of magnitude. 
+#### Manual calibration 
+Automated calibration is available in RS MINERVE for discharge. However, unexperienced modelers should always start with an exploration of the sensitivity of the parameter space. Further, not all model states and fluxes can be calibrated using the automated calibration tools in RS MINERVE, for example snow water equivalent. If automated calibration is not available, simulation results can be exported from RS MINERVE and be compared to observed data (or simulation results from the literature) in R.    
 
-GSM simulation results (glacier thickness HGlacier and glacier discharge QGlacier) from RS MINERVE can be exported in the RS MINERVE Selection and Plots tab and read into R where the data is compared to the above mentioned literature data. 
+As mentioned above, publicly available data like snow water equivalents, snow covered area, glacier thinning rates or simulated glacier runoff data may be used to manually calibrate parameters of the GSM model objects. Such data typically has large uncertainties, sometimes in the order of 100 %, but it at least allows to make sure that simulated glacier runoff is in a reasonable order of magnitude. 
 
-The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. The model calibration should start with the snow module. We use the High Mountain Asia Snow Reanalysis Produce which provides snow water equivalent at high resolution [@liu_hmasr_data_2021]. 
+The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. The model calibration should start with the snow modules of the HBV model objects or the glacier thinning and discharge of the GSM model objects, then proceed to the soil moisture, upper and lower reservoir modules of the HBV model objects.  
 
-# TODO Snow data calibration
+##### Calibration of snow water equivalent
+At the time of writing, RS MINERVE does not yet support the automatic calibration of SWE. However, snow melt is a major contribution to discharge in Central Asia. Measurements of SWE are only very rarely available. Thus, re-analysis products like the High Mountain Asia Snow Reanalysis (HMASR) product are valuable resources to validate hydrolgoical modelling efforts. 
+
+In the [snow and glacier data section](@sec-snow-and-glacier-data) we have demonstrated how to extract average SWE from the HMASR product for each elevation band in the Atbashy basin. It is highly recommended to study the technical manual of each data set prior to using it and to review the data set for its quality. We will show here how to extract simulated SWE from RS MINERVE and how it may be compared to the HMASR data set. 
+
+The code snipped below demonstrates how to write a check node file for the HBV model objects in the hydrological model of the Atbashy river basin. 
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(lubridate)
+library(sf)
+library(ncdf4)
+library(riversCentralAsia)
+
+# Path to the data directory downloaded from the download link provided above. 
+data_path <- "../caham_data/SyrDarya/Atbashy/"
+
+# Read in a list of HBV objects in the model
+Object_IDs <- st_read(paste0(data_path, 
+                             "GIS/16076_HRU.shp")) |> 
+  st_drop_geometry() 
+
+# Define the model objects and variables for the selection
+data <- tibble(
+  Model = rep("Model Atbashy", length(Object_IDs$name)), 
+  Object = c(rep("HBV92", length(Object_IDs$name))), 
+  ID = Object_IDs$name, 
+  Variable = rep("SWE (m)")
+)
+
+# Write the check node file which can be imported to RS MINERVE
+writeSelectionCHK(
+  # To reproduce the example, make sure the below filepath exists
+  filepath = paste0(data_path, "RSMINERVE/SWE.chk"), 
+  data = data, 
+  # The name of the selection will appear in RS MINERVE
+  name = "SWE"  
+)
+```
+
+The check node file is read in to RS MINERVE under the Selection and plots tab, using the Import button. A new selection named SWE will appear which can be exported to a csv file using the button Export Results to... The following code snipped demonstrates how to read in the simulated SWE to R.
+
+```{r}
+#| fig-cap: "Simulated SWE from an uncalibrated hydrological model of the Atbashy river catchment in each elevation band in each sub-basin."
+#| label: fig-sim-SWE-Atbashy-uncalibrated
+#| warning: false
+#| message: false
+#| error: false
+library(tidyverse)
+library(lubridate)
+library(sf)
+library(ncdf4)
+library(riversCentralAsia)
+
+# Path to the data directory downloaded from the download link provided above. 
+data_path <- "../caham_data/SyrDarya/Atbashy/"
+
+swe_sim <- readResultCSV(
+  paste0(data_path, 
+         "RSMINERVE/Atbaschy_Results_SWE_uncalibrated.csv")) |>  
+  mutate(Subbasin = gsub("\\_Subbasin\\_\\d+$", "", model), 
+         # Extract the elevation band level from the HRU names, for plotting
+         "Elevation band" = str_extract(model, "\\d+$") |> as.numeric(), 
+         "Elevation band" = factor(`Elevation band`, levels = c(1:20)))
+
+ggplot(swe_sim) + 
+  geom_point(aes(date, value, colour = `Elevation band`), 
+             alpha = 0.4, size = 0.4) + 
+  scale_colour_viridis_d() + 
+  facet_wrap("Subbasin") + 
+  ylab("SWE [m]") + 
+  xlab("Date") + 
+  theme_bw()
+```
+
+Now we import the SWE extracted from the HMASR product for each elevation band and compare the observed SWE to the simulated one. 
+
+```{r}
+#| fig-cap: "Monthly simulated SWE from an uncalibrated hydrological model of the Atbashy river catchment versus SWE extracted from the HMASR product (aka observed SWE, source: Liu et al. 2021) in each elevation band."
+#| label: fig-sim-SWE-vs-obs-SWE
+#| warning: false
+#| message: false
+#| error: false
+# Loads SWE extracted from HMASR per HRU in the Atbashy model.
+load(paste0(data_path, "/SNOW/SWE.RData"))
+
+compare_swe <- swe_sim |> 
+  rename(Sim = value) |> 
+  dplyr::select(date, model, Sim, Subbasin, `Elevation band`) |> 
+  left_join(swel |> 
+              dplyr::select(Date, Name, SWE) |> 
+              rename(Obs = SWE), 
+            by = c("date" = "Date", "model" = "Name")) |>
+  mutate(Month = month(date), 
+         Year = hyear(date), 
+         Month_str = factor(format(date, "%b"), 
+                            levels = c("Jan", "Feb", "Mar", "Apr", "May", 
+                                       "Jun", "Jul", "Aug", "Sep", "Oct", 
+                                       "Nov", "Dec")), 
+         "Obs-Sim" = Obs - Sim)
+
+# Calculate the performance indicator RMSE. Many other indicators may be used. 
+RMSE = sqrt(mean(compare_swe$`Obs-Sim`, na.rm = TRUE))
+
+ggplot(compare_swe) +
+  geom_abline(intercept = 0, slope = 1) + 
+  geom_point(aes(Obs, Sim, colour = `Elevation band`), size = 0.4) +
+  scale_color_viridis_d() + 
+  xlab("Observed SWE [m]") + 
+  ylab("Simulated SWE [m]") + 
+  facet_wrap("Month_str") + 
+  coord_fixed() + xlim(0, 1.5) + ylim(0, 1.5) + 
+  theme_bw()
+```
+The comparison of simulated and observed SWE shows biases, indicating an underestimation of SWE in the model which can be adjusted by adapting the parameters of the snow modules in the HBV model objects in RS MINERVE. The package riversCentralAsia allows you to edit parameter files from R using the functions ```readRSMParameters()``` and ```writeRSMParameters()``` (please see the [package documentation](https://hydrosolutions.github.io/riversCentralAsia/){target="_blank"} for examples). 
+
+Advanced modellers and scripters can use the package [```RSMinerveR```](https://github.com/hydrosolutions/RSMinerveR){target="_blank"}, available from github, to run the hydrological model from R.  
+
+In places where SWE observations are not available or where operational data on SWE is required, a binary variable of SWE larger than a threshold per hydrological response unit (HRU) can be compared to snow covered area (a MODIS product) in each HRU (see for example @parajka_value_2008).
 
 
+##### Calibration of the glacier melt model
 The following code chunk demonstrates how a check node file can be prepared to read out simulated glacier discharge and glacier thickness from an uncalibrated version of the Gunt river model.  
+
+Please note that, in addition to a visual comparison of simulated vs. observed model states of fluxes, the computation of performance indicators is recommended. Tracking changes of performance indicators makes it straight forward to see, if a change in a parameter leads to the desired adjustment of the model outcome or not. 
 
 ```{r}
 #| eval: false

@@ -2,11 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<<<<<<< HEAD
-<meta name="generator" content="quarto-0.9.471">
-=======
-<meta name="generator" content="quarto-0.9.299">
->>>>>>> master
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -16,10 +12,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -41,6 +42,25 @@ div.csl-indent {
 }
 </style>
 
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./modeling_using_predictive_inference.html" rel="next">
+<link href="./hydraulic_hydrological_modeling.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -63,7 +83,7 @@ div.csl-indent {
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./"><link href="/modeling_using_predictive_inference.html" rel="next"><link href="/hydraulic_hydrological_modeling.html" rel="prev"><script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet"><link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"><link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet"></head>
+</head>
 
 <body class="nav-sidebar floating">
 
@@ -128,143 +148,143 @@ div.csl-indent {
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a href="./hydrology_of_central_asia.html" class="sidebar-item-text sidebar-link">Part I: Hydrology of Semi-Arid Central Asia</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
+      <div class="sidebar-item-container"> 
+            <a href="./hydrology_of_central_asia.html" class="sidebar-item-text sidebar-link">Part I: Hydrology of Semi-Arid Central Asia</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hydrological_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./example_river_basins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study River Basins</span></a>
   </div>
 </li>
-    </ul>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a href="./data.html" class="sidebar-item-text sidebar-link">Part II: Data Sources, Retrieval and Preparation</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
+      <div class="sidebar-item-container"> 
+            <a href="./data.html" class="sidebar-item-text sidebar-link">Part II: Data Sources, Retrieval and Preparation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sources of Relevant Data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./discharge_station_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discharge Station Data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./geospatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geospatial Data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./snow_and_glacier_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Snow and Glacier Data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./climate_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Climate Data</span></a>
   </div>
 </li>
-    </ul>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">Part III: Hydrological Modeling &amp; Applications</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
+      <div class="sidebar-item-container"> 
+            <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">Part III: Hydrological Modeling &amp; Applications</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./long_term_water_balance_modeling.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./modeling_using_predictive_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glacier_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></a>
   </div>
 </li>
-    </ul>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-        <li class="sidebar-item">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Software</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_b_riverscentralasia_r_toolbox.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">R Toolbox riversCentralAsia</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_c_quick_guides.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quick Guides</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_d_exercise_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Exercise Solutions</span></a>
   </div>
 </li>
-    </ul>
+      </ul>
   </li>
     </ul>
     </div>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-budyko-introduction" id="toc-sec-budyko-introduction" class="nav-link active" data-scroll-target="#sec-budyko-introduction"> <span class="header-section-number">9.1</span> Introduction</a></li>
-  <li><a href="#sec-budyko-data-and-methods" id="toc-sec-budyko-data-and-methods" class="nav-link" data-scroll-target="#sec-budyko-data-and-methods"> <span class="header-section-number">9.2</span> Data and Methods</a>
+  <li><a href="#sec-budyko-introduction" id="toc-sec-budyko-introduction" class="nav-link active" data-scroll-target="#sec-budyko-introduction"><span class="toc-section-number">9.1</span>  Introduction</a></li>
+  <li><a href="#sec-budyko-data-and-methods" id="toc-sec-budyko-data-and-methods" class="nav-link" data-scroll-target="#sec-budyko-data-and-methods"><span class="toc-section-number">9.2</span>  Data and Methods</a>
   <ul class="collapse">
-  <li><a href="#sec-budyko-data" id="toc-sec-budyko-data" class="nav-link" data-scroll-target="#sec-budyko-data"> <span class="header-section-number">9.2.1</span> Data</a></li>
-  <li><a href="#sec-budyko-methods" id="toc-sec-budyko-methods" class="nav-link" data-scroll-target="#sec-budyko-methods"> <span class="header-section-number">9.2.2</span> Methods</a></li>
+  <li><a href="#sec-budyko-data" id="toc-sec-budyko-data" class="nav-link" data-scroll-target="#sec-budyko-data"><span class="toc-section-number">9.2.1</span>  Data</a></li>
+  <li><a href="#sec-budyko-methods" id="toc-sec-budyko-methods" class="nav-link" data-scroll-target="#sec-budyko-methods"><span class="toc-section-number">9.2.2</span>  Methods</a></li>
   </ul></li>
-  <li><a href="#sec-budyko-results" id="toc-sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"> <span class="header-section-number">9.3</span> Results</a></li>
-  <li><a href="#sec-discussion-and-conclusions" id="toc-sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"> <span class="header-section-number">9.4</span> Discussion and Conclusions</a></li>
-  <li><a href="#sec-long-term-water-balance-modeling-references" id="toc-sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"> <span class="header-section-number">9.5</span> References</a></li>
+  <li><a href="#sec-budyko-results" id="toc-sec-budyko-results" class="nav-link" data-scroll-target="#sec-budyko-results"><span class="toc-section-number">9.3</span>  Results</a></li>
+  <li><a href="#sec-discussion-and-conclusions" id="toc-sec-discussion-and-conclusions" class="nav-link" data-scroll-target="#sec-discussion-and-conclusions"><span class="toc-section-number">9.4</span>  Discussion and Conclusions</a></li>
+  <li><a href="#sec-long-term-water-balance-modeling-references" id="toc-sec-long-term-water-balance-modeling-references" class="nav-link" data-scroll-target="#sec-long-term-water-balance-modeling-references"><span class="toc-section-number">9.5</span>  References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/long_term_water_balance_modeling.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -278,11 +298,7 @@ div.csl-indent {
 
 <div>
   <div class="description">
-<<<<<<< HEAD
     2022 release
-=======
-    <p>This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.</p>
->>>>>>> master
   </div>
 </div>
 
@@ -373,7 +389,7 @@ and there Chapter 4.03.4.1.1 Net radiation estimation and partitioning -->
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="sec-budyko-data"><span class="header-section-number">9.2.1</span> Data</h3>
 <p>A large number of geospatial data were collected for the Central Asia region. The domain of interest was defined as 55 deg. E - 85. deg. E and 30 deg. N - 50 deg. N.. Shapefiles from the large river basin were retrieved from the <a href="https://www.bafg.de/GRDC/EN/01_GRDC/grdc_node.html">Global Runoff Data Center</a> and extracted for the following basins: Amu Darya, Chu, Issy Kul, Murghab-Harirud, Syr Darya and Talas. Where necessary, the polygons of the downstream flat areas were corrected to account for man-made water transfers via large canal systems and corresponding flow alterations across basins there. These large river basins define the area of interest (AOI).</p>
 <p>For the selected basins, the WMOBB River Network data was extracted from the layers wmobb_rivnets_Q09_10 (containing line sections representing an upland area above 4’504 km<sup>2</sup>), wmobb_rivnets_Q08_09 (containing line sections representing an upland area between 1’150 km<sup>2</sup> and 4’504 km<sup>2</sup>) and wmobb_rivnets_Q07_08 (containing line sections representing an upland area above between 487 and 1’150 km<sup>2</sup>) <span class="citation" data-cites="grdc_2020">(<a href="#ref-grdc_2020" role="doc-biblioref">GRDC, Koblenz, Germany: Federal Institute of Hydrology (BfG). 2020</a>)</span>. Permanent water bodies and courses were taken from the global HydroLakes Database <span class="citation" data-cites="hydrolakes_2016">(<a href="#ref-hydrolakes_2016" role="doc-biblioref">Messager et al. 2016</a>)</span>. Information on land cover were taken from the Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2019: Globe data <span class="citation" data-cites="copernicus_landcover_2019">(<a href="#ref-copernicus_landcover_2019" role="doc-biblioref">Buchhorn et al. 2019</a>)</span>. The NASA SRTM digital elevation model 1 Arc-second (30 m) global product was used as a DEM <span class="citation" data-cites="srtm_2020">(<a href="#ref-srtm_2020" role="doc-biblioref"><span>“NASA Shuttle Radar Topography Mission (SRTM)(2013)”</span> 2013</a>)</span>.</p>
-<p>In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3 . Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200’000) from the corresponding region. The maps were downloaded from <a href="https://maps.vlasenko.net">https://maps.vlasenko.net</a> and subsequently geo-referenced in QGIS <span class="citation" data-cites="QGIS_software">(<a href="#ref-QGIS_software" role="doc-biblioref">QGIS Development Team 2021</a>)</span>. Data from northern Afghan rivers’ stream flow characteristics and the location of these gauging stations was taken from <span class="citation" data-cites="usgs_529_2010">(<a href="#ref-usgs_529_2010" role="doc-biblioref">Olson and Williams-Sether 2010</a>)</span>.</p>
+<p>In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3. Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200’000) from the corresponding region. The maps were downloaded from <a href="https://maps.vlasenko.net">https://maps.vlasenko.net</a> and subsequently geo-referenced in QGIS <span class="citation" data-cites="QGIS_software">(<a href="#ref-QGIS_software" role="doc-biblioref">QGIS Development Team 2021</a>)</span>. Data from northern Afghan rivers’ stream flow characteristics and the location of these gauging stations was taken from <span class="citation" data-cites="usgs_529_2010">(<a href="#ref-usgs_529_2010" role="doc-biblioref">Olson and Williams-Sether 2010</a>)</span>.</p>
 <p>For each gauge, the contributing area was delineated in R with the WhiteboxTools v2.0.0 and long-term norm mean discharge was obtained over variable observation periods between 1900 and 2018 was acquired. For a few selected stations, monthly and decadal time series data are available over the entire observational record. The FLO1K, global maps of mean, maximum and minimum annual stream flow at 1 km resolution from 1960 through 2015 were retrieved <span class="citation" data-cites="barbarossa_2018">(<a href="#ref-barbarossa_2018" role="doc-biblioref">Barbarossa et al. 2018</a>)</span>. The goodness of the FLO1K product in the Central Asia domain was validated at the locations of the 277 gauges through linear regression.</p>
 <p>Geospatial information on glaciers was taken from the Randolph Glacier Inventory (RGI) 6.0. Information from 16’617 glaciers was retrieved, together with glacier length, thickness and glacier thinning rates <span class="citation" data-cites="glims_global">Hugonnet et al. (<a href="#ref-hugonnet_accelerated_2021" role="doc-biblioref">2021</a>)</span>.</p>
 <p>The CHELSA V21 global daily high-resolution climatology, available from 01-01-1979 until 31-12-2011 was processed over the Central Asia domain to map climate trends, including on temperature, precipitation, snow fraction. The data is available upon request from this site: https://chelsa-climate.org <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span>. The CHELSA V21 product is corrected for snow undercatch in the high elevation ranges and thus is able to better represent actual high mountain precipitation than other available global climatologies <span class="citation" data-cites="beck_2020">(<a href="#ref-beck_2020" role="doc-biblioref">Beck et al. 2020</a>)</span>. The aridity index (AI) fields were taken from the bio-climate CHELSA V21 data set and compared with the CGIAR AI product <span class="citation" data-cites="trabucco_2019">(<a href="#ref-trabucco_2019" role="doc-biblioref">Trabucco and Zomer 2019</a>)</span>. Data on an additional 70 bio-climatic indicators were downloaded from the CHELSA V21 1980 - 2010 climatology and statistics extracted for each of the 277 gauged catchments, together with the AI.</p>
@@ -402,7 +418,7 @@ and there Chapter 4.03.4.1.1 Net radiation estimation and partitioning -->
 Arora, Vivek K. 2002. <span>“The Use of the Aridity Index to Assess Climate Change Effect on Annual Runoff.”</span> <em>Journal of Hydrology</em> 265 (1): 164–77. https://doi.org/<a href="https://doi.org/10.1016/S0022-1694(02)00101-4">https://doi.org/10.1016/S0022-1694(02)00101-4</a>.
 </div>
 <div id="ref-barbarossa_2018" class="csl-entry" role="doc-biblioentry">
-Barbarossa, Valerio, Mark A. J. Huijbregts, Arthur H. W. Beusen, Hylke E. Beck, Henry King, and Aafke M. Schipper. 2018. <span>“Flo1k, Global Maps of Mean, Maximum and Minimum Annual Streamflow at 1 Km Resolution from 1960 Through 2015.”</span> <em>Scientific Data</em> 5 (1): 180052. <a href="https://doi.org/10.1038/sdata.2018.52">https://doi.org/10.1038/sdata.2018.52</a>.
+Barbarossa, Valerio, Mark A. J. Huijbregts, Arthur H. W. Beusen, Hylke E. Beck, Henry King, and Aafke M. Schipper. 2018. <span>“FLO1K, Global Maps of Mean, Maximum and Minimum Annual Streamflow at 1 Km Resolution from 1960 Through 2015.”</span> <em>Scientific Data</em> 5 (1): 180052. <a href="https://doi.org/10.1038/sdata.2018.52">https://doi.org/10.1038/sdata.2018.52</a>.
 </div>
 <div id="ref-beck_2020" class="csl-entry" role="doc-biblioentry">
 Beck, Hylke E., Eric F. Wood, Tim R. McVicar, Mauricio Zambrano-Bigiarini, Camila Alvarez-Garreton, Oscar M. Baez-Villanueva, Justin Sheffield, and Dirk N. Karger. 2020. <span>“Bias Correction of Global High-Resolution Precipitation Climatologies Using Streamflow Observations from 9372 Catchments.”</span> <em>Journal of Climate</em> 33 (4): 1299–1315. <a href="https://doi.org/10.1175/JCLI-D-19-0332.1">https://doi.org/10.1175/JCLI-D-19-0332.1</a>.
@@ -485,6 +501,24 @@ Zhang, D., Z. Cong, G. Ni, D. Yang, and S. Hu. 2015. <span>“<span class="nocas
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -534,7 +568,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

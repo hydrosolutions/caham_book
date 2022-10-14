@@ -13,6 +13,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -288,7 +351,13 @@ div.csl-indent {
   </div>
   
 
-</header><p>Here, we provide a tour d’horizon of key hydrological systems in Central Asia and highlight important aspects of this complex, yet fascinating domain which is shown in <a href="#fig-central-asia-region-zoi">Figure&nbsp;<span>1.1</span></a>. Note that from the hydrological perspective the region is defined to comprise the former Soviet Central Asia with Islamic Emirat Afghanistan. Source: Zoï Environment Network.</p>
+</header><div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<p>Here, we provide a tour d’horizon of key hydrological systems in Central Asia and highlight important aspects of this complex, yet fascinating domain which is shown in <a href="#fig-central-asia-region-zoi">Figure&nbsp;<span>1.1</span></a>. Note that from the hydrological perspective the region is defined to comprise the former Soviet Central Asia with Islamic Emirat Afghanistan. Source: Zoï Environment Network.</p>
 <div id="fig-central-asia-region-zoi" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="./images/hydrology_of_central_asia/00_central_asia_region_zoi.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1.1: The Figure shows the entire Central Asia Region with the key rivers highlighted in blue color.</figcaption><p></p>
@@ -296,7 +365,7 @@ div.csl-indent {
 </div>
 <section id="sec-regional-characteristics" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="sec-regional-characteristics">
 <span class="header-section-number">1.1</span> Regional Characteristics</h2>
-<p>Key statistics of the Central Asia region are shown in <a href="#tbl-ca-overview-statistics">Table&nbsp;<span>1.2</span></a>. Central Asia is spreading over approximately 4.6 million km<sup>2</sup>, including the territories of Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan and the Afghan Islamic Emirate <span class="citation" data-cites="cia_worldfactbook">(<a href="#ref-cia_worldfactbook" role="doc-biblioref">Central Intelligence Agency, n.d.</a>)</span>. Populations are very unevenly distributed as is shown in <a href="#fig-central-asia-population-density">Figure&nbsp;<span>1.2</span></a>. One of the key population hotspot is the densely populated Fergana Valley that is shared between Uzbekistan, Krygyzstan and Tajikistan.</p>
+<p>Key statistics of the Central Asia region are shown in <a href="#tbl-ca-overview-statistics">Table&nbsp;<span>1.1</span></a>. Central Asia is spreading over approximately 4.6 million km<sup>2</sup>, including the territories of Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan and the Afghan Islamic Emirate <span class="citation" data-cites="cia_worldfactbook">(<a href="#ref-cia_worldfactbook" role="doc-biblioref">Central Intelligence Agency, n.d.</a>)</span>. Populations are very unevenly distributed as is shown in <a href="#fig-central-asia-population-density">Figure&nbsp;<span>1.2</span></a>. One of the key population hotspot is the densely populated Fergana Valley that is shared between Uzbekistan, Krygyzstan and Tajikistan.</p>
 <div id="fig-central-asia-population-density" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="./images/hydrology_of_central_asia/02_central_asia_population_density.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1.2: Population density in the region of interest. Red colors show a high density indicated in the main population centers whereas the beige colors show very low densities over most of the territory. Data source: <span class="citation" data-cites="gpw_v4">(<a href="#ref-gpw_v4" role="doc-biblioref">International Earth Science Information Network - CIESIN - Columbia University 2018</a>)</span>.</figcaption><p></p>
@@ -460,13 +529,55 @@ div.csl-indent {
 </div>
 </section></section><section id="sec-zone-of-runoff-formation" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="sec-zone-of-runoff-formation">
 <span class="header-section-number">1.3</span> Zone of Runoff Formation</h2>
-<p>Using the aridity index <span class="math inline">\(\phi\)</span> for classification, the main zones of runoff formation are shown in <a href="#fig-zones-of-runoff-formation">Figure&nbsp;<span>1.13</span></a>. The aridity index denotes the fraction of long-term precipitation, i.e.&nbsp;the <strong>total atmospheric water supply</strong>, divided by the long-term mean potential evapotranspiration which is the <strong>total atmospheric water demand</strong> (see also the <a href="long_term_water_balance_modeling.html">Chapter Long-term Water Balance Modeling</a> for more information).</p>
-<div id="fig-zones-of-runoff-formation" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/hydrology_of_central_asia/10_central_asia_low_aridity.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1.13: Regions where the aridity index indicate humid conditions are colored blue <span class="math inline">\((\phi &lt; 0.76)\)</span>. Regions where the aridity index is <span class="math inline">\(\phi \gt 0.76\)</span> and <span class="math inline">\(\phi \lt 1.3\)</span> indicating equidistant regions are colored green. These regions are the main zones of runoff formation. Climatology data are from <span class="citation" data-cites="karger_2021">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span> to compute the aridity index. For the definition of the humid and equidistant zones, we use <span class="citation" data-cites="mcvicar_2012">McVicar et al. (<a href="#ref-mcvicar_2012" role="doc-biblioref">2012</a>)</span>.</figcaption><p></p>
+<p>As is well known, the aridity index <span class="math inline">\(\phi\)</span> plays a key role in the partitioning of precipitation <span class="math inline">\(P\)</span> into evapotranspiration <span class="math inline">\(E\)</span> and runoff <span class="math inline">\(Q\)</span> (see also <a href="long_term_water_balance_modeling.html"><span>Chapter&nbsp;9</span></a> in Part III of this book for more information on this). It is defined as the ratio of mean potential evapotranspiration <span class="math inline">\(E_{0}\)</span> to mean precipitation <span class="math inline">\(P\)</span>. For the analysis in semi-arid Central Asia, we use Aridity Index data from the CHELSA V21 High-Resolution Climatology data set <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span>. Different aridity index classifications exist. We use the definition of <span class="citation" data-cites="ponce_2000">(<a href="#ref-ponce_2000" role="doc-biblioref">Ponce, Pandey, and Ercan 2000</a>)</span> cited in <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <a href="#tbl-ai-classes">Table&nbsp;<span>1.2</span></a> shows the class definitions utilized here.</p>
+<div id="tbl-ai-classes" class="anchored">
+<table class="table">
+<caption>Table 1.2: Aridity index classification as proposed by <span class="citation" data-cites="ponce_2000">(<a href="#ref-ponce_2000" role="doc-biblioref">Ponce, Pandey, and Ercan 2000</a>)</span>.</caption>
+<thead><tr class="header">
+<th>AI Class</th>
+<th>Lower value</th>
+<th>Upper Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>hyper-arid</td>
+<td>12</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>arid</td>
+<td>5</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>semi-arid</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>sub-humid</td>
+<td>0.75</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>humid</td>
+<td>0.375</td>
+<td>0.75</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="#fig-aridity-index-classes-large-basins">Figure&nbsp;<span>1.13</span></a> shows the zonation of the CHELSA V21 aridity index as per the definition in <a href="#tbl-ai-classes">Table&nbsp;<span>1.2</span></a>. The Figure shows the sub-humid (bright blue color) and humid (dark blue color) mountainous regions that contribute to the generation of surface runoff in the region. We refer to these two domains as the <em>zone of runoff formation</em>. Converse to this, the downstream semi-arid to hyper-arid regions are the places where runoff is dissipated, mostly through the distribution in thousands of kilometers of irrigation and drainage canals in the vast man-made hydrological systems. These domains shown in ocre, orange and red colors are called the <em>zone of complex water distribution and use</em>. The <a href="#sec-zone-of-water-distribution-and-use"><span>Section&nbsp;1.4</span></a> below describes features of these zones in greater detail.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-aridity-index-classes-large-basins" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="hydrological_systems_files/figure-html/fig-aridity-index-classes-large-basins-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1.13: AI classes are shown for the Central Asia region. Blueish colors indicate sub-humid and humid locations whereas brownish and reddish colors indicate zones of aridity. When compared with the topography as shown in <a href="#fig-central-asia-dem">Figure&nbsp;<span>1.4</span></a> above, the location of the zone of runoff formation in the mountainous region becomes clear.</figcaption><p></p>
 </figure>
 </div>
-<p>Due to the presence of the vertical thermal gradient, the start of the positive air temperature season, and consequently, the start of the ice and snow melting season does not take place at the same time uniformly. Rather, the snow melting process is of protracted nature and the higher the mountains are in a particular catchment, the later the snow-melt floods take place on rivers that are emerging there.</p>
+</div>
+</div>
+<p>Due to the presence of the vertical thermal gradient, the start of the positive air temperature season, and consequently, the start of the ice and snow melting season does not take place uniformly in the region at the same time of the year. Rather, the snow melting process is of protracted nature and the higher the mountains are in a particular catchment, the later the snow-melt floods take place on rivers that are emerging there.</p>
 <p>The melting process starts last in the permanent snow and glaciers regions. Because of this, the rivers, which are fed by snowmelt in the upper parts of the catchment area, are of great importance for the irrigation of crop fields, since they are characterized by the most significant water runoff during July and August, at which point the irrigated plains experience severe drought and when irrigated crops have the highest water demand.</p>
 <p>The rivers having this kind of a runoff regime (nivo-glacial) are Pyandzh and Vakhsh Rivers, as well as the ones deriving from them, such as Amu Darya, Chu, Zeravshan, Talas and Ili Rivers with its numerous tributaries. These rivers all feature a small variability of annual runoff. This is partly a result of the regulating effect of the zone of eternal snows and ice and is very important from the perspective of agricultural production in the downstream. These rivers are thus particularly valuable, not only for irrigation but also as a source of hydroelectric power. <a href="#fig-nivo-glacial-rivers">Figure&nbsp;<span>1.14</span></a> shows example hydrographs of such rivers.</p>
 <div id="fig-nivo-glacial-rivers" class="quarto-figure quarto-figure-center anchored">
@@ -485,6 +596,118 @@ div.csl-indent {
 <p>The relief thus has an extremely strong and many-sided impact on runoff formation processes. This influence is mediated through climatic factors, on which the recharge of the rivers, as well as the processes of thawing of snow and ice, etc., depend. In this regard, both the average water content, consistency of the annual runoff and its distribution over a year, as well as other characteristics of the river runoff cannot be considered independently from key relief factors, first and foremost altitude. All this demands a careful and comprehensive analysis of the impact of the relief on runoff processes.</p>
 </section><section id="sec-zone-of-water-distribution-and-use" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="sec-zone-of-water-distribution-and-use">
 <span class="header-section-number">1.4</span> Zone of Water Distribution and Use</h2>
+<p>The arid zones as shown in <a href="#fig-aridity-index-classes-large-basins">Figure&nbsp;<span>1.13</span></a> dominate the Central Asia region. Using GIS, we can easily compute zonal statistics with the classifed AI raster.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"> <span class="co">#| echo: false</span>
+ <span class="co">#| results: hide</span>
+
+ <span class="va">basin_ai_class_stats</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input_raster</span>, <span class="va">class_raster</span>, <span class="va">ai_classes</span>, <span class="va">stats_fun</span>, <span class="va">prec</span><span class="op">)</span> <span class="op">{</span>
+
+   <span class="co"># computing the mean zonal ai</span>
+   <span class="va">lookup_values</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/zonal.html">zonal</a></span><span class="op">(</span><span class="va">input_raster</span>, <span class="va">class_raster</span>, fun <span class="op">=</span> <span class="va">stats_fun</span><span class="op">)</span>
+   <span class="va">lookup_values</span> <span class="op">&lt;-</span> <span class="va">lookup_values</span> <span class="op">%&gt;%</span> <span class="fu">rename</span><span class="op">(</span>ai_class_number <span class="op">=</span> <span class="fl">1</span>, ai_value <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+   <span class="va">lookup_values</span> <span class="op">&lt;-</span> <span class="va">lookup_values</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>ai_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">ai_value</span>, digits <span class="op">=</span> <span class="va">prec</span><span class="op">)</span><span class="op">)</span>
+
+   <span class="co"># toy with matrices</span>
+   <span class="va">ai_classes</span> <span class="op">&lt;-</span> <span class="va">ai_classes</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="op">)</span>
+   <span class="va">basins_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span>
+   <span class="va">ai_class_basin_id_table</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">ai_classes</span> <span class="op">*</span> <span class="va">basins_id</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">as_tibble</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">rename</span><span class="op">(</span><span class="st">"hyperarid"</span> <span class="op">=</span> <span class="fl">1</span>, <span class="st">"arid"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"semiarid"</span> <span class="op">=</span> <span class="fl">3</span>, <span class="st">"subhumid"</span> <span class="op">=</span> <span class="fl">4</span>, <span class="st">"humid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">mutate</span><span class="op">(</span>Basin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Amu Darya"</span>, <span class="st">"Chu"</span>, <span class="st">"Issiq Kul"</span>, <span class="st">"Syr Darya"</span>, <span class="st">"Talas"</span>, <span class="st">"Murghab-Harirud"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">relocate</span><span class="op">(</span><span class="va">Basin</span>, .before <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+
+   <span class="co"># Generate the final table containing the mean AI values for each basin and each AI class</span>
+   <span class="va">res</span> <span class="op">&lt;-</span> <span class="va">ai_class_basin_id_table</span> <span class="op">%&gt;%</span>
+     <span class="fu">pivot_longer</span><span class="op">(</span><span class="op">-</span><span class="va">Basin</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">rename</span><span class="op">(</span>ai_class_name <span class="op">=</span> <span class="fl">2</span>, ai_class_number <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">left_join</span><span class="op">(</span><span class="va">lookup_values</span>, by <span class="op">=</span> <span class="st">"ai_class_number"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">ai_class_number</span><span class="op">)</span> <span class="op">%&gt;%</span>
+     <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">ai_class_name</span>,values_from <span class="op">=</span> <span class="va">ai_value</span><span class="op">)</span>
+   <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>
+ <span class="op">}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ai-basin-zones-area-stats" class="anchored">
+<table class="table table-sm table-striped">
+<caption>Table 1.3: Basin-specific AI zone areas (in km<sup>2</sup>).</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 7%">
+<col style="width: 20%">
+<col style="width: 12%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">AI Class</th>
+<th style="text-align: right;">Amu Darya</th>
+<th style="text-align: right;">Chu</th>
+<th style="text-align: right;">Issiq Kul</th>
+<th style="text-align: right;">Syr Darya</th>
+<th style="text-align: right;">Talas</th>
+<th style="text-align: right;">Murghab-Harirud</th>
+<th style="text-align: right;">Tot. Area</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">hyper-arid</td>
+<td style="text-align: right;">1241</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2882</td>
+<td style="text-align: right;">4123</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">arid</td>
+<td style="text-align: right;">337496</td>
+<td style="text-align: right;">23177</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">103162</td>
+<td style="text-align: right;">10170</td>
+<td style="text-align: right;">180904</td>
+<td style="text-align: right;">654909</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">semi-arid</td>
+<td style="text-align: right;">119035</td>
+<td style="text-align: right;">29535</td>
+<td style="text-align: right;">1595</td>
+<td style="text-align: right;">99545</td>
+<td style="text-align: right;">23838</td>
+<td style="text-align: right;">87927</td>
+<td style="text-align: right;">361475</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sub-humid</td>
+<td style="text-align: right;">123810</td>
+<td style="text-align: right;">15527</td>
+<td style="text-align: right;">13986</td>
+<td style="text-align: right;">72501</td>
+<td style="text-align: right;">7028</td>
+<td style="text-align: right;">37183</td>
+<td style="text-align: right;">270035</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">humid</td>
+<td style="text-align: right;">79867</td>
+<td style="text-align: right;">7439</td>
+<td style="text-align: right;">6623</td>
+<td style="text-align: right;">51782</td>
+<td style="text-align: right;">4386</td>
+<td style="text-align: right;">568</td>
+<td style="text-align: right;">150665</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 <p>As in the case of the defintion of the zones of runoff formation (<a href="#sec-zone-of-runoff-formation"><span>Section&nbsp;1.3</span></a>), one way to define the zones of complex water distribution and use is to use the definition of <span class="citation" data-cites="mcvicar_2012">McVicar et al. (<a href="#ref-mcvicar_2012" role="doc-biblioref">2012</a>)</span> to classify zones of high aridity in the following way</p>
 <ul>
 <li>
@@ -497,10 +720,34 @@ div.csl-indent {
 <p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1.16: The classification of the domain into arid and hyperarid zones is shown. Climatology data are from <span class="citation" data-cites="karger_2021">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span> to compute the aridity index. For the definition of the humid and equidistant zones, we use <span class="citation" data-cites="mcvicar_2012">McVicar et al. (<a href="#ref-mcvicar_2012" role="doc-biblioref">2012</a>)</span>.</figcaption><p></p>
 </figure>
 </div>
-<p>Comparing <a href="#fig-zones-of-runoff-formation">Figure&nbsp;<span>1.13</span></a> with <a href="#fig-central-asia-high-aridity">Figure&nbsp;<span>1.16</span></a>, it is evident that the bulk of the domain is either arid or hyperarid and that the mountains are the regions where the annually renewable water resources are formed. In fact, these humid regions resemble floating islands in a large sea of aridity.</p>
+<p>Comparing <span class="quarto-unresolved-ref">?fig-zones-of-runoff-formation</span> with <a href="#fig-central-asia-high-aridity">Figure&nbsp;<span>1.16</span></a>, it is evident that the bulk of the domain is either arid or hyperarid and that the mountains are the regions where the annually renewable water resources are formed. In fact, these humid regions resemble floating islands in a large sea of aridity.</p>
 <p>It is for this reason not further astonishing that Central Asia is the home of some of the world’s largest irrigation systems (<a href="#fig-central-asia-irrigated-areas-2020">Figure&nbsp;<span>1.18</span></a>). From the moment water leaves the mountaineous zones of runoff formation in rivers, water gets diverted into irrigation channels for its diversion to supply irrigated areas. In the low lands of Central Asia, it is for this reason impossible to talk about natural hydrology as man has engineered the hydrological landscape in its entirety with tens of thousands of kilometers of irrigation and drainage channels that in some instances even cross natural river basins.</p>
 <p>For the interested readers about the history of these irrigation systems is provided by <span class="citation" data-cites="peterson_2019">Peterson (<a href="#ref-peterson_2019" role="doc-biblioref">2019</a>)</span>. While the history of irrigation is dating back millennia in the region, the large scale push to extend irrigated areas beyond the historically established perimeters has happend during the Soviet era. It’s history is excellently recounted by <span class="citation" data-cites="peterson_2019">Peterson (<a href="#ref-peterson_2019" role="doc-biblioref">2019</a>)</span>. As an example, <a href="#fig-construction-of-big-fergana-canal">Figure&nbsp;<span>1.17</span></a> shows archival footage from a Soviet propaganda film which shows in an impressive way the scale of the undertaking.</p>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'magrittr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:terra':
+
+    extract, inset</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:raster':
+
+    extract</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    set_names</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:tidyr':
+
+    extract</code></pre>
+</div>
 <div id="fig-construction-of-big-fergana-canal" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><div class="vembedr" align="center">
 <div>
@@ -542,9 +789,9 @@ p = e + q_{s} + q_{g}
 p = e + q_{s}
 \tag{1.2}\]</span></span></p>
 <p>Based on available data, the rate of surface outflow <span class="math inline">\(q_{s}\)</span> can be calculated quite precisely: 155 billion m<sup>3</sup> or 201 mm annually. River basin-specific surface runoff values are provided in Table. It is impossible to measure the amount of the accumulated water vapor in the mountains accurately just by observation, so we have to proceed from the rate of the runoff, for which we need to know the value of runoff coefficient. The last can be approximately considered as equal to 0.35 (see also next Section). Then, <span class="math inline">\(p\)</span> equals 575 mm and <span class="math inline">\(e\)</span>, as follows, 575 mm - 201 mm = 374 mm.</p>
-<div id="tbl-ca-overview-statistics" class="anchored">
+<div id="tbl-ai-basin-zones-area-stats" class="anchored">
 <table class="table">
-<caption>Table 1.2: Key water balance basin statistics of selected large basins in Central Asia. {tab-simple-wb-rivers}</caption>
+<caption>Table 1.4: Key water balance basin statistics of selected large basins in Central Asia. {tab-simple-wb-rivers}</caption>
 <colgroup>
 <col style="width: 28%">
 <col style="width: 12%">
@@ -635,6 +882,9 @@ p + q_{i} = e
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-ARORA2002164" class="csl-entry" role="doc-biblioentry">
+Arora, Vivek K. 2002. <span>“The Use of the Aridity Index to Assess Climate Change Effect on Annual Runoff.”</span> <em>Journal of Hydrology</em> 265 (1): 164–77. https://doi.org/<a href="https://doi.org/10.1016/S0022-1694(02)00101-4">https://doi.org/10.1016/S0022-1694(02)00101-4</a>.
+</div>
 <div id="ref-cia_worldfactbook" class="csl-entry" role="doc-biblioentry">
 Central Intelligence Agency. n.d. <span>“The World Factbook 2020.”</span> <a href="https://www.cia.gov/library/publications/resources/the-world-factbook/index.html">https://www.cia.gov/library/publications/resources/the-world-factbook/index.html</a>.
 </div>
@@ -670,6 +920,9 @@ Mulligan, Mark, Arnout van Soesbergen, and Leonardo Sáenz. 2020. <span>“GOODD
 </div>
 <div id="ref-peterson_2019" class="csl-entry" role="doc-biblioentry">
 Peterson, Maya K. 2019. <em>Pipe Dreams: Water and Empire in Central Asia’s Aral Sea Basin</em>. Cambridge University Press.
+</div>
+<div id="ref-ponce_2000" class="csl-entry" role="doc-biblioentry">
+Ponce, Victor M., Rajendra P. Pandey, and Sezar Ercan. 2000. <span>“<span class="nocase">Characterization of Drought across Climatic Spectrum</span>.”</span> <em>Journal of Hydrologic Engineering</em> 5 (2): 222–24. <a href="https://doi.org/10.1061/(asce)1084-0699(2000)5:2(222)">https://doi.org/10.1061/(asce)1084-0699(2000)5:2(222)</a>.
 </div>
 <div id="ref-ragettli_2018" class="csl-entry" role="doc-biblioentry">
 Ragettli, Silvan, Timo Herberz, and Tobias Siegfried. 2018. <span>“<span class="nocase">An Unsupervised Classification Algorithm for Multi- Temporal Irrigated Area Mapping in Central Asia</span>.”</span> <em>Remote Sensing</em> 10 (11): 1823. <a href="https://doi.org/10.3390/rs10111823">https://doi.org/10.3390/rs10111823</a>.

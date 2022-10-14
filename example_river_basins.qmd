@@ -904,65 +904,65 @@ $$
 Q_{Koksu} \propto Q_{Charvak} - Q_{16279}
 $$ {#eq-koksu-empirical-relationship}
 
-We show the procedure here. After loading the `riversCentralAsia` Package as shown above, the relevant daily data from 01/01/1965 - 31/12/1967 can be loaded as follows (the data was kindly provided by Mr. Andrey Yakovlev).
+<!-- We show the procedure here. After loading the `riversCentralAsia` Package as shown above, the relevant daily data from 01/01/1965 - 31/12/1967 can be loaded as follows (the data was kindly provided by Mr. Andrey Yakovlev). -->
 
-```{r}
-data_koksu_discharge_derivation <- riversCentralAsia:::KoksuDischargeDerivation # load Data
-data_koksu_discharge_derivation
-```
+<!-- ```{r} -->
+<!-- data_koksu_discharge_derivation <- riversCentralAsia:::KoksuDischargeDerivation # load Data -->
+<!-- data_koksu_discharge_derivation -->
+<!-- ``` -->
 
-The data is stored in *long format*, meaning that measurements in time and for the two gauging stations are just stacked on top of each other in one long table with a total of 1'976 measurement points. For the purpose here, we prefer the *wide format* where we have one date column with unique dates and then the data listed for each station in corresponding columns.
+<!-- The data is stored in *long format*, meaning that measurements in time and for the two gauging stations are just stacked on top of each other in one long table with a total of 1'976 measurement points. For the purpose here, we prefer the *wide format* where we have one date column with unique dates and then the data listed for each station in corresponding columns. -->
 
-```{r}
-data_koksu_discharge_derivation_wide <- data_koksu_discharge_derivation %>% pivot_wider(id_cols = 'date',values_from = 'data',names_from = "code")
-data_koksu_discharge_derivation_wide
-```
+<!-- ```{r} -->
+<!-- data_koksu_discharge_derivation_wide <- data_koksu_discharge_derivation %>% pivot_wider(id_cols = 'date',values_from = 'data',names_from = "code") -->
+<!-- data_koksu_discharge_derivation_wide -->
+<!-- ``` -->
 
-The runoff contribution of Koksu can be calculated in a simple manner.
+<!-- The runoff contribution of Koksu can be calculated in a simple manner. -->
 
-```{r}
-# Adding Koksu discharge to the dataframe
-data_koksu_discharge_derivation_wide <- data_koksu_discharge_derivation_wide %>% mutate(Koksu = Charvak - `16279`)
-data_koksu_discharge_derivation_wide
-```
+<!-- ```{r} -->
+<!-- # Adding Koksu discharge to the dataframe -->
+<!-- data_koksu_discharge_derivation_wide <- data_koksu_discharge_derivation_wide %>% mutate(Koksu = Charvak - `16279`) -->
+<!-- data_koksu_discharge_derivation_wide -->
+<!-- ``` -->
 
-The relationship can now be visualized as shown in @fig-scatterplot_khudaydod_versus_koksu.
+<!-- The relationship can now be visualized as shown in @fig-scatterplot_khudaydod_versus_koksu. -->
 
-```{r}
-#| label: fig-scatterplot_khudaydod_versus_koksu
-#| fig-cap: "Scatterplot showing the relation between daily mean discharge as measured at gauge 16279 and Koksu river. The data was acquired during a compaign between 1965 and 1967."
-ggplot(data_koksu_discharge_derivation_wide, aes(`16279`, Koksu)) +
-  geom_point() + 
-  xlab(bquote('Discharge at Gauge 16279 Khudaydod in '~m^3/s)) +
-  ylab (bquote('Koksu river discharge in '~m^3/s))
-```
+<!-- ```{r} -->
+<!-- #| label: fig-scatterplot_khudaydod_versus_koksu -->
+<!-- #| fig-cap: "Scatterplot showing the relation between daily mean discharge as measured at gauge 16279 and Koksu river. The data was acquired during a compaign between 1965 and 1967." -->
+<!-- ggplot(data_koksu_discharge_derivation_wide, aes(`16279`, Koksu)) + -->
+<!--   geom_point() +  -->
+<!--   xlab(bquote('Discharge at Gauge 16279 Khudaydod in '~m^3/s)) + -->
+<!--   ylab (bquote('Koksu river discharge in '~m^3/s)) -->
+<!-- ``` -->
 
-::: {callout icon=false} The relation between Chatkal River discharge and Koksu River discharge is remarkable, despite the complex mountain terrain from which these neighboring rivers emerge. Can you think of reasons why this is so? How do you explain outlier data? Hint: To answer these questions, you might want to consult \@#sec-hydrological-systems. :::
+<!-- ::: {callout icon=false} The relation between Chatkal River discharge and Koksu River discharge is remarkable, despite the complex mountain terrain from which these neighboring rivers emerge. Can you think of reasons why this is so? How do you explain outlier data? Hint: To answer these questions, you might want to consult \@#sec-hydrological-systems. ::: -->
 
-We can perform a linear regression to related discharge at Khudaydod to the one at Koksu. The coefficients of the linear regression can be obtained in the following way:
+<!-- We can perform a linear regression to related discharge at Khudaydod to the one at Koksu. The coefficients of the linear regression can be obtained in the following way: -->
 
-```{r}
-lm_koksu <- lm(Koksu ~ 0 + `16279`,data_koksu_discharge_derivation_wide)
-summary(lm_koksu)
-```
+<!-- ```{r} -->
+<!-- lm_koksu <- lm(Koksu ~ 0 + `16279`,data_koksu_discharge_derivation_wide) -->
+<!-- summary(lm_koksu) -->
+<!-- ``` -->
 
-Please note, in the specification of the linear model we add the 0 term to force the regression through the origin. Hence, the discharge contribution of Koksu River is estimated to be
+<!-- Please note, in the specification of the linear model we add the 0 term to force the regression through the origin. Hence, the discharge contribution of Koksu River is estimated to be -->
 
-$$
-Q_{Koksu} = 0.145 * Q_{Khudaydod}
-$$ {#eq-koksu-estimated-model}
+<!-- $$ -->
+<!-- Q_{Koksu} = 0.145 * Q_{Khudaydod} -->
+<!-- $$ {#eq-koksu-estimated-model} -->
 
-The resulting model can easily be visualized as is shown in @fig-resulting-koksu-discharge-model.
+<!-- The resulting model can easily be visualized as is shown in @fig-resulting-koksu-discharge-model. -->
 
-```{r}
-#| label: fig-resulting-koksu-discharge-model
-#| fig-cap: "The linear model in $eq-koksu-estimated-model is shown."
-ggplot(data_koksu_discharge_derivation_wide, aes(`16279`, Koksu)) +
-  geom_point() + 
-  geom_smooth(method = "lm", se = FALSE, formula = y~0+x) +
-  xlab(bquote('Discharge at Gauge 16279 Khudaydod in '~m^3/s)) +
-  ylab(bquote('Koksu river discharge in '~m^3/s))
-```
+<!-- ```{r} -->
+<!-- #| label: fig-resulting-koksu-discharge-model -->
+<!-- #| fig-cap: "The linear model in $eq-koksu-estimated-model is shown." -->
+<!-- ggplot(data_koksu_discharge_derivation_wide, aes(`16279`, Koksu)) + -->
+<!--   geom_point() +  -->
+<!--   geom_smooth(method = "lm", se = FALSE, formula = y~0+x) + -->
+<!--   xlab(bquote('Discharge at Gauge 16279 Khudaydod in '~m^3/s)) + -->
+<!--   ylab(bquote('Koksu river discharge in '~m^3/s)) -->
+<!-- ``` -->
 
 # References {#sec-example-river-basins-references}
 

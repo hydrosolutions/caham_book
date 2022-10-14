@@ -599,7 +599,7 @@ The above plot show how glacier thickness can go below 0. As this hydrological m
 
 ```{r}
 #| fig-cap: "Corrected, simulated glacier height and discharge from an uncalibrated model of the Gunt river basin. Glacier thickness cannot become negative."
-#| label: fig-hqgl-raw
+#| label: fig-hqgl-raw-2
 #| warning: false
 #| message: false
 #| error: false
@@ -729,7 +729,7 @@ The average observed thinning rate is 2 cm/a and the simulated thinning rate is 
 Glacier discharge estimates in High Mountain Asia by @miles_health_2021 are among the best currently available as they calculate the specific mass balance of the glacier. 
 ```{r}
 #| fig-cap: "Average observed (Source: Miles et al., 2021) in the Gunt river basin and simulated glacier discharge rates from an uncalibrated hydrological model of the Gunt river basin."
-#| label: fig-obs-hugonnet-gunt-raw
+#| label: fig-obs-hugonnet-gunt-raw-2
 #| warning: false
 #| message: false
 #| error: false
@@ -937,7 +937,7 @@ save(glac_runoff_basin, glac_volume_basin,
 
 ```{r}
 #| fig-cap: "Average observed (Source: Rounce et al., 2020) in the Gunt river basin and simulated glacier thinning rates from an uncalibrated hydrological model of the Gunt river basin."
-#| label: fig-obs-hugonnet-gunt-raw
+#| label: fig-obs-hugonnet-gunt-raw-3
 #| warning: false
 #| message: false
 #| error: false

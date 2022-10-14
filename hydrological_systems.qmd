@@ -1,12 +1,96 @@
 # Hydrological Systems in Semi-Arid Central Asia  {#sec-hydrological-systems}
 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Here is the list of libraries with which we work in this Chapter.
+# tidyverse
+library(tidyverse)
+
+# geospatial libraries
+library(raster)
+library(terra)
+library(sf)
+#library(rgdal) # package will be retired by end of 2023 - let us try to live without it.
+library(exactextractr)
+library(stars)
+
+# thematic maps
+library(tmap)
+library(tmaptools)
+
+# ggplot exensions
+library(GGally)
+library(RColorBrewer)
+library(patchwork)
+#library(paletteer)
+
+# BUDYKO FRAMEWORK
+devtools::install_github("tylerbhampton/budykoR")
+library(budyko)
+```
+
+```{r}
+#| warning: false
+#| echo: false
+
+# Area of Interest
+aoi <- raster::extent(55,85,30,50)
+
+# Small Basins
+data_path <- "../../Handbook/HydrologicalModeling_CentralAsia_Data/REFERENCE_CaseStudyPacks/"
+basins <- readRDS(paste0(data_path,"COMPLETE_FINAL_BASIN_DATA/basins_complete.rds"),) %>% arrange(desc(area_km2)) # ensures that small basins are plotted on top of larger basins
+gauges <- readRDS(paste0(data_path,"COMPLETE_FINAL_BASIN_DATA/gauges_complete.rds"))
+# kick out NA data
+basins <- basins %>% na.omit()
+gauges <- gauges[!is.na(gauges$Q_NORM_M3S),]
+
+# Rivers
+rivers_1 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q09_10_ca_large_basins.shp"), quiet = TRUE)
+rivers_2 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q08_09_ca_large_river_basins.shp"), quiet = TRUE)
+rivers_3 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q07_08_ca_large_river_basins.shp"), quiet = TRUE)
+rivers_4 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q06_07_ca_large_river_basins.shp"), quiet = TRUE)
+rivers_5 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q05_06_ca_large_river_basins.shp"), quiet = TRUE)
+
+# Large basins
+large_basins_shp <- 
+  st_read(paste0(data_path,"CENTRAL_ASIA_DOMAIN/RIVER_BASINS/Central_Asia_Large_River_Basins_HYDRO4U.shp"), 
+          quiet = TRUE) %>%
+  st_transform(st_crs(4326)) %>% 
+  st_make_valid()
+large_basins_shp_no_illy <- large_basins_shp %>% filter(BASIN != "Illi River")
+
+large_basins_vect <- vect(large_basins_shp)
+large_basins_vect_no_illy <- vect(large_basins_shp_no_illy)
+
+large_basins_shp_utm42N <- large_basins_shp %>% st_transform(st_crs(32642))
+large_basins_vect_utm42N <- vect(large_basins_shp_utm42N)
+
+large_basins_shp_no_illy_utm42N <- large_basins_shp_no_illy %>% st_transform(st_crs(32642))
+large_basins_vect_no_illy_utm42N <- vect(large_basins_shp_no_illy_utm42N)
+
+# We clean up `basins` and remove unnecessary climate data from CGIAR and WORLDCLIM and rename the key climate variables from the CHELSA V21 dataset just to simplify the naming.
+basins$pr <- basins$pr_ann_chelsa
+basins$pr_ws <- basins$pr_ws_chelsa
+basins$pr_cs <- basins$pr_cs_chelsa
+basins$tas <- basins$tas_ann_chelsa
+basins$tas_cs <- basins$tas_cs_chelsa
+basins$tas_ws <- basins$tas_ws_chelsa
+basins$ai <- basins$ai_ann_bioclim_chelsa
+basins$pet <- basins$pet_ann_chelsa # note that this is equal to 12 * basins$pet_penman_mean
+
+plot_style <- "plot"
+```
+
 Here, we provide a tour d'horizon of key hydrological systems in Central Asia and highlight important aspects of this complex, yet fascinating domain which is shown in @fig-central-asia-region-zoi. Note that from the hydrological perspective the region is defined to comprise the former Soviet Central Asia with Islamic Emirat Afghanistan. Source: Zoï Environment Network.
 
-![The Figure shows the entire Central Asia Region with the key rivers highlighted in blue color.](/images/hydrology_of_central_asia/00_central_asia_region_zoi.jpg){#fig-central-asia-region-zoi}
+![The Figure shows the entire Central Asia Region with the key rivers highlighted in blue color.](./images/hydrology_of_central_asia/00_central_asia_region_zoi.jpg){#fig-central-asia-region-zoi}
 
 ## Regional Characteristics {#sec-regional-characteristics}
 
-Key statistics of the Central Asia region are shown in @tbl-ca-overview-statistics. Central Asia is spreading over approximately 4.6 million km^2^, including the territories of Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan and the Afghan Islamic Emirate [@cia_worldfactbook]. Populations are very unevenly distributed as is shown in @fig-central-asia-population-density. One of the key population hotspot is the densely populated Fergana Valley that is shared between Uzbekistan, Krygyzstan and Tajikistan.
+Key statistics of the Central Asia region are shown in @tbl-ca-overview-statistics. Central Asia is spreading over approximately 4.6 million km^2^, including the territories of Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan and the Afghan Islamic Emirate [@cia_worldfactbook]. Populations are very unevenly distributed as is shown in @fig-central-asia-population-density. One of the key population hotspot is the densely populated Fergana Valley that is shared between Uzbekistan, Kyrgyzstan and Tajikistan.
 
 ![Population density in the region of interest. Red colors show a high density indicated in the main population centers whereas the beige colors show very low densities over most of the territory. Data source: [@gpw_v4].](/images/hydrology_of_central_asia/02_central_asia_population_density.jpg){#fig-central-asia-population-density}
 
@@ -24,13 +108,13 @@ Key statistics of the Central Asia region are shown in @tbl-ca-overview-statisti
 
 The average per capita annually renewable water availability is estimated to be around 1'500 m^3^. Thus, according to the [United Nations definition](https://www.un.org/waterforlifedecade/scarcity.shtml), the region as a whole is water stressed. However, such regional view blends over significant differences between the upstream and downstream states and a more fine-grained per country water availability figures show the very uneven distribution of annually renewable water resources in a much clearer way (@fig-per-capita-water-availability-per-year). 
 
-![Per country water availability figures are shown. The striking difference between the very water rich upstream states and the downstream states that suffer from significant water scarcity is clearly visible.](/images/hydrology_of_central_asia/04_per_country_water_availability.jpg){#fig-per-capita-water-availability-per-year}
+![Per country water availability figures are shown. The striking difference between the very water rich upstream states and the downstream states that suffer from significant water scarcity is clearly visible.](./images/hydrology_of_central_asia/04_per_country_water_availability.jpg){#fig-per-capita-water-availability-per-year}
 
 In the vast plains that cover around 70 \% of the total territory, there are only very few rivers which have scarcely any tributaries from the point they leave the mountain areas all the way to their mouth. Abundant solar radiation, high temperatures, small amounts of precipitation, a lack of humidity, unstable snow cover, slight slopes, geological structures etc., hinder the formation of surface flows in the plains of Central Asia, despite their big importance for the local agricultural production there. Only the largest rivers, such as Syr Darya, Amu Darya, and Ili are able to survive hundreds of kilometers of deserts and reach the most important landlocked reservoirs -- the Aral Sea and Lake Balkhash [@shults_RiversOfMiddleAsia]. The Aral Sea, of course, is no longer adequatly fed by the annual snow melt floods of the Syr Darya and Amu Darya and thus has gradually vanished over the second half of the 20^th^ century (for more on this, see @sec-zone-of-water-distribution-and-use below).
 
 In fact, the inhomogeneity of the relief structure causes Central Asia to be the territory of immense contrasts [@fig-central-asia-dem]. Here, extreme aridity in the hot deserts of the plains and, only 100 km away, abundant humidity and snowfields in the mountains where precipitation levels can range between 1'000 mm/a up to 2'000 mm/a. 
 
-![The river basins together with the main mountain ranges are highlighted [@srtm_2020].](/images/hydrology_of_central_asia/05_central_asia_dem.jpg){#fig-central-asia-dem}
+![The river basins together with the main mountain ranges are highlighted [@srtm_2020].](./images/hydrology_of_central_asia/05_central_asia_dem.jpg){#fig-central-asia-dem}
 
 The uneven distribution of water bodies is striking (@fig-ca-river-network). The mountains of Central Asia are riddled with an extremely branched river network consisting of more than ten thousand watercourses. These areas are called the *zones of runoff formation*.
 
@@ -54,9 +138,9 @@ As is discussed further below, the winter snow cover in the high mountain ranges
 
 Using data of the ERA-Interim reanalysis, [@gerlitz_2018] classifies 8 weather types (WT) based on typical regional pressure field patterns over a domain covering 20\degree - 60\degree N and 50\degree - 90\degree E. Like this, large-scale features of winter circulation patterns in Central Asia can be captured. WT are analyzed with regard to the spatial anomalies of temperature and precipitation. @fig-temp-wt and @fig-precip-wt show the results. In these Figures, the individual plates WT 1 - 8 are labeled according to the main circulation feature over Central Asia, i.e. a Rossby ridge (R) or trough (T). Acronyms in the figures indicate the major features (and their centers of action) for each WT: anti-cyclonic anomaly (AC), cyclonic anomaly (C), central Asia ([CA]), Kazakhstan ([KAZ]), Mongolia ([MON]), and Indian Ocean and Indian subcontinent ([Indic]).
 
-![Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly temperature for each weather type (WT 1 - WT 8). Values are depicted in standard deviations for each grid cell, respectively. Arrows indicate anomalies of the 500-hPa ERA-Interim wind field (@gerlitz_2018).](/images/hydrology_of_central_asia/21_WT_P_Anomalies.jpg){#fig-temp-wt}
+![Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly temperature for each weather type (WT 1 - WT 8). Values are depicted in standard deviations for each grid cell, respectively. Arrows indicate anomalies of the 500-hPa ERA-Interim wind field (@gerlitz_2018).](./images/hydrology_of_central_asia/21_WT_P_Anomalies.jpg){#fig-temp-wt}
 
-![Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly precipitation sums for each weather type. Values are depicted relative to the seasonal mean 6-hourly precipitation sum ((100)^-1^) for each grid cell, respectively. Arrows indicate anomalies of vertically integrated moisture fluxes (@gerlitz_2018).](/images/hydrology_of_central_asia/22_WT_T_Anomalies.jpg){#fig-precip-wt}
+![Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly precipitation sums for each weather type. Values are depicted relative to the seasonal mean 6-hourly precipitation sum ((100)^-1^) for each grid cell, respectively. Arrows indicate anomalies of vertically integrated moisture fluxes (@gerlitz_2018).](./images/hydrology_of_central_asia/22_WT_T_Anomalies.jpg){#fig-precip-wt}
 
 Generally, it can be observed that configurations that are associated with a Rossby trough over Central Asia lead to an intensification of westerly moisture fluxes (WT 3, WT 7, and WT 8). If there is, however, a Rossby ridge type configuration as shown in WT 1, WT 2, and WT 4 panels of @fig-temp-wt and @fig-precip-wt, moisture fluxes are northward-shifted and precipitation suppressed [@gerlitz_2018].
 
@@ -86,27 +170,74 @@ With a warming climate and the associated increase of evapotranspiration in the 
 
 Through the reduction of precipitation stored as snow in the mountain regions, there is a consensus that the discharge regimes in the region will be impacted. These impacts can be quantified with hydrological models, as we will show in this Coursebook. An example of such expected changes is provided in @fig-atbashy-climate-impact-on-discharge. More information on the modeling approach is provided in the [Chapter Hydrological-hydraulic Modeling](#sec-hydrological-hydraulic-modeling) whereas data and modeling requirements are discussed in [Part II Data](#sec-data).  
 
-![Using the CMIP6 ssp585 climate scenario, the computed climate impacts on the discharge regime of Atbashy River (left tributary to the Naryn and located in Kyrgystan) is shown. The simulation results suggest that the peak discharge will shift towards spring and that peak flows will decrease in the basin for the different target periods in the future.](/images/hydrology_of_central_asia/20_atbashy_discharge_projections.jpg){#fig-atbashy-climate-impact-on-discharge}
+![Using the CMIP6 ssp585 climate scenario, the computed climate impacts on the discharge regime of Atbashy River (left tributary to the Naryn and located in Kyrgystan) is shown. The simulation results suggest that the peak discharge will shift towards spring and that peak flows will decrease in the basin for the different target periods in the future.](./images/hydrology_of_central_asia/20_atbashy_discharge_projections.jpg){#fig-atbashy-climate-impact-on-discharge}
 
 ## Zone of Runoff Formation {#sec-zone-of-runoff-formation}
 
-Using the aridity index $\phi$ for classification, the main zones of runoff formation are shown in @fig-zones-of-runoff-formation. The aridity index denotes the fraction of long-term precipitation, i.e. the **total atmospheric water supply**, divided by the long-term mean potential evapotranspiration which is the **total atmospheric water demand** (see also the [Chapter Long-term Water Balance Modeling](#sec-budyko-modeling) for more information).
+As is well known, the aridity index $\phi$ plays a key role in the partitioning of precipitation $P$ into evapotranspiration $E$ and runoff $Q$ (see also @sec-budyko-modeling in Part III of this book for more information on this). It is defined as the ratio of mean potential evapotranspiration $E_{0}$ to mean precipitation $P$. For the analysis in semi-arid Central Asia, we use Aridity Index data from the CHELSA V21 High-Resolution Climatology data set [@karger_2017, @karger_2020, @karger_2021]. Different aridity index classifications exist. We use the definition of [@ponce_2000] cited in [@ARORA2002164]. @tbl-ai-classes shows the class definitions utilized here.
 
-![Regions where the aridity index \phi indicate humid conditions are colored blue $(\phi < 0.76)$. Regions where the aridity index is $\phi \gt 0.76$ and $\phi \lt 1.3$ indicating equidistant regions are colored green. These regions are the main zones of runoff formation. Climatology data are from @karger_2021 to compute the aridity index. For the definition of the humid and equidistant zones, we use @mcvicar_2012.](/images/hydrology_of_central_asia/10_central_asia_low_aridity.jpg){#fig-zones-of-runoff-formation}
+| AI Class   | Lower value | Upper Value |
+|------------|-------------|-------------|
+| hyper-arid | 12          | NA          |
+| arid       | 5           | 12          |
+| semi-arid  | 2           | 5           |
+| sub-humid  | 0.75        | 2           |
+| humid      | 0.375       | 0.75        |
 
-Due to the presence of the vertical thermal gradient, the start of the positive air temperature season, and consequently, the start of the ice and snow melting season does not take place at the same time uniformly. Rather, the snow melting process is of protracted nature and the higher the mountains are in a particular catchment, the later the snow-melt floods take place on rivers that are emerging there.
+: Aridity index classification as proposed by [@ponce_2000]. {#tbl-ai-classes}
+
+@fig-aridity-index-classes-large-basins shows the zonation of the CHELSA V21 aridity index as per the definition in @tbl-ai-classes. The Figure shows the sub-humid (bright blue color) and humid (dark blue color) mountainous regions that contribute to the generation of surface runoff in the region. We refer to these two domains as the *zone of runoff formation*. Converse to this, the downstream semi-arid to hyper-arid regions are the places where runoff is dissipated, mostly through the distribution in thousands of kilometers of irrigation and drainage canals in the vast man-made hydrological systems. These domains shown in ocre, orange and red colors are called the *zone of complex water distribution and use*. The @sec-zone-of-water-distribution-and-use below describes features of these zones in greater detail.
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-aridity-index-classes-large-basins
+#| fig-cap: "AI classes are shown for the Central Asia region. Blueish colors indicate sub-humid and humid locations whereas brownish and reddish colors indicate zones of aridity. When compared with the topography as shown in @fig-central-asia-dem above, the location of the zone of runoff formation in the mountainous region becomes clear."
+
+ai_raster_utm42N <- 
+    terra::rast("../../Handbook/HydrologicalModeling_CentralAsia_Data/REFERENCE_CaseStudyPacks/CLIMATE/CLIMATOLOGY_CA_CHELSA_V21/CHELSA_ai/CHELSA_ai_1981-2010_V21_CA_domain_utm42N.tif")
+ai_raster_utm42N <- terra::mask(ai_raster_utm42N, large_basins_vect_no_illy_utm42N)
+
+m <- c(12, 1000, 10,
+       5, 12, 21,
+       2, 5, 32,
+       0.75, 2, 43,
+       0, 0.75, 54) # this is the classification as per Ponce, 2000 (see Table above).
+rclmat <- matrix(m, ncol = 3, byrow = TRUE)
+ai_raster_classified_utm42N <- classify(ai_raster_utm42N,rclmat, include.lowest = TRUE)
+
+# Visualization of AI classes
+tmap_mode(plot_style)
+tm_basemap("Esri.WorldPhysical") +
+    tm_shape(rivers_1) +
+  tm_lines(col = "blue", size = 1) +
+  tm_shape(rivers_2) +
+  tm_lines(col = "blue", size = .666) +
+  tm_shape(rivers_3) +
+  tm_lines(col = "blue", size = .333) +
+  tm_shape(large_basins_shp_no_illy) +
+    tm_borders(alpha = 1, col = "black") +
+  tm_layout(title = "Aridity Index") +
+  tm_shape(ai_raster_classified_utm42N) +
+  tm_raster(style = "cat", 
+            title = "AI Zones",
+            labels = c("hyper-arid", "arid", "semi-arid", "sub-humid", "humid"), 
+            palette = c("red", "coral1", "burlywood1", "skyblue", "blue"))
+```
+
+Due to the presence of the vertical thermal gradient, the start of the positive air temperature season, and consequently, the start of the ice and snow melting season does not take place uniformly in the region at the same time of the year. Rather, the snow melting process is of protracted nature and the higher the mountains are in a particular catchment, the later the snow-melt floods take place on rivers that are emerging there.
 
 The melting process starts last in the permanent snow and glaciers regions. Because of this, the rivers, which are fed by snowmelt in the upper parts of the catchment area, are of great importance for the irrigation of crop fields, since they are characterized by the most significant water runoff during July and August, at which point the irrigated plains experience severe drought and when irrigated crops have the highest water demand.
 
 The rivers having this kind of a runoff regime (nivo-glacial) are Pyandzh and Vakhsh Rivers, as well as the ones deriving from them, such as Amu Darya, Chu, Zeravshan, Talas and Ili Rivers with its numerous tributaries. These rivers all feature a small variability of annual runoff. This is partly a result of the regulating effect of the zone of eternal snows and ice and is very important from the perspective of agricultural production in the downstream. These rivers are thus particularly valuable, not only for irrigation but also as a source of hydroelectric power. @fig-nivo-glacial-rivers shows example hydrographs of such rivers.
 
-![Typical runoff regimes of nivo-glacial rivers in the Central Asia region. Hydrographs of different tributary of the Chirchik River are shown. Source: Yuri Ivanov (Uzbek Hydrometeorological Service), unpublished.](/images/hydrology_of_central_asia/14_sample_high_elevation_river_hydrograph.jpg){#fig-nivo-glacial-rivers}
+![Typical runoff regimes of nivo-glacial rivers in the Central Asia region. Hydrographs of different tributary of the Chirchik River are shown. Source: Yuri Ivanov (Uzbek Hydrometeorological Service), unpublished.](./images/hydrology_of_central_asia/14_sample_high_elevation_river_hydrograph.jpg){#fig-nivo-glacial-rivers}
 
 Rivers originating from the low mountains but being fed mainly by the snowmelt (nival regime rivers), are characterized by the early floods (March-May) and a sharp variability of annual runoff, since the amount of water is almost entirely determined by the snow reserves in the mountains which were accumulated in the previous winter season. @fig-nival-pluvial-rivers shows example hydrographs of such rivers.
 
 Finally, the watercourses originating from the lowest parts of mountains or from low mountains, (nivo-pluvial regime rivers), which in comparison to other regimes receive much more liquid precipitation, are characterized by large amounts of water, often saturated by sediment, passing during short periods of time. These are so-called mudflows. These watercourses often dry up during summer because of a decrease in supplies from groundwater.
 
-![Typical runoff regimes of nival-pluvial rivers in the Central Asia region. Hydrographs of different low-lying tributaries of the Chirchik River are shown. Source: Yuri Ivanov (Uzbek Hydrometeorological Service), unpublished.](/images/hydrology_of_central_asia/13_sample_low_land_river_hydrograph.jpg){#fig-nival-pluvial-rivers}
+![Typical runoff regimes of nival-pluvial rivers in the Central Asia region. Hydrographs of different low-lying tributaries of the Chirchik River are shown. Source: Yuri Ivanov (Uzbek Hydrometeorological Service), unpublished.](./images/hydrology_of_central_asia/13_sample_low_land_river_hydrograph.jpg){#fig-nival-pluvial-rivers}
 
 When entering the plains, the rivers of Central Asia form wide-spreading alluvial fans consisting of materials brought by them from the mountains. Here the rivers are usually divided into several channels, and a large part of water is filtered by these sediments. The large quantities of groundwater in these alluvial fans, which appear due to this process, mostly protrude from the earth surface at the edges these alluvial fans, causing the small rivers that are fed by groundwater, so-called Karasu rivers, to emerge, which are also used for irrigation.
 
@@ -114,12 +245,100 @@ The relief thus has an extremely strong and many-sided impact on runoff formatio
 
 ## Zone of Water Distribution and Use {#sec-zone-of-water-distribution-and-use}
 
+The arid zones as shown in @fig-aridity-index-classes-large-basins dominate the Central Asia region. Using GIS, we can easily compute zonal statistics with the classifed AI raster. 
+
+```{r}
+ #| echo: false
+ #| results: hide
+
+ basin_ai_class_stats <- function(input_raster, class_raster, ai_classes, stats_fun, prec) {
+
+   # computing the mean zonal ai
+   lookup_values <- terra::zonal(input_raster, class_raster, fun = stats_fun)
+   lookup_values <- lookup_values %>% rename(ai_class_number = 1, ai_value = 2)
+   lookup_values <- lookup_values %>% mutate(ai_value = round(ai_value, digits = prec))
+
+   # toy with matrices
+   ai_classes <- ai_classes %>% rep(6) %>% matrix(ncol = 6) %>% t()
+   basins_id <- c(1,2,3,4,5,6)
+   ai_class_basin_id_table <- (ai_classes * basins_id) %>%
+     as_tibble() %>%
+     rename("hyperarid" = 1, "arid" = 2, "semiarid" = 3, "subhumid" = 4, "humid" = 5) %>%
+     mutate(Basin = c("Amu Darya", "Chu", "Issiq Kul", "Syr Darya", "Talas", "Murghab-Harirud")) %>%
+     relocate(Basin, .before = 1)
+
+   # Generate the final table containing the mean AI values for each basin and each AI class
+   res <- ai_class_basin_id_table %>%
+     pivot_longer(-Basin) %>%
+     rename(ai_class_name = 2, ai_class_number = 3) %>%
+     left_join(lookup_values, by = "ai_class_number") %>%
+     dplyr::select(-ai_class_number) %>%
+     pivot_wider(names_from = ai_class_name,values_from = ai_value)
+   return(res)
+ }
+ ```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-ai-basin-zones-area-stats
+#| tbl-cap: "Basin-specific AI zone areas (in km^2^)."
+
+# Note: this code is a bit of a 'murks' code but it does the trick
+amudarya_vect_utm42N <- large_basins_vect_no_illy_utm42N[1,]
+amudarya_raster_utm42N <- rasterize(amudarya_vect_utm42N, ai_raster_classified_utm42N)
+churiver_vect_utm42N <- large_basins_vect_no_illy_utm42N[2,]
+churiver_raster_utm42N <- rasterize(churiver_vect_utm42N,ai_raster_classified_utm42N)
+issiqkul_vect_utm42N <- large_basins_vect_no_illy_utm42N[3,]
+issiqkul_raster_utm42N <- rasterize(issiqkul_vect_utm42N,ai_raster_classified_utm42N)
+syrdarya_vect_utm42N <- large_basins_vect_no_illy_utm42N[4,]
+syrdarya_raster_utm42N <- rasterize(syrdarya_vect_utm42N,ai_raster_classified_utm42N)
+talasriver_vect_utm42N <- large_basins_vect_no_illy_utm42N[5,]
+talasriver_raster_utm42N <- rasterize(talasriver_vect_utm42N,ai_raster_classified_utm42N)
+murghab_harirud_utm42N <- large_basins_vect_no_illy_utm42N[6,]
+murghab_harirud_raster_utm42N <- rasterize(murghab_harirud_utm42N,ai_raster_classified_utm42N)
+
+names(amudarya_raster_utm42N) <- "Amu Darya"
+names(churiver_raster_utm42N) <- "Chu"
+names(issiqkul_raster_utm42N) <- "Issiq Kul"
+names(syrdarya_raster_utm42N) <- "Syr Darya"
+names(talasriver_raster_utm42N) <- "Talas"
+names(murghab_harirud_raster_utm42N) <- "Murghab-Harirud"
+
+large_rivers_brick <- c(amudarya_raster_utm42N, 
+                        churiver_raster_utm42N,
+                        issiqkul_raster_utm42N,
+                        syrdarya_raster_utm42N,
+                        talasriver_raster_utm42N,
+                        murghab_harirud_raster_utm42N)
+
+# large_rivers_brick %>% plot(legend = FALSE)
+
+ai_class_stats <- terra::zonal(large_rivers_brick,ai_raster_classified_utm42N, sum, na.rm = TRUE)
+# ai_class_stats has now summed the the number of cells for each class. To get the areas, we need to multiply by the area of one cell, i.e. 779.86 ^2
+ai_class_stats <- round(ai_class_stats[,-1] * 779.86^2 / 10^6) # now we are in km2
+  
+ai_class_stats <- ai_class_stats %>% 
+  mutate(ai_class = c("hyper-arid", "arid", "semi-arid", "sub-humid", "humid")) %>% 
+  relocate(ai_class, .before = 1)
+
+ai_class_stats <- ai_class_stats %>% rowwise() %>% 
+  mutate(ai_class_area = sum(c_across(where(is.numeric))))
+
+total_basin_area <- ai_class_stats$ai_class_area %>% sum()
+
+ai_class_stats <- ai_class_stats %>% 
+  rename("Tot. Area" = ai_class_area, "AI Class" = ai_class)
+
+ai_class_stats %>% knitr::kable()
+```
+
 As in the case of the defintion of the zones of runoff formation (@sec-zone-of-runoff-formation), one way to define the zones of complex water distribution and use is to use the definition of @mcvicar_2012 to classify zones of high aridity in the following way
 
 - $\phi \ge 1.3$ and $\phi < 3$: arid conditions
 - $\phi \ge 3$: hyperarid conditions
 
-![The classification of the domain into arid and hyperarid zones is shown. Climatology data are from @karger_2021 to compute the aridity index. For the definition of the humid and equidistant zones, we use @mcvicar_2012.](/images/hydrology_of_central_asia/11_central_asia_high_aridity.jpg){#fig-central-asia-high-aridity}
+![The classification of the domain into arid and hyperarid zones is shown. Climatology data are from @karger_2021 to compute the aridity index. For the definition of the humid and equidistant zones, we use @mcvicar_2012.](./images/hydrology_of_central_asia/11_central_asia_high_aridity.jpg){#fig-central-asia-high-aridity}
 
 Comparing @fig-zones-of-runoff-formation with @fig-central-asia-high-aridity, it is evident that the bulk of the domain is either arid or hyperarid and that the mountains are the regions where the annually renewable water resources are formed. In fact, these humid regions resemble floating islands in a large sea of aridity.   
 
@@ -138,15 +357,15 @@ embed_url("https://www.youtube.com/watch?v=kz_zDRi9Vl8") %>% use_align("center")
 
 Nowadays, Uzbekistan has by far irrigates the largest area, i.e., almost half of the total irrigated area. Contrary to that, Tajikistan has the smallest fraction with only 7\% of the total irrigated area on its territory. Almost one third of the total irrigated area is non-agricultural land including irrigated vegetation in cities and housegardens.
 
-![Irrigated area in 2020 in semi-arid Central Asia, excluding Afghanistan. The pie chart in the upper left shows country-level statistics whereas the one in the upper right corner shows the type of irrigated area. Irrigated non-agricultural refers to irrigated areas in cities and housegardens. Source: [hydrosolutions GmbH](www.hydrosolutions.ch).](/images/hydrology_of_central_asia/15_central_asia_irrigated_area.jpg){#fig-central-asia-irrigated-areas-2020}
+![Irrigated area in 2020 in semi-arid Central Asia, excluding Afghanistan. The pie chart in the upper left shows country-level statistics whereas the one in the upper right corner shows the type of irrigated area. Irrigated non-agricultural refers to irrigated areas in cities and housegardens. Source: [hydrosolutions GmbH](www.hydrosolutions.ch).](./images/hydrology_of_central_asia/15_central_asia_irrigated_area.jpg){#fig-central-asia-irrigated-areas-2020}
 
 These data were derived with a unsupervised classification approach using Google Earth Engine and vast amounts of remotely sensed data (@ragettli_2018). The interannual variability of irrigated area is smaller than 5\% between 2016 - 2020. This means that despite climate variability, the irrigation system is well buffered against below normal water years. This certainly also has to do with the fact that there are a large number of decadal to seasonal regulators/reservoirs that can buffer water supply variability to a certain extent.
 
-![Dams from the Global Georeferenced Database of Dams data are shown for the Central Asia region (@goodd_2020). The red dots indicate the main hydropower producing dams whereas the black dots show the locations of the decadal/seasonal regulators.](/images/hydrology_of_central_asia/23_central_asia_dams.jpg){#fig-central-asia-dams}
+![Dams from the Global Georeferenced Database of Dams data are shown for the Central Asia region (@goodd_2020). The red dots indicate the main hydropower producing dams whereas the black dots show the locations of the decadal/seasonal regulators.](./images/hydrology_of_central_asia/23_central_asia_dams.jpg){#fig-central-asia-dams}
 
 The main planted crops in the region for the year 2020 are shown in @fig-main-crops. This figure is also derived from remotely senses data and shows the crop disaggergated irrigated land (Source: [hydrosolutions GmbH](www.hydrosolutions.ch)).    
 
-![Crop disagregated irrigated areas. The main crops are shown color encoded for the year 2020. Despite its declining significance, cotton remains the dominant irrigated crop in the region. Source: [hydrosolutions GmbH](www.hydrosolutions.ch).](/images/hydrology_of_central_asia/16_central_asia_crops.jpg){#fig-main-crops}
+![Crop disagregated irrigated areas. The main crops are shown color encoded for the year 2020. Despite its declining significance, cotton remains the dominant irrigated crop in the region. Source: [hydrosolutions GmbH](www.hydrosolutions.ch).](./images/hydrology_of_central_asia/16_central_asia_crops.jpg){#fig-main-crops}
 
 ## Regional Water Balance {#sec-regional-water-balance}
 

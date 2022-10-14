@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/index.html</loc>
+<<<<<<< HEAD
     <lastmod>2022-05-31T14:05:46.876Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/preface.html</loc>
     <lastmod>2022-05-28T15:03:53.433Z</lastmod>
+=======
+    <lastmod>2022-04-18T07:36:39.339Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hydrosolutions.github.io/caham_book/preface.html</loc>
+    <lastmod>2022-04-24T09:25:26.551Z</lastmod>
+>>>>>>> master
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/study_guide_materials.html</loc>
@@ -22,7 +30,11 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/example_river_basins.html</loc>
+<<<<<<< HEAD
     <lastmod>2022-05-30T06:25:54.584Z</lastmod>
+=======
+    <lastmod>2022-04-24T09:25:30.313Z</lastmod>
+>>>>>>> master
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/data.html</loc>
@@ -42,7 +54,11 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/snow_and_glacier_data.html</loc>
+<<<<<<< HEAD
     <lastmod>2022-05-31T11:52:02.156Z</lastmod>
+=======
+    <lastmod>2022-04-24T09:25:26.559Z</lastmod>
+>>>>>>> master
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/climate_data.html</loc>
@@ -54,11 +70,19 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/hydraulic_hydrological_modeling.html</loc>
+<<<<<<< HEAD
     <lastmod>2022-05-28T15:25:42.916Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/long_term_water_balance_modeling.html</loc>
     <lastmod>2022-05-29T18:54:40.596Z</lastmod>
+=======
+    <lastmod>2022-04-24T09:25:26.560Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hydrosolutions.github.io/caham_book/long_term_water_balance_modeling.html</loc>
+    <lastmod>2022-04-24T09:25:26.561Z</lastmod>
+>>>>>>> master
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/modeling_using_predictive_inference.html</loc>
@@ -66,7 +90,11 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/glacier_modeling.html</loc>
+<<<<<<< HEAD
     <lastmod>2022-05-29T06:44:50.261Z</lastmod>
+=======
+    <lastmod>2022-04-24T09:25:26.598Z</lastmod>
+>>>>>>> master
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/real_world_examples.html</loc>

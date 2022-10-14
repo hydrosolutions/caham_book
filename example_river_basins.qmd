@@ -80,7 +80,7 @@ If you want to experiment with the R code yourself, the data for this Chapter ca
 
 ```{r}
 #| include: true
-#| label: load_data-gunt-river-basin
+#| label: load-data-gunt-river-basin
 #| message: false
 #| warning: false
 data_dir <- "../caham_data/AmuDarya/gunt_data/geospatial"

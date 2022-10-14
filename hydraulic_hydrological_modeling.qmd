@@ -194,6 +194,24 @@ Luckily, research into suitable data products to further constrain hydrological 
 
 The simulated snow water equivalent may be compared to the snow water equivalend available from the High Mountain Asia Snow Reanalysis product so one variable can be used to . Water storage in the root zone, the soil or in the lower reservoirs are generally not available thus the  
 
+## The GSM model
+Similar to the HBV model, the GSM model separates precipitation into solid and liquid precipitation, depending on temperatures, and features a snow pack module. In addition to the HBV snow module, the GSM snow module allows the seasonal varying of the snow melt coefficient using a sinusoidal modulation. Details can be read in the RS MINERVE technical manual [@rsminerve_tm] (see @fig-overview-gsm-model). 
+
+```{r}
+#| label: fig-overview-gsm-model
+#| echo: false
+#| fig-cap: "The GSM model concept (source: RS MINERVE Technical Manual)."
+knitr::include_graphics("images/hydrological_modeling/fig_GSMconceptualModel.png")
+```
+
+The melting of the snow pack yields the so called equivalent precipitation. Runoff from snow melt is subsequently produced through release from a linear reservoir. Glacier area is assumed to be constant in the GSM model and glacier melt only occurs when the snow cover above the glacier has melted away. Also the glacier melt coefficient can be modulated according to a sinusoidal function, analogue to the snow melt coefficient. Runoff from glacier melt is then produced after transformation of the glacier melt signal through a linear reservoir. 
+
+The GSM model has a large number of model parameters which need to be calibrated. Snow height data on glaciers is generally not available but in recent years, estimates on glacier thickness, thinning rates or glacier discharge rates have become publicly available (see @sec-snow-and-glacier-data). This data may be used to guide GSM model calibration (see @sec-model-calibration). 
+
+Attention: RS MINERVE does not implement a glacier mass balance with GSM. Significant factors like the change of the glacier geometry as a glacier is melting, are neglected. Further, RS MINERVEs GSM implementation assumes an infinitive glacier reservoir. That means that glacier melt is produced even if glacier thickness becomes negative. This is typically not an issue during short term simulations of a couple of decades as long as glaciers do not disappear during the simulation period. For climate change impact studies however, smaller glaciers are expected to disappear completely. 
+
+For simple, linear models with no downstream water uses implemented, the glacier discharge can be set to zero after the simulation run. For more complex models with downstream water uses however, a simulation needs to be stopped regularly to check the status of the glacier thickness. If the glacier volume in a HRU has melted away, glacier melt in that HRU needs to be turned off. This can for example be done by setting the melt coefficients to 0. 
+
 
 ## The RS Minerve modelling environment
 The reader should already be familiar with RS Minerve through completion of example 1 in the RS Minerve user guide. The following paragraphs demonstrate how to automatically implement a hydrological model in RS Minerve using an example basin from Central Asia. The basin of the river Chon Kemin hereby serves as a demonstration site.    
@@ -210,7 +228,7 @@ RS Minerve offers limited GIS utilities. You can, for example, change the colors
 
 ![View the attribute table of an example layer in RS Minerve.](images/hydrological_modeling/rsm_loadGISdata_03.png){#fig-rsm-load-gis-data-03}
 
-### Automatic model generation
+### Automatic model generation {#sec-RSM-automatic-model-generation}
 To automatically generate the model structure, make sure, the 3 required GIS layers are loaded (section above), then click on the Creation button in the Model Management toolbox (1). The model creation configuration window will pop up where you select the appropriate attributes for each model layer from the drop-down menus (2, 4). Tick the Altitude (Z) option in the Subbasins properties and select the Z attribute (3) to let RS Minerve know the altitude of each HRU.  
 
 ![Configuration of the model creation utilities. Selecting the appropriate attributes from the GIS layers.](images/hydrological_modeling/rsm_autoModelCreation_01.png){#fig-rsm-auto-model-creation-01}
@@ -221,7 +239,11 @@ Select the HBV model (1) and click the Allocate Subbasins button (2).
 
 ![Configuration of the model creation utilities. Selecting hydrological models for each HRU.](images/hydrological_modeling/rsm_autoModelCreation_02.png){#fig-rsm-auto-model-creation-02}
 
-All the sub-basins should now display the red HBV icon as shown in @fig-rsm-auto-model-creation-03. Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown). 
+All the sub-basins should now display the red HBV icon as shown in @fig-rsm-auto-model-creation-03. If you have glaciers in your basin and prepared your subbasins layer accordingly (see @sec-preparation-of-rsminerve-input-files), you now select the glacier HRUs and allocate GSM objects to them (@fig-rsm-auto-model-creation-03-GSM). 
+
+![Configuration of the model creation utilities when glacier runoff is simulated using GSM. Assign HBV model objects to all non-glacierised HRUs intended for modelling with HBV and GSM model objects for glacierised HRUs.](images/hydrological_modeling/rsm_autoModelCreation_03_GSM.png){#fig-rsm-auto-model-creation-03-GSM}
+
+Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown). 
 
 ![Configuration of the model creation utilities. Selecting hydrodynamic stream flow models for each river section.](images/hydrological_modeling/rsm_autoModelCreation_03.png){#fig-rsm-auto-model-creation-03}
 
@@ -231,11 +253,15 @@ You can now switch to the Model tab and look at the automatically generated mode
 
 ![Automatically generated model layout of the Chon Kemin catchment.](images/hydrological_modeling/rsm_autoModelCreation_04.png){#fig-rsm-auto-model-creation-04}
 
-The river stretch is no longer required. Delete it by selecting it with a left-click on the river object and then pressing delete in the Editing Tools menu in the header bar. 
+The river stretch is no longer required. Delete it by selecting it with a left-click on the river object and then pressing delete in the Editing Tools menu in the header bar.
 
 You can beautify the model view by loading a background image of the Chon Kemin catchment (for example a screen shot from QGIS, @fig-rsm-auto-model-creation-05) and by re-arranging the HRUs (click and drag) and climate stations for better readability. 
 
 ![Load a background image into RS Minerve by clicking Background (1) Load (2) , selecting the image (3) and pressing Open (4). Exit the background image editing mode by clicking (1) again.](images/hydrological_modeling/rsm_autoModelCreation_05.png){#fig-rsm-auto-model-creation-05}
+
+If you have generated GSM model objects, each of them will have a virtual weather station assigned to it. We approximate the weather forcing on the glaciers with the weather forcing in the respective HBV HRU for which we have already prepared the input file (see @sec-climate-data). We delete the automatically generated station objects connected to the GSM objects and connect the station objects of the appropriate HBV object (same elevation layer) to the GSM objects. Stations at high elevations in glaciated basins thus are connected to both HBV and GSM model objects (@fig-rsm-auto-model-creation-05-GSM). Attention, do not forget to specify the initial glacier thickness in the initial conditions of the GSM model objects. 
+
+![If GSM model objects are created, delete the automatically generated virtual weather stations connected to the GSM model objects and connect the GSM model objects to the virtual weather station objects of the HBV model objects in the same elevation band and sub-basin. ](images/hydrological_modeling/rsm_autoModelCreation_05_GSM.png){#fig-rsm-auto-model-creation-05-GSM}
 
 Now we need to add a comparator and a source object in order to be able to compare the simulated river discharge to the observed discharge. Step-by-step you need to click on the Source object in the model object list (1). A small faucet icon will appear en lieu of your customary cursor icon. Move your cursor to an appropriate location in the map window and click to place the source object (2). Do the same for the comparator object: activate it by clicking the object (3) and place it with a click in the map window (4).
 
@@ -346,10 +372,10 @@ Hydrological models are typically not well defined, i.e. multiple sets of parame
 An important strategy to gain confidence into a model is to split the simulation period into a calibration period and a validation period. During calibration, the model parameters are adjusted to get a satisfying fit with the measured discharge. During the validation period the calibrated model is compared to discharge data that the model hasn't seen before, i.e. the model's ability to handle potentially different model input than it has seen during calibration (also called its ability to generalize) is revealed. For example, 30 years of discharge time series can be split into the first 10 years for model calibration (i.e. model calibration is done only over the first 10 years of the time series) and into the last 20 years for model validation. A good model should perform satisfactorily not only during calibration but also during validation. If the model validation period shows better model performance than the calibration period, the modeler should take a close look at the forcing and try to explain this.  
 
 In hydrology, it is recommended to do cross-validation, i.e. to calibrate and validate a model with several combinations of calibration and validation periods and to summarize the overall model performance and the resulting parameter combinations.    
-Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem [@bergstrom_principles_1991] gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today.  
+Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem [@bergstrom_principles_1991] gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today. 
 
 #### Warm-up period
-To overcome issues with the initial water content of the catchment, a warm-up or spin-up period is typically defined. For small basins with small storages (like the mountainous basins in Central Asia) one year of model warm up is typically sufficient to fill the models reservoir with an appropriate amount of water. The warm-up period is specified in the comparator properties and excluded from the automatic calibration process.  
+To overcome issues with the initial water content of the catchment, a warm-up or spin-up period is typically defined. For small basins with small storage (like the mountainous basins in Central Asia) one year of model warm up is typically sufficient to fill the models reservoir with an appropriate amount of water. The warm-up period is specified in the comparator properties and excluded from the automatic calibration process.  
 
 ![Set up a spin-up period which is excluded from the model calibration. Open the object properties with a double-click on the comparator object in the main model window (1) and specify a 1-year spin-up period in seconds (2).](images/hydrological_modeling/rsm_calibration_01.png){#fig-rsm-calibration-01}
 
@@ -357,7 +383,7 @@ To overcome issues with the initial water content of the catchment, a warm-up or
 Before starting a full automated calibration of the model, it is advisable to identify parameters which are not sensitive and to fix them to reasonable values. In a fist step, parameters of all HRUS in the catchments are assumed to be the same. Then, one by one, the parameters are varied (simultaneously in all HRUs) to assess the impact of the parameters on the resulting discharge. If one parameter value is not sensitive, i.e. if changing the parameter value does not significantly impact the discharge, it is fixed to a literature value. The following figures illustrate the procedure: 
 
 ![Simulation results of a non-calibrated hydrological model.](images/hydrological_modeling/rsm_calibration_02.png){#fig-rsm-calibration-02}
-Remember the value of a performance indicator, for example the Nash efficiency. Then, open the Parameters window by pressing the Parameters button in the Model Properties toolbar (1), select HBV (2) and the default zone A (3) in the drop-down manus, and double the Melting factor ($\text{CFMax}$) (4). Apply the changes (5) and re-run the model.  
+Remember the value of a performance indicator, for example the Nash efficiency. Then, open the Parameters window by pressing the Parameters button in the Model Properties toolbar (1), select HBV (2) and the default zone A (3) in the drop-down menu, and double the Melting factor ($\text{CFMax}$) (4). Apply the changes (5) and re-run the model.  
 
 ![Manually changing parameter values to roughly assess parameter sensitivity.](images/hydrological_modeling/rsm_calibration_03.png){#fig-rsm-calibration-03}
 If the performance indicator becomes worse (e.g. more negative in the case of Nash), change the parameter to half of the original parameter value (2.5 in the present example and re-run the model). In the Chon Kemin example shown here, Nash will become less negative. We conclude that $\text{CFMax}$ is a sensitive parameter that should be calibrated. If the change of the parameter value does not produce a similar relative change of the performance indicator, the model is not highly sensitive to that specific parameter and it does not need to be calibrated.   
@@ -366,13 +392,584 @@ If the performance indicator becomes worse (e.g. more negative in the case of Na
 It is good practice to validate your results with data from the literature and with other, publicly available data sets. Literature values may be useful to limit parameter ranges for the calibration and to verify the conceptual hydrological model. Data sets like the High Mountain Asia Snow Reanalysis data set can be used to verify the snow water balance (automated calibration of snow water equivalents is not currently possible in RS Minerve) and for flatter areas, soil remotely sensed moisture observations and evaporation products may be used to constrain the parameters of the root zone and upper soil box.  
 
 #### Calibration procedure
-It is advisable to not calibrate all parameters at the same time but to calibrate module by module from the top-most layer to the bottom-most layer (along the flow path of the water). I.e. start by calibrating the sensitive parameters of the snow module, then proceed to the root zone module, the upper soil module and last calibrate the parameters of the groundwater module. This procedure may not yield an absolute minimum of the objective function (the best performance indicators possible) but it will leave you with physically meaningful parameters which is what is important. 
+It is advisable to not calibrate all parameters at the same time but to calibrate module by module from the top-most layer to the bottom-most layer (along the flow path of the water). I.e. in the case of the HBV model, start by calibrating the sensitive parameters of the snow module, then proceed to the root zone module, the upper soil module and last calibrate the parameters of the groundwater module. This procedure may not yield an absolute minimum of the objective function (the best performance indicators possible) but it will leave you with physically meaningful parameters which is what is important. 
 
-In between calibrations of individual parameters, switch to the model tab or to the selection and plot tab and look at the results of individual model components. Make sure you don't have accumulation of snow in the lower HRUs. Accumulation of snow is only allowed in glacierized HRUs. Also other water reservoirs may accidentally be filling up or emptying out, e.g. storage of the lower reservoir. Typically, the storage components in a hydrological system are more or less in steady-state (except for the glaciers). That means, that over several years, the water storage does not change much. If your model shows storage changes, they may be caused either by infrastructure or management changes (research) or by bad parameter sets. 
+In between calibrations of individual parameters, switch to the model tab or to the selection and plot tab and look at the results of individual model components. Make sure you don't have accumulation of snow in the lower HRUs. Accumulation of snow may only be justified in glacierized HRUs. Also other water reservoirs may accidentally be filling up or emptying out, e.g. storage of the lower reservoir. Typically, the storage components in a hydrological system are more or less in steady-state (except for the glaciers). That means, that over several years, the water storage does not change much. If your model shows storage changes, they may be caused either by infrastructure or management changes (research) or by bad parameter sets. 
 You should further update the initial conditions of the model from time to time to make sure that they are consistent with the model parameters. 
 
 You may perform several calibrations using different performance indicators and different calibration periods. This will give you a set of parameters which partially represent the uncertainty of the hydrological model.  
 
+
+#### Manual calibration 
+Automated calibration is available in RS MINERVE for discharge. However, unexperienced modelers should always start with an exploration of the sensitivity of the parameter space. Further, not all model states and fluxes can be calibrated using the automated calibration tools in RS MINERVE, for example snow water equivalent. If automated calibration is not available, simulation results can be exported from RS MINERVE and be compared to observed data (or simulation results from the literature) in R.    
+
+As mentioned above, publicly available data like snow water equivalents, snow covered area, glacier thinning rates or simulated glacier runoff data may be used to manually calibrate parameters of the GSM model objects. Such data typically has large uncertainties, sometimes in the order of 100 %, but it at least allows to make sure that simulated glacier runoff is in a reasonable order of magnitude. 
+
+The selection of simulation results in large models can be a tedious process. RS MINERVE allows the import of a so called check node file in the xml format in which a selection of simulation results can be specified. The package `riversCentralAsia` offers the function `writeSelectionCHK` which facilitates the writing of such a check node file. The model calibration should start with the snow modules of the HBV model objects or the glacier thinning and discharge of the GSM model objects, then proceed to the soil moisture, upper and lower reservoir modules of the HBV model objects.  
+
+##### Calibration of snow water equivalent
+At the time of writing, RS MINERVE does not yet support the automatic calibration of SWE. However, snow melt is a major contribution to discharge in Central Asia. Measurements of SWE are only very rarely available. Thus, re-analysis products like the High Mountain Asia Snow Reanalysis (HMASR) product are valuable resources to validate hydrolgoical modelling efforts. 
+
+In the [snow and glacier data section](@sec-snow-and-glacier-data) we have demonstrated how to extract average SWE from the HMASR product for each elevation band in the Atbashy basin. It is highly recommended to study the technical manual of each data set prior to using it and to review the data set for its quality. We will show here how to extract simulated SWE from RS MINERVE and how it may be compared to the HMASR data set. 
+
+The code snipped below demonstrates how to write a check node file for the HBV model objects in the hydrological model of the Atbashy river basin. 
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(lubridate)
+library(sf)
+library(ncdf4)
+library(riversCentralAsia)
+
+# Path to the data directory downloaded from the download link provided above. 
+data_path <- "../caham_data/SyrDarya/Atbashy/"
+
+# Read in a list of HBV objects in the model
+Object_IDs <- st_read(paste0(data_path, 
+                             "GIS/16076_HRU.shp")) |> 
+  st_drop_geometry() 
+
+# Define the model objects and variables for the selection
+data <- tibble(
+  Model = rep("Model Atbashy", length(Object_IDs$name)), 
+  Object = c(rep("HBV92", length(Object_IDs$name))), 
+  ID = Object_IDs$name, 
+  Variable = rep("SWE (m)")
+)
+
+# Write the check node file which can be imported to RS MINERVE
+writeSelectionCHK(
+  # To reproduce the example, make sure the below filepath exists
+  filepath = paste0(data_path, "RSMINERVE/SWE.chk"), 
+  data = data, 
+  # The name of the selection will appear in RS MINERVE
+  name = "SWE"  
+)
+```
+
+The check node file is read in to RS MINERVE under the Selection and plots tab, using the Import button. A new selection named SWE will appear which can be exported to a csv file using the button Export Results to... The following code snipped demonstrates how to read in the simulated SWE to R.
+
+```{r}
+#| fig-cap: "Simulated SWE from an uncalibrated hydrological model of the Atbashy river catchment in each elevation band in each sub-basin."
+#| label: fig-sim-SWE-Atbashy-uncalibrated
+#| warning: false
+#| message: false
+#| error: false
+library(tidyverse)
+library(lubridate)
+library(sf)
+library(ncdf4)
+library(riversCentralAsia)
+
+# Path to the data directory downloaded from the download link provided above. 
+data_path <- "../caham_data/SyrDarya/Atbashy/"
+
+swe_sim <- readResultCSV(
+  paste0(data_path, 
+         "RSMINERVE/Atbaschy_Results_SWE_uncalibrated.csv")) |>  
+  mutate(Subbasin = gsub("\\_Subbasin\\_\\d+$", "", model), 
+         # Extract the elevation band level from the HRU names, for plotting
+         "Elevation band" = str_extract(model, "\\d+$") |> as.numeric(), 
+         "Elevation band" = factor(`Elevation band`, levels = c(1:20)))
+
+ggplot(swe_sim) + 
+  geom_point(aes(date, value, colour = `Elevation band`), 
+             alpha = 0.4, size = 0.4) + 
+  scale_colour_viridis_d() + 
+  facet_wrap("Subbasin") + 
+  ylab("SWE [m]") + 
+  xlab("Date") + 
+  theme_bw()
+```
+
+Now we import the SWE extracted from the HMASR product for each elevation band and compare the observed SWE to the simulated one. 
+
+```{r}
+#| fig-cap: "Monthly simulated SWE from an uncalibrated hydrological model of the Atbashy river catchment versus SWE extracted from the HMASR product (aka observed SWE, source: Liu et al. 2021) in each elevation band."
+#| label: fig-sim-SWE-vs-obs-SWE
+#| warning: false
+#| message: false
+#| error: false
+# Loads SWE extracted from HMASR per HRU in the Atbashy model.
+load(paste0(data_path, "/SNOW/SWE.RData"))
+
+compare_swe <- swe_sim |> 
+  rename(Sim = value) |> 
+  dplyr::select(date, model, Sim, Subbasin, `Elevation band`) |> 
+  left_join(swel |> 
+              dplyr::select(Date, Name, SWE) |> 
+              rename(Obs = SWE), 
+            by = c("date" = "Date", "model" = "Name")) |>
+  mutate(Month = month(date), 
+         Year = hyear(date), 
+         Month_str = factor(format(date, "%b"), 
+                            levels = c("Jan", "Feb", "Mar", "Apr", "May", 
+                                       "Jun", "Jul", "Aug", "Sep", "Oct", 
+                                       "Nov", "Dec")), 
+         "Obs-Sim" = Obs - Sim)
+
+# Calculate the performance indicator RMSE. Many other indicators may be used. 
+RMSE = sqrt(mean(compare_swe$`Obs-Sim`, na.rm = TRUE))
+
+ggplot(compare_swe) +
+  geom_abline(intercept = 0, slope = 1) + 
+  geom_point(aes(Obs, Sim, colour = `Elevation band`), size = 0.4) +
+  scale_color_viridis_d() + 
+  xlab("Observed SWE [m]") + 
+  ylab("Simulated SWE [m]") + 
+  facet_wrap("Month_str") + 
+  coord_fixed() + xlim(0, 1.5) + ylim(0, 1.5) + 
+  theme_bw()
+```
+The comparison of simulated and observed SWE shows biases, indicating an underestimation of SWE in the model which can be adjusted by adapting the parameters of the snow modules in the HBV model objects in RS MINERVE. The package riversCentralAsia allows you to edit parameter files from R using the functions ```readRSMParameters()``` and ```writeRSMParameters()``` (please see the [package documentation](https://hydrosolutions.github.io/riversCentralAsia/){target="_blank"} for examples). 
+
+Advanced modellers and scripters can use the package [```RSMinerveR```](https://github.com/hydrosolutions/RSMinerveR){target="_blank"}, available from github, to run the hydrological model from R.  
+
+In places where SWE observations are not available or where operational data on SWE is required, a binary variable of SWE larger than a threshold per hydrological response unit (HRU) can be compared to snow covered area (a MODIS product) in each HRU (see for example @parajka_value_2008).
+
+
+##### Calibration of the glacier melt model
+The following code chunk demonstrates how a check node file can be prepared to read out simulated glacier discharge and glacier thickness from an uncalibrated version of the Gunt river model.  
+
+Please note that, in addition to a visual comparison of simulated vs. observed model states of fluxes, the computation of performance indicators is recommended. Tracking changes of performance indicators makes it straight forward to see, if a change in a parameter leads to the desired adjustment of the model outcome or not. 
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(lubridate)
+library(sf)
+library(ncdf4)
+library(riversCentralAsia)
+
+# Read in the HRU names
+Object_IDs <- st_read("../caham_data/AmuDarya/17050_Gunt/GIS/17050_hru_GSM.shp") |> 
+  st_drop_geometry() 
+
+# Get a list of glacierised HRUs (their name starts with "gl")
+gsm_objects <- Object_IDs |> 
+  dplyr::filter(str_detect(name, "gl_"))
+
+# Prepare a tibble with the variables to be written to the check node file
+data <- tibble(
+  Model = rep("Model Gunt", (length(gsm_objects$name))*2), 
+  Object = rep("GSM", (length(gsm_objects$name)*2)), 
+  ID = c(gsm_objects$name, gsm_objects$name), 
+  Variable = c(rep("Qglacier (m3/s)", length(gsm_objects$name)), 
+               rep("Hglacier (m)", length(gsm_objects$name)))
+)
+
+# Write the check node file
+writeSelectionCHK(
+  filepath = "../caham_data/AmuDarya/17050_Gunt/RS_MINERVE/HQ_glaciers.chk", 
+  data = data, 
+  name = "HQglaciers"  # Name of the selection that will appear in RS MINERVE
+)
+```
+
+In the Selection and plots tab in RS MINERVE, click on Import and select the file HQ_glaciers.chk. You will see a new selection now called HQglaciers. You can now save the simulation results as csv by clicking the Export Results to... button. We call the file Gunt_Results_HQglaciers.csv and read it in as demonstrated below:
+
+```{r}
+#| fig-cap: "Simulated glacier height and discharge from an uncalibrated model of the Gunt river basin illustrating that glacier elevations can become negative."
+#| label: fig-hqgl-raw
+#| warning: false
+#| message: false
+#| error: false
+hqgl <- readResultCSV("../caham_data/AmuDarya/17050_Gunt/RS_MINERVE/Gunt_Results_HQglaciers.csv") |> 
+  mutate(object = ifelse(str_detect(model, "gl_"), "GSM", "HBV"), 
+         # Extract ID of elevation band for plotting
+         layer = str_extract(model, "\\d+"),  
+         layer = factor(layer, levels = c(1:11)))
+
+ggplot(hqgl |> 
+         mutate(Hyear = hyear(date)) |> 
+         group_by(Hyear, layer, variable, unit) |> 
+         summarise(date = last(date), 
+                   value = ifelse(variable == "Qglacier", 
+                                  mean(value), 
+                                  last(value))) |> 
+         ungroup()) + 
+  geom_line(aes(date, value, colour = layer), alpha = 0.6, size = 0.8) + 
+  scale_colour_viridis_d() + 
+  facet_wrap(c("variable", "unit"), scales = "free_y") + 
+  theme_bw()
+```
+
+The above plot show how glacier thickness can go below 0. As this hydrological model is very simple, we can correct the glacier thickness and discharge after the simulation. 
+
+```{r}
+#| fig-cap: "Corrected, simulated glacier height and discharge from an uncalibrated model of the Gunt river basin. Glacier thickness cannot become negative."
+#| label: fig-hqgl-raw
+#| warning: false
+#| message: false
+#| error: false
+hqgl_corrected <- hqgl |> 
+  pivot_wider(values_from = value, names_from = c(variable, unit), 
+              names_sep = "|") |> 
+  mutate("Qglacier|m3/s" = ifelse(`Hglacier|m` <= 0, 0, `Qglacier|m3/s`), 
+         "Hglacier|m" = ifelse(`Hglacier|m` <= 0, 0, `Hglacier|m`)) |> 
+  pivot_longer(c(`Qglacier|m3/s`, `Hglacier|m`), values_to = "value", 
+               names_to = c("variable", "unit"), names_sep = "\\|")
+
+ggplot(hqgl_corrected |> 
+         mutate(Hyear = hyear(date)) |> 
+         group_by(Hyear, layer, variable, unit) |> 
+         summarise(date = last(date), 
+                   value = ifelse(variable == "Qglacier", 
+                                  mean(value), 
+                                  last(value))) |> 
+         ungroup()) + 
+  geom_line(aes(date, value, colour = layer), alpha = 0.6, size = 0.8) + 
+  scale_colour_viridis_d() + 
+  facet_wrap(c("variable", "unit"), scales = "free_y") + 
+  theme_bw()
+```
+
+Glacier discharge as well as glacier thickness can be compared to literature data. By manually adjusting the GSM model parameters, both simulated glacier discharge and glacier thickness can become more similar to the literature data.  
+##### Example glacier thickness
+Simulated glacier thinning rates may be compared to observed thinning rates by @hugonnet_accelerated_2021. The observed thinning rates are available by glacier while the simulated thinning rates are by HRU. We aggregate both data sets to the basin level (see @ fig-obs-hugonnet-gunt-raw). 
+```{r}
+#| fig-cap: "Average observed (Source: Hugonnet et al., 2021) in the Gunt river basin and simulated glacier thinning rates from an uncalibrated hydrological model of the Gunt river basin."
+#| label: fig-obs-hugonnet-gunt-raw
+#| warning: false
+#| message: false
+#| error: false
+# Read in the RGI glaciers shape cut to the Gunt basin to filter the Hugonnet
+# data set
+# Read in glacier geometries
+rgi <- st_read("../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_RGI_glaciers.shp") |> 
+  dplyr::select(RGIId, Area_m2, Volume_m3) 
+
+# Glacier volume was already estimated in QGIS. You can also do this in R using 
+# the following example code:  
+# demo <- rgi |> 
+#   mutate(Area_m2 = as.numeric(st_area(rgi)), 
+#          Volume_m3 = glacierVolume_Erasov(Area_m2/10^6)*10^9)
+
+# Path to data for the Central Asian domain
+data_path <- "../caham_data/central_asia_domain/glaciers/"
+
+hugonnet <- read_csv(paste0(data_path, "Hugonnet/dh_13_rgi60_pergla_rates.csv"))
+# Explanation of variables (see documentation by Hugonnet et al., 2021):
+# - dhdt is the elevation change rate in meters per year,
+# - dvoldt is the volume change rate in meters cube per year,
+# - dmdt is the mass change rate in gigatons per year,
+# - dmdtda is the specific-mass change rate in meters water-equivalent per year.
+
+# Filter the basin glaciers from the Hugonnet data set. 
+hugonnet <- hugonnet |> 
+  dplyr::filter(rgiid %in% unique(rgi$RGIId)) |> 
+  tidyr::separate(period, c("start", "end"), sep = "_") |> 
+  mutate(start = as_date(start, format = "%Y-%m-%d"), 
+         end = as_date(end, format = "%Y-%m-%d"), 
+         period = round(as.numeric(end - start, units = "days")/366))
+
+# Join the Hugonnet data set to the RGI data set to be able to plot the thinning
+glaciers_hugonnet <- rgi |> 
+  left_join(hugonnet |> 
+              dplyr::select(rgiid, start, dmdtda, err_dmdtda, period) |> 
+              dplyr::filter(start == as_date("2000-01-01"), 
+                            period == 10),  
+            by = c("RGIId" = "rgiid")) |> 
+  group_by(start, period) |> 
+  summarise(dmdtda = mean(dmdtda, na.rm = TRUE), 
+            err_dmdtda = mean(err_dmdtda, na.rm = TRUE)) |> 
+  ungroup() 
+
+sim_delta_Hglacier <- hqgl_corrected |> 
+  # Filter the simulated glacier thickness to the same period as the observed
+  dplyr::filter(variable == "Hglacier", 
+                date >= as_date("2000-01-01") & date < as_date("2011-01-01"))|> 
+  mutate(Hyear = hyear(date)) |> 
+  group_by(Hyear, model, unit) |> 
+  summarise(Hglacier = last(value)) |>
+  ungroup() |> 
+  # Calculate glacier thickness change
+  pivot_wider(names_from = model, values_from = Hglacier) |> 
+  mutate(across(starts_with("gl"), ~ .x - lag(.x))) |> 
+  drop_na() |> 
+  pivot_longer(-c(Hyear, unit), names_to = "model", values_to = "dHgl/dt") |> 
+  group_by(model) |> 
+  summarise("sd(dHgl/dt)" = sd(`dHgl/dt`, na.rm = TRUE), 
+            "dHgl/dt" = mean(`dHgl/dt`, na.rm = TRUE)) |> 
+  ungroup() |> 
+  mutate(model = gsub("gl_", "", model)) |> 
+  # Aggregate by basin
+  summarise("sd(dHgl/dt)" = mean(`sd(dHgl/dt)`, na.rm = TRUE), 
+            "dHgl/dt" = mean(`dHgl/dt`, na.rm = TRUE))
+
+# Combine observed and simulated average glacier thinning in one variable 
+compareH <- glaciers_hugonnet |> 
+  st_drop_geometry() |> 
+  dplyr::select(dmdtda, err_dmdtda) |> 
+  transmute(Source = "Obs", 
+            "dH/dt [m]" = dmdtda, 
+            lb = dmdtda - err_dmdtda, 
+            ub = dmdtda + err_dmdtda) |> 
+  add_row(sim_delta_Hglacier |> 
+            mutate(Source = "Sim", 
+                   lb = `dHgl/dt` - `sd(dHgl/dt)`, 
+                   ub = `dHgl/dt` + `sd(dHgl/dt)`) |>
+            rename("dH/dt [m]" = `dHgl/dt`) |> 
+            select(-`sd(dHgl/dt)`)) 
+
+ggplot(compareH) + 
+  geom_errorbar(aes(Source, ymin = lb, ymax = ub), 
+                width = 0.2) + 
+  geom_col(aes(Source, `dH/dt [m]`, fill = Source), 
+           colour = "black", position = "dodge") + 
+  geom_hline(yintercept = 0, size = 0.4) + 
+  xlab("") + 
+  theme_bw()
+```
+
+The average observed thinning rate is 2 cm/a and the simulated thinning rate is 34 cm/a. The simulated thinning remains within the uncertainty of the observed thinning rates but may be overestimated in the model. Let's have a look ad glacier discharge data sets. 
+
+##### Example glacier discharge
+Glacier discharge estimates in High Mountain Asia by @miles_health_2021 are among the best currently available as they calculate the specific mass balance of the glacier. 
+```{r}
+#| fig-cap: "Average observed (Source: Miles et al., 2021) in the Gunt river basin and simulated glacier discharge rates from an uncalibrated hydrological model of the Gunt river basin."
+#| label: fig-obs-hugonnet-gunt-raw
+#| warning: false
+#| message: false
+#| error: false
+# Load glacier ablation data by Miles et al., 2021 and filter to the Central 
+# Asian domain
+# Limitation: Miles et al. report average total Ablation in m3/a for the years 
+# 2000 to 2016. Our historical forcing time series only goes until the end of 
+# 2011, that means that the averaging periods for the comparison of the 
+# observed and simulated glacier discharge do not overlap.  
+# Further, Miles et al. only cover glaciers with areas > 2 km2. The observed 
+# glacier discharge over the basin is therefore likely underestimated. 
+miles <- read_csv(paste0(data_path,
+                         "Miles/Miles2021_Glaciers_summarytable_20210721.csv")) |>
+  dplyr::filter(grepl("RGI60-13.", RGIID), 
+                VALID == 1) |> 
+  dplyr::select(RGIID, totAbl, totAblsig)
+
+glaciers_miles <- rgi |> 
+  st_drop_geometry() |> 
+  left_join(miles, by = c("RGIId" = "RGIID")) |> 
+  summarise(totAbl = sum(-totAbl, na.rm = TRUE), 
+            totAblsig = sum(totAblsig, na.rm = TRUE)) |> 
+  ungroup() 
+
+sim_Qglacier <- hqgl |> 
+  dplyr::filter(variable == "Qglacier", 
+                date >= as_date("2000-01-01"))|> 
+  mutate(Hyear = hyear(date)) |> 
+  group_by(Hyear, model, unit) |> 
+  summarise(Qglacier = mean(value), 
+            sdQgl = sd(value)) |>
+  ungroup() |> 
+  group_by(model) |> 
+  summarise(Qglacier = sum(Qglacier)*60*60*24*365, # m3/s to m3/a
+            sdQgl = sum(sdQgl)*60*60*24*365) |> 
+  ungroup() |> 
+  mutate(model = gsub("_Gl", "", model)) |> 
+  summarise(Qglacier = sum(Qglacier), 
+            sdQgl = mean(sdQgl))
+
+compareQ <- glaciers_miles |> 
+  transmute(Source = "Obs", 
+            "Q [10^6 m3/a]" = totAbl, 
+            lb = totAbl - totAblsig, 
+            ub = totAbl + totAblsig) |> 
+  add_row(sim_Qglacier |> 
+            transmute(Source = "Sim", 
+                      "Q [10^6 m3/a]" = Qglacier, 
+                      lb = Qglacier - sdQgl, 
+                      ub = Qglacier + sdQgl)) |> 
+  mutate(`Q [10^6 m3/a]` = `Q [10^6 m3/a]`*10^(-6), 
+         lb = lb/10^6, 
+         ub = ub/10^6)
+
+ggplot(compareQ) + 
+  geom_errorbar(aes(Source, ymin = lb, ymax = ub), 
+                width = 0.2) + 
+  geom_col(aes(Source, `Q [10^6 m3/a]`, fill = Source), 
+           colour = "black", position = "dodge") + 
+  geom_hline(yintercept = 0, size = 0.4) + 
+  xlab("") + 
+  theme_bw()
+```
+
+The observed glacier discharge is estimated at about 30 million m3/a whereas the simulated glacier discharge is estimated at about 1500 million m3/a. In the case of glacier discharge
+
+@rounce_glacier_2020 simulate glacier discharge in High Mountain Asia using the Python Glacier Evolution Model (PyGEM) and make their data publicly available [@rounce_high_2020]. Let's compare our simulation results to theirs. The below code snipped demonstrates how the PyGEM simulation results can be extracted for a given basin. We have pre-computed the data for the Gunt catchment. 
+
+```{r}
+#| eval: false
+glaciers <- rgi$RGIId
+
+# Here we read in all nc files in a folder. For this example, we only use one 
+ncfilelist <- list.files(path = paste0(data_path, "PyGEM"), pattern = ".nc$", 
+                         full.names = TRUE)
+ncfilelist <- ncfilelist[str_detect(ncfilelist, "_R13_")]
+
+glac_melt_basin <- NULL
+glac_runoff_basin <- NULL
+offglac_runoff_basin <- NULL
+glac_volume_basin <- NULL
+
+for (ncfile in ncfilelist) {
+  
+  # Get the rcp identifyer from the file name
+  rcp <- str_extract(ncfile, "rcp\\d{2}")
+  
+  # Open a file for reading
+  file <- nc_open(ncfile)
+  
+  # Get the RGI IDs and the glacier indices used in the PyGEM data set
+  rgiid <- ncvar_get(file, "RGIId")
+  pygem_indices <- ncvar_get(file, "glac")
+  
+  # Identify the indices of the glaciers we are interested in in the nc file
+  rgi_indices <- which(rgiid %in% glaciers)
+  
+  # Get dates for the monthly time series. 
+  # The time series starts on October 1, 1999. 
+  time <- ncvar_get(file, "time")  # In days
+  date <- as_date("1999-10-01") + time
+  
+  # Get dates for the annual time series. 
+  year <- ncvar_get(file, "year_plus1")
+  date_annual <- as_date(paste(year, "10", "01", sep = "-"))
+  
+  # Get the glacier volume and discharge for the selected glaciers
+  glac_melt_monthly <- ncvar_get(file, "glac_melt_monthly")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = as.character(date)) |> 
+    tidyr::pivot_longer(-date, names_to = "RGIId", values_to = "glac_melt_mweq") |> 
+    mutate(rcp = rcp) 
+  glac_melt_monthly_std <- ncvar_get(file, "glac_melt_monthly_std")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = as.character(date)) |> 
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_melt_std_mweq") |> 
+    mutate(rcp = rcp) 
+  
+  glac_runoff_monthly <- ncvar_get(file, "glac_runoff_monthly")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_runoff_m3") |>
+    mutate(rcp = rcp)
+  glac_runoff_monthly_std <- ncvar_get(file, "glac_runoff_monthly_std")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_runoff_std_m3") |>
+    mutate(rcp = rcp)
+  
+  offglac_runoff_monthly <- ncvar_get(file, 
+                                      "offglac_runoff_monthly")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "offglac_runoff_m3") |>
+    mutate(rcp = rcp) 
+  offglac_runoff_monthly_std <- ncvar_get(file, 
+                                      "offglac_runoff_monthly_std")[, rgi_indices] |>
+    as_tibble(.name_repair = ~ glaciers) |>
+    mutate(date = as.character(date)) |>
+    pivot_longer(-date, names_to = "RGIId", values_to = "offglac_runoff_std_m3") |>
+    mutate(rcp = rcp) 
+  
+  # Aggregate to annual date for the basin
+  glac_melt_basin <- rbind(glac_melt_basin, 
+    glac_melt_monthly |> 
+      left_join(glac_melt_monthly_std, by = c("date", "RGIId", "rcp")) |> 
+      mutate(date = as_date(paste(hyear(date), "10", "01", sep = "-"))) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(glac_melt_mweq, na.rm = TRUE), 
+                lb = sum(glac_melt_mweq - glac_melt_std_mweq, na.rm = TRUE), 
+                ub = sum(glac_melt_mweq + glac_melt_std_mweq, na.rm = TRUE)) |> 
+      ungroup())
+  
+  glac_runoff_basin <- rbind(glac_runoff_basin, 
+    glac_runoff_monthly |> 
+      left_join(glac_runoff_monthly_std, by = c("date", "RGIId", "rcp")) |> 
+      mutate(date = as_date(paste(hyear(date), "10", "01", sep = "-"))) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(glac_runoff_m3, na.rm = TRUE), 
+                lb = sum(glac_runoff_m3 - glac_runoff_std_m3, na.rm = TRUE), 
+                ub = sum(glac_runoff_m3 + glac_runoff_std_m3, na.rm = TRUE)) |> 
+      ungroup())
+  
+  offglac_runoff_basin <- rbind(offglac_runoff_basin, 
+    offglac_runoff_monthly |> 
+      left_join(offglac_runoff_monthly_std, by = c("date", "RGIId", "rcp")) |> 
+      mutate(date = as_date(paste(hyear(date), "10", "01", sep = "-"))) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(offglac_runoff_m3, na.rm = TRUE), 
+                lb = sum(offglac_runoff_m3 - offglac_runoff_std_m3, na.rm = TRUE), 
+                ub = sum(offglac_runoff_m3 + offglac_runoff_std_m3, na.rm = TRUE)) |> 
+      ungroup())
+  
+  
+  
+  # Read annual volume development and standard deviation
+  glac_volume_annual <- ncvar_get(file, "glac_volume_annual")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = date_annual) |> 
+    pivot_longer(-date, names_to = "RGIId", values_to = "glac_volume_km3ice") |> 
+    mutate(rcp = rcp)
+  glac_volume_annual_std <- ncvar_get(file, 
+                                      "glac_volume_annual_std")[, rgi_indices] |> 
+    as_tibble(.name_repair = ~ glaciers) |> 
+    mutate(date = date_annual) |> 
+    pivot_longer(-date, names_to = "RGIId", 
+                 values_to = "glac_volume_std_km3ice") |> 
+    mutate(rcp = rcp)
+  
+  # Aggregate to basin level
+  glac_volume_basin <- rbind(glac_volume_basin, 
+    glac_volume_annual |> 
+      left_join(glac_volume_annual_std, by = c("date", "RGIId", "rcp")) |> 
+      group_by(date, rcp) |> 
+      summarise(mean = sum(glac_volume_km3ice, na.rm = TRUE), 
+                lb = sum(glac_volume_km3ice - glac_volume_std_km3ice, na.rm = TRUE), 
+                ub = sum(glac_volume_km3ice + glac_volume_std_km3ice, na.rm = TRUE)) |> 
+      ungroup())
+  
+}
+
+save(glac_runoff_basin, glac_volume_basin, 
+     file = "../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData")
+```
+
+```{r}
+#| fig-cap: "Average observed (Source: Rounce et al., 2020) in the Gunt river basin and simulated glacier thinning rates from an uncalibrated hydrological model of the Gunt river basin."
+#| label: fig-obs-hugonnet-gunt-raw
+#| warning: false
+#| message: false
+#| error: false
+load("../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData")
+
+glac_runoff_basin <- glac_runoff_basin |> 
+  dplyr::filter(year(date) <= 2011) |>  # Filter same period as simulation
+  group_by(rcp) |> 
+  summarise(mean = mean(mean), 
+            lb = mean(lb), 
+            ub = mean(ub)) |> 
+  ungroup()
+
+compareQ2 <- compareQ |> 
+  dplyr::filter(Source == "Sim") |> 
+  add_row(tibble(
+    Source = "Obs", 
+    "Q [10^6 m3/a]" = glac_runoff_basin$mean/10^6, 
+    lb = glac_runoff_basin$lb/10^6, 
+    ub = glac_runoff_basin$ub/10^6
+  ))
+
+ggplot(compareQ2) + 
+  geom_errorbar(aes(Source, ymin = lb, ymax = ub), 
+                width = 0.2) + 
+  geom_col(aes(Source, `Q [10^6 m3/a]`, fill = Source), 
+           colour = "black", position = "dodge") + 
+  geom_hline(yintercept = 0, size = 0.4) + 
+  xlab("") + 
+  theme_bw()
+```
+The uncalibrated hyrological model grossly overestimates glacier discharge. It is necessary to adjust the model parameters to produce less glacier discharge. 
 
 
 #### Automatic model calibration with RS Minerve

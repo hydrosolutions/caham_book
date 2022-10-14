@@ -2,7 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
+<<<<<<< HEAD
 <meta name="generator" content="quarto-0.9.471">
+=======
+<meta name="generator" content="quarto-0.9.299">
+>>>>>>> master
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="2022 release">
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 8&nbsp; Hydrological-Hydraulic Modeling</title>
@@ -260,7 +264,11 @@ div.csl-indent {
 
 <div>
   <div class="description">
+<<<<<<< HEAD
     2022 release
+=======
+    <p>This text is intended for the modern study of hydrology and mathematical modeling of hydrological systems in semi-arid Central Asia. It is geared towards students and teachers that would like to learn about these topics in an applied manner. The book adopts an open-educational philosophy and promotes the use of open data and free of charge software. This is the 2022 release of the book.</p>
+>>>>>>> master
   </div>
 </div>
 
@@ -368,8 +376,7 @@ P = Q + dS/dt \Leftrightarrow P = Q + k \cdot dQ/dt
 <p>Where P is the <em>excess</em> precipitation, i.e.&nbsp;the precipitation that is not intercepted by plants or ponds but contributes to discharge. The above is a differential equation and can be re-arranged:</p>
 <p><span class="math display">\[(P-Q) \cdot dt = k \cdot dQ\]</span></p>
 <p>and integrated and solved for Q(t) (dig out your mathematics!). In the example in the box below we discretized the water balance with the linear relationship between discharge and storage change in the reservoir:</p>
-<p><span class="math display">\[\frac{P_{t_1}+P_{t_1}}{2} - \frac{Q_{t1}+Q_{t_2}}{2} = \frac{k}{t_2-t_1} \cdot (Q_{t_2}-Q_{t_1})\]</span></p>
-<p>and solved the equation for <span class="math inline">\(Q_{t_2}\)</span> (Inspiration from <span class="citation" data-cites="Pedersen1980">Pedersen, Peters, and Helweg (<a href="#ref-Pedersen1980" role="doc-biblioref">1980</a>)</span>).<br>
+<p><span class="math display">\[\frac{P_{t_1}+P_{t_1}}{2} - \frac{Q_{t1}+Q_{t_2}}{2} = \frac{k}{t_2-t_1} \cdot (Q_{t_2}-Q_{t_1})\]</span> and solved the equation for <span class="math inline">\(Q_{t_2}\)</span> (Inspiration from <span class="citation" data-cites="Pedersen1980">Pedersen, Peters, and Helweg (<a href="#ref-Pedersen1980" role="doc-biblioref">1980</a>)</span>).<br>
 We assume that at the beginning of our experiment, we don’t have a discharge as the bucket is empty.</p>
 <p><span class="math display">\[Q(t) = P(t) \cdot (1-e^{(-t/k)})\]</span></p>
 <p>This is the equation for the rising discharge curve. Once you turn off the recharge of the reservoir (once you stop pouring water into the bucket), the discharge from the bucket can be described as:</p>
@@ -527,15 +534,12 @@ This is done by fixing the least sensitive parameters to literature values</li>
 <p>Now click Validation (1) to let RS Minerve test if the model is valid.</p>
 <p><img src="images/hydrological_modeling/rsm_firstModelRun_01.png" id="fig-rsm-first-run-01" class="img-fluid" alt="Validation of the model."> In case the model is valid it will say so in the lower left corner of the RS Minerve window (2). A more detailed report appears in the output window on the right (3). The warning can be ignored as the discharge of the source is not a required input for the model simulation.</p>
 <p>Now press Start (1). The simulation is done fairly quickly. With a double-click on the comparator object in the center window the output window fills with a lot of information. The Results table shows a number of indicators of model goodness. Here we will only briefly mention the most commonly encountered. Please read Chapter 3 on the performance indicators in the technical manual <span class="citation" data-cites="rsminerve_tm">(<a href="#ref-rsminerve_tm" role="doc-biblioref">Garcia Hernandez et al. 2020</a>)</span> for the equations of each available indicator.</p>
-<p>The relative root mean squared error (RSME) ranges from 0 to <span class="math inline">\(\infty\)</span> and should be minimized.</p>
-<p><span class="math display">\[
+<p>The relative root mean squared error (RSME) ranges from 0 to <span class="math inline">\(\infty\)</span> and should be minimized. <span class="math display">\[
 \text{RRMSE} = \frac{ \sqrt{ \frac{1}{N} \cdot \sum_{t=1}^N \Big( Q_{sim}(t) - Q_{obs}(t)\Big)^2}}{\overline{Q_{obs}(t)}}
 \]</span></p>
-<p>The Nash-Sutcliffe efficiency (Nash) ranges from -<span class="math inline">\(\infty\)</span> to 1 and should be maximized. Nash of 0 means that the model has the same performance as the average of the measured data.</p>
-<p><span class="math display">\[
+<p>The Nash-Sutcliffe efficiency (Nash) ranges from -<span class="math inline">\(\infty\)</span> to 1 and should be maximized. Nash of 0 means that the model has the same performance as the average of the measured data. <span class="math display">\[
 \text{Nash} = 1 − \frac{\sum_{t=1}^{N} \Big( Q_{sim}(t) - Q_{obs}(t) \Big)^2}{\sum_{t=1}^{N} \Big( Q_{sim}(t) - \overline{Q_{obs}(t)} \Big)^2}
-\]</span></p>
-<p>Where <span class="math inline">\(t\)</span> is the simulation time step, <span class="math inline">\(N\)</span> is the number of simulation time steps, <span class="math inline">\(Q_{sim}\)</span> is the simulated discharge and <span class="math inline">\(Q_{obs}\)</span> is the observed discharge. <span class="math inline">\(\overline{Q_{obs}}\)</span> refers to the average of the observed discharge.</p>
+\]</span> Where <span class="math inline">\(t\)</span> is the simulation time step, <span class="math inline">\(N\)</span> is the number of simulation time steps, <span class="math inline">\(Q_{sim}\)</span> is the simulated discharge and <span class="math inline">\(Q_{obs}\)</span> is the observed discharge. <span class="math inline">\(\overline{Q_{obs}}\)</span> refers to the average of the observed discharge.</p>
 <p>If your customer is especially interested in low discharge periods, the Nash coefficient for logarithm values is recommended (see <span class="citation" data-cites="rsminerve_tm">Garcia Hernandez et al. (<a href="#ref-rsminerve_tm" role="doc-biblioref">2020</a>)</span>). There are further performance indicators focusing on the discharge volume (Relative Volume Bias) or on the exceedance of a threshold flow which can be specified in the parameters of the comparator.</p>
 <div id="fig-rsm-first-run-02" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/hydrological_modeling/rsm_firstModelRun_02.png" class="img-fluid figure-img"></p>

@@ -1,5 +1,11 @@
----
-title: "CC"
-author: "Adrian Kreiner"
----
+# Part IV: Climate Change Impact Study {#sec-hydrological-modeling}
 
+The book is structured in the following way:
+
+-   Theory
+
+-   Exercise
+
+There is always a short theory section followed by a practical example.
+
+COMING SOON

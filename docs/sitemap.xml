@@ -1,91 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hydrosolutions.github.io/caham_book/index.html</loc>
-    <lastmod>2022-10-14T13:12:33.450Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/preface.html</loc>
-    <lastmod>2022-10-14T13:12:33.451Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/study_guide_materials.html</loc>
-    <lastmod>2022-10-14T13:12:33.453Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/hydrology_of_central_asia.html</loc>
-    <lastmod>2022-10-14T13:12:33.453Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/hydrological_systems.html</loc>
-    <lastmod>2022-10-14T13:12:33.456Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/example_river_basins.html</loc>
-    <lastmod>2022-10-14T13:12:33.465Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/data.html</loc>
-    <lastmod>2022-10-14T13:12:33.465Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/data_sources.html</loc>
-    <lastmod>2022-10-14T13:12:33.548Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/discharge_station_data.html</loc>
-    <lastmod>2022-10-14T13:12:33.569Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/geospatial_data.html</loc>
-    <lastmod>2022-10-14T13:12:33.570Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/snow_and_glacier_data.html</loc>
-    <lastmod>2022-10-14T13:12:33.577Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/climate_data.html</loc>
-    <lastmod>2022-10-14T13:12:33.604Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/hydrological_modeling.html</loc>
-    <lastmod>2022-10-14T13:12:33.605Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/hydraulic_hydrological_modeling.html</loc>
-    <lastmod>2022-10-14T13:12:33.610Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/long_term_water_balance_modeling.html</loc>
-    <lastmod>2022-10-14T13:12:33.611Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/modeling_using_predictive_inference.html</loc>
-    <lastmod>2022-10-14T13:12:33.639Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/glacier_modeling.html</loc>
-    <lastmod>2022-10-14T13:12:33.641Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/real_world_examples.html</loc>
-    <lastmod>2022-10-14T13:12:33.641Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/appendix_a_free_software.html</loc>
-    <lastmod>2022-10-14T13:12:33.642Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hydrosolutions.github.io/caham_book/appendix_b_riverscentralasia_r_toolbox.html</loc>
-    <lastmod>2022-10-14T13:12:33.642Z</lastmod>
+    <loc>https://hydrosolutions.github.io/caham_book/Watershed_delineation.html</loc>
+    <lastmod>2024-02-05T20:24:43.338Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/appendix_c_quick_guides.html</loc>
-    <lastmod>2022-10-14T13:12:33.646Z</lastmod>
+    <lastmod>2024-02-05T20:18:13.154Z</lastmod>
   </url>
   <url>
-    <loc>https://hydrosolutions.github.io/caham_book/appendix_d_exercise_solutions.html</loc>
-    <lastmod>2022-10-14T13:12:33.646Z</lastmod>
+    <loc>https://hydrosolutions.github.io/caham_book/Basin_characterisation.html</loc>
+    <lastmod>2024-02-05T20:25:28.544Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hydrosolutions.github.io/caham_book/Climate_change_impact_study.html</loc>
+    <lastmod>2024-02-05T20:25:53.858Z</lastmod>
   </url>
 </urlset>

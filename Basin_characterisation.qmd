@@ -1,0 +1,78 @@
+# Basin characterisation {#sec-basin-characterisation}
+
+```{r}
+#| include: false
+
+```
+
+# Theory {#sec-basin-characterisation-theory .unnumbered}
+
+In this chapter, we look at **land cover** and the definition of **hydrological response units (HRU's)** and their importance in hydrological modeling.
+
+## Land use and land cover
+
+Coming soon...
+
+## Hydrological response units (HRUs)
+
+**Hydrological response units (HRUs)** are areas that have common properties which are important from the hydrological perspective for runoff generation: for instance similar slope, elevation, aspect, soil type, vegetation cover, landuse, etc.
+
+Comig soon...
+
+# Exercise 2: Basin characterisation {#sec-basin-characterisation-exercise .unnumbered}
+
+The goal of the second exercise is to fill in @tbl-example-basin-characterization with data from your catchment. This table includes key characterisations relevant to hydrological modelling for your specific catchment area.
+
+In this exercise, we will also learn how to create a map visualizing your study area and a map illustrating the different land cover types, similar to the one shown in @fig-studyarea-dem and @fig-studyarea-landcover for the upper ZRB.
+
+![Overview over the upper Zarafshan River Basin. The digital elevation model is from @srtm_2020, the glacier outlines (clear blue) are from the glacier Randolph Inventory (@RGI_Consortium_2023)](/images/Climate_change_impact_study/Basin_characterisation/Studyarea_DEM.pdf){#fig-studyarea-dem width="300"}
+
+![Land cover map of the upstream part of the Zarafshan river basin from the ESA WorlCover dataset from @zanaga_2021_5571936.](/images/Climate_change_impact_study/Basin_characterisation/Studyarea_Landcover.pdf){#fig-studyarea-landcover width="300"}
+
+This will be done in several parts, each supported by tutorial videos in both English and Russian:
+
+-   Part 1: DEM Land Cover
+
+-   Part 2: Glacier outlines and Study area map
+
+-   Part 3: HRU's
+
+-   Part 4: Discharge data
+
+-   Part 5: Climate data
+
+## Part 1: DEM and Land Cover {#sec-basin-characterisation-exercise-Part1 .unnumbered}
+
+In this chapter, we will fill out the sections Geography and Land Cover in Table 1 and download the digital elevation model and land cover data within our catchment boundaries, which we delineated in @sec-watershed-delineation. To download the DEM and Land cover data we will use the Google Earth Engine (GEE). Google Earth Engine is a cloud-based platform for planetary-scale environmental data analysis. It hosts a vast amounts of environmental data, enabling users to download and perform various analyses and processing tasks.
+
+In this part of the exercise, we will use the GEE to download the SRTM Digital Elevation Model and Land Cover data (Source) and calculate Land cover type statistics using the [GEE Link](https://code.earthengine.google.com/c8b1300f5d547c96a5892c723e5f2532) in combination with the following tutorial.
+
+There are several other ways to download the DEM and Land Cover data. Here is a turorial how to donwload the DEM from the[Earth Explorer](https://hydrosolutions.github.io/caham_book/appendix_c_quick_guides.html#section-earth-explorer-download-srtm) or use the [QGIS Plugin](https://hydrosolutions.github.io/caham_book/appendix_c_quick_guides.html#sec-srtm-plugin). Land cover data can also be obtained directly from the [ESA WorldCover webpage](https://esa-worldcover.org/en/data-access).
+
+**English version:**
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=fGmNkA1_lcg") %>%
+  use_align("center")
+```
+
+**Russian version:**
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=dn3OhQAr4a0") %>%
+  use_align("center")
+```
+
+## Part 2: Glacier outlines and Study area map {#sec-basin-characterisation-exercise-Part2 .unnumbered}
+
+## Part 3: Hydrological response units (HRUs) {#sec-basin-characterisation-exercise-Part3 .unnumbered}
+
+## Part 4: Discharge data {#sec-basin-characterisation-exercise-Part4 .unnumbered}
+
+## Part 5: Climate data {.unnumbered}
+
+## References {#sec-basin-characterisation-references}

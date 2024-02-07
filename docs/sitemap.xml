@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/Watershed_delineation.html</loc>
-    <lastmod>2024-02-05T20:24:43.338Z</lastmod>
+    <lastmod>2024-02-07T10:22:00.581Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/appendix_c_quick_guides.html</loc>
@@ -10,10 +10,18 @@
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/Basin_characterisation.html</loc>
-    <lastmod>2024-02-05T20:25:28.544Z</lastmod>
+    <lastmod>2024-02-07T09:55:42.253Z</lastmod>
   </url>
   <url>
     <loc>https://hydrosolutions.github.io/caham_book/Climate_change_impact_study.html</loc>
-    <lastmod>2024-02-05T20:25:53.858Z</lastmod>
+    <lastmod>2024-02-07T10:15:54.697Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hydrosolutions.github.io/caham_book/Hydrological_cycle.html</loc>
+    <lastmod>2024-02-05T20:44:15.185Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hydrosolutions.github.io/caham_book/Watershed_modeling.html</loc>
+    <lastmod>2024-02-07T10:16:12.271Z</lastmod>
   </url>
 </urlset>

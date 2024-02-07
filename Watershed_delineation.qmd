@@ -11,11 +11,11 @@ In this chapter, we examine the **definition of a watershed** and how it is deli
 
 ## Watershed definition
 
-A **watershed**, often also referred to as a **catchment** or **drainage basin**, is a landscape unit over which the **hydrological balance** can be determined (measured or computed). It is the area draining to a **common point**. Watershed delineation is creating a boundary representing the contributing area for a particular point/outlet.
+A **watershed**, often also referred to as a **catchment** or **drainage basin**, is a landscape unit over which the **hydrological balance** (@eq-waterbalance) can be determined (measured or computed). It is the area draining to a **common point**. Watershed delineation is creating a boundary representing the contributing area for a particular point/outlet.
 
 ![Example of a watershed. Source: [The watershed project](https://thewatershedproject.org/what-is-a-watershed/)](/images/Climate_change_impact_study/Watershed_delineation/watershed_schematic.jpg){#fig-watershed-example width="300"}
 
-### Hydrological Balance
+### Hydrological Balance {#sec-hydrological-balance-theory .unnumbered}
 
 $$
 P + SM - ET - I- Q = 0
@@ -25,7 +25,7 @@ Where $P$ is the precipitation, $SM$ snowmelt, $ET$ evapotranspiration, $I$ infi
 
 The Topography is the main driving force behind watershed delineation. To find the **watershed boundary**, we need to pick a point (outlet) and find the area draining into it. We do this to select properties within the watershed, as well as the climate forcing.
 
-### Geographic information system (GIS)
+## Geographic information system (GIS)
 
 We perform all operations in a **Geographic Information System (GIS)**. A GIS allows us to manage, analyse, edit, produce, and visualise **geographic data**, also known as **spatial data**. This is data that includes additional location information. Spatial data comes in two forms: **vector** and **raster** data.
 
@@ -127,6 +127,7 @@ embed_url("https://www.youtube.com/watch?v=KbVSFZpU42Y&t=1s") %>%
   use_align("center")
 ```
 
-There are several other ways how to delineate a watershed. If you want to do the watershed delineation in QGIS, have a look at this Chapter @sec-catchment-delineation.
+Watershed delineation can also be performed using other tools such as QGIS, detailed in Chapter @sec-catchment-delineation, or R, as outlined [here](https://vt-hydroinformatics.github.io/rgeowatersheds.html).
+
 
 ## References {#sec-watershed-delineation-references}

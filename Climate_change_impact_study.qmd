@@ -1,11 +1,23 @@
 # Part IV: Climate Change Impact Study {#sec-hydrological-modeling}
 
-The book is structured in the following way:
+This chapter guides on conducting climate change impact studies in a gauged catchment. It refers to specific chapters in the book and walks you through the entire process.
 
--   Theory
+Each chapter is structured in the same way.
 
--   Exercise
+1. **Theory section:** A short introduction and theoretical background to each topic.
 
-There is always a short theory section followed by a practical example.
+2.**Exercise section:** There is a step-by-step guide through all the working steps on how to do a climate impact study, with the example of the Zarafshan River Basin. This section is supported by tutorial videos in Russian and English hosted on the  [HSOL YouTube channel](https://www.youtube.com/@HSOL-ot4fm/playlists).
 
-COMING SOON
+If you have any questions, please contact Adrian Kreiner or Aidar Zhumabaev or post the question in the telegram group chat.
+
+## Prerequisites
+
+This handbook uses the following software:
+
+-   R: free and open-source statistical programming language
+
+-   QGIS: free and open-source Geographical Information System (GIS)
+
+-   RSMinerve: Hydrological modelling
+
+Please refer to @sec-study-guide-day1 to find links for installing the required software. Additional support is also provided in Appendix @sec-open-resouces-software-QGIS, @sec-open-resouces-software-R and @sec-open-resouces-software-RSMinerve. In the beginning, we will need R and QGIS. From the chapter Introduction to Hydrological Modeling, RSMinerve is also needed.

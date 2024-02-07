@@ -8,7 +8,7 @@
 
 <meta name="description" content="2022 release">
 
-<title>Modeling of Hydrological Systems in Semi-Arid Central Asia - Part IV: Climate Change Impact Study</title>
+<title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 15&nbsp; Hydrological cycle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Watershed_delineation.html" rel="next">
-<link href="./real_world_examples.html" rel="prev">
+<link href="./Watershed_modeling.html" rel="next">
+<link href="./Basin_characterisation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Climate_change_impact_study.html">Part IV: Climate Change Impact Study</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Climate_change_impact_study.html">Part IV: Climate Change Impact Study</a></li><li class="breadcrumb-item"><a href="./Hydrological_cycle.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Hydrological cycle</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -245,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Climate_change_impact_study.html" class="sidebar-item-text sidebar-link active">
+            <a href="./Climate_change_impact_study.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Part IV: Climate Change Impact Study</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -266,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Hydrological_cycle.html" class="sidebar-item-text sidebar-link">
+  <a href="./Hydrological_cycle.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Hydrological cycle</span></span></a>
   </div>
 </li>
@@ -319,20 +319,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/Climate_change_impact_study.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-hydrological-modeling" class="quarto-section-identifier">Part IV: Climate Change Impact Study</span></h1>
+<h1 class="title"><span id="sec-hydrological-cycle" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Hydrological cycle</span></span></h1>
 </div>
 
 
@@ -347,25 +341,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This chapter guides on conducting climate change impact studies in a gauged catchment. It refers to specific chapters in the book and walks you through the entire process.</p>
-<p>Each chapter is structured in the same way.</p>
-<ol type="1">
-<li><p>Theory section: A short introduction and theoretical background to each topic.</p></li>
-<li><p>Exercise section: There is a step-by-step guide through all the working steps on how to do a climate impact study, with the example of the Zarafshan River Basin. This section is supported by tutorial videos in Russian and English hosted on the <a href="https://www.youtube.com/@HSOL-ot4fm/playlists">HSOL YouTube channel</a>.</p></li>
-</ol>
-<p>If you have any questions, please contact Adrian Kreiner or Aidar Zhumabaev or post the question in the telegram group chat.</p>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>This handbook uses the following software:</p>
-<ul>
-<li><p>R: free and open-source statistical programming language</p></li>
-<li><p>QGIS: free and open-source Geographical Information System (GIS)</p></li>
-<li><p>RSMinerve: Hydrological modelling</p></li>
-</ul>
-<p>Please refer to <span class="quarto-unresolved-ref">?sec-study-guide-day1</span> to find links for installing the required software. Additional support is also provided in Appendix <span class="quarto-unresolved-ref">?sec-open-resouces-software-QGIS</span>, <span class="quarto-unresolved-ref">?sec-open-resouces-software-R</span> and <span class="quarto-unresolved-ref">?sec-open-resouces-software-RSMinerve</span>. In the beginning, we will need R and QGIS. From the chapter Introduction to Hydrological Modeling, RSMinerve is also needed.</p>
+<p>Coming soon…</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -603,13 +581,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./real_world_examples.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></span>
+      <a href="./Basin_characterisation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basin characterisation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Watershed_delineation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Watershed delineation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Watershed_modeling.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Watershed modeling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -617,4 +595,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/Hydrological_cycle.qmd" class="toc-action">Edit this page</a></p></div></div></div></div></footer></body></html>

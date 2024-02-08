@@ -129,5 +129,4 @@ embed_url("https://www.youtube.com/watch?v=KbVSFZpU42Y&t=1s") %>%
 
 Watershed delineation can also be performed using other tools such as QGIS, detailed in Chapter @sec-catchment-delineation, or R, as outlined [here](https://vt-hydroinformatics.github.io/rgeowatersheds.html).
 
-
 ## References {#sec-watershed-delineation-references}

@@ -39,8 +39,6 @@ book:
       chapters:
         - Watershed_delineation.qmd
         - Basin_characterisation.qmd
-        - Hydrological_cycle.qmd
-        - Watershed_modeling.qmd
   appendices:
     - appendix_a_free_software.qmd
     - appendix_b_riverscentralasia_r_toolbox.qmd

@@ -5,3 +5,7 @@ This course book shall serve young and aspiring water experts in the region as a
 
 The book is work in progress. It is based on markdown and pandoc using Quarto and currently in its 2022 iteration.
 The book is published at https://hydrosolutions.github.io/caham_book/. 
+
+## CHANGE LOG
+
+- 2023-10-17: Compiling book for the identification of problems.

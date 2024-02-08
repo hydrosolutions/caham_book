@@ -48,7 +48,7 @@ basins <- basins %>% na.omit()
 gauges <- gauges[!is.na(gauges$Q_NORM_M3S),]
 
 # Rivers
-rivers_1 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q09_10_ca_large_basins.shp"), quiet = TRUE)
+rivers_1 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q09_10_ca_large_river_basins.shp"), quiet = TRUE)
 rivers_2 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q08_09_ca_large_river_basins.shp"), quiet = TRUE)
 rivers_3 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q07_08_ca_large_river_basins.shp"), quiet = TRUE)
 rivers_4 <- st_read(paste0(data_path, "GRDC/wmobb_rivnets_Q06_07_ca_large_river_basins.shp"), quiet = TRUE)
@@ -276,7 +276,7 @@ The arid zones as shown in @fig-aridity-index-classes-large-basins dominate the 
      pivot_wider(names_from = ai_class_name,values_from = ai_value)
    return(res)
  }
- ```
+```
 
 ```{r}
 #| echo: false

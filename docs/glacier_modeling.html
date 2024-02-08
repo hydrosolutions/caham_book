@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.4.424">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="2022 release">
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 11&nbsp; Modeling of Discharge from Glacier Melt</title>
@@ -15,11 +15,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -44,48 +45,20 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -99,8 +72,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -125,7 +97,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -135,243 +113,276 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
-}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./hydrological_modeling.html">Part III: Hydrological Modeling &amp; Applications</a></li><li class="breadcrumb-item"><a href="./glacier_modeling.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hydrosolutions/caham_book" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+    <a href="https://github.com/hydrosolutions/caham_book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
 <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-    </ul>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+</div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./study_guide_materials.html" class="sidebar-item-text sidebar-link">Study Guide and Materials</a>
+  <a href="./study_guide_materials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study Guide and Materials</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./hydrology_of_central_asia.html" class="sidebar-item-text sidebar-link">Part I: Hydrology of Semi-Arid Central Asia</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a href="./hydrology_of_central_asia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Hydrology of Semi-Arid Central Asia</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hydrological_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></a>
+  <a href="./hydrological_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./example_river_basins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study River Basins</span></a>
+  <a href="./example_river_basins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Case Study River Basins</span></span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./data.html" class="sidebar-item-text sidebar-link">Part II: Data Sources, Retrieval and Preparation</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="./data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Data Sources, Retrieval and Preparation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sources of Relevant Data</span></a>
+  <a href="./data_sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sources of Relevant Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./discharge_station_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discharge Station Data</span></a>
+  <a href="./discharge_station_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discharge Station Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./geospatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geospatial Data</span></a>
+  <a href="./geospatial_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geospatial Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./snow_and_glacier_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Snow and Glacier Data</span></a>
+  <a href="./snow_and_glacier_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Snow and Glacier Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./climate_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Climate Data</span></a>
+  <a href="./climate_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Climate Data</span></span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">Part III: Hydrological Modeling &amp; Applications</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./hydrological_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Hydrological Modeling &amp; Applications</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a>
+  <a href="./hydraulic_hydrological_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./long_term_water_balance_modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></a>
+  <a href="./long_term_water_balance_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./modeling_using_predictive_inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span></a>
+  <a href="./modeling_using_predictive_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glacier_modeling.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></a>
+  <a href="./glacier_modeling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></a>
+  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Software</span></a>
+  <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Software</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_b_riverscentralasia_r_toolbox.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">R Toolbox riversCentralAsia</span></a>
+  <a href="./appendix_b_riverscentralasia_r_toolbox.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">R Toolbox riversCentralAsia</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_c_quick_guides.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quick Guides</span></a>
+  <a href="./appendix_c_quick_guides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Quick Guides</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_d_exercise_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Exercise Solutions</span></a>
+  <a href="./appendix_d_exercise_solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Exercise Solutions</span></span></a>
   </div>
 </li>
       </ul>
 </li>
     </ul>
 </div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
 <li>
-<a href="#glacier-mass-balance" id="toc-glacier-mass-balance" class="nav-link active" data-scroll-target="#glacier-mass-balance"><span class="toc-section-number">11.1</span>  Glacier Mass Balance</a>
+<a href="#glacier-mass-balance" id="toc-glacier-mass-balance" class="nav-link active" data-scroll-target="#glacier-mass-balance"><span class="header-section-number">11.1</span> Glacier Mass Balance</a>
   <ul class="collapse">
-<li><a href="#temperature-index-model" id="toc-temperature-index-model" class="nav-link" data-scroll-target="#temperature-index-model"><span class="toc-section-number">11.1.1</span>  Temperature Index Model</a></li>
+<li><a href="#temperature-index-model" id="toc-temperature-index-model" class="nav-link" data-scroll-target="#temperature-index-model"><span class="header-section-number">11.1.1</span> Temperature Index Model</a></li>
   </ul>
 </li>
-  <li><a href="#glacier-volume-development" id="toc-glacier-volume-development" class="nav-link" data-scroll-target="#glacier-volume-development"><span class="toc-section-number">11.2</span>  Glacier Volume Development</a></li>
-  <li><a href="#glacier-area-volume-scaling" id="toc-glacier-area-volume-scaling" class="nav-link" data-scroll-target="#glacier-area-volume-scaling"><span class="toc-section-number">11.3</span>  Area-volume scaling</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">11.4</span>  References</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hydrosolutions/caham_book/edit/master/glacier_modeling.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+  <li><a href="#glacier-volume-development" id="toc-glacier-volume-development" class="nav-link" data-scroll-target="#glacier-volume-development"><span class="header-section-number">11.2</span> Glacier Volume Development</a></li>
+  <li><a href="#glacier-area-volume-scaling" id="toc-glacier-area-volume-scaling" class="nav-link" data-scroll-target="#glacier-area-volume-scaling"><span class="header-section-number">11.3</span> Area-volume scaling</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.4</span> References</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/hydrosolutions/caham_book/edit/master/glacier_modeling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-glacier-modeling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./hydrological_modeling.html">Part III: Hydrological Modeling &amp; Applications</a></li><li class="breadcrumb-item"><a href="./glacier_modeling.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-glacier-modeling" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></span></h1>
 </div>
 
-<div>
-  <div class="description">
-    2022 release
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
+
 
 </header><p>The glacier melt modeling in RSMinerve <span class="citation" data-cites="rsminerve_tm">(<a href="#ref-rsminerve_tm" role="doc-biblioref">Garcia Hernandez et al. 2020</a>)</span> is done (at the time of writing, March 2022) with the GSM model which features a constant area and an unlimited glacier reservoir. It is suitable for short-term simulations of glacier melt where effects of glacier volume change can be neglected but it is not well suited for climate change impact studies where substantial changes in glacier volume are to be expected. However, by assuming that discharge from snow melt can be treated independently from discharge from glacier melt, the discharge contribution from glacier melt can be simulated in R and included as source into RSMinerve models. The following chapter relies on the basic understanding of the glacier mass balance as presented and discussed in <a href="@sec-snow-and-glacier-data">Chapter Snow and Glacier Data</a>, describes the glacier modelling tools in the package <code>riversCentralAsia</code> and demonstrates how to use them for joint applied hydrological modelling with RSMinerve.</p>
 <section id="glacier-mass-balance" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="glacier-mass-balance">
 <span class="header-section-number">11.1</span> Glacier Mass Balance</h2>
 <p>We shift the focus from the catchment to one single glacier within the catchment. Instead of calculating the water balance over the river catchment, we calculate the balance over the glacier.</p>
 <div id="fig-glacier-model-zoom-in" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/hydrological_modeling/glacier_modeling_zoom_in_elevation_bands.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;11.1: Simplified illustration of a glacierized river basin with elevation bands in dashed lines. The zoom is on one of the larger glaciers which can itself be discretized into elevation bands. The glacier mass loss is substracted from the lower most elevation band in increasing elevation.</figcaption><p></p>
-</figure>
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-glacier-model-zoom-in-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/hydrological_modeling/glacier_modeling_zoom_in_elevation_bands.png" class="img-fluid figure-img">
 </div>
-<p>The glacier mass balance is given in <a href="#eq-general-glacier-mass-balance">Equation&nbsp;<span>11.1</span></a>.</p>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-glacier-model-zoom-in-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Simplified illustration of a glacierized river basin with elevation bands in dashed lines. The zoom is on one of the larger glaciers which can itself be discretized into elevation bands. The glacier mass loss is substracted from the lower most elevation band in increasing elevation.
+</figcaption></figure>
+</div>
+<p>The glacier mass balance is given in <a href="#eq-general-glacier-mass-balance" class="quarto-xref">Equation&nbsp;<span>11.1</span></a>.</p>
 <p><span id="eq-general-glacier-mass-balance"><span class="math display">\[
 \Delta S = \text{ablation} + \text{accumulation}
 \tag{11.1}\]</span></span> where <span class="math inline">\(\text{ablation}\)</span> denotes the ablation of glacier mass, i.e.&nbsp;glacier mass loss, and <span class="math inline">\(\text{accumulation}\)</span> is the accumulation of glacier mass, i.e.&nbsp;glacier mass growth. Glacier ablation can be modeled using a temperature index model (described in the next section). Note that the ablation term is a negative number.<br>
-Many processes contribute to glacier ablation and accumulation, e.g. <span class="citation" data-cites="cogley_glossary_2011">Benn and Evans (<a href="#ref-benn_glaciers_2010" role="doc-biblioref">2010</a>)</span>. The most dominant accumulation processes in high mountain areas are snow fall, avalanches and wind-blown snow. In high mountain regions, glacier ablation is driven by the energy balance at the glacier-air interface <span class="citation" data-cites="hock_glacier_2005">(<a href="#ref-hock_glacier_2005" role="doc-biblioref">Hock 2005</a>)</span>. For most regional hydrological modeling tasks, is is sufficient to simplify the glacier mass balance to <a href="#eq-simplified-glacier-mass-balance">Equation&nbsp;<span>11.2</span></a>. A glacier that is in balance will melt the equivalent of the long-term average precipitation during the warm summer months, called balance ablation <span class="citation" data-cites="pritchard_asias_2019">(<a href="#ref-pritchard_asias_2019" role="doc-biblioref">Pritchard 2019</a>)</span>.</p>
+Many processes contribute to glacier ablation and accumulation, e.g. <span class="citation" data-cites="cogley_glossary_2011">Benn and Evans (<a href="#ref-benn_glaciers_2010" role="doc-biblioref">2010</a>)</span>. The most dominant accumulation processes in high mountain areas are snow fall, avalanches and wind-blown snow. In high mountain regions, glacier ablation is driven by the energy balance at the glacier-air interface <span class="citation" data-cites="hock_glacier_2005">(<a href="#ref-hock_glacier_2005" role="doc-biblioref">Hock 2005</a>)</span>. For most regional hydrological modeling tasks, is is sufficient to simplify the glacier mass balance to <a href="#eq-simplified-glacier-mass-balance" class="quarto-xref">Equation&nbsp;<span>11.2</span></a>. A glacier that is in balance will melt the equivalent of the long-term average precipitation during the warm summer months, called balance ablation <span class="citation" data-cites="pritchard_asias_2019">(<a href="#ref-pritchard_asias_2019" role="doc-biblioref">Pritchard 2019</a>)</span>.</p>
 <p><span id="eq-simplified-glacier-mass-balance"><span class="math display">\[
 \Delta S = P-\text{Melt} \approx Q_{\text{Gl,imbal}}
 \tag{11.2}\]</span></span></p>
 <p>where the change of water storage (<span class="math inline">\(\Delta S\)</span>) is equal to the precipitation (<span class="math inline">\(P\)</span>) minus the glacier melt (<span class="math inline">\(\text{Melt}\)</span>). Since temperatures are increasing globally melt typically exceeds precipitation and we have negative <span class="math inline">\(\Delta S\)</span>, that is imbalance ablation <span class="math inline">\(Q_{\text{Gl,imbal}}\)</span>, indicating glacier storage loss. The glacier mass balance is calculated in annual time steps. We thereby refer to the hydrological year starting on October 1st of the previous year to take a full accumulation and ablation season into account.</p>
 <section id="temperature-index-model" class="level3" data-number="11.1.1"><h3 data-number="11.1.1" class="anchored" data-anchor-id="temperature-index-model">
 <span class="header-section-number">11.1.1</span> Temperature Index Model</h3>
-<p>One of the arguably simplest models to describe glacier melt (or snow melt) is the temperature index model. <span class="citation" data-cites="hock_temperature_2003">Hock (<a href="#ref-hock_temperature_2003" role="doc-biblioref">2003</a>)</span> describes several variants of the temperature index model for simulating glacier melt. The <code>riversCentralAsia</code> package implements the simplest temperature index melt model described in <span class="citation" data-cites="hock_temperature_2003">(<a href="#ref-hock_temperature_2003" role="doc-biblioref">Hock 2003</a>)</span> in the function <code>glacierMelt_TI</code> (<a href="#eq-temperature-index-model">Equation&nbsp;<span>11.3</span></a>), requiring only temperature time series and 2 parameters as input.</p>
+<p>One of the arguably simplest models to describe glacier melt (or snow melt) is the temperature index model. <span class="citation" data-cites="hock_temperature_2003">Hock (<a href="#ref-hock_temperature_2003" role="doc-biblioref">2003</a>)</span> describes several variants of the temperature index model for simulating glacier melt. The <code>riversCentralAsia</code> package implements the simplest temperature index melt model described in <span class="citation" data-cites="hock_temperature_2003">(<a href="#ref-hock_temperature_2003" role="doc-biblioref">Hock 2003</a>)</span> in the function <code>glacierMelt_TI</code> (<a href="#eq-temperature-index-model" class="quarto-xref">Equation&nbsp;<span>11.3</span></a>), requiring only temperature time series and 2 parameters as input.</p>
 <p><span id="eq-temperature-index-model"><span class="math display">\[
 M = \biggl\{ \begin{array}{l, l}
 0, &amp; T &lt; T_{threshold} \\
@@ -424,7 +435,6 @@ f_{M} \cdot \left( T - T_{threshold} \right), &amp; T &gt;= T_{threshold}
 <!-- $$ -->
 <!-- \varepsilon_{Q_{\text{imb,melt}}} = \varepsilon_{Q_{\text{M}}} + \varepsilon_{\text{glacierImbalAbl}} = 2 + 0.73 = 2.73 -->
 <!-- $$ {#eq-error-imbalance-ablation} -->
-
 <!-- The errors stated above relate to initial estimates of the glacier areas, volumes, total ablation and imbalance ablation. The errors of the glacier model variables of each subsequent time step depend on the errors of the previous time steps, i.e. they are not uncorrelated over time. For simplicity reason, this non-linear propagation of errors is neglected. In any case, the uncertainty margins for any glacier melt modelling done with the presented method are large. The following table summarises the estimated errors for each variable -->
 <!-- ```{r} -->
 <!-- # Relative error estimates for the initial state in % -->
@@ -436,7 +446,7 @@ f_{M} \cdot \left( T - T_{threshold} \right), &amp; T &gt;= T_{threshold}
 <!-- ``` -->
 </section><section id="glacier-area-volume-scaling" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="glacier-area-volume-scaling">
 <span class="header-section-number">11.3</span> Area-volume scaling</h2>
-<p>The best known scaling relationships for Central Asian glaciers is the Erasov scaling function (<a href="#eq-erasov">Equation&nbsp;<span>11.4</span></a>).</p>
+<p>The best known scaling relationships for Central Asian glaciers is the Erasov scaling function (<a href="#eq-erasov" class="quarto-xref">Equation&nbsp;<span>11.4</span></a>).</p>
 <p><span id="eq-erasov"><span class="math display">\[
 V_{\text{Erasov}} = 0.027 \cdot A^{1.5}
 \tag{11.4}\]</span></span></p>
@@ -446,40 +456,28 @@ V_{\text{Erasov}} = 0.027 \cdot A^{1.5}
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Loading the necessary libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.10.2, GDAL 3.4.2, PROJ 8.2.1; sf_use_s2() is TRUE</code></pre>
+<pre><code>Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE</code></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/raster">raster</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages
-───────────────────────────────────────
-tidyverse 1.3.2 ──</code></pre>
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.3     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>✔ ggplot2 3.3.6      ✔ purrr   0.3.5 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-✔ readr   2.1.3      ✔ forcats 0.5.2 
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ tidyr::extract() masks raster::extract()
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
-✖ dplyr::select()  masks raster::select()</code></pre>
+✖ dplyr::select()  masks raster::select()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'lubridate'
-
-The following objects are masked from 'package:raster':
-
-    intersect, union
-
-The following objects are masked from 'package:base':
-
-    date, intersect, setdiff, union</code></pre>
-</div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gridExtra</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gridExtra</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'gridExtra'
@@ -488,7 +486,7 @@ The following object is masked from 'package:dplyr':
 
     combine</code></pre>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"hydrosolutions/riversCentralAsia"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hydrosolutions.github.io/riversCentralAsia/index.html">riversCentralAsia</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -503,7 +501,7 @@ The following object is masked from 'package:dplyr':
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Area_m2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_area</a></span><span class="op">(</span><span class="va">rgi</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#  To extract the data for the entire Central Asian </span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#  To extract the data for the entire Central Asian </span></span>
 <span><span class="co"># region takes a several hours on a recent personal computer. </span></span>
 <span><span class="co"># Get a list of the glacier thickness maps from Farinotti and Huss</span></span>
 <span><span class="va">glacier_thickness_dir</span> <span class="op">&lt;-</span> <span class="st">"&lt;local_path_to_adapt&gt;/FARINOTTI_Glacier_Thickness/composite_thickness_RGI60-13/RGI60-13/"</span></span>
@@ -533,7 +531,7 @@ The following object is masked from 'package:dplyr':
 <span>     file <span class="op">=</span> <span class="st">"../caham_data/central_asia_domain/glaciers/Farinotti/glacier_thickness_extractedRGIreg13.RData"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load the average glacier thickness per glacier</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load the average glacier thickness per glacier</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"../caham_data/central_asia_domain/glaciers/Farinotti/glacier_thickness_extractedRGIreg13.RData"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">rgi</span> <span class="op">&lt;-</span> <span class="va">rgi</span> <span class="op">|&gt;</span> </span>
@@ -568,7 +566,7 @@ The following object is masked from 'package:dplyr':
 <span>         Volume_Erasov_km3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/riversCentralAsia/man/glacierVolume_Erasov.html">glacierVolume_Erasov</a></span><span class="op">(</span><span class="va">Area_km2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plotting the results</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plotting the results</span></span>
 <span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data_nlVAw</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Area_km2</span>, <span class="va">Volume_km3</span>, colour <span class="op">=</span> <span class="st">"Obs"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">0.4</span>, </span>
 <span>             alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -599,14 +597,17 @@ The following object is masked from 'package:dplyr':
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-glacier-varea-volume-scaling" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="glacier_modeling_files/figure-html/fig-glacier-varea-volume-scaling-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;11.2: Glacier volume and glacier area estimated with different methods.</figcaption><p></p>
-</figure>
+<div id="fig-glacier-varea-volume-scaling" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-glacier-varea-volume-scaling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="glacier_modeling_files/figure-html/fig-glacier-varea-volume-scaling-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-glacier-varea-volume-scaling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: Glacier volume and glacier area estimated with different methods.
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-glacier-varea-volume-scaling">Figure&nbsp;<span>11.2</span></a> shows the glacier volume estimate with different methods vs.&nbsp;the glacier area. The two functions perform similarly for small glaciers, i.e.&nbsp;Erasov is still valid. For large glaciers the two parameter sets differ. However, the uncertainties of the glacier volume estimates are larger than the difference between the two functions so Erasov can still be considered to be valid also for larger glaciers though we use the RGIF fit here which is based on more and newer data.</p>
+<p><a href="#fig-glacier-varea-volume-scaling" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> shows the glacier volume estimate with different methods vs.&nbsp;the glacier area. The two functions perform similarly for small glaciers, i.e.&nbsp;Erasov is still valid. For large glaciers the two parameter sets differ. However, the uncertainties of the glacier volume estimates are larger than the difference between the two functions so Erasov can still be considered to be valid also for larger glaciers though we use the RGIF fit here which is based on more and newer data.</p>
 <p>Based on the large data set, the empirical glacier area-volume relationship based on the RGI v6.0 glacier outlines and the glacier thickness by <span class="citation" data-cites="farinotti_consensus_2019">Farinotti et al. (<a href="#ref-farinotti_consensus_2019" role="doc-biblioref">2019</a>)</span> may be more suitable for large glaciers in Central Asia.</p>
 <p><span id="eq-volume-rgif"><span class="math display">\[
 V_{\text{RGIF}}= a \cdot A^{b}
@@ -633,7 +634,6 @@ A = \exp \Bigg( \frac{\log V  - \log a}{b}\Bigg)
 <!--   dplyr::filter(period == 20) -->
 <!-- # Load glacier ablation data by Miles et al., 2021 and filter to the Central  -->
 <!-- # Asian domain -->
-
 <!-- miles <- read_csv("../caham_data/central_asia_domain/glaciers/Miles/Miles2021_Glaciers_summarytable_20210721.csv") |> -->
 <!--   dplyr::filter(grepl("RGI60-13.", RGIID),  -->
 <!--                 VALID == 1) -->
@@ -1093,7 +1093,6 @@ A = \exp \Bigg( \frac{\log V  - \log a}{b}\Bigg)
 <!-- ```{r} -->
 <!-- #| eval: false -->
 <!-- writefilename <- paste0(data_path, "RSM_demo_glacier_source.csv") -->
-
 <!-- write.table(output, file = writefilename, col.names = FALSE,  -->
 <!--             row.names = FALSE, append = FALSE, quote = FALSE,  -->
 <!--             sep = ",", dec = ".") -->
@@ -1104,29 +1103,29 @@ A = \exp \Bigg( \frac{\log V  - \log a}{b}\Bigg)
 <span class="header-section-number">11.4</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-benn_glaciers_2010" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-benn_glaciers_2010" class="csl-entry" role="listitem">
 Benn, Douglas I., and David J. A. Evans. 2010. <em>Glaciers &amp; Glaciation</em>. 2nd ed. London: Hodder education.
 </div>
-<div id="ref-cogley_glossary_2011" class="csl-entry" role="doc-biblioentry">
+<div id="ref-cogley_glossary_2011" class="csl-entry" role="listitem">
 Cogley, J. Graham, Regine Hock, B. Rasmussen, A. Arendt, A. Bauder, Roger J. Braithwaite, P. Jansson, et al. 2011. <span>“Glossary of <span>Glacier</span> <span>Mass</span> <span>Balance</span> and Related Terms.”</span> 86. Paris: UNESCO-IHP. <a href="https://unesdoc.unesco.org/in/documentViewer.xhtml?v=2.1.196&amp;id=p::usmarcdef_0000192525&amp;file=/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_48a3790e-914c-4dcd-9896-aa397ccc17e6%3F_%3D192525eng.pdf&amp;locale=en&amp;multi=true&amp;ark=/ark:/48223/pf0000192525/PDF/192525eng.pdf#%5B%7B%22num%22%3A165%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2Cnull%2Cnull%2C0%5D">https://unesdoc.unesco.org/in/documentViewer.xhtml?v=2.1.196&amp;id=p::usmarcdef_0000192525&amp;file=/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_48a3790e-914c-4dcd-9896-aa397ccc17e6%3F_%3D192525eng.pdf&amp;locale=en&amp;multi=true&amp;ark=/ark:/48223/pf0000192525/PDF/192525eng.pdf#%5B%7B%22num%22%3A165%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2Cnull%2Cnull%2C0%5D</a>.
 </div>
-<div id="ref-erasov_1968" class="csl-entry" role="doc-biblioentry">
+<div id="ref-erasov_1968" class="csl-entry" role="listitem">
 Erasov, N. V. 1968. <span>“Method for Determining of Volume of Mountain Glaciers.”</span> <em>MGI</em>, no. 14: 307–8.
 </div>
-<div id="ref-farinotti_consensus_2019" class="csl-entry" role="doc-biblioentry">
+<div id="ref-farinotti_consensus_2019" class="csl-entry" role="listitem">
 Farinotti, Daniel, Matthias Huss, Johannes J. Fürst, Johannes Landmann, Horst Machguth, Fabien Maussion, and Ankur Pandit. 2019. <span>“A Consensus Estimate for the Ice Thickness Distribution of All Glaciers on <span>Earth</span>.”</span> <em>Nature Geoscience</em> 12 (3): 168–73. <a href="https://doi.org/10.1038/s41561-019-0300-3">https://doi.org/10.1038/s41561-019-0300-3</a>.
 </div>
-<div id="ref-rsminerve_tm" class="csl-entry" role="doc-biblioentry">
+<div id="ref-rsminerve_tm" class="csl-entry" role="listitem">
 Garcia Hernandez, J., A. Foehn, J. Fluixa-Sanmartin, B. Roquier, T. Brauchli, J. Paredes Arquiola, and De Cesare G. 2020. <span>“RS MINERVE - Technical Manual, V2.25.”</span> ISSN 2673-2661. Switzerland: Ed. CREALP.
 </div>
-<div id="ref-hock_temperature_2003" class="csl-entry" role="doc-biblioentry">
+<div id="ref-hock_temperature_2003" class="csl-entry" role="listitem">
 Hock, Regine. 2003. <span>“<span class="nocase">Temperature index melt modelling in mountain areas</span>.”</span> <em>Journal of Hydrology</em> 282 (1-4): 104–15. <a href="https://doi.org/10.1016/s0022-1694(03)00257-9">https://doi.org/10.1016/s0022-1694(03)00257-9</a>.
 </div>
-<div id="ref-hock_glacier_2005" class="csl-entry" role="doc-biblioentry">
+<div id="ref-hock_glacier_2005" class="csl-entry" role="listitem">
 ———. 2005. <span>“Glacier Melt: A Review of Processes and Their Modelling.”</span> <em>Progress in Physical Geography: Earth and Environment</em> 29 (3): 362–91. <a href="https://doi.org/10.1191/0309133305pp453ra">https://doi.org/10.1191/0309133305pp453ra</a>.
 </div>
-<div id="ref-pritchard_asias_2019" class="csl-entry" role="doc-biblioentry">
+<div id="ref-pritchard_asias_2019" class="csl-entry" role="listitem">
 Pritchard, Hamish D. 2019. <span>“Asia’s Shrinking Glaciers Protect Large Populations from Drought Stress.”</span> <em>Nature</em> 569 (7758): 649–54. <a href="https://doi.org/10.1038/s41586-019-1240-1">https://doi.org/10.1038/s41586-019-1240-1</a>.
 </div>
 </div>
@@ -1157,9 +1156,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1171,17 +1184,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1191,8 +1220,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1207,33 +1245,286 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./modeling_using_predictive_inference.html" class="pagination-link">
+      <a href="./modeling_using_predictive_inference.html" class="pagination-link  aria-label=">10&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span>"&gt;
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Modeling Using Predictive Inference</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./real_world_examples.html" class="pagination-link">
+      <a href="./real_world_examples.html" class="pagination-link" aria-label="<span class='chapter-number'>12</span>&nbsp; <span class='chapter-title'>Real World Hydrological Model Applications</span>">
         <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

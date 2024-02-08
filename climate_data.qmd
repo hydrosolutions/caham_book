@@ -260,12 +260,14 @@ The difference in resolution is striking with the CHELSA data having having a ho
 #| fig-cap: "Comparison of CHELSA temperature climatology (left) and the GCM climate field of the historical run of the model GFDL-ESM4 (right)."
 #| echo: false
 
-chelsa_file <- "../../../../../../../../../Documents/ca_large_files/CA_CLIMATE_PROJECTIONS/CHELSA_V21_1979_2018/CHELSA_pr_1979_55_85_30_50_V.2.1.nc"
+#chelsa_file <- "../../../../../../../../../Documents/ca_large_files/CA_CLIMATE_PROJECTIONS/CHELSA_V21_1979_2018/CHELSA_pr_1979_55_85_30_50_V.2.1.nc"
+chelsa_file <- "../../../../../../../../Documents/ca_large_files/CHELSA_V21_1979_2018/CHELSA_pr_1979_55_85_30_50_V.2.1.nc"
 
 chelsa_data <- terra::rast(chelsa_file)
 plot(chelsa_data[[1]])
 
 gcm_file <- "../caham_data/central_asia_domain/climate/hist_sim/pr_day_GFDL-ESM4_historical_r1i1p1f1_gr1_19790101-20141231_v20190726.nc"
+
 gcm_data <- terra::rast(gcm_file)
 plot(gcm_data[[1]])
 ```

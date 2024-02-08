@@ -79,7 +79,7 @@ gauges <- gauges[!is.na(gauges$Q_NORM_M3S),]
 # Rivers
 data_path_grdc <- "../HydrologicalModeling_CentralAsia_Data/REFERENCE_CaseStudyPacks/GRDC"
 rivers_1 <- st_read(file.path(data_path_grdc,
-                    "wmobb_rivnets_Q09_10_ca_large_basins.shp"), quiet = TRUE)
+                    "wmobb_rivnets_Q09_10_ca_large_river_basins.shp"), quiet = TRUE)
 rivers_2 <- st_read(file.path(data_path_grdc,
                     "wmobb_rivnets_Q08_09_ca_large_river_basins.shp"), quiet = TRUE)
 rivers_3 <- st_read(file.path(data_path_grdc,

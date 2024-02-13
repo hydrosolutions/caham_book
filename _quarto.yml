@@ -35,6 +35,10 @@ book:
         - modeling_using_predictive_inference.qmd
         - glacier_modeling.qmd
         - real_world_examples.qmd
+    - part: Climate_change_impact_study.qmd
+      chapters:
+        - Watershed_delineation.qmd
+        - Watershed_characterisation.qmd
   appendices:
     - appendix_a_free_software.qmd
     - appendix_b_riverscentralasia_r_toolbox.qmd

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.424">
+<meta name="generator" content="quarto-1.4.549">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="2022 release">
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 1&nbsp; Hydrological Systems in Semi-Arid Central Asia</title>
@@ -112,22 +112,48 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script><link href="site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./hydrology_of_central_asia.html">Part I: Hydrology of Semi-Arid Central Asia</a></li><li class="breadcrumb-item"><a href="./hydrological_systems.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hydrological Systems in Semi-Arid Central Asia</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -135,7 +161,7 @@ div.csl-indent {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
         <div class="sidebar-tools-main">
@@ -292,13 +318,36 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+            <a href="./Climate_change_impact_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Climate Change Impact Study</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Watershed_delineation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Watershed delineation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Watershed_characterisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Watershed characterisation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link">
@@ -327,7 +376,7 @@ div.csl-indent {
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -365,27 +414,27 @@ div.csl-indent {
 
 
 </header><p>Here, we provide a tour d’horizon of key hydrological systems in Central Asia and highlight important aspects of this complex, yet fascinating domain which is shown in <a href="#fig-central-asia-region-zoi" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>. Note that from the hydrological perspective the region is defined to comprise the former Soviet Central Asia with Islamic Emirat Afghanistan. Source: Zoï Environment Network.</p>
-<div id="fig-central-asia-region-zoi" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-central-asia-region-zoi" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-central-asia-region-zoi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/00_central_asia_region_zoi.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-central-asia-region-zoi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-central-asia-region-zoi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.1: The Figure shows the entire Central Asia Region with the key rivers highlighted in blue color.
 </figcaption></figure>
 </div>
 <section id="sec-regional-characteristics" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="sec-regional-characteristics">
 <span class="header-section-number">1.1</span> Regional Characteristics</h2>
 <p>Key statistics of the Central Asia region are shown in <a href="#tbl-ca-overview-statistics" class="quarto-xref">Table&nbsp;<span>1.1</span></a>. Central Asia is spreading over approximately 4.6 million km<sup>2</sup>, including the territories of Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan and the Afghan Islamic Emirate <span class="citation" data-cites="cia_worldfactbook">(<a href="#ref-cia_worldfactbook" role="doc-biblioref">Central Intelligence Agency, n.d.</a>)</span>. Populations are very unevenly distributed as is shown in <a href="#fig-central-asia-population-density" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>. One of the key population hotspot is the densely populated Fergana Valley that is shared between Uzbekistan, Kyrgyzstan and Tajikistan.</p>
-<div id="fig-central-asia-population-density" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-central-asia-population-density" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-central-asia-population-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/02_central_asia_population_density.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-central-asia-population-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-central-asia-population-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.2: Population density in the region of interest. Red colors show a high density indicated in the main population centers whereas the beige colors show very low densities over most of the territory. Data source: <span class="citation" data-cites="gpw_v4">(<a href="#ref-gpw_v4" role="doc-biblioref">International Earth Science Information Network - CIESIN - Columbia University 2018</a>)</span>.
 </figcaption></figure>
 </div>
-<div id="tbl-ca-overview-statistics" class="anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="table quarto-float-caption quarto-float-tbl" id="tbl-ca-overview-statistics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="tbl-ca-overview-statistics" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ca-overview-statistics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1.1: Overview statistics of the Central Asian Republics and the Islamic Emirat of Afghanistan. Source: World Population Review, World Bank and Wikipedia.
 </figcaption><div aria-describedby="tbl-ca-overview-statistics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
@@ -468,31 +517,31 @@ Table&nbsp;1.1: Overview statistics of the Central Asian Republics and the Islam
 </figure>
 </div>
 <p>The average per capita annually renewable water availability is estimated to be around 1’500 m<sup>3</sup>. Thus, according to the <a href="https://www.un.org/waterforlifedecade/scarcity.shtml">United Nations definition</a>, the region as a whole is water stressed. However, such regional view blends over significant differences between the upstream and downstream states and a more fine-grained per country water availability figures show the very uneven distribution of annually renewable water resources in a much clearer way (<a href="#fig-per-capita-water-availability-per-year" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>).</p>
-<div id="fig-per-capita-water-availability-per-year" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-per-capita-water-availability-per-year" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-per-capita-water-availability-per-year-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/04_per_country_water_availability.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-per-capita-water-availability-per-year-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-per-capita-water-availability-per-year-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.3: Per country water availability figures are shown. The striking difference between the very water rich upstream states and the downstream states that suffer from significant water scarcity is clearly visible.
 </figcaption></figure>
 </div>
-<p>In the vast plains that cover around 70 % of the total territory, there are only very few rivers which have scarcely any tributaries from the point they leave the mountain areas all the way to their mouth. Abundant solar radiation, high temperatures, small amounts of precipitation, a lack of humidity, unstable snow cover, slight slopes, geological structures etc., hinder the formation of surface flows in the plains of Central Asia, despite their big importance for the local agricultural production there. Only the largest rivers, such as Syr Darya, Amu Darya, and Ili are able to survive hundreds of kilometers of deserts and reach the most important landlocked reservoirs – the Aral Sea and Lake Balkhash <span class="citation" data-cites="shults_RiversOfMiddleAsia">(<a href="#ref-shults_RiversOfMiddleAsia" role="doc-biblioref">Shults 1965</a>)</span>. The Aral Sea, of course, is no longer adequatly fed by the annual snow melt floods of the Syr Darya and Amu Darya and thus has gradually vanished over the second half of the 20<sup>th</sup> century (for more on this, see <a href="#sec-zone-of-water-distribution-and-use" class="quarto-xref"><span>Section&nbsp;1.4</span></a> below).</p>
+<p>In the vast plains that cover around 70 % of the total territory, there are only very few rivers which have scarcely any tributaries from the point they leave the mountain areas all the way to their mouth. Abundant solar radiation, high temperatures, small amounts of precipitation, a lack of humidity, unstable snow cover, slight slopes, geological structures etc., hinder the formation of surface flows in the plains of Central Asia, despite their big importance for the local agricultural production there. Only the largest rivers, such as Syr Darya, Amu Darya, and Ili are able to survive hundreds of kilometers of deserts and reach the most important landlocked reservoirs – the Aral Sea and Lake Balkhash <span class="citation" data-cites="shults_RiversOfMiddleAsia">(<a href="#ref-shults_RiversOfMiddleAsia" role="doc-biblioref">Shults 1965</a>)</span>. The Aral Sea, of course, is no longer adequatly fed by the annual snow melt floods of the Syr Darya and Amu Darya and thus has gradually vanished over the second half of the 20<sup>th</sup> century (for more on this, see <a href="#sec-zone-of-water-distribution-and-use" class="quarto-xref"><span>Section 1.4</span></a> below).</p>
 <p>In fact, the inhomogeneity of the relief structure causes Central Asia to be the territory of immense contrasts <a href="#fig-central-asia-dem" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>. Here, extreme aridity in the hot deserts of the plains and, only 100 km away, abundant humidity and snowfields in the mountains where precipitation levels can range between 1’000 mm/a up to 2’000 mm/a.</p>
-<div id="fig-central-asia-dem" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-central-asia-dem" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-central-asia-dem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/05_central_asia_dem.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-central-asia-dem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-central-asia-dem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.4: The river basins together with the main mountain ranges are highlighted <span class="citation" data-cites="srtm_2020">(<a href="#ref-srtm_2020" role="doc-biblioref"><span>“NASA Shuttle Radar Topography Mission (SRTM)(2013)”</span> 2013</a>)</span>.
 </figcaption></figure>
 </div>
 <p>The uneven distribution of water bodies is striking (<a href="#fig-ca-river-network" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>). The mountains of Central Asia are riddled with an extremely branched river network consisting of more than ten thousand watercourses. These areas are called the <em>zones of runoff formation</em>.</p>
 <p>In the flat foothill areas surrounding the mountain ranges, another branching river network is found which consists of irrigation channels, which do not contribute to the runoff of the core rivers, but rather divert the water from the river network and diffuse it in the irrigated oases where much of it gets evapotranspirated. Usually, these areas are referred to as <em>zones of comples water distribution and use</em>.</p>
-<div id="fig-ca-river-network" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-ca-river-network" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ca-river-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/03_big_river_basins_1.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-ca-river-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ca-river-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.5: The river network of the large rivers is shown. The basin shapes are adapted from <span class="citation" data-cites="hydro_basins_wwf">(<a href="#ref-hydro_basins_wwf" role="doc-biblioref">Lehner and G. 2013</a>)</span> and the rivers are geospatial assets from <span class="citation" data-cites="grdc_2020">(<a href="#ref-grdc_2020" role="doc-biblioref">GRDC, Koblenz, Germany: Federal Institute of Hydrology (BfG). 2020</a>)</span>
 </figcaption></figure>
 </div>
@@ -503,22 +552,22 @@ Figure&nbsp;1.5: The river network of the large rivers is shown. The basin shape
 <span class="header-section-number">1.2.1</span> Sources of Moisture</h3>
 <p>In the boreal summer, tropical air masses form in the plains of Central Asia. At that time, even cold air masses coming from the north heat quickly. There is no possibility for temperature differences between the lower and the middle troposphere to occur which explains the horizontal uniformity of high temperatures during summer <span class="citation" data-cites="shults_RiversOfMiddleAsia">(<a href="#ref-shults_RiversOfMiddleAsia" role="doc-biblioref">Shults 1965</a>)</span>.</p>
 <p>Contrary to this, the temperature differences in the region are highest in January during the peak of the boreal winter. As the territory of Central Asia is unprotected from the north, it is under the influence of dry, exceptionally cold air masses originating from the Arctic region and Siberia. These air masses can cause sharp frosts. The further the Siberian or Arctic air masses penetrate towards the west and the south, the more their temperature increase. This explains the big difference in air temperatures during winter between the north and the south of Central Asia. Cold air intrusions are often accompanied by the influx of warm air from the tropics. The cold waves taking turns with hot air masses cause unsteady frost in the plains and, together with generally low precipitation values, do not allow for the formation of a significant snow pack there <span class="citation" data-cites="shults_RiversOfMiddleAsia">(<a href="#ref-shults_RiversOfMiddleAsia" role="doc-biblioref">Shults 1965</a>)</span>.</p>
-<p>As is discussed further below, the winter snow cover in the high mountain ranges plays an essential role in runoff formation in the spring and summer months and is thus of key relevant to irrigation agriculture in the downstream and for hydropower production (see <a href="#sec-zone-of-runoff-formation" class="quarto-xref"><span>Section&nbsp;1.3</span></a> below). Understanding the atmospheric mechanisms resulting in favorable conditions for winter precipitation is thus essential.</p>
+<p>As is discussed further below, the winter snow cover in the high mountain ranges plays an essential role in runoff formation in the spring and summer months and is thus of key relevant to irrigation agriculture in the downstream and for hydropower production (see <a href="#sec-zone-of-runoff-formation" class="quarto-xref"><span>Section 1.3</span></a> below). Understanding the atmospheric mechanisms resulting in favorable conditions for winter precipitation is thus essential.</p>
 <p><span class="citation" data-cites="gerlitz_2018">(<a href="#ref-gerlitz_2018" role="doc-biblioref">Gerlitz et al. 2018</a>)</span> discusses how the position of the westerly jet stream is connected with the frontal trajectories and the westerly disturbances which are the main moisture sources if the region. The relative position of these planetary wave tracks and their associated westerly flows to the orographic mountain barriers plays thus a key role. The main precipitation events migrate over the winter season from south to north. The southern parts of central Asia, particularly the windward slopes of the Karakorum and Hindu Kush mountain ranges, receive high amounts of winter precipitation (December-January-February), which reaches up to 60 % of the total annual precipitation. During spring the zone of maximum precipitation migrates northward, reaches the Pamir plateau in March, and continues to Tien Shan in April/May. The interaction of tropical air masses from the Arabian Golf with westerly flow in Central Asia is another important moisture source for the region.</p>
 <p>Using data of the ERA-Interim reanalysis, <span class="citation" data-cites="gerlitz_2018">(<a href="#ref-gerlitz_2018" role="doc-biblioref">Gerlitz et al. 2018</a>)</span> classifies 8 weather types (WT) based on typical regional pressure field patterns over a domain covering 20- 60N and 50- 90E. Like this, large-scale features of winter circulation patterns in Central Asia can be captured. WT are analyzed with regard to the spatial anomalies of temperature and precipitation. <a href="#fig-temp-wt" class="quarto-xref">Figure&nbsp;<span>1.6</span></a> and <a href="#fig-precip-wt" class="quarto-xref">Figure&nbsp;<span>1.7</span></a> show the results. In these Figures, the individual plates WT 1 - 8 are labeled according to the main circulation feature over Central Asia, i.e.&nbsp;a Rossby ridge (R) or trough (T). Acronyms in the figures indicate the major features (and their centers of action) for each WT: anti-cyclonic anomaly (AC), cyclonic anomaly (C), central Asia ([CA]), Kazakhstan ([KAZ]), Mongolia ([MON]), and Indian Ocean and Indian subcontinent ([Indic]).</p>
-<div id="fig-temp-wt" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-temp-wt" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-temp-wt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/21_WT_P_Anomalies.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-temp-wt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-temp-wt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.6: Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly temperature for each weather type (WT 1 - WT 8). Values are depicted in standard deviations for each grid cell, respectively. Arrows indicate anomalies of the 500-hPa ERA-Interim wind field (<span class="citation" data-cites="gerlitz_2018">Gerlitz et al. (<a href="#ref-gerlitz_2018" role="doc-biblioref">2018</a>)</span>).
 </figcaption></figure>
 </div>
-<div id="fig-precip-wt" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-precip-wt" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-precip-wt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/22_WT_T_Anomalies.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-precip-wt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-precip-wt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.7: Composite maps illustrating the averaged anomalies of ERA-Interim/Land 6-hourly precipitation sums for each weather type. Values are depicted relative to the seasonal mean 6-hourly precipitation sum ((100)<sup>-1</sup>) for each grid cell, respectively. Arrows indicate anomalies of vertically integrated moisture fluxes (<span class="citation" data-cites="gerlitz_2018">Gerlitz et al. (<a href="#ref-gerlitz_2018" role="doc-biblioref">2018</a>)</span>).
 </figcaption></figure>
 </div>
@@ -526,27 +575,27 @@ Figure&nbsp;1.7: Composite maps illustrating the averaged anomalies of ERA-Inter
 </section><section id="sec-distribution-of-precipitation" class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="sec-distribution-of-precipitation">
 <span class="header-section-number">1.2.2</span> Distribution of Precipitation</h3>
 <p>Precipitation is extremely unevenly distributed in the region. 20% of the plain area receives less than 100 mm, while 91% of the territory receives less than 300 mm of precipitation a year with an overall average of 173 mm. The mountains are thus an important climatological and hydrological factor, since they are the places where the water condensates and where the rivers and groundwater originate. Although the range of precipitation levels is wide (60 mm - 2’500 mm), the mountains receive on average more than three times more precipitation than the plains, and the low temperatures favor its accumulation in the solid state <span class="citation" data-cites="shults_RiversOfMiddleAsia">(<a href="#ref-shults_RiversOfMiddleAsia" role="doc-biblioref">Shults 1965</a>)</span>. <a href="#fig-annual-precip-climatology" class="quarto-xref">Figure&nbsp;<span>1.8</span></a> shows the precipitation climatology over the Central Asia domain</p>
-<div id="fig-annual-precip-climatology" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-annual-precip-climatology" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-annual-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/07_central_asia_annual_precipitation.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-annual-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-annual-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.8: The annual precipitation climatology dervied from the CHELSA V21 high-resolution data set is shown <span class="citation" data-cites="karger_2021">(<a href="#ref-karger_2021" role="doc-biblioref">Karger et al. 2021</a>)</span>.
 </figcaption></figure>
 </div>
-<div id="fig-cs-precip-climatology" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-cs-precip-climatology" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-cs-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/08_central_asia_cold_season_precipitation.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-cs-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cs-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.9: The cold season precipitation climatology dervied from the CHELSA V21 high-resolution data set is shown <span class="citation" data-cites="karger_2021">(<a href="#ref-karger_2021" role="doc-biblioref">Karger et al. 2021</a>)</span>. With notable exceptions such as along the southern Gissar Alay range, precipitation occurs mostly on the flanks of the large mountain ranges with western to north-western exposure.
 </figcaption></figure>
 </div>
-<div id="fig-ws-precip-climatology" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-ws-precip-climatology" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ws-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/09_central_asia_warm_season_precipitation.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-ws-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ws-precip-climatology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.10: The warm season precipitation climatology dervied from the CHELSA V21 high-resolution data set is shown <span class="citation" data-cites="karger_2021">(<a href="#ref-karger_2021" role="doc-biblioref">Karger et al. 2021</a>)</span>. Compared to the cold season precipitation, the warm season precipitation is mostly intra-alpine and not of frontal characteristics.
 </figcaption></figure>
 </div>
@@ -557,28 +606,28 @@ Figure&nbsp;1.10: The warm season precipitation climatology dervied from the CHE
 </section><section id="sec-changing-climate" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="sec-changing-climate">
 <span class="header-section-number">1.2.3</span> A Changing Climate</h3>
 <p>With a warming climate and the associated increase of evapotranspiration in the downstream plains and the loss of glacier storage in the mountainous areas, a solid understanding of the snow pack formation becomes even more pertinent. This is for example evidenced by the fact that a discernible reduction of snow cover can be observed in some key basins in the lower to medium elevations between 1980 - 2010. <a href="#fig-hydrosystems-snow-cover-fraction-change-chirchik-river-basin" class="quarto-xref">Figure&nbsp;<span>1.11</span></a> shows this in a exemplary fashion for the Chirchik River basin (see also <a href="example_river_basins.html#sec-example-chirchik-river-basin">Chapter Chirchik River Basin</a> for more information).</p>
-<div id="fig-hydrosystems-snow-cover-fraction-change-chirchik-river-basin" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-hydrosystems-snow-cover-fraction-change-chirchik-river-basin" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-hydrosystems-snow-cover-fraction-change-chirchik-river-basin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/example_river_basins/snowcover_fraction_change_chirchik_lr.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-hydrosystems-snow-cover-fraction-change-chirchik-river-basin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hydrosystems-snow-cover-fraction-change-chirchik-river-basin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.11: Changes in fractional snow cover in the in the Western Tien Shan mountains, including the Chirchik River basin. Shown are percentage changes over the period 1980 - 2011. Changes in the snow cover fraction was computed at the pixel level using the high-resolution CHELSA V21 daily precipitation and temperature <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span> with a liquid-solid temperature threshold value of 1 deg. C.
 </figcaption></figure>
 </div>
 <p>Through the reduction of precipitation stored as snow in the mountain regions, there is a consensus that the discharge regimes in the region will be impacted. These impacts can be quantified with hydrological models, as we will show in this Coursebook. An example of such expected changes is provided in <a href="#fig-atbashy-climate-impact-on-discharge" class="quarto-xref">Figure&nbsp;<span>1.12</span></a>. More information on the modeling approach is provided in the <a href="#sec-hydrological-hydraulic-modeling">Chapter Hydrological-hydraulic Modeling</a> whereas data and modeling requirements are discussed in <a href="data.html">Part II Data</a>.</p>
-<div id="fig-atbashy-climate-impact-on-discharge" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-atbashy-climate-impact-on-discharge" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-atbashy-climate-impact-on-discharge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/20_atbashy_discharge_projections.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-atbashy-climate-impact-on-discharge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-atbashy-climate-impact-on-discharge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.12: Using the CMIP6 ssp585 climate scenario, the computed climate impacts on the discharge regime of Atbashy River (left tributary to the Naryn and located in Kyrgystan) is shown. The simulation results suggest that the peak discharge will shift towards spring and that peak flows will decrease in the basin for the different target periods in the future.
 </figcaption></figure>
 </div>
 </section></section><section id="sec-zone-of-runoff-formation" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="sec-zone-of-runoff-formation">
 <span class="header-section-number">1.3</span> Zone of Runoff Formation</h2>
-<p>As is well known, the aridity index <span class="math inline">\(\phi\)</span> plays a key role in the partitioning of precipitation <span class="math inline">\(P\)</span> into evapotranspiration <span class="math inline">\(E\)</span> and runoff <span class="math inline">\(Q\)</span> (see also <a href="long_term_water_balance_modeling.html" class="quarto-xref"><span>Chapter&nbsp;9</span></a> in Part III of this book for more information on this). It is defined as the ratio of mean potential evapotranspiration <span class="math inline">\(E_{0}\)</span> to mean precipitation <span class="math inline">\(P\)</span>. For the analysis in semi-arid Central Asia, we use Aridity Index data from the CHELSA V21 High-Resolution Climatology data set <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span>. Different aridity index classifications exist. We use the definition of <span class="citation" data-cites="ponce_2000">(<a href="#ref-ponce_2000" role="doc-biblioref">Ponce, Pandey, and Ercan 2000</a>)</span> cited in <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <a href="#tbl-ai-classes" class="quarto-xref">Table&nbsp;<span>1.2</span></a> shows the class definitions utilized here.</p>
-<div id="tbl-ai-classes" class="anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="table quarto-float-caption quarto-float-tbl" id="tbl-ai-classes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>As is well known, the aridity index <span class="math inline">\(\phi\)</span> plays a key role in the partitioning of precipitation <span class="math inline">\(P\)</span> into evapotranspiration <span class="math inline">\(E\)</span> and runoff <span class="math inline">\(Q\)</span> (see also <a href="long_term_water_balance_modeling.html" class="quarto-xref"><span>Chapter 9</span></a> in Part III of this book for more information on this). It is defined as the ratio of mean potential evapotranspiration <span class="math inline">\(E_{0}\)</span> to mean precipitation <span class="math inline">\(P\)</span>. For the analysis in semi-arid Central Asia, we use Aridity Index data from the CHELSA V21 High-Resolution Climatology data set <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span>. Different aridity index classifications exist. We use the definition of <span class="citation" data-cites="ponce_2000">(<a href="#ref-ponce_2000" role="doc-biblioref">Ponce, Pandey, and Ercan 2000</a>)</span> cited in <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <a href="#tbl-ai-classes" class="quarto-xref">Table&nbsp;<span>1.2</span></a> shows the class definitions utilized here.</p>
+<div id="tbl-ai-classes" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ai-classes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1.2: Aridity index classification as proposed by <span class="citation" data-cites="ponce_2000">(<a href="#ref-ponce_2000" role="doc-biblioref">Ponce, Pandey, and Ercan 2000</a>)</span>.
 </figcaption><div aria-describedby="tbl-ai-classes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
@@ -618,14 +667,14 @@ Table&nbsp;1.2: Aridity index classification as proposed by <span class="citatio
 </div>
 </figure>
 </div>
-<p><a href="#fig-aridity-index-classes-large-basins" class="quarto-xref">Figure&nbsp;<span>1.13</span></a> shows the zonation of the CHELSA V21 aridity index as per the definition in <a href="#tbl-ai-classes" class="quarto-xref">Table&nbsp;<span>1.2</span></a>. The Figure shows the sub-humid (bright blue color) and humid (dark blue color) mountainous regions that contribute to the generation of surface runoff in the region. We refer to these two domains as the <em>zone of runoff formation</em>. Converse to this, the downstream semi-arid to hyper-arid regions are the places where runoff is dissipated, mostly through the distribution in thousands of kilometers of irrigation and drainage canals in the vast man-made hydrological systems. These domains shown in ocre, orange and red colors are called the <em>zone of complex water distribution and use</em>. The <a href="#sec-zone-of-water-distribution-and-use" class="quarto-xref"><span>Section&nbsp;1.4</span></a> below describes features of these zones in greater detail.</p>
+<p><a href="#fig-aridity-index-classes-large-basins" class="quarto-xref">Figure&nbsp;<span>1.13</span></a> shows the zonation of the CHELSA V21 aridity index as per the definition in <a href="#tbl-ai-classes" class="quarto-xref">Table&nbsp;<span>1.2</span></a>. The Figure shows the sub-humid (bright blue color) and humid (dark blue color) mountainous regions that contribute to the generation of surface runoff in the region. We refer to these two domains as the <em>zone of runoff formation</em>. Converse to this, the downstream semi-arid to hyper-arid regions are the places where runoff is dissipated, mostly through the distribution in thousands of kilometers of irrigation and drainage canals in the vast man-made hydrological systems. These domains shown in ocre, orange and red colors are called the <em>zone of complex water distribution and use</em>. The <a href="#sec-zone-of-water-distribution-and-use" class="quarto-xref"><span>Section 1.4</span></a> below describes features of these zones in greater detail.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-aridity-index-classes-large-basins" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-aridity-index-classes-large-basins" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-aridity-index-classes-large-basins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydrological_systems_files/figure-html/fig-aridity-index-classes-large-basins-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-aridity-index-classes-large-basins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-aridity-index-classes-large-basins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.13: AI classes are shown for the Central Asia region. Blueish colors indicate sub-humid and humid locations whereas brownish and reddish colors indicate zones of aridity. When compared with the topography as shown in <a href="#fig-central-asia-dem" class="quarto-xref">Figure&nbsp;<span>1.4</span></a> above, the location of the zone of runoff formation in the mountainous region becomes clear.
 </figcaption></figure>
 </div>
@@ -634,21 +683,21 @@ Figure&nbsp;1.13: AI classes are shown for the Central Asia region. Blueish colo
 <p>Due to the presence of the vertical thermal gradient, the start of the positive air temperature season, and consequently, the start of the ice and snow melting season does not take place uniformly in the region at the same time of the year. Rather, the snow melting process is of protracted nature and the higher the mountains are in a particular catchment, the later the snow-melt floods take place on rivers that are emerging there.</p>
 <p>The melting process starts last in the permanent snow and glaciers regions. Because of this, the rivers, which are fed by snowmelt in the upper parts of the catchment area, are of great importance for the irrigation of crop fields, since they are characterized by the most significant water runoff during July and August, at which point the irrigated plains experience severe drought and when irrigated crops have the highest water demand.</p>
 <p>The rivers having this kind of a runoff regime (nivo-glacial) are Pyandzh and Vakhsh Rivers, as well as the ones deriving from them, such as Amu Darya, Chu, Zeravshan, Talas and Ili Rivers with its numerous tributaries. These rivers all feature a small variability of annual runoff. This is partly a result of the regulating effect of the zone of eternal snows and ice and is very important from the perspective of agricultural production in the downstream. These rivers are thus particularly valuable, not only for irrigation but also as a source of hydroelectric power. <a href="#fig-nivo-glacial-rivers" class="quarto-xref">Figure&nbsp;<span>1.14</span></a> shows example hydrographs of such rivers.</p>
-<div id="fig-nivo-glacial-rivers" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-nivo-glacial-rivers" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-nivo-glacial-rivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/14_sample_high_elevation_river_hydrograph.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-nivo-glacial-rivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nivo-glacial-rivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.14: Typical runoff regimes of nivo-glacial rivers in the Central Asia region. Hydrographs of different tributary of the Chirchik River are shown. Source: Yuri Ivanov (Uzbek Hydrometeorological Service), unpublished.
 </figcaption></figure>
 </div>
 <p>Rivers originating from the low mountains but being fed mainly by the snowmelt (nival regime rivers), are characterized by the early floods (March-May) and a sharp variability of annual runoff, since the amount of water is almost entirely determined by the snow reserves in the mountains which were accumulated in the previous winter season. <a href="#fig-nival-pluvial-rivers" class="quarto-xref">Figure&nbsp;<span>1.15</span></a> shows example hydrographs of such rivers.</p>
 <p>Finally, the watercourses originating from the lowest parts of mountains or from low mountains, (nivo-pluvial regime rivers), which in comparison to other regimes receive much more liquid precipitation, are characterized by large amounts of water, often saturated by sediment, passing during short periods of time. These are so-called mudflows. These watercourses often dry up during summer because of a decrease in supplies from groundwater.</p>
-<div id="fig-nival-pluvial-rivers" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-nival-pluvial-rivers" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-nival-pluvial-rivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/13_sample_low_land_river_hydrograph.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-nival-pluvial-rivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nival-pluvial-rivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.15: Typical runoff regimes of nival-pluvial rivers in the Central Asia region. Hydrographs of different low-lying tributaries of the Chirchik River are shown. Source: Yuri Ivanov (Uzbek Hydrometeorological Service), unpublished.
 </figcaption></figure>
 </div>
@@ -664,7 +713,7 @@ Figure&nbsp;1.15: Typical runoff regimes of nival-pluvial rivers in the Central 
 <span> <span class="va">basin_ai_class_stats</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input_raster</span>, <span class="va">class_raster</span>, <span class="va">ai_classes</span>, <span class="va">stats_fun</span>, <span class="va">prec</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
 <span>   <span class="co"># computing the mean zonal ai</span></span>
-<span>   <span class="va">lookup_values</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/zonal.html">zonal</a></span><span class="op">(</span><span class="va">input_raster</span>, <span class="va">class_raster</span>, fun <span class="op">=</span> <span class="va">stats_fun</span><span class="op">)</span></span>
+<span>   <span class="va">lookup_values</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/zonal.html">zonal</a></span><span class="op">(</span><span class="va">input_raster</span>, <span class="va">class_raster</span>, fun <span class="op">=</span> <span class="va">stats_fun</span><span class="op">)</span></span>
 <span>   <span class="va">lookup_values</span> <span class="op">&lt;-</span> <span class="va">lookup_values</span> <span class="op">%&gt;%</span> <span class="fu">rename</span><span class="op">(</span>ai_class_number <span class="op">=</span> <span class="fl">1</span>, ai_value <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span>   <span class="va">lookup_values</span> <span class="op">&lt;-</span> <span class="va">lookup_values</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>ai_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">ai_value</span>, digits <span class="op">=</span> <span class="va">prec</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -688,12 +737,12 @@ Figure&nbsp;1.15: Typical runoff regimes of nival-pluvial rivers in the Central 
 <span> <span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div id="tbl-ai-basin-zones-area-stats" class="cell anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="table quarto-float-caption quarto-float-tbl" id="tbl-ai-basin-zones-area-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="tbl-ai-basin-zones-area-stats" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ai-basin-zones-area-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1.3: Basin-specific AI zone areas (in km<sup>2</sup>).
 </figcaption><div aria-describedby="tbl-ai-basin-zones-area-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 12%">
@@ -772,18 +821,18 @@ Table&nbsp;1.3: Basin-specific AI zone areas (in km<sup>2</sup>).
 </figure>
 </div>
 </div>
-<p>As in the case of the defintion of the zones of runoff formation (<a href="#sec-zone-of-runoff-formation" class="quarto-xref"><span>Section&nbsp;1.3</span></a>), one way to define the zones of complex water distribution and use is to use the definition of <span class="citation" data-cites="mcvicar_2012">McVicar et al. (<a href="#ref-mcvicar_2012" role="doc-biblioref">2012</a>)</span> to classify zones of high aridity in the following way</p>
+<p>As in the case of the defintion of the zones of runoff formation (<a href="#sec-zone-of-runoff-formation" class="quarto-xref"><span>Section 1.3</span></a>), one way to define the zones of complex water distribution and use is to use the definition of <span class="citation" data-cites="mcvicar_2012">McVicar et al. (<a href="#ref-mcvicar_2012" role="doc-biblioref">2012</a>)</span> to classify zones of high aridity in the following way</p>
 <ul>
 <li>
 <span class="math inline">\(\phi \ge 1.3\)</span> and <span class="math inline">\(\phi &lt; 3\)</span>: arid conditions</li>
 <li>
 <span class="math inline">\(\phi \ge 3\)</span>: hyperarid conditions</li>
 </ul>
-<div id="fig-central-asia-high-aridity" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-central-asia-high-aridity" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-central-asia-high-aridity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/11_central_asia_high_aridity.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-central-asia-high-aridity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-central-asia-high-aridity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.16: The classification of the domain into arid and hyperarid zones is shown. Climatology data are from <span class="citation" data-cites="karger_2021">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span> to compute the aridity index. For the definition of the humid and equidistant zones, we use <span class="citation" data-cites="mcvicar_2012">McVicar et al. (<a href="#ref-mcvicar_2012" role="doc-biblioref">2012</a>)</span>.
 </figcaption></figure>
 </div>
@@ -824,7 +873,7 @@ Attaching package: 'magrittr'</code></pre>
 
     extract</code></pre>
 </div>
-<div id="fig-construction-of-big-fergana-canal" class="cell-output-display quarto-figure quarto-figure-center anchored">
+<div id="fig-construction-of-big-fergana-canal" class="cell-output-display quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-construction-of-big-fergana-canal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="vembedr" align="center">
 <div>
@@ -832,35 +881,35 @@ Attaching package: 'magrittr'</code></pre>
 </div>
 </div>
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-construction-of-big-fergana-canal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-construction-of-big-fergana-canal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.17: This archive footage shows a Soviet propaganda video featuring unique footage of the construction of the Big Fergana Canal in the Fergana Valley in 1939. The canal was build over the period of 45 days over a length of 280 km, approximately, with an estimated 180’000 labour.
 </figcaption></figure>
 </div>
 </div>
 <p>Nowadays, Uzbekistan has by far irrigates the largest area, i.e., almost half of the total irrigated area. Contrary to that, Tajikistan has the smallest fraction with only 7% of the total irrigated area on its territory. Almost one third of the total irrigated area is non-agricultural land including irrigated vegetation in cities and housegardens.</p>
-<div id="fig-central-asia-irrigated-areas-2020" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-central-asia-irrigated-areas-2020" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-central-asia-irrigated-areas-2020-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/15_central_asia_irrigated_area.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-central-asia-irrigated-areas-2020-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-central-asia-irrigated-areas-2020-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.18: Irrigated area in 2020 in semi-arid Central Asia, excluding Afghanistan. The pie chart in the upper left shows country-level statistics whereas the one in the upper right corner shows the type of irrigated area. Irrigated non-agricultural refers to irrigated areas in cities and housegardens. Source: <a href="www.hydrosolutions.ch">hydrosolutions GmbH</a>.
 </figcaption></figure>
 </div>
 <p>These data were derived with a unsupervised classification approach using Google Earth Engine and vast amounts of remotely sensed data (<span class="citation" data-cites="ragettli_2018">Ragettli, Herberz, and Siegfried (<a href="#ref-ragettli_2018" role="doc-biblioref">2018</a>)</span>). The interannual variability of irrigated area is smaller than 5% between 2016 - 2020. This means that despite climate variability, the irrigation system is well buffered against below normal water years. This certainly also has to do with the fact that there are a large number of decadal to seasonal regulators/reservoirs that can buffer water supply variability to a certain extent.</p>
-<div id="fig-central-asia-dams" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-central-asia-dams" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-central-asia-dams-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/23_central_asia_dams.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-central-asia-dams-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-central-asia-dams-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.19: Dams from the Global Georeferenced Database of Dams data are shown for the Central Asia region (<span class="citation" data-cites="goodd_2020">Mulligan, Soesbergen, and Sáenz (<a href="#ref-goodd_2020" role="doc-biblioref">2020</a>)</span>). The red dots indicate the main hydropower producing dams whereas the black dots show the locations of the decadal/seasonal regulators.
 </figcaption></figure>
 </div>
 <p>The main planted crops in the region for the year 2020 are shown in <a href="#fig-main-crops" class="quarto-xref">Figure&nbsp;<span>1.20</span></a>. This figure is also derived from remotely senses data and shows the crop disaggergated irrigated land (Source: <a href="www.hydrosolutions.ch">hydrosolutions GmbH</a>).</p>
-<div id="fig-main-crops" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-main-crops" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-main-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrology_of_central_asia/16_central_asia_crops.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-main-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-main-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.20: Crop disagregated irrigated areas. The main crops are shown color encoded for the year 2020. Despite its declining significance, cotton remains the dominant irrigated crop in the region. Source: <a href="www.hydrosolutions.ch">hydrosolutions GmbH</a>.
 </figcaption></figure>
 </div>
@@ -1145,38 +1194,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1185,8 +1224,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1421,4 +1467,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hydrosolutions/caham_book/edit/master/hydrological_systems.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

@@ -174,3 +174,4 @@ The CHELSA V21 global daily high-resolution climatology, available from 01-01-19
 High-resolution crop disaggregated irrigated areas were mapped over the entire Central Asia domain by [hydrosolutions GmbH](www.hydrosolutions.ch){target="_blank"} (see also [@ragettli_2018] for more information). Like this 30 m crop maps were produced with Google Earth Engine using unsupervised classification for the years 2016 - 2020. These maps, in conjunction with estimates of irrigation water intake volumes and estimates of actual evapotranspiration help in irrigation scheme performance assessments. In hydrological modeling, these data can be used to introduce sectoral consumption estimates and help to come up with sound and effective basin planning.
 
 ## References {#sec-data-sources-references}
+

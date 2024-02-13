@@ -1,0 +1,136 @@
+# Watershed delineation {#sec-watershed-delineation}
+
+<!-- # Libraries -->
+
+```{r}
+#| include: false
+
+```
+
+# Theory {#sec-watershed-delineation-theory .unnumbered}
+
+In this chapter, we examine the **definition of a watershed** and how it is delineated using **Geographic Information System (GIS)** and a **Digital Elevation Model (DEM)**. We also explore the basics of GIS and the concept of a DEM.
+
+## Watershed definition
+
+A **watershed**, often also referred to as a **catchment** or **drainage basin**, is a landscape unit over which the **hydrological balance** can be determined (measured or computed). It is the area draining to a **common point**. Watershed delineation is creating a boundary representing the contributing area for a particular point/outlet.
+
+![Example of a watershed. Source: [The watershed project](https://thewatershedproject.org/what-is-a-watershed/)](/images/Climate_change_impact_study/Watershed_delineation/watershed_schematic.jpg){#fig-watershed-example width="300"}
+
+#### Hydrological Balance {#sec-hydrological-balance .unnumbered}
+
+$$
+P + SM - ET - I- Q = 0
+$$ {#eq-waterbalance}
+
+Where $P$ is the precipitation, $SM$ snowmelt, $ET$ evapotranspiration, $I$ infiltration and $Q$ the discharge.
+
+The Topography is the main driving force behind watershed delineation. To find the **watershed boundary**, we need to pick a point (outlet) and find the area draining into it. We do this to select properties within the watershed, as well as the climate forcing.
+
+## Geographic information system (GIS)
+
+We perform all operations in a **Geographic Information System (GIS)**. A GIS allows us to manage, analyse, edit, produce, and visualise **geographic data**, also known as **spatial data**. This is data that includes additional location information. Spatial data comes in two forms: **vector** and **raster** data.
+
+Vector **points** are simply X,Y coordinates and can represent a location like a discharge station, for example. A vector **line** is a connected sequence of points (e. g. river, street). A vector **polygon** is a closed set of lines, like a watershed boundary.
+
+![Vector vs. raster data in GIS.](/images/Climate_change_impact_study/Watershed_delineation/Vector_raster.png){#fig-raster-vector width="300"}
+
+**Raster** data is made up of pixels (also referred to as grid cells). They are usually regularly spaced and square but don’t have to be. Each pixel is associated with a specific geographical location. Examples of raster data are land use and elevation data. The spatial resolution of raster data refers to the cell geometry, how “big” one cell is. @fig-raster-resolution shows the effect of different spatial resolutions.
+
+![Raster data with different spatial resolution.](/images/Climate_change_impact_study/Watershed_delineation/raster_resolution.png){#fig-raster-resolution width="600"}
+
+## Coordinate Reference System (CRS)
+
+To define the location of objects on the Earth you need a coordinate reference system that adapts to the Earth’s shape. There are two different types of a Coordinate Reference Systems (CRS):
+
+-   A **Geographic coordinate systems (GCS)** is a system that uses a three-dimensional spherical surface to determine locations on the Earth. Any location on Earth can be referenced by a point with longitude and latitude coordinates. Its units are angular, usually degrees. (@fig-crs-explanation, right)
+
+-   A **Projected coordinate system (PCS)** is flat. It contains a GCS, but it converts that GCS into a flat surface by projecting points into the plane. Its units are linear, for example, in meters @fig-crs-explanation, left)
+
+![Differences of a geographic coordinate system (GCS) left and a projected coordinate system (PCS) right.](/images/Climate_change_impact_study/Watershed_delineation/Geographic_coordinate_system.png){#fig-crs-explanation width="450"}
+
+There are many different models of the earth’s surface, and therefore many different GCS. **World Geodetic System 1984 (WGS84)** is designed as a one-size-fits-all GCS, good for mapping global data and the most popular CRS. WGS84 uses a three-dimensional ellipsoidal model of the Earth, with positions that are defined using latitude and longitude in degree (e.g. Location of Zurich: E: 47.4°, N: 8.5°).
+
+The **Universal Transverse Mercator (UTM)** system is a commonly used projected coordinate reference system, in meter. UTM subdivides the globe into zones, numbered 0-60 (equivalent to longitude) and regions (north and south). A UTM zone is a 6° segment of the Earth. Because a circle has 360°, this means that there are 60 UTM zones on Earth. The coordinate system grid for each zone is projected individually. Additionally, the system includes a series of horizontal bands, each covering 8 degrees of latitude, which are lettered from C to X. Zurich, for example, is in UTM zone 32T with the location: 32T E: 465207.85 N: 5246235.11.
+
+## Digital elevation model (DEM)
+
+A Digital Elevation Model (DEM) represents the Earth's bare ground topographic surface, excluding trees, buildings, and any other surface objects.There are several datasets available. This handbook will use the digital elevation model from the **Shuttle Radar Topography Mission (SRTM)** (@srtm_2020). There are several ways to download the data. This will be discussed within the exercise (@sec-basin-characterisation-exercise-Part1).
+
+## Watershed delineation
+
+Watersheds can be delineated from a DEM. In this handbook, we look at the point-based watershed delineation. The point-based method derives a watershed for each selected point (e.g. discharge station). The slideshow below shows the steps to delineate a watershed based on the example of the upper Zarafshan River Basin.
+
+The outlet point of a watershed is where all the water drains into. Water flow is mainly driven by gravity. From a DEM, we are getting information about the height structure of the surface. To delineate a watershed, first, we have to fill in sinks. A filled DEM is void of depressions, cells that are surrounded by higher elevation values and thus represent an area of internal drainage. From the filled DEM, we can calculate the flow direction. The flow direction shows the direction in which the water will flow out of each cell of the filled DEM. A widely used method for deriving flow direction is the D8 method. The D8 method assigns a cell’s flow direction based on the steepest slope of its eight neighbours. From the flow direction, we can calculate the flow accumulation of each cell by counting how many cells are draining into one cell. The stream network can be derived from a flow accumulation raster by, for example, using a threshold method. This means if a cell of the flow accumulation raster exceeds a certain threshold of how many cells are draining into this cell, it is classified as a river.
+
+```{r, echo=FALSE}
+library(slickR)
+library(htmltools)
+
+# List of images
+images <- c("images/Climate_change_impact_study/Watershed_delineation/Delineation_workflow.png",
+            "images/Climate_change_impact_study/Watershed_delineation/Delineation_DEMfilled.png", 
+            "images/Climate_change_impact_study/Watershed_delineation/Delineation_flowdir.png",
+            "images/Climate_change_impact_study/Watershed_delineation/Delineation_flowacc.png",
+            "images/Climate_change_impact_study/Watershed_delineation/Delineation_finito.png")
+
+# Corresponding captions
+captions <- c("1. Overview watershed delineation steps.", "2. Depression filled digital elevation model.", "3. Flow direction.","4. Flow accumulation.","5. River network and watershed delineation.")
+
+# Create the image slider with smaller dimensions
+image_slider <- slickR(obj = images, height = 200, width = '90%')
+
+# Create the caption slider with custom CSS for black text color
+caption_slider <- slickR(obj = captions, slideType = 'p', height = 90, width = '100%') + 
+                  settings(arrows = FALSE)
+
+# Synchronize the sliders
+synced_sliders <- image_slider %synch% caption_slider
+
+# Custom CSS to change caption color to black
+css <- HTML(
+  "
+  <style>
+  .slick-slide p {
+    color: black;
+  }
+  </style>
+  "
+)
+
+# Combine CSS with sliders for output
+htmltools::tagList(css, synced_sliders)
+
+```
+
+# Exercise 1: Watershed delineation {#sec-watershed-delineation-exercise .unnumbered}
+
+The goal of the first exercise is to delineate the catchment, like in the example of upper ZRB in Figure @fig-workflow-goal. For this exercise, you need to have QGIS installed. For a quick installation guide and tutorial, follow this Link. If you already have your catchment outlines and river network, you can skip this exercise and go to [sec-basin-characterisation-theory](#sec-basin-characterisation-theory).
+
+![Outcome Exercise 1: Watershed area and river network here with the example of the upper Zarafshan River Basin.](/images/Climate_change_impact_study/Watershed_delineation/Watershed_delineation_goal.png){#fig-workflow-goal width="600"}
+
+In this exercise, we will use the [Global Watersheds](https://mghydro.com/watersheds/) web app by @heberger_delineatorpy_2022. The following instruction video shows how to delineate the catchment and import your watershed area and river network into QGIS.
+
+**English version:**
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=ksRRY1yYL9c") %>%
+  use_align("center")
+```
+
+**Russian version:**
+
+```{r}
+#| echo: false
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=KbVSFZpU42Y&t=1s") %>%
+  use_align("center")
+```
+
+
+Watershed delineation can also be performed using other tools such as QGIS, detailed in Chapter @sec-catchment-delineation, or R, as outlined [here](https://vt-hydroinformatics.github.io/rgeowatersheds.html).
+
+
+## References {#sec-watershed-delineation-references}

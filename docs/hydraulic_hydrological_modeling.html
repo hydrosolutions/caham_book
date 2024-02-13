@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.424">
+<meta name="generator" content="quarto-1.4.549">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="2022 release">
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 8&nbsp; Hydrological-Hydraulic Modeling</title>
@@ -112,21 +112,47 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./hydrological_modeling.html">Part III: Hydrological Modeling &amp; Applications</a></li><li class="breadcrumb-item"><a href="./hydraulic_hydrological_modeling.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -134,7 +160,7 @@ div.csl-indent {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
         <div class="sidebar-tools-main">
@@ -291,13 +317,36 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+            <a href="./Climate_change_impact_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Climate Change Impact Study</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Watershed_delineation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Watershed delineation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Watershed_characterisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Watershed characterisation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link">
@@ -326,7 +375,7 @@ div.csl-indent {
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -368,14 +417,14 @@ div.csl-indent {
 
 
 </header><p>Hydrological-hydraulic models are used for different purposes, including for the design of basin plans while taking into consideration different development options, for the study of effective water resources management schemes while taking into consideration the different types of sectoral users and uses of water in a basin (ideally also including minimal environmental flows), and for the detailed study of basin-scale climate impacts and their repercussions.</p>
-<p>This Chapter introduces combined hydrologic and hydraulic modeling using the freely available graphical modeling environment RS Minerve [<span class="citation" data-cites="rsminerve_software">CREALP (<a href="#ref-rsminerve_software" role="doc-biblioref">2021</a>)</span>; <span class="citation" data-cites="rsminerve_um">Foehn et al. (<a href="#ref-rsminerve_um" role="doc-biblioref">2020</a>)</span>; <span class="citation" data-cites="rsminerve_tm">Garcia Hernandez et al. (<a href="#ref-rsminerve_tm" role="doc-biblioref">2020</a>)</span>]<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <a href="#fig-rsminervemodelpreview" class="quarto-xref">Figure&nbsp;<span>8.1</span></a> shows a screen shot of a model of the Gunt river basin setup in RS Minerve as a teaser.</p>
+<p>This Chapter introduces combined hydrologic and hydraulic modeling using the freely available graphical modeling environment RS Minerve <span class="citation" data-cites="rsminerve_software rsminerve_um rsminerve_tm">(<a href="#ref-rsminerve_software" role="doc-biblioref">CREALP 2021</a>; <a href="#ref-rsminerve_um" role="doc-biblioref">Foehn et al. 2020</a>; <a href="#ref-rsminerve_tm" role="doc-biblioref">Garcia Hernandez et al. 2020</a>)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <a href="#fig-rsminervemodelpreview" class="quarto-xref">Figure&nbsp;<span>8.1</span></a> shows a screen shot of a model of the Gunt river basin setup in RS Minerve as a teaser.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-rsminervemodelpreview" class="quarto-figure quarto-figure-center anchored" width="1680">
+<div id="fig-rsminervemodelpreview" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsminervemodelpreview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrological_modeling/rsminerveModelPreview_lr.png" class="img-fluid figure-img" width="1680">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsminervemodelpreview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsminervemodelpreview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.1: Screenshot of an RS Minerve model setup for Gunt river basin.
 </figcaption></figure>
 </div>
@@ -410,11 +459,11 @@ If you fulfill the prerequisites, you should be able to do the tutorial with the
 <p>Hydrological modeling is an iterative process (see <a href="#fig-iterative-modelling-process" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>). At the beginning, the purpose of the model has to be defined. The model goal determines the spatial and temporal resolution of the hydrological model. E.g. for analyzing the impact of climate change on seasonal, regional flows we are interested in the seasonal flow volumes whereas a model used for early warnings from floods requires high temporal resolution and a high model performance for threshold overflows. See for example <span class="citation" data-cites="bloschl_scale_1995">Blöschl and Sivapalan (<a href="#ref-bloschl_scale_1995" role="doc-biblioref">1995</a>)</span> for a thorough discussion of scales in hydrological modeling. Please note that the definition of the model goal also determines the performance criteria the model has to fulfill in order to be judged suitable for its purpose. As a next step, data about the catchment is gathered (see for example basin characterization in the Chapter <a href="#CaseStudies">Case Studies</a>) and a first conceptual model of the dominant flow processes in the basin is drafted (e.g.&nbsp;low peaks and significant base flow point to large storage capacity in the basin whereas high peaks and low base flow indicate small storage capacity in the basin). The conceptual model of the river catchment is then implemented with a mathematical model (e.g.&nbsp;the HBV model in RS Minerve) and parameterized as well as possible (i.e.&nbsp;using reasonable estimates for initial parameter values). The model is then calibrated and validated (i.e.&nbsp;tested with a previously unseen data set) as described further below If the performance criteria for the model calibration are satisfied, a conscientious modeler performs a sensitivity analysis to gain confidence in the model. From each of these steps, the modeler can (and generally has to) go back to a previous step to gather more data, modify the conceptual model, adapt the model implementation, re-calibrate the model and/or re-evaluate the model sensitivity. Also, the modeler is aware of the inherent uncertainties of the data and the model (see for example <span class="citation" data-cites="refsgaard_uncertainty_2007">Refsgaard et al. (<a href="#ref-refsgaard_uncertainty_2007" role="doc-biblioref">2007</a>)</span> for a discussion on how to include uncertainties in the modeling process). The described steps produce a model (or an ensemble of models) that satisfy the performance criteria, only now the modeler can start actually using the model for the purpose it was implemented for.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-iterative-modelling-process" class="quarto-figure quarto-figure-center anchored" width="818">
+<div id="fig-iterative-modelling-process" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-iterative-modelling-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/hydrological_modeling/fig_modelling_process.png" class="img-fluid figure-img" width="818">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-iterative-modelling-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iterative-modelling-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.2: The modelling process is iterative.
 </figcaption></figure>
 </div>
@@ -426,11 +475,11 @@ Figure&nbsp;8.2: The modelling process is iterative.
 <p>Why do we do hydrological modeling? Typically we want to know how much river flow we can expect at a given time in the future so we can plan our water consumption ahead, harness against floods or implement measures against droughts. So how can we forecast river discharge? For example, one could use the long term seasonal average discharge as the likely future discharge. However, in some years we have high discharge and in some years we have low discharge (<a href="#fig-discharge-nauvalisoy" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>). How to tell when you have which discharge?</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-discharge-nauvalisoy" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-discharge-nauvalisoy" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-discharge-nauvalisoy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-discharge-nauvalisoy-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-discharge-nauvalisoy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-discharge-nauvalisoy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.3: Seasonal discharge of the Nauvalisoy river illustrating the variability of the discharge.
 </figcaption></figure>
 </div>
@@ -439,11 +488,11 @@ Figure&nbsp;8.3: Seasonal discharge of the Nauvalisoy river illustrating the var
 <p>Let’s go back to the water balance: Where does the water in the river come from? Precipitation. When we compare precipitation and discharge time series we see that the two are related (<a href="#fig-precipitation-nauvalisoy" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-precipitation-nauvalisoy" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-precipitation-nauvalisoy" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-precipitation-nauvalisoy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-precipitation-nauvalisoy-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-precipitation-nauvalisoy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-precipitation-nauvalisoy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.4: Discharge (red) and precipitation (grey) in the Nauvalisoy catchment.
 </figcaption></figure>
 </div>
@@ -456,11 +505,11 @@ Q \propto P \cdot K
 <p>In words this reads: Discharge (Q) is proportional to precipitation (P) times a transfer function (K) that defines the delay of the signal. The transfer function K describes how precipitation becomes river discharge and depends on the catchment characteristics, importantly on the storage capacity of the catchment. In reality, the transformation of precipitation to discharge is quite complex but we can simplify the reality and come up with a basic conceptual model of our river catchment: a large bath tube with the area of the catchment and an outlet at the bottom called the <em>linear reservoir model</em> (<a href="#fig-from-catchment-to-bucket" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-from-catchment-to-bucket" class="quarto-figure quarto-figure-center anchored" width="809">
+<div id="fig-from-catchment-to-bucket" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-from-catchment-to-bucket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/fig_fromCatchmentToBucket.png" class="img-fluid figure-img" width="809">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-from-catchment-to-bucket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-from-catchment-to-bucket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.5: From the real-life system (left) to a linear reservoir (right).
 </figcaption></figure>
 </div>
@@ -491,11 +540,11 @@ We assume that at the beginning of our experiment, we don’t have a discharge a
 In RS Minerve, the catchment area is typically sub-divided into areas with similar hydrological properties, so called hydrological response units or HRUs, for which the discharge is computed individually. Several HRUs can be connected. This approach is often numerically more efficient than a gridded discretization of the catchment area.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-overview-hbv-model" class="quarto-figure quarto-figure-center anchored" width="437">
+<div id="fig-overview-hbv-model" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-overview-hbv-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/fig_HBVconceptualModel.png" class="img-fluid figure-img" width="437">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-overview-hbv-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overview-hbv-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.6: The HBV model concept (source: RS MINERVE Technical Manual).
 </figcaption></figure>
 </div>
@@ -508,11 +557,11 @@ Through deep percolation (<span class="math inline">\(i_{Perc}\)</span>) water r
 <p>The several reservoirs of the HBV model come with a multitude of parameters (<a href="#fig-overview-hbv-model-parameters" class="quarto-xref">Figure&nbsp;<span>8.7</span></a>) which have to be adjusted such that the model reproduces the measured discharge of the basin, a process called model calibration which will be discussed in more detail further on in this chapter. Here we’d like you to note the number of model states and parameters or degrees of freedom the HBV model has and to compare it to the amount of measurements of model states that is actually available to constrain the model parameters.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-overview-hbv-model-parameters" class="quarto-figure quarto-figure-center anchored" width="796">
+<div id="fig-overview-hbv-model-parameters" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-overview-hbv-model-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/fig_PARandIC.png" class="img-fluid figure-img" width="796">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-overview-hbv-model-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overview-hbv-model-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.7: The HBV model parameters (source RS MINERVE Technical Manual).
 </figcaption></figure>
 </div>
@@ -533,18 +582,18 @@ This is done by fixing the least sensitive parameters to literature values</li>
 <p>Similar to the HBV model, the GSM model separates precipitation into solid and liquid precipitation, depending on temperatures, and features a snow pack module. In addition to the HBV snow module, the GSM snow module allows the seasonal varying of the snow melt coefficient using a sinusoidal modulation. Details can be read in the RS MINERVE technical manual <span class="citation" data-cites="rsminerve_tm">(<a href="#ref-rsminerve_tm" role="doc-biblioref">Garcia Hernandez et al. 2020</a>)</span> (see <a href="#fig-overview-gsm-model" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-overview-gsm-model" class="quarto-figure quarto-figure-center anchored" width="884">
+<div id="fig-overview-gsm-model" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-overview-gsm-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/fig_GSMconceptualModel.png" class="img-fluid figure-img" width="884">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-overview-gsm-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overview-gsm-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.8: The GSM model concept (source: RS MINERVE Technical Manual).
 </figcaption></figure>
 </div>
 </div>
 </div>
 <p>The melting of the snow pack yields the so called equivalent precipitation. Runoff from snow melt is subsequently produced through release from a linear reservoir. Glacier area is assumed to be constant in the GSM model and glacier melt only occurs when the snow cover above the glacier has melted away. Also the glacier melt coefficient can be modulated according to a sinusoidal function, analogue to the snow melt coefficient. Runoff from glacier melt is then produced after transformation of the glacier melt signal through a linear reservoir.</p>
-<p>The GSM model has a large number of model parameters which need to be calibrated. Snow height data on glaciers is generally not available but in recent years, estimates on glacier thickness, thinning rates or glacier discharge rates have become publicly available (see <a href="snow_and_glacier_data.html" class="quarto-xref"><span>Chapter&nbsp;6</span></a>). This data may be used to guide GSM model calibration (see <a href="#sec-model-calibration" class="quarto-xref"><span>Section&nbsp;8.7</span></a>).</p>
+<p>The GSM model has a large number of model parameters which need to be calibrated. Snow height data on glaciers is generally not available but in recent years, estimates on glacier thickness, thinning rates or glacier discharge rates have become publicly available (see <a href="snow_and_glacier_data.html" class="quarto-xref"><span>Chapter 6</span></a>). This data may be used to guide GSM model calibration (see <a href="#sec-model-calibration" class="quarto-xref"><span>Section 8.7</span></a>).</p>
 <p>Attention: RS MINERVE does not implement a glacier mass balance with GSM. Significant factors like the change of the glacier geometry as a glacier is melting, are neglected. Further, RS MINERVEs GSM implementation assumes an infinitive glacier reservoir. That means that glacier melt is produced even if glacier thickness becomes negative. This is typically not an issue during short term simulations of a couple of decades as long as glaciers do not disappear during the simulation period. For climate change impact studies however, smaller glaciers are expected to disappear completely.</p>
 <p>For simple, linear models with no downstream water uses implemented, the glacier discharge can be set to zero after the simulation run. For more complex models with downstream water uses however, a simulation needs to be stopped regularly to check the status of the glacier thickness. If the glacier volume in a HRU has melted away, glacier melt in that HRU needs to be turned off. This can for example be done by setting the melt coefficients to 0.</p>
 </section><section id="the-rs-minerve-modelling-environment" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="the-rs-minerve-modelling-environment">
@@ -554,112 +603,112 @@ Figure&nbsp;8.8: The GSM model concept (source: RS MINERVE Technical Manual).
 <span class="header-section-number">8.6.1</span> Loading GIS data</h3>
 <p>Open RS Minerve and move to the GIS tab (1). Click on the Add Layers button in the top right corner of the menu bar (2). An explorer window will pop-up where you select the layers you want to load (3). You require the HRU, junction and river layers which have been prepared for you in the student case study pack.</p>
 <p><img src="images/hydrological_modeling/rsm_loadGISdata_01.png" id="fig-rsm-load-gis-data-01" class="img-fluid" alt="Loading GIS data in RS Minerve."> Click Open (4) to close the explorer window and to load the selected GIS layers into RS Minerve. The result is shown in <a href="#fig-rsm-load-gis-data-02" class="quarto-xref">Figure&nbsp;<span>8.9</span></a>.</p>
-<div id="fig-rsm-load-gis-data-02" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-load-gis-data-02" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-load-gis-data-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_loadGISdata_02.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-load-gis-data-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-load-gis-data-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.9: GIS data loaded in RS Minerve
 </figcaption></figure>
 </div>
 <p>RS Minerve offers limited GIS utilities. You can, for example, change the colors of the GIS layers in the layer properties. The usage is similar to QGIS. You can further inspect the layer attributes by selecting a layer (1) and clicking the Table Info button (2) to open the attribute table.</p>
-<div id="fig-rsm-load-gis-data-03" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-load-gis-data-03" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-load-gis-data-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_loadGISdata_03.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-load-gis-data-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-load-gis-data-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.10: View the attribute table of an example layer in RS Minerve.
 </figcaption></figure>
 </div>
 </section><section id="sec-RSM-automatic-model-generation" class="level3" data-number="8.6.2"><h3 data-number="8.6.2" class="anchored" data-anchor-id="sec-RSM-automatic-model-generation">
 <span class="header-section-number">8.6.2</span> Automatic model generation</h3>
 <p>To automatically generate the model structure, make sure, the 3 required GIS layers are loaded (section above), then click on the Creation button in the Model Management toolbox (1). The model creation configuration window will pop up where you select the appropriate attributes for each model layer from the drop-down menus (2, 4). Tick the Altitude (Z) option in the Subbasins properties and select the Z attribute (3) to let RS Minerve know the altitude of each HRU.</p>
-<div id="fig-rsm-auto-model-creation-01" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-auto-model-creation-01" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_01.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.11: Configuration of the model creation utilities. Selecting the appropriate attributes from the GIS layers.
 </figcaption></figure>
 </div>
 <p>Then select all sub-basins in the Allocate SubBasins Type window (5) and click on the model object selector (6).</p>
 <p>Select the HBV model (1) and click the Allocate Subbasins button (2).</p>
-<div id="fig-rsm-auto-model-creation-02" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-auto-model-creation-02" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_02.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.12: Configuration of the model creation utilities. Selecting hydrological models for each HRU.
 </figcaption></figure>
 </div>
-<p>All the sub-basins should now display the red HBV icon as shown in <a href="#fig-rsm-auto-model-creation-03" class="quarto-xref">Figure&nbsp;<span>8.14</span></a>. If you have glaciers in your basin and prepared your subbasins layer accordingly (see <a href="geospatial_data.html#sec-preparation-of-rsminerve-input-files" class="quarto-xref"><span>Section&nbsp;5.3</span></a>), you now select the glacier HRUs and allocate GSM objects to them (<a href="#fig-rsm-auto-model-creation-03-GSM" class="quarto-xref">Figure&nbsp;<span>8.13</span></a>).</p>
-<div id="fig-rsm-auto-model-creation-03-GSM" class="quarto-figure quarto-figure-center anchored">
+<p>All the sub-basins should now display the red HBV icon as shown in <a href="#fig-rsm-auto-model-creation-03" class="quarto-xref">Figure&nbsp;<span>8.14</span></a>. If you have glaciers in your basin and prepared your subbasins layer accordingly (see <a href="geospatial_data.html#sec-preparation-of-rsminerve-input-files" class="quarto-xref"><span>Section 5.3</span></a>), you now select the glacier HRUs and allocate GSM objects to them (<a href="#fig-rsm-auto-model-creation-03-GSM" class="quarto-xref">Figure&nbsp;<span>8.13</span></a>).</p>
+<div id="fig-rsm-auto-model-creation-03-GSM" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-03-GSM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_03_GSM.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-03-GSM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-03-GSM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.13: Configuration of the model creation utilities when glacier runoff is simulated using GSM. Assign HBV model objects to all non-glacierised HRUs intended for modelling with HBV and GSM model objects for glacierised HRUs.
 </figcaption></figure>
 </div>
 <p>Next, select the river stretch ChonKemin (1), select the Kinematic Wave in the drop-down menu (2) and press Allocate Rivers (3). The icon of the rivers sections should subsequently be colored in the Kindematic Wave colours (not shown).</p>
-<div id="fig-rsm-auto-model-creation-03" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-auto-model-creation-03" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_03.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.14: Configuration of the model creation utilities. Selecting hydrodynamic stream flow models for each river section.
 </figcaption></figure>
 </div>
 <p>Finally, press the Create Model button in the lower right corner of the RS Minerve window (4). If the model creation process is successful, the message <strong><em>Creation model finished.</em></strong> appears in the lower left corner of the RS Minerve window (5). If the model creation process is not successful, an error message will appear instead at the same location which will support you in identifying the problem.</p>
 <p>You can now switch to the Model tab and look at the automatically generated model layout (<a href="#fig-rsm-auto-model-creation-04" class="quarto-xref">Figure&nbsp;<span>8.15</span></a>).</p>
-<div id="fig-rsm-auto-model-creation-04" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-auto-model-creation-04" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_04.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.15: Automatically generated model layout of the Chon Kemin catchment.
 </figcaption></figure>
 </div>
 <p>The river stretch is no longer required. Delete it by selecting it with a left-click on the river object and then pressing delete in the Editing Tools menu in the header bar.</p>
 <p>You can beautify the model view by loading a background image of the Chon Kemin catchment (for example a screen shot from QGIS, <a href="#fig-rsm-auto-model-creation-05" class="quarto-xref">Figure&nbsp;<span>8.16</span></a>) and by re-arranging the HRUs (click and drag) and climate stations for better readability.</p>
-<div id="fig-rsm-auto-model-creation-05" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-auto-model-creation-05" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_05.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.16: Load a background image into RS Minerve by clicking Background (1) Load (2) , selecting the image (3) and pressing Open (4). Exit the background image editing mode by clicking (1) again.
 </figcaption></figure>
 </div>
-<p>If you have generated GSM model objects, each of them will have a virtual weather station assigned to it. We approximate the weather forcing on the glaciers with the weather forcing in the respective HBV HRU for which we have already prepared the input file (see <a href="climate_data.html" class="quarto-xref"><span>Chapter&nbsp;7</span></a>). We delete the automatically generated station objects connected to the GSM objects and connect the station objects of the appropriate HBV object (same elevation layer) to the GSM objects. Stations at high elevations in glaciated basins thus are connected to both HBV and GSM model objects (<a href="#fig-rsm-auto-model-creation-05-GSM" class="quarto-xref">Figure&nbsp;<span>8.17</span></a>). Attention, do not forget to specify the initial glacier thickness in the initial conditions of the GSM model objects.</p>
-<div id="fig-rsm-auto-model-creation-05-GSM" class="quarto-figure quarto-figure-center anchored">
+<p>If you have generated GSM model objects, each of them will have a virtual weather station assigned to it. We approximate the weather forcing on the glaciers with the weather forcing in the respective HBV HRU for which we have already prepared the input file (see <a href="climate_data.html" class="quarto-xref"><span>Chapter 7</span></a>). We delete the automatically generated station objects connected to the GSM objects and connect the station objects of the appropriate HBV object (same elevation layer) to the GSM objects. Stations at high elevations in glaciated basins thus are connected to both HBV and GSM model objects (<a href="#fig-rsm-auto-model-creation-05-GSM" class="quarto-xref">Figure&nbsp;<span>8.17</span></a>). Attention, do not forget to specify the initial glacier thickness in the initial conditions of the GSM model objects.</p>
+<div id="fig-rsm-auto-model-creation-05-GSM" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-05-GSM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_05_GSM.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-05-GSM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-05-GSM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.17: If GSM model objects are created, delete the automatically generated virtual weather stations connected to the GSM model objects and connect the GSM model objects to the virtual weather station objects of the HBV model objects in the same elevation band and sub-basin.
 </figcaption></figure>
 </div>
 <p>Now we need to add a comparator and a source object in order to be able to compare the simulated river discharge to the observed discharge. Step-by-step you need to click on the Source object in the model object list (1). A small faucet icon will appear en lieu of your customary cursor icon. Move your cursor to an appropriate location in the map window and click to place the source object (2). Do the same for the comparator object: activate it by clicking the object (3) and place it with a click in the map window (4).</p>
-<div id="fig-rsm-auto-model-creation-06" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-auto-model-creation-06" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-06-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_06.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-06-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-06-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.18: Adding source and comparator object to the model layout.
 </figcaption></figure>
 </div>
 <p>The new objects now need to be connected to the rest of the model objects. Activate the Connections mode in the Editing tools box of the header bar (5). Then draw a line from the source object to the comparator object (6). In the pop-up window, specify that the source object is your reference (7). Then accknowledge by clicking Ok.</p>
 <p>In the same manner, draw a connection from the junction object (15149_gauge) to the comparator (1) and specify that the junction represents your simulated discharge (2).</p>
-<div id="fig-rsm-auto-model-creation-07" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-auto-model-creation-07" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-auto-model-creation-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_autoModelCreation_07.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-auto-model-creation-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.19: Connecting the new objects to the rest of the model objects.
 </figcaption></figure>
 </div>
 <p>Deactivate the connection mode by clicking the Select button (3). You can re-name the new objects by clicking on their names. The basic model layout is now finished but there are still a few required steps before we can run the model.</p>
-<p>With the present model we can now simulate discharge from rainfall and snow melt. We can further simulate the evolution of the water storage in different compartments in the catchments. What about glacier melt? Glacier melt can be simulated in RS Minerve with the GSM model. However, the GSM model is only marginally suitable for long-term scenario simulation. We therefore suggest a different glacier modeling strategy where discharge from glacier melt is simulated externally and then included into RS Minerve as a source. The process is described in Chapter <a href="glacier_modeling.html" class="quarto-xref"><span>Chapter&nbsp;11</span></a>.</p>
+<p>With the present model we can now simulate discharge from rainfall and snow melt. We can further simulate the evolution of the water storage in different compartments in the catchments. What about glacier melt? Glacier melt can be simulated in RS Minerve with the GSM model. However, the GSM model is only marginally suitable for long-term scenario simulation. We therefore suggest a different glacier modeling strategy where discharge from glacier melt is simulated externally and then included into RS Minerve as a source. The process is described in Chapter <a href="glacier_modeling.html" class="quarto-xref"><span>Chapter 11</span></a>.</p>
 </section><section id="loading-climate-data" class="level3" data-number="8.6.3"><h3 data-number="8.6.3" class="anchored" data-anchor-id="loading-climate-data">
 <span class="header-section-number">8.6.3</span> Loading climate data</h3>
 <p>The hydrological model needs forcing data: Precipitation and Temperature. The following sections illustrate how to load the pre-processed climate data into RS Minerve.</p>
@@ -667,49 +716,49 @@ Figure&nbsp;8.19: Connecting the new objects to the rest of the model objects.
 <p><img src="images/hydrological_modeling/rsm_loadDatabase_01.png" id="fig-rsm-load-db-01" class="img-fluid" alt="Loading climate forcing into RS Minerve"> In the navigation window on the left, a data base icon will appear. Explore the Database by clicking on the triangle next to the icon. You can display the data in the data base by clicking on the Sensors (1), typically T, P and Q, in the navigation window. A time series plot will then appear in the main window. You can also explore the data in the table format by switching to the Values tab (2).</p>
 <p><img src="images/hydrological_modeling/rsm_loadDatabase_012.png" id="fig-rsm-load-db-012" class="img-fluid" alt="Visualizing data base."> Note the time range of the forcing data (from Jan 1, 1979 0:00 to Dec.&nbsp;21, 2011 0:00). The time range of the forcing determines the time range of the simulation. Also note the time interval between the data (daily data for the forcing and decadal data for the discharge).</p>
 <p>Click on <strong><em>New group</em></strong> (1, not visible because the name is already changed in <a href="#fig-rsm-load-db-02" class="quarto-xref">Figure&nbsp;<span>8.20</span></a>) and change the name of the group to Climate (2). In the dropdown menu select Input for the data category (3).</p>
-<div id="fig-rsm-load-db-02" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-load-db-02" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-load-db-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_loadDatabase_02.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.20: Loading climate forcing into RS Minerve
 </figcaption></figure>
 </div>
 <p>We now move the discharge time series to a separate data group: Select Database (1) then click Add (2). A new group appears at the bottom of the data list (3). Select New group (3) and change the name (4) to Discharge and select Input from the dropdown menu (5).</p>
-<div id="fig-rsm-load-db-03" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-load-db-03" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-load-db-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_loadDatabase_03.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.21: Loading climate forcing into RS Minerve
 </figcaption></figure>
 </div>
 <p>Navigate to the discharge time series Q (1) and do a right-click. In the pop-up window that appears select Cut (2).</p>
-<div id="fig-rsm-load-db-04" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-load-db-04" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-load-db-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_loadDatabase_04.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.22: Cut the discharge time series from the climate data group.
 </figcaption></figure>
 </div>
 <p>Select Discharge (1) and click Add (2) to add a new data set (3). Right-click on New Dataset and select Paste to put the discharge sensor data at the new location. You can rename New Dataset.</p>
-<div id="fig-rsm-load-db-05" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-load-db-05" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-load-db-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_loadDatabase_05.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.23: Paste the discharge time series to the discharge data group.
 </figcaption></figure>
 </div>
 <p>The database is now ready, next we need to link the data to the model objects. Navigate to the Model tab. Under Data source select the appropriate data groups for the station data objects and for the source objects (1) and select the appropriate Dataset (2). The names in the database tab should already be consistent with the ones in the objects and the linking for the weather stations works automatically.</p>
 <p><img src="images/hydrological_modeling/rsm_loadDatabase_06.png" id="fig-rsm-load-db-06" class="img-fluid" alt="Linking the database to the model objects and time configuration."> Then adapt the Start and End of the simulation period (4). Start cannot be earlier than the first forcing in the database and End cannot be later than the last forcing in the database. The simulation period can, however, be shorter than the forcing time series. The simulation time step is 1 day and the recording time step is 1 month (4).</p>
 <p>The for the linking of the discharge data with the source we still need to double-click on the source object in the map (1) and select Q * Q in the drop-down menu (3).</p>
-<div id="fig-rsm-load-db-07" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-load-db-07" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-load-db-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_loadDatabase_07.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-load-db-07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.24: Linking the discharge with the source object
 </figcaption></figure>
 </div>
@@ -728,22 +777,22 @@ Figure&nbsp;8.24: Linking the discharge with the source object
 \text{Nash} = 1 − \frac{\sum_{t=1}^{N} \Big( Q_{sim}(t) - Q_{obs}(t) \Big)^2}{\sum_{t=1}^{N} \Big( Q_{sim}(t) - \overline{Q_{obs}(t)} \Big)^2}
 \]</span> Where <span class="math inline">\(t\)</span> is the simulation time step, <span class="math inline">\(N\)</span> is the number of simulation time steps, <span class="math inline">\(Q_{sim}\)</span> is the simulated discharge and <span class="math inline">\(Q_{obs}\)</span> is the observed discharge. <span class="math inline">\(\overline{Q_{obs}}\)</span> refers to the average of the observed discharge.</p>
 <p>If your customer is especially interested in low discharge periods, the Nash coefficient for logarithm values is recommended (see <span class="citation" data-cites="rsminerve_tm">Garcia Hernandez et al. (<a href="#ref-rsminerve_tm" role="doc-biblioref">2020</a>)</span>). There are further performance indicators focusing on the discharge volume (Relative Volume Bias) or on the exceedance of a threshold flow which can be specified in the parameters of the comparator.</p>
-<div id="fig-rsm-first-run-02" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-first-run-02" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-first-run-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_firstModelRun_02.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-first-run-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-first-run-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.25: First model run.
 </figcaption></figure>
 </div>
 <p>The graph (4) shows the measured discharge in blue (QReference) and the simulated discharge in green (QSimulation).</p>
 <p>Note that QSimulation starts with 0. This is because RS Minerve initializes the initial water content of the HBV modules with 0 unless something else is specified. You should click Conditions on Dec.&nbsp;12, 2011 (2), apply and re-run the model to obtain a properly initialized model.</p>
 <p>To view the default initial conditions (IC) and parameters of a model object (2), double-click on the model object in the main model window (1). You can edit the IC and parameters in the tables of the result window (2). You can view properties of several objects the IC viewer (and similarly in the parameters viewer) by clicking on the Initial conditions button in the Model Properties toolbar (3). Select the object type (4) and the zone (5) and scroll through the IC table (6).</p>
-<div id="fig-rsm-first-run-03" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-first-run-03" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-first-run-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_firstModelRun_03.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-first-run-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-first-run-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.26: Viewing initial model states and model parameters
 </figcaption></figure>
 </div>
@@ -756,7 +805,7 @@ Figure&nbsp;8.26: Viewing initial model states and model parameters
 <p><span class="math display">\[
 \min_{\boldsymbol{P}} \sum_{t=1}^{N} \Big( Q_{sim}(t, \boldsymbol{P}) - Q_{obs}(t)  \Big) = \min_{\boldsymbol{P}} \boldsymbol{E(\boldsymbol{P})}
 \]</span></p>
-<p>RS Minerve features implementations of several different performance indicators. The choice of the minimization function influences the calibration outcome. Two commonly used performance indicators are described [above]{<a href="#sec-first-rsm-model-run" class="quarto-xref"><span>Section&nbsp;8.6.5</span></a>}. Please read the Chapter on the performance indicators of the RS Minerve technical manual <span class="citation" data-cites="rsminerve_tm">(<a href="#ref-rsminerve_tm" role="doc-biblioref">Garcia Hernandez et al. 2020</a>)</span> to also understand the other performance indicators.</p>
+<p>RS Minerve features implementations of several different performance indicators. The choice of the minimization function influences the calibration outcome. Two commonly used performance indicators are described [above]{<a href="#sec-first-rsm-model-run" class="quarto-xref"><span>Section 8.6.5</span></a>}. Please read the Chapter on the performance indicators of the RS Minerve technical manual <span class="citation" data-cites="rsminerve_tm">(<a href="#ref-rsminerve_tm" role="doc-biblioref">Garcia Hernandez et al. 2020</a>)</span> to also understand the other performance indicators.</p>
 <p>Hydrological models are typically not well defined, i.e.&nbsp;multiple sets of parameter combinations will yield reasonable model performance. This property of hydrologial models is sometimes called the equifinality problem, i.e.&nbsp;several pathways lead to the same outcome. Modelers just have to live with this but there are several strategies to minimize the negative impact of the equifinality.</p>
 <section id="calibration-and-validation" class="level4"><h4 class="anchored" data-anchor-id="calibration-and-validation">Calibration and validation</h4>
 <p>An important strategy to gain confidence into a model is to split the simulation period into a calibration period and a validation period. During calibration, the model parameters are adjusted to get a satisfying fit with the measured discharge. During the validation period the calibrated model is compared to discharge data that the model hasn’t seen before, i.e.&nbsp;the model’s ability to handle potentially different model input than it has seen during calibration (also called its ability to generalize) is revealed. For example, 30 years of discharge time series can be split into the first 10 years for model calibration (i.e.&nbsp;model calibration is done only over the first 10 years of the time series) and into the last 20 years for model validation. A good model should perform satisfactorily not only during calibration but also during validation. If the model validation period shows better model performance than the calibration period, the modeler should take a close look at the forcing and try to explain this.</p>
@@ -764,11 +813,11 @@ Figure&nbsp;8.26: Viewing initial model states and model parameters
 Interested readers are refered to the literature for a more thorough discussion of the topic. For example, Bergstroem <span class="citation" data-cites="bergstrom_principles_1991">(<a href="#ref-bergstrom_principles_1991" role="doc-biblioref">Bergström 1991</a>)</span> gives a thorough discussion of model calibration and validation based on the HBV model which is still valid today.</p>
 </section><section id="warm-up-period" class="level4"><h4 class="anchored" data-anchor-id="warm-up-period">Warm-up period</h4>
 <p>To overcome issues with the initial water content of the catchment, a warm-up or spin-up period is typically defined. For small basins with small storage (like the mountainous basins in Central Asia) one year of model warm up is typically sufficient to fill the models reservoir with an appropriate amount of water. The warm-up period is specified in the comparator properties and excluded from the automatic calibration process.</p>
-<div id="fig-rsm-calibration-01" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-calibration-01" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-calibration-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_calibration_01.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-calibration-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-calibration-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.27: Set up a spin-up period which is excluded from the model calibration. Open the object properties with a double-click on the comparator object in the main model window (1) and specify a 1-year spin-up period in seconds (2).
 </figcaption></figure>
 </div>
@@ -850,11 +899,11 @@ Figure&nbsp;8.27: Set up a spin-up period which is excluded from the model calib
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Date"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-sim-SWE-Atbashy-uncalibrated" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-sim-SWE-Atbashy-uncalibrated" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-sim-SWE-Atbashy-uncalibrated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-sim-SWE-Atbashy-uncalibrated-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-sim-SWE-Atbashy-uncalibrated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sim-SWE-Atbashy-uncalibrated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.28: Simulated SWE from an uncalibrated hydrological model of the Atbashy river catchment in each elevation band in each sub-basin.
 </figcaption></figure>
 </div>
@@ -893,11 +942,11 @@ Figure&nbsp;8.28: Simulated SWE from an uncalibrated hydrological model of the A
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-sim-SWE-vs-obs-SWE" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-sim-SWE-vs-obs-SWE" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-sim-SWE-vs-obs-SWE-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-sim-SWE-vs-obs-SWE-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-sim-SWE-vs-obs-SWE-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sim-SWE-vs-obs-SWE-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.29: Monthly simulated SWE from an uncalibrated hydrological model of the Atbashy river catchment versus SWE extracted from the HMASR product (aka observed SWE, source: Liu et al.&nbsp;2021) in each elevation band.
 </figcaption></figure>
 </div>
@@ -961,11 +1010,11 @@ Figure&nbsp;8.29: Monthly simulated SWE from an uncalibrated hydrological model 
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"variable"</span>, <span class="st">"unit"</span><span class="op">)</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-hqgl-raw" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-hqgl-raw" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-hqgl-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-hqgl-raw-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-hqgl-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hqgl-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.30: Simulated glacier height and discharge from an uncalibrated model of the Gunt river basin illustrating that glacier elevations can become negative.
 </figcaption></figure>
 </div>
@@ -994,11 +1043,11 @@ Figure&nbsp;8.30: Simulated glacier height and discharge from an uncalibrated mo
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"variable"</span>, <span class="st">"unit"</span><span class="op">)</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-hqgl-raw-2" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-hqgl-raw-2" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-hqgl-raw-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-hqgl-raw-2-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-hqgl-raw-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hqgl-raw-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.31: Corrected, simulated glacier height and discharge from an uncalibrated model of the Gunt river basin. Glacier thickness cannot become negative.
 </figcaption></figure>
 </div>
@@ -1104,11 +1153,11 @@ Projected CRS: WGS 84 / UTM zone 42N</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-obs-hugonnet-gunt-raw" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-obs-hugonnet-gunt-raw" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-obs-hugonnet-gunt-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-obs-hugonnet-gunt-raw-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-obs-hugonnet-gunt-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-obs-hugonnet-gunt-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.32: Average observed (Source: Hugonnet et al., 2021) in the Gunt river basin and simulated glacier thinning rates from an uncalibrated hydrological model of the Gunt river basin.
 </figcaption></figure>
 </div>
@@ -1178,11 +1227,11 @@ Figure&nbsp;8.32: Average observed (Source: Hugonnet et al., 2021) in the Gunt r
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-obs-hugonnet-gunt-raw-2" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-obs-hugonnet-gunt-raw-2" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-obs-hugonnet-gunt-raw-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-obs-hugonnet-gunt-raw-2-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-obs-hugonnet-gunt-raw-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-obs-hugonnet-gunt-raw-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.33: Average observed (Source: Miles et al., 2021) in the Gunt river basin and simulated glacier discharge rates from an uncalibrated hydrological model of the Gunt river basin.
 </figcaption></figure>
 </div>
@@ -1354,11 +1403,11 @@ Figure&nbsp;8.33: Average observed (Source: Miles et al., 2021) in the Gunt rive
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-obs-hugonnet-gunt-raw-3" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-obs-hugonnet-gunt-raw-3" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-obs-hugonnet-gunt-raw-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="hydraulic_hydrological_modeling_files/figure-html/fig-obs-hugonnet-gunt-raw-3-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-obs-hugonnet-gunt-raw-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-obs-hugonnet-gunt-raw-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.34: Average observed (Source: Rounce et al., 2020) in the Gunt river basin and simulated glacier thinning rates from an uncalibrated hydrological model of the Gunt river basin.
 </figcaption></figure>
 </div>
@@ -1367,11 +1416,11 @@ Figure&nbsp;8.34: Average observed (Source: Rounce et al., 2020) in the Gunt riv
 <p>The uncalibrated hyrological model grossly overestimates glacier discharge. It is necessary to adjust the model parameters to produce less glacier discharge.</p>
 </section></section><section id="automatic-model-calibration-with-rs-minerve" class="level4"><h4 class="anchored" data-anchor-id="automatic-model-calibration-with-rs-minerve">Automatic model calibration with RS Minerve</h4>
 <p>RS Minerve offers several interesting expert tools, including the Calibrator. Open the calibrator tab by clicking the Expert button in the Modules toolbar and select Calibrator. A calibrator tab will open up (<a href="#fig-rsm-calibration-04" class="quarto-xref">Figure&nbsp;<span>8.35</span></a>). Follow the steps to set up your first calibration: Select the current calibration configuration (1). You may re-name it and save it (Export) for later use. Then select HBV (2) and Zone A (3) to tell the calibrator the objects that you want to calibrate parameters for. You also need to select the Comparator object based on which performance indicators will be computed (4). In the Parameters window, select one of your sensitive parameters and tick the box. Then you specify the performance indicator(s) that should be used in the calibration. You can combine several indicators with user defined weights, according to your preferences and needs. In this demo we use Nash with weight 1 (6) and Relative Volume Bias with weight 1 (7). Subsequently you specify the calibration period (8). Remember that you need to divide your modeling period in a calibration and a validation period. Once ready, press Start (9) and the calibrator starts spinning. You can monitor the progress of the calibration in the Summary results window (10) and in the Graphic results window (11).</p>
-<div id="fig-rsm-calibration-04" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-rsm-calibration-04" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rsm-calibration-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hydrological_modeling/rsm_calibration_04.png" class="img-fluid figure-img">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-rsm-calibration-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rsm-calibration-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.35: Setting up a model calibration.
 </figcaption></figure>
 </div>
@@ -1424,10 +1473,10 @@ Rounce, David R., Regine Hock, and David E. Shean. 2020a. <span>“High <span>Mo
 ———. 2020b. <span>“Glacier <span>Mass Change</span> in <span>High Mountain Asia Through</span> 2100 <span>Using</span> the <span>Open-Source Python Glacier Evolution Model</span> (<span>PyGEM</span>).”</span> <em>Frontiers in Earth Science</em> 7 (January): 331. <a href="https://doi.org/10.3389/feart.2019.00331">https://doi.org/10.3389/feart.2019.00331</a>.
 </div>
 </div>
-</section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
+</section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1"><p>The reader is advised to consult the user manual and familiarizes themselves with the walk through examples that are discussed and presented there. They give a solid first hands-on introduction about the basic functionalities of the modeling environment.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol></aside></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1555,38 +1604,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1595,8 +1634,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1831,4 +1877,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hydrosolutions/caham_book/edit/master/hydraulic_hydrological_modeling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

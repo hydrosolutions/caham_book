@@ -1,6 +1,6 @@
 # Climate Data {#sec-climate-data}
 
-Information about the spatio-temporal distribution of precipitation (P) and temperature (T) is vital for water balance studies, including for hydrological modeling. Poorly gauged basins do not have dense enough ground-based monitoring network that would allow to obtain reliable meteorological fields that can be used to drive hydrological models. Station data are especially poor in complex and remote mountain catchments in developing and transition countries. The Central Asian river basins are examples of such basins. Global reanalysis data can help to cover these existing gaps and greatly inform and improve water balance assessments. In this Chapter, we show how this can be achieved.
+Information about the spatiotemporal distribution of precipitation (P) and temperature (T) is vital for water balance studies, including for hydrological modeling. Poorly gauged basins do not have dense enough ground-based monitoring network that would allow to obtain reliable meteorological fields that can be used to drive hydrological models. Station data are especially poor in complex and remote mountain catchments in developing and transition countries. The Central Asian river basins are examples of such basins. Global reanalysis data can help to cover these existing gaps and greatly inform and improve water balance assessments. In this Chapter, we show how this can be achieved.
 
 @sec-historical-climate-data introduces a recent global daily precipitation and temperature climatology dataset of good quality in the Central Asia domain. The dataset covers the years 1979 until 2016. @sec-climate-projections then shows how to access, downscale and bias-correct the latest climate projections from the [Coupled Model Intercomparison Project (CMIP6)](https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6){target="_blank"} in the context of hydrological modeling.
 
@@ -40,18 +40,18 @@ The following @fig-cold-season-precipitation-climatology and @fig-warm-season-pr
 
 @fig-cold-season-precipitation-climatology shows that winter precipitation is mainly concentrated on the western fringes of the mountain ranges where moisture gets precipitated via westerly circulations and associated frontal systems. Compared to this, the main warm season precipitation locations move further to the east and to inner mountain range locations where summer convective storms cause this (see @fig-warm-season-precipitation-climatology).
 
-The climatological data used to produce these Figures is available via this [Dropbox link](https://www.dropbox.com/sh/rvcuzalinxqg75z/AACovV8LEeI6hzXIJ0Wo-uj5a?dl=0) in the `climate/chelsa_v21/climatologies/` sub-folder. There data over the historical observation period from 1981 - 2010 has been prepared for the norm annual and cold as well as warm season temperatures (tas\_...) has been prepared. Similarly, data on precipitation (pr\_...) and potential evapotranspiration (pet\_...) is available and on the aridity index which is defined as $\phi = PET/P$ where $PET$ is the potential evapotranspiration climatology and $P$ is the precipitation climatology.
+The climatological data used to produce these Figures is available via this [Dropbox link](https://www.dropbox.com/sh/rvcuzalinxqg75z/AACovV8LEeI6hzXIJ0Wo-uj5a?dl=0){target =" _blank"} in the `climate/chelsa_v21/climatologies/` sub-folder. There data over the historical observation period from 1981 - 2010 has been prepared for the norm annual and cold as well as warm season temperatures (tas\_...) has been prepared. Similarly, data on precipitation (pr\_...) and potential evapotranspiration (pet\_...) is available and on the aridity index which is defined as $\phi = PET/P$ where $PET$ is the potential evapotranspiration climatology and $P$ is the precipitation climatology.
 
 ::: callout-tip
-Try it yourself! Download the data for the Central Asia domain [here](https://www.dropbox.com/sh/rvcuzalinxqg75z/AACovV8LEeI6hzXIJ0Wo-uj5a?dl=0) and visualize the climatologies for your case study catchment and extract mean statistics for the basins. As a reminder, the case study basins can be accessed via this [link](https://www.dropbox.com/sh/4zckdihrq9iq1wi/AADHtjRXd2rZHGqT3DULZCzBa?dl=0).
+Try it yourself! Download the data for the Central Asia domain [here](https://www.dropbox.com/sh/rvcuzalinxqg75z/AACovV8LEeI6hzXIJ0Wo-uj5a?dl=0){target =" _blank"} and visualize the climatologies for your case study catchment and extract mean statistics for the basins. As a reminder, the case study basins can be accessed via this [link](https://www.dropbox.com/sh/4zckdihrq9iq1wi/AADHtjRXd2rZHGqT3DULZCzBa?dl=0){target =" _blank"}.
 :::
 
 ### Assessment of CHELSA V21 Data Quality in a Sample Catchment {#sec-assessment-chelsa-data-quality}
 
 How can the quality of the CHELSA data in the complex Central Asia domain be assessed? With try to answer this question by looking at one of the case study basins provided as part of the [Student Case Study Pack](https://www.dropbox.com/sh/4zckdihrq9iq1wi/AADHtjRXd2rZHGqT3DULZCzBa?dl=0){target="_blank"}. Specifically, we want to answer the following questions for the Gunt River basin in the Pamir mountains:
 
-- does the magnitude of the precipitation yield physically meaningful results, and
-- does the climatology adequately reproduce the seasonal cycle observed one at the stations?
+-   does the magnitude of the precipitation yield physically meaningful results, and
+-   does the climatology adequately reproduce the seasonal cycle observed one at the stations?
 
 #### Long-term Annual Norm Discharge {#sec-long-term-annual-mean-precip-compared-to-discharge}
 
@@ -61,13 +61,13 @@ $$
 Q = P - E 
 $$ {#eq-long-term-water-balance}
 
-where $Q$ is the specific discharge [mm], $P$ is the long-term mean precipitation [mm] and $E$ is the long-term mean evapotranspiration $E$ [mm] (see also the Chapter on [Long-term water balance modeling](#sec-budyko-modeling) for more information). Hence, if, over the long run, $P>E$ and under the assumption that storage changes i.e. from glacier melt are not present, the water balance is valid and the product from that perspective validated.
+where $Q$ is the specific discharge \[mm\], $P$ is the long-term mean precipitation \[mm\] and $E$ is the long-term mean evapotranspiration $E$ \[mm\] (see also the Chapter on [Long-term water balance modeling](#sec-budyko-modeling) for more information). Hence, if, over the long run, $P>E$ and under the assumption that storage changes i.e. from glacier melt are not present, the water balance is valid and the product from that perspective validated.
 
 We can compute the average long-term precipitation in the catchment in a simple way. The code block below shows how.
 
 ```{r}
 #| label: fig-long-term-norm-p-gunt
-#| fig.cap: "CHELSA precipitation climatology in Gunt River Basin. Note, the Figure is interactive and you can zoom in and out to see more details. The above code is shown to demonstrate the generation of such a Figure."
+#| fig.cap: "CHELSA precipitation climatology in Gunt River Basin. Values are in millimeters per year (mm/a). Note, the Figure is interactive and you can zoom in and out to see more details. The above code is shown to demonstrate the generation of such a Figure."
 #| message: false
 
 # load required libraries
@@ -99,14 +99,18 @@ p_clim_gunt <- p_clim %>%
 
 # plotting climatology
 tmap::tmap_mode("view")
-tmap::tm_basemap("Stamen.Terrain") +
+#tmap::tm_basemap(tm_tiles("Stamen.Terrain")) +
+tm_tiles("Stamen.Terrain") +
   tm_shape(p_clim_gunt) +
-  tm_raster(style = "quantile", n = 7, palette = get_brewer_pal("Blues", n = 7, plot = FALSE)) +
+  tm_raster(style = "quantile", n = 7, 
+            palette = get_brewer_pal("Blues", n = 7, plot = FALSE),
+            title = "Annual precipation (mm)") +
   tm_shape(basin_shp) +
-  tm_borders("black")
+  tm_borders("black") +
+    tm_layout(legend.position = c("right", "bottom"))
 ```
 
-The mean norm precipitation can be easily computed as follows. 
+The mean norm precipitation can be easily computed as follows.
 
 ```{r}
 # extracting mean value over Gunt River basin. 
@@ -137,7 +141,7 @@ discharge_data_17050_norm <-
 discharge_data_17050_norm
 ```
 
-For the long-term discharge at the station 17050, we thus get 109 m^3^/s. To compute the annual norm specific discharge, we need to compute the total discharge volume for a year and then divide by the total basin area. 
+For the long-term discharge at the station 17050, we thus get 109 m^3^/s. To compute the annual norm specific discharge, we need to compute the total discharge volume for a year and then divide by the total basin area.
 
 ```{r}
 basin_area <- st_area(basin_shp) %>% as.numeric()
@@ -148,7 +152,7 @@ discharge_data_17050_norm_vol
 
 Hence, for the period 1981 - 2010, we obtain for the specific discharge 250 mm. Clearly, $Q<P$ and we can calculate that, on average, 2 parts of the total precipitation are discharged via the river whereas 1 part is evaporated without contribution to runoff at the gauge 17050 in Khorog town.
 
-As an aside, the bias corrected precipitation climatology shows an interesting feature of the Gunt river basin (see @fig-long-term-norm-p-gunt). Namely, there is a stark precipitation gradient between the western part of the basin where the bulk of the precipitation is observed and the hyper-arid Pamir plateau region to the east, where annual precipitation is below 200 mm at a mean altitude of above 4'000 meters above sea level [masl]. This place thus can be classified as alpine desert. This is an orographic effect as most of the moisture is washed out of the atmosphere before it enters the region of the plateau arriving from the westerly direction.
+As an aside, the bias corrected precipitation climatology shows an interesting feature of the Gunt river basin (see @fig-long-term-norm-p-gunt). Namely, there is a stark precipitation gradient between the western part of the basin where the bulk of the precipitation is observed and the hyper-arid Pamir plateau region to the east, where annual precipitation is below 200 mm at a mean altitude of above 4'000 meters above sea level \[masl\]. This place thus can be classified as alpine desert. This is an orographic effect as most of the moisture is washed out of the atmosphere before it enters the region of the plateau arriving from the westerly direction.
 
 #### Discharge Seasonality
 
@@ -225,10 +229,12 @@ p_monthly_mean %>%
   theme_bw() + 
   scale_x_continuous(breaks = c(1:12))
 ```
+
 As is evident by looking at @fig-comparison-precipitation-climatologies, the CHELSA product can adequatly reproduce the seasonality of the local precipitation climatology and is only slightly overestimation absolute values. However, with regard to the later, this argument is not necessarily valied as we compare local point measurements with raster data with a resolution of 1 km^2^. A more thorow comparsion would generate an interpolated climatology field from station data and then compare these fields. However, as data is very scarce in this large basin, we do not have the means to perform such analysis.
 
-:::{.callout}
+::: callout
 # EXERCISE
+
 Try it yourself. Conduct the same analysis with the monthly temperature climatologies for the meteorological station and for the CHESLA data. You can very easily carry this out while reusing code blocks from above, also for any of the other basins available in the Case Study pack.
 :::
 
@@ -236,15 +242,15 @@ Try it yourself. Conduct the same analysis with the monthly temperature climatol
 
 The daily CHELSA V21 climate forcing data can be using for hydrological modeling from 1979 - 2010. But what about the future? After all, one of the main goals of this course book is to demonstrate how to use hydrological modeling to quantify future climate impacts in the Central Asian river basins. For this purpose, we will demonstrate in this Section how to download and process future climate data for studying hydrological changes.
 
-![The time arrow is shown point from left to the right. The availability of corresponding data is indicated for what we call the *historical* reference period (hist_...) and the *future* scenario period (fut_...).](./images/data/23_hist_obs_sim_and_fut_sim.jpg){#fig-hist-obs-sim-and-fut-sim}
+![The time arrow is shown point from left to the right. The availability of corresponding data is indicated for what we call the *historical* reference period (hist\_...) and the *future* scenario period (fut\_...).](./images/data/23_hist_obs_sim_and_fut_sim.jpg){#fig-hist-obs-sim-and-fut-sim}
 
-To start with, we need to divide the total period of interest into a *historic* period and a *future* period. The historic period in @fig-hist-obs-sim-and-fut-sim is highlighted in dark grey color and ranges from 1979 through 2010. It is the period for which we have *observed* climate forcing data from the CHELSA dataset and gauge data available at the same time. As will be discussed in the [Chapter on hydrological modeling](#sec-hydraulic-hydrological-modeling), it is also the period which we use to calibrate and validate our hydrological model. 
+To start with, we need to divide the total period of interest into a *historic* period and a *future* period. The historic period in @fig-hist-obs-sim-and-fut-sim is highlighted in dark grey color and ranges from 1979 through 2010. It is the period for which we have *observed* climate forcing data from the CHELSA dataset and gauge data available at the same time. As will be discussed in the [Chapter on hydrological modeling](#sec-hydraulic-hydrological-modeling), it is also the period which we use to calibrate and validate our hydrological model.
 
-What we call the future period is highlighted by the light gray arrow in @fig-hist-obs-sim-and-fut-sim. Admittedly, the years from 2011 through 2022 are not in our current future (this edition of the book is written and published in 2022), so it really is just a matter of definition. It is this period over which we want to study climate impacts under different scenarios. 
+What we call the future period is highlighted by the light gray arrow in @fig-hist-obs-sim-and-fut-sim. Admittedly, the years from 2011 through 2022 are not in our current future (this edition of the book is written and published in 2022), so it really is just a matter of definition. It is this period over which we want to study climate impacts under different scenarios.
 
 ### Global Circulation Models {#sec-global-circulation-models}
 
-These scenarios are describing different increasing greenhouse concentration pathways are are computed with large-scale numerical models called *General Circulation Models* or *GCMs*. They globally represent physical processes in the atmosphere, the oceans, the cryosphere and the land surface. GCMs compute geographically distributed and physically consistent estimate of regional climate change and thus are the key inputs to different types of impact analyses. A stylized schematic structure of a GCM is shown in @fig-gcm-concept. 
+These scenarios are describing different increasing greenhouse concentration pathways are are computed with large-scale numerical models called *General Circulation Models* or *GCMs*. They globally represent physical processes in the atmosphere, the oceans, the cryosphere and the land surface. GCMs compute geographically distributed and physically consistent estimate of regional climate change and thus are the key inputs to different types of impact analyses. A stylized schematic structure of a GCM is shown in @fig-gcm-concept.
 
 ![Schematic structure of a GCM model. Source: Penn State University, David Bice.](./images/data/24_GCM_concept.jpg){#fig-gcm-concept}
 
@@ -252,7 +258,7 @@ These scenarios are describing different increasing greenhouse concentration pat
 
 For illustration, @fig-comparison-chelsa-gcm-resolution shows the temperature fields for 01. January 1979 over the Central Asia domain as provided by the CHELSA V21 data set (left panel) and as computed by the GCM GFDL-ESM4 model under the historic run. Note that there is no particular reason why we choose this model, it is just to serve as an example here. The complete list of models which we use for the climate change impact analysis will be presented and discussed further below.
 
-The difference in resolution is striking with the CHELSA data having having a horizontal resolution of 1 km, approx., and the GCM model having a resolution of 1.5 degrees x 1 degrees which corresponds to 166.5 km x 111 km on the equator, approximately. Why is GCM resolution so coarse? It is, simply put, limited by restricitions given by the computational power of the powerful super computers where these models are run on.  
+The difference in resolution is striking with the CHELSA data having having a horizontal resolution of 1 km, approx., and the GCM model having a resolution of 1.5 degrees x 1 degrees which corresponds to 166.5 km x 111 km on the equator, approximately. Why is GCM resolution so coarse? It is, simply put, limited by restricitions given by the computational power of the powerful super computers where these models are run on.
 
 ```{r}
 #| label: fig-comparison-chelsa-gcm-resolution
@@ -268,89 +274,87 @@ gcm_file <- "../caham_data/climate/HIST_SIM/pr_day_GFDL-ESM4_historical_r1i1p1f1
 gcm_data <- terra::rast(gcm_file)
 gcm_data |> subset(1) |> plot()
 ```
+
 As is indicated in @fig-gcm-concept, GCM runs from the historic period from 1979 through 2010 are also available. These historic GCM runs are *very important* as we shall see in a minute when it comes to bias correcting and downscaling GCM runs onto the spatial units of interest, i.e. hydrological response units (HRUs) in our case.
 
 ### CMIP6 Climate Scenarios {#sec-cmip6-climate-scenarios}
 
-What are the future scenarios that we are interest in? The global climate science community has worked hard under the Phase 6 of the Coupled Model Intercomparison Project (CMIP6) the define relevant future scenarios that are describing different climate forcing trajectories. The paper by [@o_neill_2016] is the reference source with regard to detailed descriptions of the scenarios. We are interested to cover and study a broad range of possible hydrological future states and thus select 4 distinct shared socioeconomic pathway (SSP) scenarios that cover this entire possible range. 
+What are the future scenarios that we are interest in? The global climate science community has worked hard under the Phase 6 of the Coupled Model Intercomparison Project (CMIP6) the define relevant future scenarios that are describing different climate forcing trajectories. The paper by [@o_neill_2016] is the reference source with regard to detailed descriptions of the scenarios. We are interested to cover and study a broad range of possible hydrological future states and thus select 4 distinct shared socioeconomic pathway (SSP) scenarios that cover this entire possible range.
 
 The SSPs are based on *five narratives* describing broad socioeconomic trends that possibly shape future society. These are intended to span the range of plausible futures. The narratives are (taken from [@rihai_2017]):
 
-* **SSP1	Sustainability – Taking the Green Road (Low challenges to mitigation and adaptation)**: The world shifts gradually, but pervasively, toward a more sustainable path, emphasizing more inclusive development that respects perceived environmental boundaries. Management of the global commons slowly improves, educational and health investments accelerate the demographic transition, and the emphasis on economic growth shifts toward a broader emphasis on human well-being. Driven by an increasing commitment to achieving development goals, inequality is reduced both across and within countries. Consumption is oriented toward low material growth and lower resource and energy intensity.
+-   **SSP1 Sustainability – Taking the Green Road (Low challenges to mitigation and adaptation)**: The world shifts gradually, but pervasively, toward a more sustainable path, emphasizing more inclusive development that respects perceived environmental boundaries. Management of the global commons slowly improves, educational and health investments accelerate the demographic transition, and the emphasis on economic growth shifts toward a broader emphasis on human well-being. Driven by an increasing commitment to achieving development goals, inequality is reduced both across and within countries. Consumption is oriented toward low material growth and lower resource and energy intensity.
 
-* **SSP2	Middle of the Road (Medium challenges to mitigation and adaptation)**: The world follows a path in which social, economic, and technological trends do not shift markedly from historical patterns. Development and income growth proceeds unevenly, with some countries making relatively good progress while others fall short of expectations. Global and national institutions work toward but make slow progress in achieving sustainable development goals. Environmental systems experience degradation, although there are some improvements and overall the intensity of resource and energy use declines. Global population growth is moderate and levels off in the second half of the century. Income inequality persists or improves only slowly and challenges to reducing vulnerability to societal and environmental changes remain.
+-   **SSP2 Middle of the Road (Medium challenges to mitigation and adaptation)**: The world follows a path in which social, economic, and technological trends do not shift markedly from historical patterns. Development and income growth proceeds unevenly, with some countries making relatively good progress while others fall short of expectations. Global and national institutions work toward but make slow progress in achieving sustainable development goals. Environmental systems experience degradation, although there are some improvements and overall the intensity of resource and energy use declines. Global population growth is moderate and levels off in the second half of the century. Income inequality persists or improves only slowly and challenges to reducing vulnerability to societal and environmental changes remain.
 
-* **SSP3	Regional Rivalry – A Rocky Road (High challenges to mitigation and adaptation)**: A resurgent nationalism, concerns about competitiveness and security, and regional conflicts push countries to increasingly focus on domestic or, at most, regional issues. Policies shift over time to become increasingly oriented toward national and regional security issues. Countries focus on achieving energy and food security goals within their own regions at the expense of broader-based development. Investments in education and technological development decline. Economic development is slow, consumption is material-intensive, and inequalities persist or worsen over time. Population growth is low in industrialized and high in developing countries. A low international priority for addressing environmental concerns leads to strong environmental degradation in some regions.
+-   **SSP3 Regional Rivalry – A Rocky Road (High challenges to mitigation and adaptation)**: A resurgent nationalism, concerns about competitiveness and security, and regional conflicts push countries to increasingly focus on domestic or, at most, regional issues. Policies shift over time to become increasingly oriented toward national and regional security issues. Countries focus on achieving energy and food security goals within their own regions at the expense of broader-based development. Investments in education and technological development decline. Economic development is slow, consumption is material-intensive, and inequalities persist or worsen over time. Population growth is low in industrialized and high in developing countries. A low international priority for addressing environmental concerns leads to strong environmental degradation in some regions.
 
-* **SSP4	Inequality – A Road Divided (Low challenges to mitigation, high challenges to adaptation)**: Highly unequal investments in human capital, combined with increasing disparities in economic opportunity and political power, lead to increasing inequalities and stratification both across and within countries. Over time, a gap widens between an internationally-connected society that contributes to knowledge- and capital-intensive sectors of the global economy, and a fragmented collection of lower-income, poorly educated societies that work in a labor intensive, low-tech economy. Social cohesion degrades and conflict and unrest become increasingly common. Technology development is high in the high-tech economy and sectors. The globally connected energy sector diversifies, with investments in both carbon-intensive fuels like coal and unconventional oil, but also low-carbon energy sources. Environmental policies focus on local issues around middle and high income areas.
+-   **SSP4 Inequality – A Road Divided (Low challenges to mitigation, high challenges to adaptation)**: Highly unequal investments in human capital, combined with increasing disparities in economic opportunity and political power, lead to increasing inequalities and stratification both across and within countries. Over time, a gap widens between an internationally-connected society that contributes to knowledge- and capital-intensive sectors of the global economy, and a fragmented collection of lower-income, poorly educated societies that work in a labor intensive, low-tech economy. Social cohesion degrades and conflict and unrest become increasingly common. Technology development is high in the high-tech economy and sectors. The globally connected energy sector diversifies, with investments in both carbon-intensive fuels like coal and unconventional oil, but also low-carbon energy sources. Environmental policies focus on local issues around middle and high income areas.
 
-* **SSP5	Fossil-fueled Development – Taking the Highway (High challenges to mitigation, low challenges to adaptation)**: This world places increasing faith in competitive markets, innovation and participatory societies to produce rapid technological progress and development of human capital as the path to sustainable development. Global markets are increasingly integrated. There are also strong investments in health, education, and institutions to enhance human and social capital. At the same time, the push for economic and social development is coupled with the exploitation of abundant fossil fuel resources and the adoption of resource and energy intensive lifestyles around the world. All these factors lead to rapid growth of the global economy, while global population peaks and declines in the 21st century. Local environmental problems like air pollution are successfully managed. There is faith in the ability to effectively manage social and ecological systems, including by geo-engineering if necessary.
+-   **SSP5 Fossil-fueled Development – Taking the Highway (High challenges to mitigation, low challenges to adaptation)**: This world places increasing faith in competitive markets, innovation and participatory societies to produce rapid technological progress and development of human capital as the path to sustainable development. Global markets are increasingly integrated. There are also strong investments in health, education, and institutions to enhance human and social capital. At the same time, the push for economic and social development is coupled with the exploitation of abundant fossil fuel resources and the adoption of resource and energy intensive lifestyles around the world. All these factors lead to rapid growth of the global economy, while global population peaks and declines in the 21st century. Local environmental problems like air pollution are successfully managed. There is faith in the ability to effectively manage social and ecological systems, including by geo-engineering if necessary.
 
 @fig-pop-gdp-development shows the underlying population and GDP developments for the corresponding SSPs and @tbl-ssp-scenarios details about the forcing in these scenarios.
 
 ![Global population and GDP developments under the CMIP6 shared socioeconomic pathways (taken from this [source](https://www.carbonbrief.org/explainer-how-shared-socioeconomic-pathways-explore-future-climate-change){blank="_target"}).](./images/data/25_ssp_population_gdp_development.jpg){#fig-pop-gdp-development}
 
-
 The description of the Tier 1 scenarios below that we are focussing on is taken from the aforementioned publication.
 
-| Scenario                              | Forcing Category | 2100 forcing [W/m^2^] |
-| :------------------------------------ | :--------------- | :-------------------- |
-| Shared Socioeconomic Pathway SSP5-8.5 | High             | 8.5                   |
-| Shared Socioeconomic Pathway SSP3-7.0 | High             | 7                     |
-| Shared Socioeconomic Pathway SSP2-4.5 | Medium           | 4.5                   |
-| Shared Socioeconomic Pathway SSP1-2.6 | Low              | 2.6                   |
+| Scenario                              | Forcing Category | 2100 forcing \[W/m^2^\] |
+|:---------------------------------|:-----------------|:-------------------|
+| Shared Socioeconomic Pathway SSP5-8.5 | High             | 8.5                     |
+| Shared Socioeconomic Pathway SSP3-7.0 | High             | 7                       |
+| Shared Socioeconomic Pathway SSP2-4.5 | Medium           | 4.5                     |
+| Shared Socioeconomic Pathway SSP1-2.6 | Low              | 2.6                     |
 
 : Scenarios, their forcing category and the effective radiative forcing by the year 2100 [@o_neill_2016]. {#tbl-ssp-scenarios}
 
-For each scenario, we select 4 high priority GCM models for the preparation of downscaled climate forcings for the basins under consideration. The following @tbl-gcm-models-institutions shows overview information about the models which are used in this course. Output of the GCM models shown in the table is available at daily timescales until 2100 and also for the historic runs. 
+For each scenario, we select 4 high priority GCM models for the preparation of downscaled climate forcings for the basins under consideration. The following @tbl-gcm-models-institutions shows overview information about the models which are used in this course. Output of the GCM models shown in the table is available at daily timescales until 2100 and also for the historic runs.
 
-| Name            | Model           | Institution                                                                                                      |
-| :-------------- | :-------------- | :--------------------------------------------------------------------------------------------------------------- |
-| GFDL-ESM4      | gfdl- esm4      | National Oceanic and Atmospheric Administration, Geophysical Fluid Dynamics Laboratory, Princeton, NJ 08540, USA |
-| UKESM1-0-LL     | ukesm1- 0-ll    | Met Office Hadley Centre, Fitzroy Road, Exeter, Devon, EX1 3PB, UK                                               |
+| Name          | Model           | Institution                                                                                                      |
+|:--------------|:--------------|:------------------------------------------|
+| GFDL-ESM4     | gfdl- esm4      | National Oceanic and Atmospheric Administration, Geophysical Fluid Dynamics Laboratory, Princeton, NJ 08540, USA |
+| UKESM1-0-LL   | ukesm1- 0-ll    | Met Office Hadley Centre, Fitzroy Road, Exeter, Devon, EX1 3PB, UK                                               |
 | MPI-ESM1-2-HR | mpi- esm1-2- hr | Max Planck Institute for Meteorology, Hamburg 20146, Germany                                                     |
-| IPSL-CM6A-LR   | ipsl- cm6a-lr   | Institut Pierre Simon Laplace, Paris 75252, France                                                               |
-| MRI-ESM2-0      | mri-esm2-0      | Meteorological Research Institute, Tsukuba, Ibaraki 305-0052, Japan                                              |
+| IPSL-CM6A-LR  | ipsl- cm6a-lr   | Institut Pierre Simon Laplace, Paris 75252, France                                                               |
+| MRI-ESM2-0    | mri-esm2-0      | Meteorological Research Institute, Tsukuba, Ibaraki 305-0052, Japan                                              |
 
 : Model names, models and host institution where the GCM models have been developed. {#tbl-gcm-models-institutions}
 
-GCM Model data can be downloaded from the climate store on the dedicated [Copernicus website](https://cds.climate.copernicus.eu/cdsapp#!/dataset/projections-cmip6?tab=form){target="_blank"}. 
-:::{.callout-caution} 
-Some of the GCM models used in CMIP6 show high sensitivity to warming processes [@zelinka_causes_2020] and a larger than average uncertainty of the transient climate response (TCR). TCR a metric for "the amount of global warming in the year in which atmospheric CO2 concentrations have finally doubled after having steadily increased by 1% every year" [@hausfather_climate_2022]). @hausfather_climate_2022 suggest to exclude models with high TCR beyond the 66% likelihood range (given for example in @tokarska_past_2020) from a climate projection study. The UK model we use (see above) is among the models with high TCR. We keep the model in our ensemble for now, being aware of its limitations.       
+GCM Model data can be downloaded from the climate store on the dedicated [Copernicus website](https://cds.climate.copernicus.eu/cdsapp#!/dataset/projections-cmip6?tab=form){target="_blank"}. :::{.callout-caution} Some of the GCM models used in CMIP6 show high sensitivity to warming processes [@zelinka_causes_2020] and a larger than average uncertainty of the transient climate response (TCR). TCR a metric for "the amount of global warming in the year in which atmospheric CO2 concentrations have finally doubled after having steadily increased by 1% every year" [@hausfather_climate_2022]). @hausfather_climate_2022 suggest to exclude models with high TCR beyond the 66% likelihood range (given for example in @tokarska_past_2020) from a climate projection study. The UK model we use (see above) is among the models with high TCR. We keep the model in our ensemble for now, being aware of its limitations.\
 :::
 
-:::{.callout-important} 
+::: callout-important
 Each GCM model is different from the others. Some model leap days, some don't. Some assume that each month has 30 days, other don't. The preprocessing steps required to make the outputs of these models is very time consuming and is not recommendened for beginners. Therefore, please download the pre-processed climate scenarios for the Central Asia domain from this [online repository](https://www.dropbox.com/sh/5131zeerp73t4rk/AABlLB9nMBy3qAoCJUbKm2BNa?dl=0){target="_blank"}.
 :::
 
 ### Downscaling and Bias Correction Using Quantile Mapping {#sec-bcds-quantile-mapping}
 
-GCM model data can be subject to systematic biases [e.g. @kotlarski_2014] and their coarse resolution does not allow us to directly use these data in hydrological modeling studies. For this reason, a large number of downscaling and bias correction techniques have been developed, inclduing the well-known delta change method [see e.g. @feigenwinter_2018 and references therein].  
+GCM model data can be subject to systematic biases [e.g. @kotlarski_2014] and their coarse resolution does not allow us to directly use these data in hydrological modeling studies. For this reason, a large number of downscaling and bias correction techniques have been developed, inclduing the well-known delta change method [see e.g. @feigenwinter_2018 and references therein].
 
-The daily CHELSA V21 data that became available in 2021, together with daily GCM data from CMIP6 now allows a relatively straight forward application of empirical quantile mapping to downscale to and statistically correct GCM for hydrological response units (HRUs). 
+The daily CHELSA V21 data that became available in 2021, together with daily GCM data from CMIP6 now allows a relatively straight forward application of empirical quantile mapping to downscale to and statistically correct GCM for hydrological response units (HRUs).
 
-@feigenwinter_2018 explains clearly how empirical quantile mapping works. For the historical period (also called calibration period in the context of the discussion here), simulated model output (in our case, GCM hist_sim data, as shown in @fig-hist-obs-sim-and-fut-sim) is corrected with a *correction function* towards an observational reference (here, the high-resolution CHELSA climatology) and systematic model biases are partly removed. 
+@feigenwinter_2018 explains clearly how empirical quantile mapping works. For the historical period (also called calibration period in the context of the discussion here), simulated model output (in our case, GCM hist_sim data, as shown in @fig-hist-obs-sim-and-fut-sim) is corrected with a *correction function* towards an observational reference (here, the high-resolution CHELSA climatology) and systematic model biases are partly removed.
 
 ![Overview on the bias correction approach: a bias correction function is calibrated by comparing raw climate model output to observations in a common historical reference period. The calibrated correction function is then applied to the entire raw model output in order to produce a bias-corrected time series out into the future scenario period (taken from [@feigenwinter_2018]).](./images/data/26_quantile_mapping.jpg){#fig-quantile-mapping}
 
-In a climate change context, the so-called correction function (or transfer function), established in the historical calibration period, can then be applied to the simulated future time series in order to produce bias-corrected scenario time series. 
+In a climate change context, the so-called correction function (or transfer function), established in the historical calibration period, can then be applied to the simulated future time series in order to produce bias-corrected scenario time series.
 
 ![The nature of empirical quantile mapping is shown (source: [@feigenwinter_2018]). Left panel: Example based on the probability density function (PDF). Right panel: example based on the cumulative distribution function (CDF).](./images/data/27_quantiles_illustrated_mapping.jpg){#fig-quantiles-illustrated-mapping}
 
-@fig-quantiles-illustrated-mapping explains the bias correction approach graphically. A biased simulated distribution (blue) is corrected towards an observed distribution (black). In the example shown the raw simulated distribution is subject to both a bias of the mean and a bias in variance. The resulting bias-corrected distribution (dashed red) approximates the observed one but is typically not identical to it (e.g. due to the sampling uncertainty during the calibration of the correction function or details of the specific quantile mapping implementation). 
+@fig-quantiles-illustrated-mapping explains the bias correction approach graphically. A biased simulated distribution (blue) is corrected towards an observed distribution (black). In the example shown the raw simulated distribution is subject to both a bias of the mean and a bias in variance. The resulting bias-corrected distribution (dashed red) approximates the observed one but is typically not identical to it (e.g. due to the sampling uncertainty during the calibration of the correction function or details of the specific quantile mapping implementation).
 
-As we explained above, we investigate 4 climate scenarios (ssp126, ssp245, ssp 370 and ssp585) for which we have 4 GCM model runs each (GFDL-ESM4, UKESM1-0-LL, MPI-ESM1-2-HR and MRI-ESM2-0). Hence, we have 16 scenario-model combination and the same amounts of correction functions. The best way to achieve this is show the necessary steps by means of an example catchment. While each catchment is unique, the steps to pre-process and later export the corresponding climate files for modeling in RSMinerve are not and are thus generalizable. 
+As we explained above, we investigate 4 climate scenarios (ssp126, ssp245, ssp 370 and ssp585) for which we have 4 GCM model runs each (GFDL-ESM4, UKESM1-0-LL, MPI-ESM1-2-HR and MRI-ESM2-0). Hence, we have 16 scenario-model combination and the same amounts of correction functions. The best way to achieve this is show the necessary steps by means of an example catchment. While each catchment is unique, the steps to pre-process and later export the corresponding climate files for modeling in RSMinerve are not and are thus generalizable.
 
 The only caveat is that the processing of the CHELSA high-resolution climate files requires the very large raw files to be available locally. Due to the size of these files for the entire Central Asia domain, sharing these files is not easy and we are working on ways to make these files more readily available in the future so that they can be processes locally.
 
 For the moment, each case study catchment in the student pack contains the precomputed climate files with which RSMinerve hydrological models can be run in a straight forward manner. These files are stored in the RS_Minerve folder. The following files are available:
 
-- **hist_obs_rsm.csv**: This is the .csv-files that contains the CHELSA V21 temperature and precipitation forcing for each of the elevation bands as specified in the `/GIS/XXXXX_hru.shp` file where XXXXX is the placeholder for the corresponding gauge code.
-- **hist_sim_....csv**: For the 4 climate models investigated, the simulated history is stored in these file. They are used for bias correction and not directly used in hydrological modeling.
-- **fut_sim_....csv**: We have generated 16 such files which consist of 4 climate scenarios for each of the 4 climate models. These are the future temperature and precipitation time series that were bias corrected using the quantile mapping method as explained above.
-- **fut_sim_bcsd_....csv**: These are the 16 final bias corrected and downscaled future climate forcing files. These are the .csv-files that are read into RSMinerve for the study of climate impacts on the river basin under consideration. 
+-   **hist_obs_rsm.csv**: This is the .csv-files that contains the CHELSA V21 temperature and precipitation forcing for each of the elevation bands as specified in the `/GIS/XXXXX_hru.shp` file where XXXXX is the placeholder for the corresponding gauge code.
+-   **hist_sim\_....csv**: For the 4 climate models investigated, the simulated history is stored in these file. They are used for bias correction and not directly used in hydrological modeling.
+-   **fut_sim\_....csv**: We have generated 16 such files which consist of 4 climate scenarios for each of the 4 climate models. These are the future temperature and precipitation time series that were bias corrected using the quantile mapping method as explained above.
+-   **fut_sim_bcsd\_....csv**: These are the 16 final bias corrected and downscaled future climate forcing files. These are the .csv-files that are read into RSMinerve for the study of climate impacts on the river basin under consideration.
 
-The processes of generating these files is shown in the following at the example of Chon Kemin catchment in Kyrgyzstan. For each catchment in the Students' Case Study Pack, the code to process the files can be found in the corresponding CODE folder. 
+The processes of generating these files is shown in the following at the example of Chon Kemin catchment in Kyrgyzstan. For each catchment in the Students' Case Study Pack, the code to process the files can be found in the corresponding CODE folder.
 
 First, the necessary libraries need to be loaded.
 
@@ -380,6 +384,7 @@ library(exactextractr)
 # quantile mapping
 library(qmap)
 ```
+
 Then, we can simply configure the details of the catchment at hand (note the location installation dependent specification of paths!).
 
 ```{r}
@@ -406,6 +411,7 @@ gis_path <- "../caham_data/student_case_study_basins/15149_ChonKemin/GIS/"
 dem_file <- paste0(gauge_code,'_dem.tif')
 crs_project <- 4326 #latlon WGS84
 ```
+
 There are a number of parameters to be set before the modeling which can be done as follows.
 
 ```{r}
@@ -454,9 +460,10 @@ fut_sim_dates <- riversCentralAsia::generateSeqDates(fut_sim_start,fut_sim_end,'
 fut_sim_dates <- as_date(fut_sim_dates$date) %>% as_tibble() %>% rename(Date = value)
 ```
 
-::: {.callout-warning}
+::: callout-warning
 # IMPORTANT
-Note that you would have to set the data_paths in the above code block according to your own local installation. However, since the CHELSA raster stack files are not available in the Students' Case Study directory, the code here serves just as a demonstration. It should be further noted that this below is an advanced section that requires a good understanding of the R programming language. 
+
+Note that you would have to set the data_paths in the above code block according to your own local installation. However, since the CHELSA raster stack files are not available in the Students' Case Study directory, the code here serves just as a demonstration. It should be further noted that this below is an advanced section that requires a good understanding of the R programming language.
 :::
 
 After setting the parameters, we can generate the hydrological response units. As the adept reader realizes, we are creating the elevation bands in R/RStudio and do not resort to QGIS as has been shown in the previous [Geospation Data Section](@sec-geospatial-data).
@@ -474,7 +481,8 @@ hru_shp <- gen_basinElevationBands(gis_path,dem_file,demAggFact,band_interval,ho
 # Control output
 hru_shp %>% plot()
 ```
-In other words, the function `gen_basinElevationBands()` from the `riversCentralAsia` R Package creates elevation bands (HRUs) as per the parameter values. In the above example, we are generating elevation bands with a 300 meters [m] bands interval. The smaller this number, the higher the number of elevation bands that will be generated and the higher the computational requirements will be of the hydrological model.
+
+In other words, the function `gen_basinElevationBands()` from the `riversCentralAsia` R Package creates elevation bands (HRUs) as per the parameter values. In the above example, we are generating elevation bands with a 300 meters \[m\] bands interval. The smaller this number, the higher the number of elevation bands that will be generated and the higher the computational requirements will be of the hydrological model.
 
 As a next step, we intersect the subbasins with elevtion bands. In the example of Chon Kemin, the basin corresponds to the one subbasin.
 
@@ -485,6 +493,7 @@ path2subbasin_shp <- paste0(gis_path,gauge_code,"_basin.shp")
 subbasins_shp <- st_read(path2subbasin_shp, quiet = TRUE)
 subbasins_hru_shp <- st_intersection(hru_shp,subbasins_shp)
 ```
+
 We can extract and add mean elevation data for each HRU in the following way.
 
 ```{r}
@@ -494,6 +503,7 @@ dem <- raster::raster(paste0(gis_path,dem_file))
 zonalStat_Z <- exactextractr::exact_extract(dem, subbasins_hru_shp, 'mean', progress = FALSE)
 subbasins_hru_shp$Z <- zonalStat_Z
 ```
+
 In a final step, we add unique subbasin names and remove the shapefile fields that are no longer needed in the next steps. The plot shows the resulting shapefile.
 
 ```{r}
@@ -515,12 +525,14 @@ for (idxSubBasin in seq(length(subbasins_shp$name))) {
 subbasins_hru_shp <- res_subbasins %>% dplyr::select(-layer,-hru_num)
 subbasins_hru_shp %>% plot()
 ```
+
 The resulting shapefile can then be written to local storage.
 
 ```{r}
 #| eval: false
 sf::st_write(subbasins_hru_shp, paste0(gis_path, gauge_code, '_hru', '.shp'), append = FALSE)
 ```
+
 The geometry of the hydrological modeling approach is now defined and we can start to extract and generate the climate forcing data. First, the historical observations (*hist_obs*) of temperature and precipitation for each HRU need to be defined. We show how this can be done in a straight forward manner using again helper functions from the `riversCentralAsia` package.
 
 ```{r}
@@ -623,7 +635,8 @@ hist_obs_rsm$Q[8] = 'Constant after'
 # Write final file to disk
 readr::write_csv(hist_obs_rsm,paste0(model_dir,climate_data_type,"_rsm.csv"),na = "NA",col_names = FALSE)
 ```
-The last line of code writes the result back to the disk. Please check in your Case Study Pack the folder /RS_MINERVE/ where the corresponding `hist_obs_rsm.csv` is stored. The file format corresponds to import requirements from the side of RSMinerve. You can open the text file either with a Spreadsheet program such as Excel or with a text editor. The daily time series of temperature, precipitation for each HRU and the discharge for the gauging station are stored in the columns with a header section. Since observed discharge data is only available on a monthly basis, the time series is filled with NA where there are no obervations available. 
+
+The last line of code writes the result back to the disk. Please check in your Case Study Pack the folder /RS_MINERVE/ where the corresponding `hist_obs_rsm.csv` is stored. The file format corresponds to import requirements from the side of RSMinerve. You can open the text file either with a Spreadsheet program such as Excel or with a text editor. The daily time series of temperature, precipitation for each HRU and the discharge for the gauging station are stored in the columns with a header section. Since observed discharge data is only available on a monthly basis, the time series is filled with NA where there are no obervations available.
 
 For the monthly mean discharge values, the following convention is adhered to. Monthly mean discharge values are written/stored in the first day of the month.
 
@@ -940,9 +953,10 @@ for (idxGCM in 1:length(gcm_Models_Scenarios)) {
 }
 ```
 
-
 #### Elevation dependent impact of climate change
-The CHELSA v2.1 data set includes elevation dependent changes of forcing over time. That is, temperatures in high elevation bands (higher elevation band numbers in figure below) heat up more quickly than in lower elevation bands. Similarly is the change in precipitation more extreme in high elevation bands than in low elevation bands. Elevation dependent warming is discussed for example in @mountain_research_initiative_edw_working_group_elevationdependent_2015. 
+
+The CHELSA v2.1 data set includes elevation dependent changes of forcing over time. That is, temperatures in high elevation bands (higher elevation band numbers in figure below) heat up more quickly than in lower elevation bands. Similarly is the change in precipitation more extreme in high elevation bands than in low elevation bands. Elevation dependent warming is discussed for example in @mountain_research_initiative_edw_working_group_elevationdependent_2015.
+
 ```{r, fig.cap="Changes in temperature and precipitation over time are elevation dependent in the Chon Kemin basin. Data source: CHELSA v2.1. "}
 forcing <- load_minerve_input_csv("../caham_data/student_case_study_basins/15149_ChonKemin/RS_MINERVE/fut_sim_bcsd_GFDL-ESM4_ssp585_ChonKemin_2012_2099.csv")
 
@@ -971,10 +985,4 @@ ggplot(forcingatrend) +
   theme_bw()
 ```
 
-
-
 ## References {#sec-climate-data-references}
-
-
-
-

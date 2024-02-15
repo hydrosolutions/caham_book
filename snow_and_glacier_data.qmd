@@ -1,20 +1,20 @@
 # Snow and Glacier Data {#sec-snow-and-glacier-data}
 
-The cryosphere encompasses solid water andis a water balance component of considerable importance in hydrological systems in Central Asia.
+The cryosphere encompasses solid water and is a water balance component of considerable importance in hydrological systems in Central Asia.
 
-The following section gives a brief overview over the available regional open source data regarding Central Asias cryosphere. A later chapter on [Glacier Modeling](@sec-glacier-modeling) will then focus on the modelling options of the cryosphere.
+The following section gives a brief overview of the available regional open-source data regarding the cryosphere of Central Asia. A later chapter on [Glacier Modeling](@sec-glacier-modeling) will then focus on the modeling options of the cryosphere.
 
-## Introduction
+## Introduction {#sec-introduction-snow-glacier-data}
 
-The runoff of the rivers Syr Darya and Amu Darya consists of 65%-75% snow melt, 23% precipitation and 2-8% glacier melt approximately [@armstrong_runoff_2019]. Seasonal snow melt is the main driver of discharge and thus, the main source for irrigation water in late spring. At a first glance, glacier discharge may seem unimportant. While glacier runoff is a small contributor to the annual runoff of large rivers in Central Asia, it is seasonally important as it covers the irrigation demand in summer, when snow melt is over [@kaser_contribution_2010]. In is, further, a much more important contribution to discharge in the highly glaciated tributaries to the large rivers [@khanal_variable_2021]. Generally, the cryosphere is a major contributor to the water balance in Central Asia [@barandun_state_2020]. Very little is known about the volume of permafrost in Central Asia but the the impact of permafrost loss is expected to be of large magnitude [@gruber_review_2017].
+The runoff of Syr Darya and Amu Darya consists of 65 % - 75 % snow melt, 23 % precipitation, and 2 % - 8 % glacier melt approximately [@armstrong_runoff_2019]. Seasonal snowmelt is the primary driver of discharge and, thus, the main source of irrigation water in late spring. At first glance, glacier discharge may seem unimportant. While glacier runoff is a minor contributor to the annual runoff of large rivers in Central Asia, it is seasonally relevant as it covers the irrigation demand in summer when snow melt is over [@kaser_contribution_2010]. Further, it is a much more critical contribution to discharge in the highly glaciated tributaries to the large rivers [@khanal_variable_2021]. Generally, the cryosphere is a major contributor to the water balance in Central Asia [@barandun_state_2020]. Very little is known about the volume of permafrost in Central Asia, but the impact of permafrost loss is expected to be of large magnitude [@gruber_review_2017].
 
-Among other things, climate impacts translate into long-term changes of runoff formation fractions and the distribution of runoff formation within the hydrological year. Figure shows a simplified illustration of the changes in runoff regime as glaciers shrink (for the example of a heavily glaciated basin) [@hock_ipccHMA_2019]. The considerable reduction in river discharge as glaciers disappear from the catchment is noteworthy, especially in the late summer period which coincides with a period of high irrigation demand in Central Asia. Further, variability of discharge is expected to increase; with little to no discharge in late summer when glacier storage is gone and occasional high precipitation runoff due to high intensity rainfall events.
+Among other things, climate impacts translate into long-term changes in runoff formation fractions and the distribution of runoff formation within the hydrological year. Figure @fig-glacier-shrinkage-over-time shows a simplified illustration of the changes in runoff regime as glaciers shrink (for the example of a heavily glaciated basin) [@hock_ipccHMA_2019]. The considerable reduction in river discharge as glaciers disappear from the catchment is noteworthy, especially in the late summer period, which coincides with a period of high irrigation demand in Central Asia. Further, discharge variability is expected to increase; with little to no discharge in late summer when glacier storage is gone and occasional high precipitation runoff due to high intensity rainfall events.
 
-![Illustration of the development of glacier melt in a heavily glaciated catchment (Image source: Hock an colleagues: High Mountain Areas. In: IPCC Special Report on the Ocean and Cryosphere in a Changing Climate)](images/glacier_data_section/IPPC_special_report_HighMountainAreas_2019.png)
+![Illustration of the development of glacier melt in a heavily glaciated catchment (Image source: Hock and colleagues: High Mountain Areas. In: IPCC Special Report on the Ocean and Cryosphere in a Changing Climate)](images/glacier_data_section/IPPC_special_report_HighMountainAreas_2019.png){#fig-glacier-shrinkage-over-time}
 
-By the end of the century, an average reduction of 50% to 80% of glacier mass has to be expected in Central Asia [@marzeion_partitioning_2020], depending on the socio-economic pathway. Glaciers at low elevations will completely disappear. As the cryosphere acts as a natural seasonal to multi-year water reservoir, the loss of this storage capacity has a large impact on downstream food and energy production and on the environment with associated economic loss [@rasul_global_2019].
+By the end of the century, an average reduction of 50 % to 80 % of glacier mass has to be expected in Central Asia [@marzeion_partitioning_2020], depending on the socio-economic pathway. Glaciers at low elevations will completely disappear. As the cryosphere acts as a natural seasonal to multi-year water reservoir, the loss of this storage capacity has a large impact on downstream food and energy production and the environment, with associated economic loss [@rasul_global_2019].
 
-We use the catchment of the gauging station on the Atbashy river, a tributary to the Naryn river in Central Asia as a demo site. If you'd like to reproduce the examples presented in this chapter you can download the zipped data in the example data set available [here](https://www.dropbox.com/sh/v2yckkjs9x4xj4t/AADo8edoVvZ9dfCYkn9oQnSha?dl=0){target="_blank"}. You can extract the the downloaded data into a location of your choice and adapt the reference path below. The rest of the code will run as it is, provided you have the required r packages installed. The size of the data package is 14.1 GB.
+As a demonstration site, we use the catchment of the gauging station on the Atbashy River, a tributary to the Naryn River in Central Asia. If you'd like to reproduce the examples presented in this Chapter, you can download the zipped data in the example data set available [here](https://www.dropbox.com/sh/v2yckkjs9x4xj4t/AADo8edoVvZ9dfCYkn9oQnSha?dl=0){target="_blank"}. You can extract the downloaded data into a location of your choice and adapt the reference path below. The rest of the code will run as it is, provided you have the required r packages installed. The size of the data package is 14.1 GB.
 
 Please note that new (highly relevant and public) glacier data are released ever more frequently. The summary provided here refers to the latest data sets at the time of writing in February 2022.
 
@@ -35,15 +35,15 @@ library(riversCentralAsia, quietly = TRUE)
 data_path <- "../caham_data/SyrDarya/Atbashy/"
 ```
 
-## Snow cover and snow water equivalent
+## Snow Cover and Snow Water Equivalent {#sec-snow-cover-and-snow-water-equivalent}
 
-We start with the upper-most cryospheric layer: the snow cover. A large amount of data sets are available and the following section presents a suitable product for the calibration of the snow module in the HBV model objects.
+We start with the upper-most cryosphere layer: the snow cover. A large amount of data sets are available and the following section presents a suitable product for the calibration of the snow module in the HBV model objects.
 
-### High Mountain Asia Snow Reanalysis (HMASR) Product
+### High Mountain Asia Snow Reanalysis (HMASR) Product {#sec-high-mountain-asia-snow-reanalysis}
 
 @liu_hmasr_2021 provide a daily reanalysis product for snow covered area and snow water equivalent (SWE) in High Mountain Asia between October 1, 1999 and September 30, 2017. The spatial resolution is 16 arc-seconds (approximately 400 m) and the spatial coverage is N: 45, S: 27, E: 105, W: 60 so the northern-most headwater basins of the Illi river catchment are unfortunately not covered. Other SWE products have coarser spatial resolution (e.g. the [Daily Snow Depth Analysis Data by the Canadian Meteorological Center](https://nsidc.org/data/nsidc-0447/versions/1){target="_blank"} which is available at 24 km grid resolution) and are thus less suited for calibration of hydrological models of small to medium sized headwater basins.
 
-The HMASR data is available via [NSIDC](https://nsidc.org/data/HMA_SR_D/versions/1){target="_blank"} [@liu_hmasr_data_2021]. Their SWE can directly be compared to the SWE computed in hydrological models like HBV. More on this in the [model calibration section](#sec-model-calibration).From the downloaded data, only the SWE and the validity mask (showing the pixels where the snow water equivalent product is valid) is required. Please note that the warning is due to the nc file format and need not concern you. The SWE data is read correctly from the nc files.
+The HMASR data is available via [NSIDC](https://nsidc.org/data/HMA_SR_D/versions/1){target="_blank"} [@liu_hmasr_data_2021]. Their SWE can directly be compared to the SWE computed in hydrological models like HBV. More on this in the [model calibration section](#sec-model-calibration).From the downloaded data, only the SWE and the validity mask (showing the pixels where the snow water equivalent product is valid) is required. Please note that the warning is due to the .nc file format and need not concern you. The SWE data is read correctly from the .nc files.
 
 ```{r}
 #| label: fig-swe
@@ -123,11 +123,17 @@ tm_shape(max(sca_masked, na.rm = TRUE)) +
   tm_borders(col = "black", lwd = 0.6)
 ```
 
-For operational hydrological modelling, the MODIS snow covered area product has to be used (see for example Modsnow).
+### Operational SLF Model Data on Snow Height and Snow Water Equivalent
 
-## Glacier outlines #sec-glacier-outlines
+For operational hydrological modelling, different possibilities exist to obtain near-real time snow cover, height and information on the snow water equivalent (SWE). One such option is to use data from the operational SLF Model.
 
-The Randolph Glacier Inventory (RGI) v6.0 [@rgi60] makes a consistent global glacier data base publicly available. It includes geo-located glacier geometry and some additional parameters like elevation, length, slope and aspect. A new version (v7) is under review at the time of writing (September 2022). For Central Asian water resources modelling, RGI regions 13 (Central Asia) and 14 (South Asia West) are relevant. The glacier geometries for all RGI regions are available from [the GLIMS RGI v6.0 web site](https://www.glims.org/RGI/rgi60_dl.html){target="_blank"}. For this demo, the data for the Atbashy basin is available from the data download link given above.
+15. February 2024: More information coming soon!
+
+## Glacier Outlines {#sec-glacier-outlines}
+
+The Randolph Glacier Inventory (RGI) v6.0 [@rgi60] makes a consistent global glacier data base publicly available[^snow_and_glacier_data-1]. It includes geolocated glacier geometry and some additional parameters like elevation, length, slope and aspect. For water resources modeling in Central Asia, RGI regions 13 (Central Asia) and 14 (South Asia West) are relevant. The glacier geometries for all RGI regions are available from [the GLIMS RGI v6.0 website](https://www.glims.org/RGI/rgi60_dl.html){target="_blank"}. For this demo, the data for the Atbashy River basin is available from the data download link given above.
+
+[^snow_and_glacier_data-1]: A new Version 7 of the dataset has been published in 2023. For more information, see [here](https://www.glims.org/rgi_user_guide/03_data_decription.html#){target =" _blank"}.
 
 ```{r}
 #| label: fig-rgi
@@ -151,17 +157,17 @@ tm_shape(dem, name = "DEM") +
   tm_polygons(col = "lightgray", lwd = 0.2)
 ```
 
-## Glacier thickness
+## Glacier Thickness
 
-@farinotti_consensus_2019 make distributed glacier thickness maps available for each glacier in the RGI v6 data set. As the data set is large, we have downloaded the required maps of glacier thickness for you and made them available in the download link above. We will refer to this data set as the glacier thickness data set or the Farinotti data set.
+@farinotti_consensus_2019 make distributed glacier thickness maps available for each glacier in the RGI v6.0 data set. As the data set is large, we have downloaded the required maps of glacier thickness for you and made them available in the download link above. We will refer to this data set as the glacier thickness data set or the Farinotti data set.
 
-Please note that @farinotti_consensus_2019 provide ice thickness. This can be converted to water equivalents by assuming a ice density of 900 $km/m^3$, e.g. 100 $m$ glacier thickness translates to a water column of about 90 $m$.
+Please note that @farinotti_consensus_2019 provide ice thickness. This can be converted to water equivalents by assuming a ice density of 900 kg/m^3^, e.g. 100 m glacier thickness translates to a water column of about 90 m.
 
 The original glacier thickness data set is available from the [data collection](https://www.research-collection.ethz.ch/handle/20.500.11850/315707){target="_blank"} of @farinotti_consensus_2019 which is available from [the data section of their online article](https://www.nature.com/articles/s41561-019-0300-3){target="_blank"}.
 
-The following code chunk demonstrates how to extract glacier thickness data from the Farinotti data set.
+The following code chunks demonstrates how to extract glacier thickness data from the Farinotti data set.
 
-### How to extract glacier thickness
+### How to Extract Glacier Thickness
 
 ```{r}
 #| label: fig-thickness-extraction
@@ -218,7 +224,7 @@ A more recent glacier thickness data set by @millan_ice_2022 estimates much larg
 
 The glacier thickness data set by @farinotti_consensus_2019 can for example be combined with the RGI v6.0 data set for the Central Asia region to validate the well-known glacier area-volume relationship by @erasov_1968 (see section [Area-Volume scaling](#glacier-area-volume-scaling)).
 
-## Glacier thinning rates
+## Glacier Thinning Rates
 
 @hugonnet_accelerated_2021 provide annual estimates of glacier thinning rates for each glacier in the RGI v6.0 data set. The authors advise to not to rely on the annual data but rather on an average over at least 5 years to get reliable thinning rates for individual glaciers. We compare trends in glacier thinning rates to trends in glacier thickness during model calibration. We will refer to this data set as the *thinning rates* data set or the *Hugonnet* data set. A copy of the Hugonnet thinning rates is included in the download link above.
 
@@ -273,9 +279,9 @@ tm_shape(dem, name = "DEM") +
   tm_borders(col = "black", lwd = 0.6)
 ```
 
-## Glacier discharge
+## Glacier Discharge
 
-@miles_health_2021 ran specific mass balance calculations over many glaciers larger than 2 km^2^ in High Mountain Asia. They provide the average glacier discharge between 2000 and 2016. We will refer to this data set as the glacier discharge data set or the Miles data set. A copy of the glacier discharge data is available from the data download link provided above. The glacier ablation data can be used as a third party data set to validate glacier discharge rates simulated using the GSM model implemented in RS MINERVE.
+@miles_health_2021 ran specific mass balance calculations over many glaciers larger than 2 km^2^ in High Mountain Asia (HMA). They provide the average glacier discharge between 2000 and 2016. We will refer to this data set as the glacier discharge data set or the Miles data set. A copy of the glacier discharge data is available from the data download link provided above. The glacier ablation data can be used as a third party data set to validate glacier discharge rates simulated using the GSM model implemented in RS MINERVE.
 
 The original data is available from the [data repository](https://zenodo.org/record/5119153#.Yfjv6-rMKF4){target="_blank"} linked in the [online version of the paper](https://www.nature.com/articles/s41467-021-23073-4){target="_blank"}.
 
@@ -314,15 +320,15 @@ tm_shape(dem, name = "DEM") +
   tm_borders(col = "black", lwd = 0.6)
 ```
 
-## Glacier discharge projections
+## Glacier Discharge Projections
 
-Projected glacier and off-glacier discharge for the 21th century are provided by @rounce_high_2020 through [NSIDC](https://doi.org/10.5067/190Y84IGLIQH){target="_blank"}. Monthly per-glacier discharge rates for RGI v6.0 region 13 have been produced using the Python Glacier Evolution Model (PyGEM) \[rounce_glacier_2020\]. PyGEM glacier discharge projections are done using the CMIP 5 climate model ensemble and emission scenarios. They are thus not 1-to-1 compatible with the CMIP6 models and SSP used as climate forcing in this book. @riahi_shared_2017 compare radiative forcing (an important driver for glacier melt) for CMIP5 and CMIP6 scenarios and show that the lower emission CMIP5 scenarios (RCP[^snow_and_glacier_data-1] 2.4 and RCP 4.5) underestimate radiative forcing as compared to the CMIP6 SSP counterparts (SSP 1 and SSP 2.). This means that also glacier melt simulated using the CMIP5 model ensembles may underestimate actual glacier melt for the lower emission scenarios. RCP 8.5 seems to be, however, fairly compatible with SSP 5. There is no counterpart for SSP 3 in the CMIP5 scenarios.
+Projected glacier and off-glacier discharge for the 21th century are provided by @rounce_high_2020 through [NSIDC](https://doi.org/10.5067/190Y84IGLIQH){target="_blank"}. Monthly per-glacier discharge rates for RGI v6.0 region 13 have been produced using the Python Glacier Evolution Model (PyGEM) [@rounce_glacier_2020]. PyGEM glacier discharge projections are done using the CMIP 5 climate model ensemble and emission scenarios. These are thus not 1-to-1 compatible with the CMIP6 models and SSP used as climate forcing in this book. @riahi_shared_2017 compare radiative forcing (an important driver for glacier melt) for CMIP5 and CMIP6 scenarios and show that the lower emission CMIP5 scenarios (RCP[^snow_and_glacier_data-2] 2.4 and RCP 4.5) underestimate radiative forcing as compared to the CMIP6 SSP counterparts (SSP 1 and SSP 2.). This means that also glacier melt simulated using the CMIP5 model ensembles may underestimate actual glacier melt for the lower emission scenarios. RCP 8.5 seems to be, however, fairly compatible with SSP 5. There is no counterpart for SSP 3 in the CMIP5 scenarios.
 
-[^snow_and_glacier_data-1]: RCP stands for Representative Concentration Pathway. RCPs are predecessors of the shared socio-economic pathways used in the CMIP6 phase.
+[^snow_and_glacier_data-2]: RCP stands for Representative Concentration Pathway. RCPs are predecessors of the shared socio-economic pathways used in the CMIP6 phase.
 
-We use PyGEM glacier discharge projections for estimating future glacier melt in the entire Central Asian region. We thereby assume that the CMIP 5 scenarios correspond to the CMIP6 scenarios and that SSP 3 lies in the middle between SSP 2 and SSP 5.
+In 2023, glacier discharge projections using CMIP6 models and scenarios were released [@rounce2023]. These can directly be used in climate impact modeling assessments. We use these PyGEM glacier discharge projections for estimating future glacier melt in the entire Central Asian region.
 
-## A note on the uncertainties of the glacier data sets
+## A Note on the Uncertainties of the Glacier Data Sets
 
 The geometries of the RGI v6.0 data set are generally very good. If you simulate glacier discharge in a small catchment with few glaciers it is advisable to visually check the glacier geometries and make sure, all relevant glaciers in the basin are included in the RGI data set. You may have to manually add missing glaciers or correct the geometry.
 
@@ -332,7 +338,7 @@ The glacier thickness data set is validated only at few locations as measurement
 
 @hugonnet_accelerated_2021 & @miles_health_2021 provide the uncertainties of their estimates for per-glacier glacier thinning & discharge rates in the data set itself. They typically lie around $\pm$ 150%.
 
-## Permafrost extent
+## Permafrost Extent
 
 While glaciers are intensively researched, also in Central Asia, little is known about the extent of permafrost in High Mountain Asia and how climate change will impact permafrost regions [@barandun_state_2020]. A high-resolution (1 km grid resolution, average between 2000 and 2016) estimate of permafrost extent is available from the ESA GlobPermafrost program [@obu_northern_2019]. Data can be downloaded from the [Arctic Permafrost Geospatial Center (APGC)](https://apgc.awi.de/dataset/pex){target="_blank"}. Figure @fig-permafrost shows the permafrost probability extent, i.e. the estimated fraction of grid cell covered by permafrost. Glaciated areas are excluded.
 

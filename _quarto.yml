@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Modeling of Hydrological Systems in Semi-Arid Central Asia"
-  author: "Tobias Siegfried, Beatrice Marti, and Adrian Kreiner [hydrosolutions GmbH](https://www.hydrosolutions.ch)"
+  author: "Tobias Siegfried, Beatrice Marti, Adrian Kreiner, and Aidar Zhumabaev [hydrosolutions GmbH](https://www.hydrosolutions.ch)"
   description: "2024 release"
   cover-image: images/cover/applied_modeling_cover.png
   site-url: https://hydrosolutions.github.io/caham_book/

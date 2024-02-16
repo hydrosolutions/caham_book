@@ -2,7 +2,7 @@
 
 ## Prerequisites {#sec-em-prerequisites}
 
-Time series based hydrological models use past observations of discharge and auxilliary variables such as snow cover in the catchment and/or precipitation to predict the future from learned past patterns. Currently, there are no ready-made hydrological modeling packages that can be used for this purpose. Such types of models rather draw on available time series-based modeling algorithms that are implemented and available in dedicated packages for programming environments like [R](https://www.r-project.org){target="_blank"}.
+Time series-based hydrological models use past discharge observations and auxilliary variables such as snow cover in the catchment and/or precipitation to predict the future from learned past patterns. Currently, no ready-made hydrological modeling packages can be used for this purpose. Such types of models rather draw on available time series-based modeling algorithms that are implemented and available in dedicated packages for programming environments like [R](https://www.r-project.org){target="_blank"}.
 
 We will work with R and RStudio and the following packages that need to be installed to replicate and run the models shown here. Note that such a package installation step only has to be performed once.
 
@@ -32,7 +32,7 @@ library(tidymodels)
 library(riversCentralAsia)
 ```
 
-When other, additional packages are needed, they will be loaded in the corresponding Sections below.
+When other additional packages are needed, they will be loaded in the corresponding Sections below.
 
 Please also remember the following rules when working with R dataframes in the tidyverse:
 
@@ -58,19 +58,19 @@ $$
 y(t+\Delta t) = \beta_{0} + \beta_{1} \cdot y(t) + \epsilon(t)
 $$
 
-In the model specification above, the aim is to predict into the future with a lead time of $\Delta t$, i.e. for example one month ahead. The lead-time model can be written in equivalent form using lags in the following way
+In the model specification above, the aim is to predict the future with a lead time of $\Delta t$, i.e., for example one month ahead. The lead-time model can be written in equivalent form using lags in the following way
 
 $$
 y(t) = f(y(t-lag),x(t-lag)) + \epsilon(t)
 $$
 
-where $lag = \Delta t$. This just means that we use all the available observations until and including $t-lag$ for predicting the target at time $t$. We will use these specifications throughout the Chapter when working with and developing new forecasting models.
+where $lag = \Delta t$. This just means that we use all the available observations until and including $t-lag$ for predicting the target at the time $t$. We will use these specifications throughout the Chapter when working with and developing new forecasting models.
 
 ## Forecasting Discharge in Central Asian {#sec-em-forecasting-in-central-asia}
 
 ### Hydrometeorological Organizations {#sec-em-central-asia-hydromets}
 
-The key agencies that that are charged in predicting river discharge regularly in Central Asia are the Hydrometeorological Agencies. For predicting mean discharge over a certain future period, they use different types of statistical models.
+The key agencies that are charged in predicting river discharge regularly are the Central Asia National Meteorological and Hydrological Services (NMHS). For the prediction of mean discharge over a specific target future period, they use different types of statistical models.
 
 The particular type of model they use depends on the available hydrological and meteorological data for a particular river whose mean discharge is to be forecasted and on the type of the forecast. Types of forecasts include
 
@@ -80,37 +80,37 @@ The particular type of model they use depends on the available hydrological and 
 -   monthly forecasts, i.e. $\Delta t = 1 \text{ month}$, and
 -   seasonal forecasts, i.e. $\Delta t = 6 \text{ months}$.
 
-To this date, these types of forecasts are performed at regular intervals by the operational hydrologists. Normally, this requires normally a lot of manual work. Recently, selected Hydrometeorological Agencies use automated software to automatize this type of work. The [Chapter on Real-World Hydrological Modeling Applications](#sec-real-world-examples) discusses in greater detail such a software application, called *iEasyHydro*.
+To this date, these types of forecasts are performed at regular intervals by the operational hydrologists. Normally, this requires a lot of manual work. Recently, selected NMHS use automated software to automatize this type of work. The [Chapter on Real-World Hydrological Modeling Applications](#sec-real-world-examples) discusses such a software application, called *iEasyHydro,* in greater detail.
 
-In Uzbekistan, for example, the following list of forecast objects exists in the Hydromet.
+In Uzbekistan, for example, the following list of forecast objects exists in the NMHS.
 
 | River                          | Gauge (Target Object)               | Gauge Code                                                                              | Country | Types of Forecasts    |
-|--------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------|---------|-----------------------|
-| Chirchik                       | Inflow to Charvak Res.              | 16924                                                                                   | UZ      | dl, m, s              |
-| Chirchik                       | Inflow to Charvak Res. + Ugam River | 16924 + 16300                                                                           | UZ      | m, s                  |
-| Akhangaran                     | Irtash                              | 16230                                                                                   | UZ      | m, s                  |
-| Chadak                         | Dzhulaysay                          | 16202                                                                                   | UZ      | m, s                  |
-| Gavasay                        | Gava                                | 16193                                                                                   | UZ      | m, s                  |
-| Padsha-Ata                     | Tostu                               | 16176                                                                                   | KG      | m, s                  |
-| Kara Darya                     | Inflow to Andizhan water reservoir  | 16938                                                                                   | UZ/KG   | dl, m, s              |
-| Isfayramsoy                    | Uch-Kurgan                          | 16169                                                                                   | KG      | m, s                  |
-| Sokh                           | Sarykanda                           | 16198                                                                                   | UZ      | dl (May - Sep.), m, s |
-| Sanzar                         | Kyrk                                | 16223                                                                                   | UZ      | m, s                  |
-| Naryn                          | Inflow to Toktogul water reservoir  | 16936                                                                                   | KG      | m, s                  |
-| Vaksh                          | Inflow to Nurek water reservoir     | 17084 (Vakh river - Darband gauge)                                                      | TJ      | m, s                  |
-| Kafirnigan                     | Tartki                              | 17137                                                                                   | TJ      | m, s                  |
-| Tupalang                       | Inflow to Tupalang water reservoir  | 17194                                                                                   | UZ      | m, s                  |
-| Sangardak                      | Keng-Guzar                          | 17211                                                                                   | UZ      | m, s                  |
-| Akdarya                        | Inflow to Gissarak water reservoir  | 17464 (Akfariya river - Hissarak gauge)                                                 | UZ      | m, s                  |
-| Yakkabagdarya                  | Tatar                               | 17260                                                                                   | UZ      | m, s                  |
-| Uryadariya + Kichik Uryadariya | Inflow to Pachkamar water reservoir | 17279 (Uryadariya river - Bazartepe gauge) + 17275 (Kichik Uryadariya - Gumbulak gauge) | UZ      | m, s                  |
-| Zeravshan                      | Inflow to Rovatkhodzha hydro work   | 17461                                                                                   | UZ      | m, s                  |
+|-------------|-------------|--------------------|-------------|-------------|
+| Chirchik                       | Inflow to Charvak Res.              | 16924                                                                                   | UZB     | dl, m, s              |
+| Chirchik                       | Inflow to Charvak Res. + Ugam River | 16924 + 16300                                                                           | UZB     | m, s                  |
+| Akhangaran                     | Irtash                              | 16230                                                                                   | UZB     | m, s                  |
+| Chadak                         | Dzhulaysay                          | 16202                                                                                   | UZB     | m, s                  |
+| Gavasay                        | Gava                                | 16193                                                                                   | UZB     | m, s                  |
+| Padsha-Ata                     | Tostu                               | 16176                                                                                   | KGZ     | m, s                  |
+| Kara Darya                     | Inflow to Andizhan water reservoir  | 16938                                                                                   | UZB/KGZ | dl, m, s              |
+| Isfayramsoy                    | Uch-Kurgan                          | 16169                                                                                   | KGZ     | m, s                  |
+| Sokh                           | Sarykanda                           | 16198                                                                                   | UZB     | dl (May - Sep.), m, s |
+| Sanzar                         | Kyrk                                | 16223                                                                                   | UZB     | m, s                  |
+| Naryn                          | Inflow to Toktogul water reservoir  | 16936                                                                                   | KGZ     | m, s                  |
+| Vaksh                          | Inflow to Nurek water reservoir     | 17084 (Vakh river - Darband gauge)                                                      | TJK     | m, s                  |
+| Kafirnigan                     | Tartki                              | 17137                                                                                   | TJK     | m, s                  |
+| Tupalang                       | Inflow to Tupalang water reservoir  | 17194                                                                                   | UZB     | m, s                  |
+| Sangardak                      | Keng-Guzar                          | 17211                                                                                   | UZB     | m, s                  |
+| Akdarya                        | Inflow to Gissarak water reservoir  | 17464 (Akfariya river - Hissarak gauge)                                                 | UZB     | m, s                  |
+| Yakkabagdarya                  | Tatar                               | 17260                                                                                   | UZB     | m, s                  |
+| Uryadariya + Kichik Uryadariya | Inflow to Pachkamar water reservoir | 17279 (Uryadariya river - Bazartepe gauge) + 17275 (Kichik Uryadariya - Gumbulak gauge) | UZB     | m, s                  |
+| Zeravshan                      | Inflow to Rovatkhodzha hydro work   | 17461                                                                                   | UZB     | m, s                  |
 
-: List of Uzbek forecast target objects. Forecast type abbreviations are dl: daily forecast, m: monthly forecast, s: seasonal forecast. Country abbreviations are UZ: Uzbekistan, KG: Kyrgyzstan and TJ: Tajikistan. Source: [Uzbek Hydrometeorological Service](http://www.meteo.uz/#/en){target="_blank"}.
+: List of Uzbek forecast target objects. Forecast type abbreviations are dl: daily forecast, m: monthly forecast, s: seasonal forecast. Country abbreviations are UZB: Uzbekistan, KGZ: Kyrgyzstan, and TJK: Tajikistan. Source: [Uzbek Hydrometeorological Service](http://www.meteo.uz/#/en){target="_blank"}.
 
-It should be noted that all of the Hydromets have such type of lists with different forecast target and types. As can be seen from the above list, Uzbekistan does neither issue pentade nor decadal forecasts, i.e. types of forecasts which are widely used in the Kyrgyz Hydromet in contrast.
+It should be noted that all of the NMHS have lists with different forecast targets for different rivers. As can be seen from the above list, Uzbekistan does not issue pentade and decadal forecasts, i.e. types of forecasts, which are regularly issued by the KGZ, for example.
 
-Finally, seasonal forecasts in the Uzbek Hydromet are issued twice prior to the irrigation season with 3. - 5. March being the first issues data range and 3. - 5. April being the second one. Converse to this, monthly forecasts are issues between the 25. - 27. day each month. Finally, decadal and pentade forecasts are issued each morning at the day of the end of the corresponding pentade or decade.
+Finally, seasonal forecasts in the Uzbek NMHS are issued twice before the irrigation season with 3. - 5. March being the first data range for issuing, and 3. - 5. April being the second one. Converse to this, monthly forecasts are issues between the 25. - 27. day each month. Finally, decadal and pentade forecasts are issued each morning at the day of the end of the corresponding pentade or decade.
 
 It is important to emphasize again that there is currently no standardized way in the region to produce these forecasts. While in some instances, a particular approach and method works very well, it fails to produce acceptable forecasts in other basins. However, as we shall see, certain techniques work very well for particular forecast horizons which then explains why such type of technique has become widely used in the region.
 
@@ -142,7 +142,7 @@ In the following, we will work with decadal discharge data from the two main tri
 
 ```{r}
 data <- ChirchikRiverBasin # load data
-q_dec_tbl <- data %>% filter(code == '16279' | code == '16290' | code == '16924') # Note for the new name of the object, we choose to add periodicity (_dec_) and data type (_tbl for tibble/dataframe) to the data name. This just helps to stay organized and is good practice in R programming.
+q_dec_tbl <- data |> filter(code == '16279' | code == '16290' | code == '16924') # Note for the new name of the object, we choose to add periodicity (_dec_) and data type (_tbl for tibble/dataframe) to the data name. This just helps to stay organized and is good practice in R programming.
 q_dec_tbl
 ```
 
@@ -154,12 +154,12 @@ It is advisable to check at this stage for missing data in time series and to fi
 #| label: fig-em-discharge-data
 #| warning: false
 #| fig.cap: "Discharge data of selected gauges in the upstream zone of runoff formation in the Chirchik River Basin. Data Source: Uzbek Hydrometeorological Service."
-q_dec_tbl %>% plot_time_series(date,data,
+q_dec_tbl |> plot_time_series(date,data,
                                .facet_vars  = code,
                                .smooth      = FALSE,
                                .interactive = TRUE,
-                               .x_lab       = "year",
-                               .y_lab       = "m^3/s",
+                               .x_lab       = "Date",
+                               .y_lab       = "Discharge [m3/s]",
                                .title       = ""
                                )
 ```
@@ -169,8 +169,11 @@ Note, @fig-em-discharge-data and the following Figures are interactive, so you c
 Missing data are also confirmed by the warning that the function `timetk::plot_time_series()` throws (suppressed here). Statistics of the missing data can be easily obtained. As the Table below shows, we can do this analysis for each discharge station separately.
 
 ```{r}
-q_dec_tbl %>% group_by(code) %>% 
-  summarize(n.na = sum(is.na(data)), na.perc = n.na/n()*100)
+# print knitr::kable table
+q_dec_tbl |> group_by(code) |> 
+  summarize(n.na = sum(is.na(data)), na.perc = n.na/n()*100) |> 
+  knitr::kable(caption = "Number of missing data points and percentage of missing data for each discharge station. n.na: number of missing data points in the time series, na.perc: percentage of missing data.")
+
 ```
 
 Summarizing the number of observation with missing data reveals 15 data points for station 16279 (0.5 % of total record length) and 39 for station 16290 (1.3 % of total record length). As there are only very few gaps in the existing time series, we use a simple method to fill these. Wherever there is a gap, we fill in the corresponding decadal norm as stored in the *norm* column in the object `q_dec_tbl`. The visualization of the results confirms that our simple gap filling approach is indeed satisfactory as shown in @fig-em-gap-filled-pskem-chatkal.
@@ -184,7 +187,7 @@ q_dec_filled_tbl <- q_dec_tbl
 q_dec_filled_tbl$data[is.na(q_dec_filled_tbl$data)] = 
   q_dec_filled_tbl$norm[is.na(q_dec_filled_tbl$data)] # Gap filling step
 
-q_dec_filled_tbl %>% plot_time_series(date, data, 
+q_dec_filled_tbl |> plot_time_series(date, data, 
                                       .facet_vars  = code, 
                                       .smooth      = FALSE,
                                       .interactive = TRUE,
@@ -199,12 +202,12 @@ A note of caution here. This simple gap filling technique reduces variance in th
 Finally, we discard the norm data which we used for gap filling of the missing discharge data and convert the data to wide format (see the Table below) to add to it meteorological data in the next Section.
 
 ```{r}
-q_dec_filled_wide_tbl <- q_dec_filled_tbl %>% # again we use the name convention of objects as introduced above
-  mutate(code = paste0('Q',code %>% as.character())) %>% # Since we convert everything to long form, we want to keep information as compact as possible. Hence, we paste the type identifier (Q for discharge here) in from of the 5 digit station code.
-  dplyr::select(date,data,code) %>% # ... and then ditch all the remainder information
+q_dec_filled_wide_tbl <- q_dec_filled_tbl |> # again we use the name convention of objects as introduced above
+  mutate(code = paste0('Q',code |> as.character())) |> # Since we convert everything to long form, we want to keep information as compact as possible. Hence, we paste the type identifier (Q for discharge here) in from of the 5 digit station code.
+  dplyr::select(date,data,code) |> # ... and then ditch all the remainder information
   pivot_wider(names_from = "code",values_from = "data") # in order to pivot to the long format, we need to make a small detour via the wide format.
 
-q_dec_filled_long_tbl <- q_dec_filled_wide_tbl %>% pivot_longer(-date) # and then pivot back
+q_dec_filled_long_tbl <- q_dec_filled_wide_tbl |> pivot_longer(-date) # and then pivot back
 q_dec_filled_wide_tbl
 ```
 
@@ -219,8 +222,8 @@ We start with precipitation and plot the available data.
 ```{r}
 #| label: fig-em-raw-data-p
 #| fig-cap: "Raw decadal precipitation data from Pskem (38462), Charvak Reservoir (38471) and Chatkal Meteo Station (38471)."
-p_dec_tbl <- data %>% filter(type=="P" & code!="38339") 
-p_dec_tbl %>% plot_time_series(date,data,
+p_dec_tbl <- data |> filter(type=="P" & code!="38339") 
+p_dec_tbl |> plot_time_series(date,data,
                                .facet_vars  = code,
                                .interactive = TRUE,
                                .smooth      = FALSE,
@@ -239,7 +242,7 @@ Let us see what happens if we were to use the same simple gap filling technique 
 #| fig-cap: "Precipitation Data gap-filled with norms. The filled values from 1990 - 2000 in the case of the Station 38471 indicate that the norm-filling technique is not good."
 p_dec_filled_tbl <- p_dec_tbl
 p_dec_filled_tbl$data[is.na(p_dec_filled_tbl$data)] = p_dec_filled_tbl$norm[is.na(p_dec_filled_tbl$data)]
-p_dec_filled_tbl %>% plot_time_series(date,data,
+p_dec_filled_tbl |> plot_time_series(date,data,
                                       .facet_vars  = code,
                                       .interactive = TRUE,
                                       .smooth      = FALSE,
@@ -260,20 +263,20 @@ Hence, we resort to a more powerful gap filling technique that uses a (regressio
 #| message: false
 library(simputation)
 # First, we bring the data into the suitable format. 
-p_dec_wide_tbl <- p_dec_tbl %>% 
-  mutate(code = paste0('P',code %>% as.character())) %>% 
-  dplyr::select(date,data,code) %>% 
+p_dec_wide_tbl <- p_dec_tbl |> 
+  mutate(code = paste0('P',code |> as.character())) |> 
+  dplyr::select(date,data,code) |> 
   pivot_wider(names_from = "code",values_from = "data")
 
 # Second, we impute missing values.
-p_dec_filled_wide_tbl <- p_dec_wide_tbl  %>% 
-  impute_rlm(P38471 ~ P38462 + P38464) %>% # Imputing precipitation at station 38471 using a robust linear regression model
-  impute_rlm(P38462 ~ P38471 + P38464) %>% # Imputing precipitation at station 38462 using a robust linear regression model
+p_dec_filled_wide_tbl <- p_dec_wide_tbl  |> 
+  impute_rlm(P38471 ~ P38462 + P38464) |> # Imputing precipitation at station 38471 using a robust linear regression model
+  impute_rlm(P38462 ~ P38471 + P38464) |> # Imputing precipitation at station 38462 using a robust linear regression model
   impute_rlm(P38464 ~ P38462 + P38471) # Imputing precipitation at station 38464 using a robust linear regression model
 
-p_dec_filled_long_tbl <- p_dec_filled_wide_tbl %>% pivot_longer(c('P38462','P38464','P38471')) 
+p_dec_filled_long_tbl <- p_dec_filled_wide_tbl |> pivot_longer(c('P38462','P38464','P38471')) 
 
-p_dec_filled_long_tbl%>% plot_time_series(date,value,
+p_dec_filled_long_tbl|> plot_time_series(date,value,
                                           .facet_vars  = name,
                                           .interactive = TRUE,
                                           .smooth      = FALSE,
@@ -289,51 +292,55 @@ Through simple visual inspection, it becomes clear that this type of regression 
 
 ```{r}
 #| message: false
-p_dec_filled_long_tbl %>% group_by(name) %>% summarize(n.na = sum(is.na(value)), n.na.perc = n.na/n()*100)
+# Write knitr::kable Table
+p_dec_filled_long_tbl |> 
+  group_by(name) |> 
+  summarize(n.na = sum(is.na(value)), n.na.perc = n.na/n()*100) |> 
+  knitr::kable(caption = "Number of missing values and their percentage in the precipitation time series after gap filling.")
 ```
 
 It turns out that we still have very few gaps to deal with. We can see them by simply visualizing the wide tibble. The problem persisted at times when two or more values were missing across the available stations at the same time and where thus the linear regression could not be carried out.
 
 ```{r}
-p_dec_filled_wide_tbl %>% head(10)
+p_dec_filled_wide_tbl |> head(10)
 ```
 
 ```{r}
-p_dec_filled_wide_tbl %>% tail()
+p_dec_filled_wide_tbl |> tail()
 ```
 
 We can solve the issues related to the missing values at the start of the observation record by using the same technique as above and by only regressing P38462 and P38464 on P38471.
 
 ```{r}
-p_dec_filled_wide_tbl <- p_dec_filled_wide_tbl  %>% 
-  impute_rlm(P38462 ~ P38471) %>% # Imputing precipitation at station 38462 using a robust linear regression model
+p_dec_filled_wide_tbl <- p_dec_filled_wide_tbl  |> 
+  impute_rlm(P38462 ~ P38471) |> # Imputing precipitation at station 38462 using a robust linear regression model
   impute_rlm(P38464 ~ P38471) # Imputing precipitation at station 38464 using a robust linear regression model
-p_dec_filled_wide_tbl %>% head(10)
+p_dec_filled_wide_tbl |> head(10)
 ```
 
 Converse to this, the complete set of observations is missing for December 2015. We will thus remove these non-observations from our tibble.
 
 ```{r}
-p_dec_filled_wide_tbl <- p_dec_filled_wide_tbl %>% na.omit()
-p_dec_filled_wide_tbl %>% tail()
+p_dec_filled_wide_tbl <- p_dec_filled_wide_tbl |> na.omit()
+p_dec_filled_wide_tbl |> tail()
 
-p_dec_filled_long_tbl <-  p_dec_filled_wide_tbl %>% pivot_longer(-date)
+p_dec_filled_long_tbl <-  p_dec_filled_wide_tbl |> pivot_longer(-date)
 ```
 
 Inspecting the temperature data, we see similar data issues as in the precipitation data set.
 
 ```{r}
 #| label: fig-em-raw-data-t
-#| warning: false
-#| fig-cap: "Raw temperature data from the meteorological stations Pskem (38462) and Chatkal (38471)."
-t_dec_tbl <- data %>% filter(type=="T") 
-t_dec_tbl %>% plot_time_series(date,data,
+#| warning: false 
+#| fig-cap: "Raw temperature data from the meteorological stations Pskem (38462) and Chatkal (38471). Data are in deg. C."
+t_dec_tbl <- data |> filter(type=="T") 
+t_dec_tbl |> plot_time_series(date,data,
                                .facet_vars  = code,
                                .interactive = TRUE,
                                .smooth      = FALSE,
                                .title       = '',
-                               .y_lab       = "deg. Celsius",
-                               .x_lab       = "year"
+                               .y_lab       = "Mean decadal temperature (°C)",
+                               .x_lab       = "Date"
                                )
 ```
 
@@ -343,53 +350,54 @@ t_dec_tbl %>% plot_time_series(date,data,
 #| message: false
 #| fig-cap: "Temperature data gap filled with robust linear regression modeling."
 # First, we bring the data into the suitable format. 
-t_dec_wide_tbl <- t_dec_tbl %>% 
-  mutate(code = paste0('T',code %>% as.character())) %>% 
-  dplyr::select(date,data,code) %>% 
+t_dec_wide_tbl <- t_dec_tbl |> 
+  mutate(code = paste0('T',code |> as.character())) |> 
+  dplyr::select(date,data,code) |> 
   pivot_wider(names_from = "code",values_from = "data")
 
 # Second, we impute missing values.
-t_dec_filled_wide_tbl <- t_dec_wide_tbl  %>% 
-  impute_rlm(T38471 ~ T38462) %>% # Imputing precipitation at station 38471 using a robust linear regression model
+t_dec_filled_wide_tbl <- t_dec_wide_tbl  |> 
+  impute_rlm(T38471 ~ T38462) |> # Imputing precipitation at station 38471 using a robust linear regression model
   impute_rlm(T38462 ~ T38471) # Imputing precipitation at station 38462 using a robust linear regression model
 
-t_dec_filled_long_tbl <- t_dec_filled_wide_tbl %>% 
+t_dec_filled_long_tbl <- t_dec_filled_wide_tbl |> 
   pivot_longer(c('T38462','T38471')) 
 
-t_dec_filled_long_tbl%>% 
+t_dec_filled_long_tbl|> 
   plot_time_series(date,value,
                    .facet_vars  = name,
                    .interactive = TRUE,
                    .smooth      = FALSE,
                    .title       = '',
-                   .y_lab       = "deg. Celsius",
-                   .x_lab       = "year"
+                   .y_lab       = "Mean decadal temperature (°C)",
+                   .x_lab       = "Date"
                    )
 ```
 
 There are some irregularities in the temperature time series of Chatkal Meteorological Station in the first decade of the 20th century (tip: zoom in to see these more clearly). Note that these were not introduced by the gap filling technique that we used but are most likely wrong temperature readings. We will return to these in the outlier analysis below in @sec-em-anomalies-outliers.
 
 ```{r,message=FALSE}
-t_dec_filled_long_tbl %>% 
-  group_by(name) %>% 
-  summarize(n.na = sum(is.na(value)), n.na.perc = n.na/n()*100)
+t_dec_filled_long_tbl |> 
+  group_by(name) |> 
+  summarize(n.na = sum(is.na(value)), n.na.perc = n.na/n()*100) |> 
+  knitr::kable(caption = "Number of missing values and their percentage in the temperature time series after gap filling.")
 ```
 
 To see where the missing value are, we find them easily again by looking at the head and tail of the tibble.
 
 ```{r}
-t_dec_filled_wide_tbl %>% head()
+t_dec_filled_wide_tbl |> head()
 ```
 
 ```{r}
-t_dec_filled_wide_tbl %>% tail()
+t_dec_filled_wide_tbl |> tail()
 ```
 
 Finally, we remove the non observations again as above with the function `na.omit`.
 
 ```{r}
-t_dec_filled_wide_tbl <- t_dec_filled_wide_tbl %>% na.omit()
-t_dec_filled_long_tbl <- t_dec_filled_wide_tbl %>% pivot_longer(-date)
+t_dec_filled_wide_tbl <- t_dec_filled_wide_tbl |> na.omit()
+t_dec_filled_long_tbl <- t_dec_filled_wide_tbl |> pivot_longer(-date)
 ```
 
 To deal with the missing values at the end of the observational record, we could also have used any other technique. Using the norm values however would have artificially reduced the variance in both cases as explained above. Furthermore and at least in the case of temperature, it is also questionable to what extent a norm calculated over the last 84 years is still representative given global warming. We will look in this important and interesting topic in the next section.
@@ -402,7 +410,7 @@ $$
 \hat{q}(t) = log(q(t) + 1) 
 $$
 
-where $\hat{q}(t)$ denotes the transformed discharge. Prior to the log transformation, 1 is added so as to avoid cases where discharge would be 0 and the logarithmic transform thus undefined. The transformation can easily be done with the `log1p()` function in R. Backtransformation via the function `expm1()` simply involves taking the exponent and subtracting 1 from the result. 
+where $\hat{q}(t)$ denotes the transformed discharge. Prior to the log transformation, 1 is added so as to avoid cases where discharge would be 0 and the logarithmic transform thus undefined. The transformation can easily be done with the `log1p()` function in R. Backtransformation via the function `expm1()` simply involves taking the exponent and subtracting 1 from the result.
 
 The exceptionally wet year 19169 shows up as anomalous in the Chatkal River Basin and at the downstream Charvak Reservoir inflow gauge. @fig-em-anomalies-q and @fig-em-anomalies-p show anomalies diagnostics of the available data.
 
@@ -410,13 +418,15 @@ The exceptionally wet year 19169 shows up as anomalous in the Chatkal River Basi
 #| label: fig-em-anomalies-q
 #| fig-cap: "Anomaly diagnostics of discharge data. The transparent grey band shows the width of the normal range. The highly anomalous wet year of 1969 is clearly visible in the discharge record of the Chatkal river basin (Station 16279)."
 #| message: false
-q_dec_filled_long_tbl %>% 
+q_dec_filled_long_tbl |> 
   plot_anomaly_diagnostics(date,
-                           value %>% log1p(),
+                           value |> log1p(),
                            .facet_vars  = name,
                            .frequency = 36,
                            .interactive = TRUE,
-                           .title = "")
+                           .title = "",
+                           .x_lab = "Date",
+                           .y_lab = "Log-transformed discharge (log(m³/s))")
 ```
 
 The investigation of precipitation anomalies shows a succession of regular anomalous wet events over time. It is interesting to see that the winter 1968/69 regularly anomalous at all three stations (Figure \@ref(fig:EManomaliesP), zoom in to investigate).
@@ -425,12 +435,14 @@ The investigation of precipitation anomalies shows a succession of regular anoma
 #| label: fig-em-anomalies-p
 #| message: false
 #| fig-cap: "Anomaly diagnostics of precipitation data."
-p_dec_filled_long_tbl %>% 
+p_dec_filled_long_tbl |> 
   plot_anomaly_diagnostics(date,
                            value,
                            .facet_vars  = name,
                            .interactive = TRUE,
-                           .title = "")
+                           .title = "",
+                           .x_lab = "Date",
+                           .y_lab = "Precipitation (mm)")
 ```
 
 While intuitively, we would have expected an eceptionally mild winter in 1968/69 due to the precipitation excess, the corresponding anomaly does not show up in the temperature record as shown in @fig-em-anomalies-t.
@@ -439,11 +451,13 @@ While intuitively, we would have expected an eceptionally mild winter in 1968/69
 #| label: fig-em-anomalies-t
 #| message: false
 #| fig-cap: "Anomaly diagnostics of temperature data."
-t_dec_filled_long_tbl %>%  
+t_dec_filled_long_tbl |>  
   plot_anomaly_diagnostics(date,value,
                            .facet_vars  = name,
                            .interactive = TRUE,
-                           .title = "")
+                           .title = "",
+                           .x_lab = "Date",
+                           .y_lab = "Temperature (°C)")
 ```
 
 Apart from the identification of extremal periods since as the 1969 discharge year in the Chatkal river basin, the diagnostics of anomalies also helps to identify likely erroneous data records. In @fig-em-anomalies-t, for example, when we zoom into the data of the series T38471 in the first decade of the 21st century, problems in relation to positive anomalies during the winter are visible in 4 instances. One explanation would be that in at least some instances, the data are erroneously recorded as positive values when in fact they were negative (see dates '2002-01-31', '2005-01-10' and '2007-02-28', Chatkal Station 38471).
@@ -458,23 +472,24 @@ Finally, we are now in the position to assemble all data that we will use for em
 data_wide_tbl <- right_join(q_dec_filled_wide_tbl,p_dec_filled_wide_tbl,by='date')
 data_wide_tbl <- right_join(data_wide_tbl,t_dec_filled_wide_tbl,by='date')
 # Add period identifiers (decades in this case)
-s <- data_wide_tbl$date %>% first()
-e <- data_wide_tbl$date %>% last()
+s <- data_wide_tbl$date |> first()
+e <- data_wide_tbl$date |> last()
 decs <- decadeMaker(s,e,'end')
-decs <- decs %>% rename(per=dec)
-data_wide_tbl <- data_wide_tbl %>% left_join(decs,by='date')
+decs <- decs |> rename(per=dec)
+data_wide_tbl <- data_wide_tbl |> left_join(decs,by='date')
 # Creating long form
-data_long_tbl <- data_wide_tbl %>% 
+data_long_tbl <- data_wide_tbl |> 
   pivot_longer(-date)
 # Cross checking completeness of record
-data_long_tbl %>% 
-  group_by(name) %>% 
-  summarize(n.na = sum(is.na(value)), n.na.perc = n.na/n()*100)
+data_long_tbl |> 
+  group_by(name) |> 
+  summarize(n.na = sum(is.na(value)), n.na.perc = n.na/n()*100) |> 
+  knitr::kable()
 ```
 
 A consistent data record from 1933 until and including November 2015 is now prepared\^Please note that by using `left_join` above, we have cut off discharge data from the year 1932 since we do not have meteorological data there.\^. Let us analyze these data now.
 
-## Data Anlysis {#sec-em-data-analysis}
+## Data Analysis {#sec-em-data-analysis}
 
 In this Section, the goal is to explore and understand the available time series data and their relationships and to take the necessary steps towards feature engineering. Features are predictors that we want to include in our forecasting models that are powerful in the sense that they help to improve the quality of forecasts in a significant manner. Sometimes, the modeler also wants to include synthetic features, i.e. predictors that are not observed but for example derived from observations.
 
@@ -485,8 +500,8 @@ Let us start with a visualisation of the complete data record. Using `timetk::pl
 ```{r}
 #| label: fig-em-complete-data-record
 #| fig-cap: "Complete Data hydro-meteorological record for the zone of runoff formation in the Chirchik river basin."
-data_long_tbl %>% 
-  group_by(name) %>% 
+data_long_tbl |> 
+  group_by(name) |> 
   plot_time_series(date, value,
                    .smooth      = FALSE,
                    .interactive = FALSE,
@@ -502,8 +517,8 @@ It is interesting to observe that discharge values range over 2 - 3 orders of ma
 ```{r}
 #| label: fig-histograms-data
 #| fig-cap: "Histograms of available raw data."
-data_long_tbl %>% 
-  group_by(name)  %>%
+data_long_tbl |> 
+  group_by(name)  |>
   ggplot(aes(x=value,colour = name)) +
   geom_histogram(bins=50) +
   facet_wrap(~name, scales = "free") + 
@@ -515,9 +530,9 @@ Let us for example look at a very simple uniform non-parametric transformation, 
 ```{r}
 #| label: fig-histograms-data-transformed
 #| fig-cap: "Histograms of transformed discharge and precipitation data together with the raw temperature data."
-data_wide_tbl %>% 
-  mutate(across(Q16279:P38471,.fns = log1p)) %>% # transforms  discharge and precipitation time series
-  pivot_longer(-date) %>% 
+data_wide_tbl |> 
+  mutate(across(Q16279:P38471,.fns = log1p)) |> # transforms  discharge and precipitation time series
+  pivot_longer(-date) |> 
   ggplot(aes(x=value,colour = name)) +
   geom_histogram(bins=50) +
   facet_wrap(~name, scales = "free") + 
@@ -526,13 +541,13 @@ data_wide_tbl %>%
 
 Please note that with the base-R command `log1p`, 1 is added prior to the logarithmic transformation to avoid cases where the transformed values would not be defined, i.e. where discharge or precipitation is 0. More information about the `log1p()` function can be obtained by simply typing `?log1p`. Recovering the original data after the `log1p` transformation is simply achieved by taking the exponent of the transformed data and subtracting 1 from the result. The corresponding R function is `expm1()`.
 
-Clearly, the log-transformed discharge values are no longer skewed (Figure \@ref(fig:histogramsData_transformed)). We now see interesting bimodal distributions. At the same time, the variance of the transformed variables is greatly reduced. These are two properties that will help us construct a good model as we shall see below. Finally, the transformed discharge time series are shown in Figure \@ref().
+Clearly, the log-transformed discharge values are no longer skewed (Figure \@ref(fig:histogramsData_transformed)). We now see interesting bimodal distributions. At the same time, the variance of the transformed variables is greatly reduced. These are two properties that will help us construct a good model as we shall see below. Finally, the transformed discharge time series are shown in Figure .
 
 ```{r}
 #| label: fig-discharge-data-log1p
 #| fig-cap: "log1p() transformed discharge data."
-data_long_tbl %>% 
-  filter(name=='Q16279' | name=='Q16290') %>% 
+data_long_tbl |> 
+  filter(name=='Q16279' | name=='Q16290') |> 
   plot_time_series(date, log(value+1),
                    .facet_vars  = name,
                    .smooth      = FALSE,
@@ -550,8 +565,8 @@ Lower frequency variability in time series, including trends, can be visualized 
 ```{r}
 #| label: fig-t-trends
 #| fig-cap: "Temperature time series and trends."
-data_long_tbl %>% 
-  filter(name == 'T38462' | name == 'T38471') %>% 
+data_long_tbl |> 
+  filter(name == 'T38462' | name == 'T38471') |> 
   plot_time_series(date, value, 
                    .smooth     = TRUE,
                    .facet_vars = name,
@@ -568,10 +583,10 @@ In both time series, a slight upward trend is visible that picks up over the mos
 #| warning: false
 #| message: false
 #| fig-cap: "Sample development of Monthly Mean Temperatures from 1933 - 2015 at Station 38462."
-data_long_tbl %>% 
-  filter(name == 'T38462') %>% 
-  summarise_by_time(.date_var = date, .by="month",value=mean(value)) %>% 
-  tk_ts(frequency = 12) %>% 
+data_long_tbl |> 
+  filter(name == 'T38462') |> 
+  summarise_by_time(.date_var = date, .by="month",value=mean(value)) |> 
+  tk_ts(frequency = 12) |> 
   forecast::ggsubseriesplot(year.labels = FALSE) + 
               geom_smooth(method = "lm",color="red") +
               #ggtitle('Development of Monthly Mean Temperatures from 1933 - 2015 at Station 38462') +
@@ -590,7 +605,7 @@ A time series may have relationships to previous versions of itself - these are 
 ```{r}
 #| label: fig-q-autocorr
 #| fig-cap: "Autocorrelation function (ACF) and partial autocorrelation function (PACF)  are shown for the discharge time series at station 16279."
-data_long_tbl %>% filter(name == 'Q16279') %>% 
+data_long_tbl |> filter(name == 'Q16279') |> 
   plot_acf_diagnostics(date, value,
                       .show_white_noise_bars = TRUE,
                       .lags = 72,
@@ -603,17 +618,17 @@ But is there also autocorrelation of the annual time series? Let us test.
 ```{r}
 #| label: fig-annual-auto-corr
 #| fig-cap: "Testing autocorrelation at annual scales for discharge at station 16279."
-Q16279_annual <- data_long_tbl %>% filter(name == 'Q16279') %>% dplyr::select(-name) %>% 
+Q16279_annual <- data_long_tbl |> filter(name == 'Q16279') |> dplyr::select(-name) |> 
   summarize_by_time(.date_var = date,
                     .by="year",
                     sum=sum(value)*3600*24*10/10^9) 
 
-Q16279_annual %>% plot_time_series(date,sum,
+Q16279_annual |> plot_time_series(date,sum,
                                    .smooth = FALSE,
                                    .title = "",
                                    .x_lab = "year",
                                    .y_lab = "Discharge [cubic km per year]")
-Q16279_annual %>% 
+Q16279_annual |> 
   plot_acf_diagnostics(.date_var = date,
                        .value = sum,
                        .lags = 50,
@@ -631,7 +646,7 @@ We can also study cross-correlations between two different time series. In other
 ```{r}
 #| label: fig_cross_corr_q
 #| fig-cap: "Cross-correlation analysis of the two discharge time series Q16279 and Q16290."
-data_wide_tbl %>% plot_acf_diagnostics(date,Q16279,
+data_wide_tbl |> plot_acf_diagnostics(date,Q16279,
                                        .ccf_vars = Q16290,
                                        .show_ccf_vars_only = TRUE,
                                        .show_white_noise_bars = TRUE,
@@ -645,7 +660,7 @@ Converse to this, discharge shows a lagged response to temperature which is clea
 ```{r}
 #| label: fig-ccf-tq
 #| fig-cap: "Cross-correlation between temperature at station 38471 and the discharge at station 16279."
-data_wide_tbl %>% plot_acf_diagnostics(date,T38471,
+data_wide_tbl |> plot_acf_diagnostics(date,T38471,
                                        .ccf_vars = Q16279,
                                        .show_ccf_vars_only = TRUE,
                                        .show_white_noise_bars = TRUE,
@@ -659,7 +674,7 @@ A less pronounced cross-correlation exists between precipitation and discharge w
 ```{r}
 #| label: fig-ccf-p-q
 #| fig-cap: "Cross-correlation between temperature at station 38471 and the discharge at station 16279."
-data_wide_tbl %>% plot_acf_diagnostics(date,P38471,
+data_wide_tbl |> plot_acf_diagnostics(date,P38471,
                                        .ccf_vars = Q16279,
                                        .show_ccf_vars_only = TRUE,
                                        .show_white_noise_bars = TRUE,
@@ -675,8 +690,8 @@ There is a pronounced seasonality in the discharge characteristics of Central As
 ```{r}
 #| label: fig-seasonal-diagnostic-q
 #| fig-cap: "Seasonal diagnostics of log1p discharge. Weekly (top row), monthly (middle row) and yearly diagnostics (bottom row) are shown for the two discharge time series."
-data_long_tbl %>% 
-  filter(name=="Q16279" | name=="Q16290") %>% 
+data_long_tbl |> 
+  filter(name=="Q16279" | name=="Q16290") |> 
   plot_seasonal_diagnostics(date,
                             log(value+1),
                             .facet_vars = name, 
@@ -691,8 +706,8 @@ data_long_tbl %>%
 ```{r}
 #| label: fig-seasonal-diagnostic-p
 #| fig-cap: "Seasonal Diagnostics of precipitation Weekly (top row), monthly (middle row) and yearly diagnostics (bottom row) are shown for the available precipitation data in the zone of runoff formation of the two tributary rivers."
-data_long_tbl %>% 
-  filter(name=="P38462" | name=="P38464" | name=="P38471") %>% 
+data_long_tbl |> 
+  filter(name=="P38462" | name=="P38464" | name=="P38471") |> 
   plot_seasonal_diagnostics(date,
                             log1p(value),
                             .facet_vars = name, 
@@ -707,8 +722,8 @@ Finally, @fig-seasonal-diagnostic-t displays the seasonal diagnostics of the tem
 ```{r}
 #| label: fig-seasonal-diagnostic-t
 #| fig-cap: "Seasonal Diagnostics of temperature Weekly (top row), monthly (middle row) and yearly diagnostics (bottom row) are shown for the available temperature data in the zone of runoff formation of the two tributary rivers."
-data_long_tbl %>% 
-  filter(name=="T38462" | name=="T38471") %>% 
+data_long_tbl |> 
+  filter(name=="T38462" | name=="T38471") |> 
   plot_seasonal_diagnostics(date,
                             value,
                             .facet_vars = name, 
@@ -759,9 +774,9 @@ model_formula <- as.formula(log1p(Q16290) ~
                               as.numeric(date)
                             )
 
-model_data <- data_wide_tbl %>% dplyr::select(date,Q16290)
+model_data <- data_wide_tbl |> dplyr::select(date,Q16290)
 
-model_data %>% 
+model_data |> 
   plot_time_series_regression(
     .date_var = date,
     .formula = model_formula,
@@ -773,8 +788,8 @@ model_data %>%
 Note that the `timetk::plot_time_series` function is a convenience wrapper to make our lives easy in terms of modeling and immediately getting a resulting plot. The same model could be specified in the traditional R-way, i.e. as follows
 
 ```{r}
-model_data %>% 
-  lm(formula = model_formula) %>% 
+model_data |> 
+  lm(formula = model_formula) |> 
   summary()
 ```
 
@@ -786,17 +801,17 @@ The first step in improving our model is to account for seasonality. In the case
 #| label: fig-trend-season-model
 #| fig-cap: "Example quarterly linear model with trend and seasonality."
 # Computing quarterly mean discharge values
-q16290_quarter_tbl <- model_data %>% 
+q16290_quarter_tbl <- model_data |> 
   summarize_by_time(date,value=mean(log1p(Q16290)),.by = "quarter")
 # adding quarters identifier
-q16290_quarter_tbl <- q16290_quarter_tbl %>% 
-  mutate(per = quarter(date) %>% as.factor())
+q16290_quarter_tbl <- q16290_quarter_tbl |> 
+  mutate(per = quarter(date) |> as.factor())
 
 model_formula <- as.formula(value ~ 
                               as.numeric(date) + 
                               per
                             )
-q16290_quarter_tbl %>% 
+q16290_quarter_tbl |> 
   plot_time_series_regression(date,
                               .formula = model_formula,
                               .show_summary = TRUE,
@@ -825,25 +840,25 @@ $$
 since $\delta_{t}^{Qtr2} = 1$. Hence, whereas $\beta_{0}$ is to be interpreted as the estimated mean discharge in Quarter 1 (called (Intercept) in the results table below), $\beta_{1}$ (called qtr2 in the results table below) is the estimated difference of mean discharge between the two categories/quarters We can get the values and confidence intervals of the estimates easily in the following way
 
 ```{r}
-lm_quarterlyModel <- q16290_quarter_tbl %>% 
+lm_quarterlyModel <- q16290_quarter_tbl |> 
   lm(formula = model_formula)
 
-meanQtrEstimates <- lm_quarterlyModel %>% coefficients()
-meanQtrEstimates %>% expm1()
-lm_quarterlyModel %>% confint() %>% expm1()
+meanQtrEstimates <- lm_quarterlyModel |> coefficients()
+meanQtrEstimates |> expm1()
+lm_quarterlyModel |> confint() |> expm1()
 ```
 
 The same reasoning holds true for the model with decadal observations to which we return now again. First, we add decades as factors to our `data_wide_tbl`.
 
 <!-- ```{r} -->
 
-<!-- s <- data_wide_tbl$date %>% first() -->
+<!-- s <- data_wide_tbl$date |> first() -->
 
-<!-- e <- data_wide_tbl$date %>% last() -->
+<!-- e <- data_wide_tbl$date |> last() -->
 
-<!-- decs <- decadeMaker(s,e,'end') %>%  -->
+<!-- decs <- decadeMaker(s,e,'end') |>  -->
 
-<!--   mutate(per = as.factor(dec)) %>%  -->
+<!--   mutate(per = as.factor(dec)) |>  -->
 
 <!--   select(-dec) -->
 
@@ -863,9 +878,9 @@ model_formula <- as.formula(log1p(Q16290) ~
                               per # seasonality (as.factor)
                             )
 
-model_data <- data_wide_tbl %>% dplyr::select(date,Q16290,per)
+model_data <- data_wide_tbl |> dplyr::select(date,Q16290,per)
 
-model_data %>% 
+model_data |> 
   plot_time_series_regression(
     .date_var = date,
     .formula = model_formula,
@@ -881,11 +896,11 @@ Let us quickly glance at the errors.
 ```{r}
 #| label: fig-scatterplot-obs-versus-forecast
 #} fig-cap: "Scatterplot of observed versus calculated values."
-lm_decadalModel <- model_data %>% 
+lm_decadalModel <- model_data |> 
   lm(formula = model_formula)
 
-obs_pred_wide_tbl <- model_data%>% 
-  mutate(pred_Q16290 = predict(lm_decadalModel) %>% expm1()) %>% 
+obs_pred_wide_tbl <- model_data|> 
+  mutate(pred_Q16290 = predict(lm_decadalModel) |> expm1()) |> 
   mutate(error = Q16290 - pred_Q16290)
 
 ggplot(obs_pred_wide_tbl, aes(x      = Q16290,
@@ -911,10 +926,10 @@ $$
 where the $\delta_t^{j}$ correspondingly are the 35 indicator variables as discussed above in the case of quarterly time series where we had 3 of these variables included. Before we can estimate this model, we prepare a tibble with the relevant data as shown in the table below (note that we simply renamed the discharge column to Q out of convenience).
 
 ```{r}
-model_data <- data_wide_tbl %>% 
-  dplyr::select(date,Q16290,per) %>% 
-  rename(Q=Q16290) %>% 
-  mutate(Q = log1p(Q)) %>% 
+model_data <- data_wide_tbl |> 
+  dplyr::select(date,Q16290,per) |> 
+  rename(Q=Q16290) |> 
+  mutate(Q = log1p(Q)) |> 
   mutate(Q_lag1 = lag(Q,1))
 model_data
 ```
@@ -925,7 +940,7 @@ Notice that to accommodate the $y_{t-1}$ in the data, we simply add a column tha
 # Specification of the model formula
 model_formula <- as.formula(Q ~ as.numeric(date) + per + Q_lag1)
 # Note that we use na.omit() to delete incomplete data records, ie. the first observation where we lack the lagged value of the discharge. 
-model_data %>%  na.omit() %>% lm(formula = model_formula) %>% summary()
+model_data |>  na.omit() |> lm(formula = model_formula) |> summary()
 ```
 
 It looks like we have made a decisive step in the right direction by incorporating the previously observed discharge value. Also, notice that some of the decade factors have lost their statistical significance meaning that the seasonality can now be captured in part also by the lagged version of the time series.
@@ -935,8 +950,8 @@ Let us visualize the results quickly (tip: also zoom in to explore the fit).
 ```{r}
 #| label: fig-lag-trend-season-model
 #| fig-cap: "Linear regression model results with trend, seasonality and lag 1 predictors."
-model_data %>% 
-  na.omit() %>% 
+model_data |> 
+  na.omit() |> 
   plot_time_series_regression(
   .date_var         = date,
   .formula          = model_formula,
@@ -955,16 +970,16 @@ This is clearly an astonishing result. Nevertheless, we should keep a couple of 
 We will work on these questions now and focus first on the incorporation of the rate of change in discharge and the acceleration of discharge over time. First, we add $Q_{lag2}$ to our model data and then compute change and acceleration accordingly.
 
 ```{r}
-model_data <- model_data %>% 
-  mutate(Q_lag2 = lag(Q,2)) %>% 
-  mutate(change = Q_lag1 -Q_lag2) %>% # that is the speed of change in discharge
-  mutate(change_lag1 = lag(change,1)) %>% 
-  mutate(acc = change - change_lag1) %>% na.omit() # and that is the acceleration of discharge
+model_data <- model_data |> 
+  mutate(Q_lag2 = lag(Q,2)) |> 
+  mutate(change = Q_lag1 -Q_lag2) |> # that is the speed of change in discharge
+  mutate(change_lag1 = lag(change,1)) |> 
+  mutate(acc = change - change_lag1) |> na.omit() # and that is the acceleration of discharge
 model_data
 
 # Specification of the model formula
 model_formula <- as.formula(Q ~ as.numeric(date) + per + Q_lag1 + change + acc)
-model_data %>% na.omit() %>% 
+model_data |> na.omit() |> 
   plot_time_series_regression(
   .date_var = date,
   .formula = model_formula,
@@ -972,14 +987,14 @@ model_data %>% na.omit() %>%
   .title = ""
 )
 
-model <- model_data %>% lm(formula=model_formula)
+model <- model_data |> lm(formula=model_formula)
 
-model %>% summary()
+model |> summary()
 
 # Here, we add the the prediction to our tibble so that we can assess model predictive quality later.
-model_fc_wide_tbl <- model_data %>% 
-  mutate(pred = predict(model)) %>% 
-  mutate(obs = expm1(Q), pred = expm1(pred)) %>% 
+model_fc_wide_tbl <- model_data |> 
+  mutate(pred = predict(model)) |> 
+  mutate(obs = expm1(Q), pred = expm1(pred)) |> 
   dplyr::select(date,obs,pred,per)
 model_fc_wide_tbl
 
@@ -990,9 +1005,9 @@ Another, albeit small improvement in the forecast of predicting discharge 1-step
 ```{r}
 #| label: fig-benchmark-obs-pred-comparison
 #| fig-cap: "Forecast model quality assessment."
-model_fc_wide_tbl %>% 
-  dplyr::select(-per) %>% 
-  pivot_longer(-date) %>% 
+model_fc_wide_tbl |> 
+  dplyr::select(-per) |> 
+  pivot_longer(-date) |> 
   plot_time_series(date,
                    value,
                    name,
@@ -1006,13 +1021,13 @@ How well are we doing with our simple linear model? Let us assess the model qual
 
 $$
 |Q_{obs}(d,y) - Q_{pred}(d,y)| \le 0.674 \cdot \sigma[\Delta Q(d)]
-$$ 
+$$
 
 where $Q_{obs}(d,y)$ is the observed discharge at decade $d$ and year $d$, $Q_{pred}(d,y)$ is the predicted discharge at decade $d$ and year $y$, $|Q_{obs}(d) - Q_{pred}(d)|$ thus the absolute error and $\sigma[\Delta Q(d)] = \sigma[Q(d) - Q(d-1)]$ is the standard deviation of the difference of decadal observations at decade $d$ and $d-1$ over the entire observation record (hence, the year indicator $y$ is omitted there). The equation above can be reformulated to
 
 $$
 \frac{|Q_{obs}(d,y) - Q_{pred}(d,y)|}{\sigma[\Delta Q(d)]} \le 0.674
-$$ 
+$$
 
 So let us assess the forecast performance over the entire record using the \`riversCentralAsia::assess_fc_qual\`\` function. Note that the function returns a list of three objects. First, it returns a tibble of the number of forecasts that are of acceptable quality for the corresponding period (i.e. decade or month) as a percentage of the total number of observations that are available for that particular period. Second, it returns the period-averaged mean and third a figure that shows forecast quality in two panels.
 
@@ -1033,7 +1048,7 @@ It is, however, generally not considered to be good practice to assess model qua
 
 ### Generating and Assessing Out-of-Sample Forecasts {#sec-em-out-of-sample-forecasts}
 
-::: {.callout-warning}
+::: callout-warning
 Note, this Section is work in progress. Please check back later!
 :::
 
@@ -1041,9 +1056,8 @@ We start off with our `model_data` tibble and want to divide it into two sets, o
 
 ### Machine Learning Models {#sec-em-machine-learning-models}
 
-::: {.callout-warning}
+::: callout-warning
 Note, this Section is work in progress. Please check back later!
 :::
 
 # References {#sec-modeling-using-predictive-inference-references}
-

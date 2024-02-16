@@ -1,6 +1,6 @@
 # Long-term Water Balance Modeling {#sec-budyko-modeling}
 
-In this Chapter, we investigate long-term mean catchment water balances from a large, regional perspective. 
+In this Chapter, we investigate long-term mean catchment water balances from a large, regional perspective.
 
 ## Introduction {#sec-budyko-introduction}
 
@@ -10,9 +10,9 @@ $$
 \Delta S = P - E - Q
 $$ {#eq-water-balance}
 
-where $\Delta S$ is net storage change in millimeter [mm], $P$ is precipitation in mm, $E$ is evaporation in mm, and $Q$ is specific discharge in mm. Evaporation is the phenomenon by which a substance is converted from its liquid into its vapor phase, independently of where it lies in nature [@miralles_2020]. This definition of evaporation encompasses evaporation from inside leaves (transpiration), evaporation from bare soils, evaporation from intercepted precipitation (interception loss), evaporation from open water surfaces, and finally, evaporation over ice- and snow-covered surfaces (often referred to as sublimation).
+where $\Delta S$ is net storage change in millimeters \[mm\], $P$ is precipitation in mm, $E$ is evaporation in mm, and $Q$ is specific discharge in mm. Evaporation is when a substance is converted from its liquid into its vapor phase, independently of where it lies in nature [@miralles_2020]. This definition of evaporation encompasses evaporation from inside leaves (transpiration), evaporation from bare soils, evaporation from intercepted precipitation (interception loss), evaporation from open water surfaces, and finally, evaporation over ice- and snow-covered surfaces (often referred to as sublimation).
 
-Over the period of a hydrological year and longer time scales, we expect $\Delta S$ to be 0 since neither water storage nor destorage happen over longer periods. This would of course not be true for catchments where for example man-made storage infrastructure was built over the period under consideration or for catchments with ongoing glacier melt over a prolonged time. If $\Delta S = 0$, the above Equation \@ref(eq:WB1) can be rewritten as
+Over the period of a hydrological year and longer time scales, we expect $\Delta S$ to be 0 since neither water storage nor destorage happens over longer periods. This would not be true for catchments where, for example, man-made storage infrastructure was built over the period under consideration or for catchments with ongoing glacier melt over a prolonged time. If $\Delta S = 0$, the above Equation \@ref(eq:WB1) can be rewritten as
 
 $$
 Q = P - E 
@@ -26,7 +26,7 @@ $$ {#eq-long-term-water-balance-2}
 
 where $Q/P$ can be called the runoff index and $E/P$ is the evaporation index or evaporative fraction.
 
-For a catchment, annual mean $E$ and $Q$ are governed by total *water supply* $P$ and the total available energy which is normally expressed as potential evaporation $E_{pot}$ and which denotes the (atmospheric) *water demand*. If $E_{pot}$ is small, the discharge $Q$ is normally bigger than evaporation $E$. Similarly, if the available radiative energy is very high, the water demand $E_{pot}$ is very large and $Q \ll E$ [@ARORA2002164]. $E_{pot}$ and $P$ are thus the key determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio $E_{pot} / P$ aridity index [@budyko_1974].
+For a catchment, the annual mean $E$ and $Q$ are governed by the total *water supply* $P$ and the total available energy, which is expressed as potential evaporation $E_{pot}$ and which denotes the (atmospheric) *water demand*. If $E_{pot}$ is small, the discharge $Q$ usually is bigger than evaporation $E$. Similarly, if the available radiative energy is very high, the water demand $E_{pot}$ is very large and $Q \ll E$ [@ARORA2002164]. $E_{pot}$ and $P$ are thus the critical determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio $E_{pot} / P$ aridity index [@budyko_1974].
 
 As explained above, water demand is determined by energy. Solar radiation is the primary energy source for the earth-atmosphere system and the key driver of the hydrological cycle. At the earth's surface, the net radiative flux $R_N$ is the energy that is available for a) heating and cooling of the soil (ground heat flux), b) changing the phase of water (latent heat flux), and c) heating or cooling air in the boundary layer thus causing atmospheric dynamics (sensible heat flux).
 
@@ -42,25 +42,25 @@ $$
 R_{N} = H_{S} + L \cdot E
 $$ {#eq-long-term-energy-balance}
 
-With the Bowen ratio defined as the fraction of the sensible heat flux divided by the latent heat flux, i.e.
+The Bowen ratio is defined as the fraction of the sensible heat flux divided by the latent heat flux, i.e.
 
 $$
 \gamma = \frac{H_{S}}{H_{L}} = \frac{H_{S}}{L \cdot E }
 $$ {#eq-bowen-ratio}
 
-and by rearranging the terms, the long-term energy balance in Equation @eq-long-term-energy-balance can simply be rewritten as
+By rearranging the terms, the long-term energy balance in Equation @eq-long-term-energy-balance can simply be rewritten as
 
 $$
 R_{N} = (1 + \gamma)L E
 $$ {#eq-long-term-energy-balance-bowen-ratio}
 
-Using the fact that $R_{N} = L E_{pot}$, where $E_{pot}$ is the potential evaporation, and dividing by precipitation, we can rewrite the above  @eq-long-term-energy-balance-bowen-ratio as
+Using the fact that $R_{N} = L E_{pot}$, where $E_{pot}$ is the potential evaporation, and dividing by precipitation, we can rewrite the above @eq-long-term-energy-balance-bowen-ratio as
 
 $$
 \frac{E_{pot}}{P} = (1 + \gamma) \frac{E}{P}
 $$ {#eq-long-term-energy-balance-bowen-ratio-aridity-index}
 
-where the left-hand side is called the aridity index, i.e. $\phi = E_{pot}/P$ and $E/P$ is called the evaporative fraction or evaporation index as mentioned above. With this, @eq-long-term-energy-balance-bowen-ratio-aridity-index from above can be written as a function of the Bowen ratio and the aridity index, i.e.
+where the left-hand side is called the aridity index, i.e. $\phi = E_{pot}/P$ and $E/P$ is called the evaporative fraction or evaporation index, as mentioned above. With this, @eq-long-term-energy-balance-bowen-ratio-aridity-index can be written as a function of the Bowen ratio and the aridity index, i.e.
 
 $$
 \frac{E}{P} = 1 - \frac{Q}{P} = \frac{\phi}{(1 + \gamma)}
@@ -75,7 +75,9 @@ $$ {#eq-budyko-final-functional-form}
 The Budyko relationship thus allows for a simple parameterization of how the aridity index $\phi$ controls the long-term mean partitioning of precipitation into stream-flow and evaporation and it is capable of capturing the behavior of thousands of catchments around the world. This explains its growing popularity over recent years [@berghuijs_2020].
 
 <!-- ```{r budykoSpace, echo=FALSE,fig.cap="Basics of the Budyko framework. The x-axis contains the aridity index ($E_{pot}/P$) and the y-axis the evaporative fraction ($E/P$), which often is approximated by one minus the runoff ratio ($E/P = 1-Q/P$) because storage changes are assumed to be negligible at multi-year timescales. Together, these two axes form the two-dimensional Budyko space. Many catchments around the world fall around the Budyko curve (black solid line, see Equation below), including 410 US MOPEX catchments which are indicated by blue markers [@berghuijs_2020]."} -->
+
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/Budyko_Framework_Basics') -->
+
 <!-- ``` -->
 
 Figure \@ref(fig:budykoSpace) shows a plot of data from catchments in the US for which consistent long-term hydro-climatological data records are available. Individual catchments' aridity indices are plotted against evaporative fractions, averaged over many years. The catchment data plots along the Budyko curve in the two-dimensional Budyko space as indicated in the Figure where the Budyko curve is defined as
@@ -97,15 +99,17 @@ $$ {#eq-choudhury-1}
 where $n$ is a catchment-specific parameter which accounts for factors such as vegetation type and coverage, soil type and topography, etc. (see e.g. @Zhang2015 for more information). In other words, $n$ integrates the net effects of all controls of of the evaporative fraction other than aridity. The Figure \@ref(fig:ChoudhuryEquationStateSpace) shows the control of $n$ over the shape of the Budyko Curve.
 
 <!-- ```{r ChoudhuryEquationStateSpace, echo=FALSE,fig.cap="$n$ is determining the shape of the Budyko Curve. Note how large values of $n$ favour evaporation over discharge. Note that $E_{pot}$ is denoted with $E_{0}$. Figure taken from [@yang_2008]."} -->
+
 <!-- knitr::include_graphics('./_bookdown_files/FIG_WATER_BALANCE/ChoudhuryEquation_StateSpace') -->
 
+```{=html}
 <!-- 
 Check Sources on net radiation:
 - https://www.sciencedirect.com/topics/earth-and-planetary-sciences/net-radiation
 and there especially
 - https://www.sciencedirect.com/science/article/pii/B9780124095489103537
 and there Chapter 4.03.4.1.1 Net radiation estimation and partitioning -->
-
+```
 ## Data and Methods {#sec-budyko-data-and-methods}
 
 ### Data {#sec-budyko-data}
@@ -114,21 +118,21 @@ A large number of geospatial data were collected for the Central Asia region. Th
 
 For the selected basins, the WMOBB River Network data was extracted from the layers wmobb_rivnets_Q09_10 (containing line sections representing an upland area above 4'504 km^2^), wmobb_rivnets_Q08_09 (containing line sections representing an upland area between 1'150 km^2^ and 4'504 km^2^) and wmobb_rivnets_Q07_08 (containing line sections representing an upland area above between 487 and 1'150 km^2^) [@grdc_2020]. Permanent water bodies and courses were taken from the global HydroLakes Database [@hydrolakes_2016]. Information on land cover were taken from the Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2019: Globe data [@copernicus_landcover_2019]. The NASA SRTM digital elevation model 1 Arc-second (30 m) global product was used as a DEM [@srtm_2020].
 
-In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3. Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200'000) from the corresponding region. The maps were downloaded from [https://maps.vlasenko.net](https://maps.vlasenko.net) and subsequently geo-referenced in QGIS [@QGIS_software]. Data from northern Afghan rivers' stream flow characteristics and the location of these gauging stations was taken from [@usgs_529_2010]. 
+In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3. Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200'000) from the corresponding region. The maps were downloaded from <https://maps.vlasenko.net> and subsequently geo-referenced in QGIS [@QGIS_software]. Data from northern Afghan rivers' stream flow characteristics and the location of these gauging stations was taken from [@usgs_529_2010].
 
-For each gauge, the contributing area was delineated in R with the WhiteboxTools v2.0.0 and long-term norm mean discharge was obtained over variable observation periods between 1900 and 2018 was acquired. For a few selected stations, monthly and decadal time series data are available over the entire observational record. The FLO1K, global maps of mean, maximum and minimum annual stream flow at 1 km resolution from 1960 through 2015 were retrieved [@barbarossa_2018]. The goodness of the FLO1K product in the Central Asia domain was validated at the locations of the 277 gauges through linear regression. 
+For each gauge, the contributing area was delineated in R with the WhiteboxTools v2.0.0 and long-term norm mean discharge was obtained over variable observation periods between 1900 and 2018 was acquired. For a few selected stations, monthly and decadal time series data are available over the entire observational record. The FLO1K, global maps of mean, maximum and minimum annual stream flow at 1 km resolution from 1960 through 2015 were retrieved [@barbarossa_2018]. The goodness of the FLO1K product in the Central Asia domain was validated at the locations of the 277 gauges through linear regression.
 
 Geospatial information on glaciers was taken from the Randolph Glacier Inventory (RGI) 6.0. Information from 16'617 glaciers was retrieved, together with glacier length, thickness and glacier thinning rates [@glims_global, @farinotti_consensus_2019, @hugonnet_accelerated_2021].
 
 The CHELSA V21 global daily high-resolution climatology, available from 01-01-1979 until 31-12-2011 was processed over the Central Asia domain to map climate trends, including on temperature, precipitation, snow fraction. The data is available upon request from this site: https://chelsa-climate.org [@karger_2017, @karger_2020, @karger_2021]. The CHELSA V21 product is corrected for snow undercatch in the high elevation ranges and thus is able to better represent actual high mountain precipitation than other available global climatologies [@beck_2020]. The aridity index (AI) fields were taken from the bio-climate CHELSA V21 data set and compared with the CGIAR AI product [@trabucco_2019]. Data on an additional 70 bio-climatic indicators were downloaded from the CHELSA V21 1980 - 2010 climatology and statistics extracted for each of the 277 gauged catchments, together with the AI.
 
-High-resolution crop disaggregated irrigated areas were mapped over the entire Central Asia domain [@ragettli_2018]. Like this 30 m crop maps were produced with Google Earth Engine using unsupervised classification for the years 2016 - 2020. Vector information on the irrigation systems in the Chu and Talas River basins as well as from the Uzbek Fergana Oblast, including the land cadaster there, are available.  
+High-resolution crop disaggregated irrigated areas were mapped over the entire Central Asia domain [@ragettli_2018]. Like this 30 m crop maps were produced with Google Earth Engine using unsupervised classification for the years 2016 - 2020. Vector information on the irrigation systems in the Chu and Talas River basins as well as from the Uzbek Fergana Oblast, including the land cadaster there, are available.
 
 Finally, data from the GOODD data set was used to retrieve information from 88 dams in the region of interest [@goodd_2020].
 
 ### Methods {#sec-budyko-methods}
 
-A strategy for hydrological modeling of the regional Central Asian hydrology using the Budyko framework was devised. The Budyko principle posits that, over the long-run, runoff at a particular location is governed by the long-term availability of water (supply) and energy (demand) there (Budyko M., 1974). Under this assumption, the evaporative fraction of a basin, i.e. the long-term mean actual evaporation divided by long-term mean precipitation, can be expressed as a function of the aridity index (long-term mean potential evaporation divided by long-term mean precipitation). 
+A strategy for hydrological modeling of the regional Central Asian hydrology using the Budyko framework was devised. The Budyko principle posits that, over the long-run, runoff at a particular location is governed by the long-term availability of water (supply) and energy (demand) there (Budyko M., 1974). Under this assumption, the evaporative fraction of a basin, i.e. the long-term mean actual evaporation divided by long-term mean precipitation, can be expressed as a function of the aridity index (long-term mean potential evaporation divided by long-term mean precipitation).
 
 ## Results {#sec-budyko-results}
 
@@ -139,6 +143,3 @@ This Section is currently under active development. **Please check back later**.
 This Section is currently under active development. **Please check back later**.
 
 ## References {#sec-long-term-water-balance-modeling-references}
-
-
-

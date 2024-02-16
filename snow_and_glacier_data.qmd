@@ -41,7 +41,7 @@ We start with the upper-most cryosphere layer: the snow cover. A large amount of
 
 ### High Mountain Asia Snow Reanalysis (HMASR) Product {#sec-high-mountain-asia-snow-reanalysis}
 
-@liu_hmasr_2021 provide a daily reanalysis product for snow covered area and snow water equivalent (SWE) in High Mountain Asia between October 1, 1999 and September 30, 2017. The spatial resolution is 16 arc-seconds (approximately 400 m) and the spatial coverage is N: 45, S: 27, E: 105, W: 60 so the northern-most headwater basins of the Illi river catchment are unfortunately not covered. Other SWE products have coarser spatial resolution (e.g. the [Daily Snow Depth Analysis Data by the Canadian Meteorological Center](https://nsidc.org/data/nsidc-0447/versions/1){target="_blank"} which is available at 24 km grid resolution) and are thus less suited for calibration of hydrological models of small to medium sized headwater basins.
+@liu_hmasr_2021 provide a daily reanalysis product for snow-covered area and snow water equivalent (SWE) in High Mountain Asia between October 1, 1999 and September 30, 2017. The spatial resolution is 16 arc-seconds (approximately 400 m) and the spatial coverage is N: 45, S: 27, E: 105, W: 60 so the northern-most headwater basins of the Illi River catchment are unfortunately not covered. Other SWE products have a coarser spatial resolution (e.g. the [Daily Snow Depth Analysis Data by the Canadian Meteorological Center](https://nsidc.org/data/nsidc-0447/versions/1){target="_blank"}, which is available at 24 km grid resolution). They are thus less suited for calibration of hydrological models of small to medium sized headwater basins.
 
 The HMASR data is available via [NSIDC](https://nsidc.org/data/HMA_SR_D/versions/1){target="_blank"} [@liu_hmasr_data_2021]. Their SWE can directly be compared to the SWE computed in hydrological models like HBV. More on this in the [model calibration section](#sec-model-calibration).From the downloaded data, only the SWE and the validity mask (showing the pixels where the snow water equivalent product is valid) is required. Please note that the warning is due to the .nc file format and need not concern you. The SWE data is read correctly from the .nc files.
 
@@ -123,7 +123,7 @@ tm_shape(max(sca_masked, na.rm = TRUE)) +
   tm_borders(col = "black", lwd = 0.6)
 ```
 
-### Operational SLF Model Data on Snow Height and Snow Water Equivalent
+### Operational SLF Model Data on Snow Height and Snow Water Equivalent {#sec-operational-slf-model-data-on-snow-height-and-snow-water-equivalent}
 
 For operational hydrological modelling, different possibilities exist to obtain near-real time snow cover, height and information on the snow water equivalent (SWE). One such option is to use data from the operational SLF Model.
 
@@ -133,7 +133,7 @@ For operational hydrological modelling, different possibilities exist to obtain 
 
 The Randolph Glacier Inventory (RGI) v6.0 [@rgi60] makes a consistent global glacier data base publicly available[^snow_and_glacier_data-1]. It includes geolocated glacier geometry and some additional parameters like elevation, length, slope and aspect. For water resources modeling in Central Asia, RGI regions 13 (Central Asia) and 14 (South Asia West) are relevant. The glacier geometries for all RGI regions are available from [the GLIMS RGI v6.0 website](https://www.glims.org/RGI/rgi60_dl.html){target="_blank"}. For this demo, the data for the Atbashy River basin is available from the data download link given above.
 
-[^snow_and_glacier_data-1]: A new Version 7 of the dataset has been published in 2023. For more information, see [here](https://www.glims.org/rgi_user_guide/03_data_decription.html#){target =" _blank"}.
+[^snow_and_glacier_data-1]: A new Version 7 of the dataset has been published in 2023. For more information, see [here](https://www.glims.org/rgi_user_guide/03_data_decription.html#){target =" \_blank"}.
 
 ```{r}
 #| label: fig-rgi

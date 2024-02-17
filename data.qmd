@@ -1,17 +1,16 @@
-# Part II: Data Sources, Retrieval and Preparation {#sec-data}
+# Part II: Data Sources, Retrieval and Preparation {#sec-part-ii-data-sources-retrieval-and-preparation}
 
-In this Chapter and its Sections, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling. 
-Data include
+In this Chapter and its Sections, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling. Data include
 
-- geospatial data,
-- in-situ station data,
-- snow and glacier data, and
-- climate reanalysis and projections data.
+-   geospatial data,
+-   in-situ station data,
+-   snow and glacier data, and
+-   climate reanalysis and projections data.
 
-As will become clear, the preparation of these data requires a substantial amount of work, local storage space and, in some instances, computational power. However, modern GIS tools and data processing libraries in Python and R make the preparation of these data more accessible than ever before. In some cases, free online tools can be used to retrieve and process data. 
+As will become clear, the preparation of these data requires a substantial amount of work, local storage space and, in some instances, computational power. However, modern GIS tools and data processing libraries in Python and R make the preparation of these data more accessible than ever before. In some cases, free online tools can be used to retrieve and process data.
 
-:::{.callout-important}
-Data needs vary according to the modeling approach. However, they always entail first a definition of the geometry of the river basin under consideration, second a subdivision of the basin into hydrological response units (HRUs) and third, the production of relevant time series for the individual HRUs, including climate forcing, glacier contributions, information on snow cover, etc..  
+::: callout-important
+Data needs vary according to the modeling approach. However, they always entail first a definition of the geometry of the river basin under consideration, second a subdivision of the basin into hydrological response units (HRUs) and third, the production of relevant time series for the individual HRUs, including climate forcing, glacier contributions, information on snow cover, etc..
 :::
 
 An overview of all data used is provided in the [Chapter 3 Sources of Relevant Data](#sec-data-sources). The preparation of the discharge data as described in [Chapter 4 Discharge Station Data](#sec-discharge-station-data) demonstrates the necessary steps for the quality control of the observed station data. This is an important step prior to any hydrological modeling, independent of the modeling approach used.
@@ -23,9 +22,3 @@ The [Chapter 5 on Geospatial Data](#sec-geospatial-data) is a chapter on using G
 As an example, the following diagram shows an entire modeling chain for hydrological modeling for climate change impact assessments. It shows that the data preparation step involves many interrelated components that partially depend on each other in a sequential way. This Chapter aims at carefully working through this modeling chain to demonstrate the preparation of all the relevant data for the subsequent modeling application.
 
 ![Example hydrological modeling chain that include data preparation, the implementation of the hydrological model and the analysis of results. The data preparation steps are a very important part of hydrological modeling.](images/data/01_model_chain_cmip6_v3.jpg){#fig-climate-impact-model-chain}
-
-
-
-
-
-

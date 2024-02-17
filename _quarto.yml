@@ -34,7 +34,9 @@ book:
         - long_term_water_balance_modeling.qmd
         - modeling_using_predictive_inference.qmd
         - glacier_modeling.qmd
-        - real_world_examples.qmd
+#        - real_world_examples.qmd # not yet ready as there is no content yet here. 
+# Idea to include real world examples of hydrological modeling in Central Asia. 
+# We can write a report about iEasyHydro here.
     - part: Climate_change_impact_study.qmd
       chapters:
         - Watershed_delineation.qmd

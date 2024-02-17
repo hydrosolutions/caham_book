@@ -93,8 +93,8 @@ p_clim_path <-
 p_clim <- raster(p_clim_path)
 
 # mask and crop
-p_clim_gunt <- p_clim %>% 
-  mask(basin_shp) %>% 
+p_clim_gunt <- p_clim |> 
+  mask(basin_shp) |> 
   crop(basin_shp)
 
 # plotting climatology
@@ -115,7 +115,7 @@ The mean norm precipitation can be easily computed as follows.
 ```{r}
 # extracting mean value over Gunt River basin. 
 # note the resulting value is in mm.
-p_clim_mean <- p_clim %>% exact_extract(basin_shp,'mean')
+p_clim_mean <- p_clim |>  exact_extract(basin_shp,'mean')
 p_clim_mean
 ```
 
@@ -128,15 +128,15 @@ station_data <-
 
 # extract data for station 17050 and discharge between 1981 and 2010
 discharge_data_17050 <- 
-  station_data %>%
-  filter(type == "Q") %>% 
-  filter(code == "17050") %>% 
-  filter(date >= ymd("1981-01-01")) %>% 
+  station_data |>
+  filter(type == "Q") |> 
+  filter(code == "17050") |> 
+  filter(date >= ymd("1981-01-01")) |> 
   filter(date <= ymd("2010-12-31"))
   
 # compute long-term discharge
 discharge_data_17050_norm <- 
-  discharge_data_17050$data %>% 
+  discharge_data_17050$data |> 
   mean(na.rm = TRUE)
 discharge_data_17050_norm
 ```
@@ -144,7 +144,7 @@ discharge_data_17050_norm
 For the long-term discharge at the station 17050, we thus get 109 m^3^/s. To compute the annual norm specific discharge, we need to compute the total discharge volume for a year and then divide by the total basin area.
 
 ```{r}
-basin_area <- st_area(basin_shp) %>% as.numeric()
+basin_area <- st_area(basin_shp) |> as.numeric()
 discharge_data_17050_norm_vol <- 
   discharge_data_17050_norm * 3600 * 24 * 365 / basin_area * 1000
 discharge_data_17050_norm_vol
@@ -166,24 +166,24 @@ station_data <-
 
 # extract the precipitation data for station 17050 between 1981 and 2010
 pr_data_38954 <- 
-  station_data %>%
-  filter(type == "P") %>% 
-  filter(code == "38954") %>% 
-  filter(date >= ymd("1981-01-01")) %>% 
+  station_data |>
+  filter(type == "P") |> 
+  filter(code == "38954") |> 
+  filter(date >= ymd("1981-01-01")) |> 
   filter(date <= ymd("2010-12-31"))
 
 # add a month identifier to the dataframe and group by months
-pr_data_38954 <- pr_data_38954 %>% 
-  mutate(month = month(date)) %>% 
-  group_by(month) %>% dplyr::select(date, data, month)
+pr_data_38954 <- pr_data_38954 |> 
+  mutate(month = month(date)) |> 
+  group_by(month) |> dplyr::select(date, data, month)
 
 # compute monthly mean values
-p_monthly_mean_38954 <- pr_data_38954 %>% 
-  summarize(data = mean(data, na.rm = TRUE)) %>% 
+p_monthly_mean_38954 <- pr_data_38954 |> 
+  summarize(data = mean(data, na.rm = TRUE)) |> 
   add_column(data_source = "Meteo Station 39954")
 
 # plot the resulting monthly time series
-p_monthly_mean_38954 %>% 
+p_monthly_mean_38954 |> 
   ggplot(aes(x = month, y = data), color = data_source) + 
   geom_line() + 
   xlab("Month") + 
@@ -205,7 +205,7 @@ p_clim_monthly_path <-
 p_clim_monthly <- terra::rast(p_clim_monthly_path)
 
 p_monthly_mean_CHELSA_data <- 
-  p_clim_monthly %>% exact_extract(basin_shp,'mean') %>% 
+  p_clim_monthly |> exact_extract(basin_shp,'mean') |> 
   as.numeric()
 
 p_monthly_mean_CHELSA <- 
@@ -216,11 +216,11 @@ p_monthly_mean_CHELSA$data_source <-
   "CHELSA"
 
 p_monthly_mean <- 
-  p_monthly_mean_38954 %>% 
+  p_monthly_mean_38954 |> 
   add_row(p_monthly_mean_CHELSA)
 
 # plot the resulting monthly time series
-p_monthly_mean %>% 
+p_monthly_mean |> 
   ggplot(aes(x = month, y = data, color = data_source)) + 
   geom_line() + 
   xlab("Month") + 
@@ -258,7 +258,7 @@ These scenarios are describing different increasing greenhouse concentration pat
 
 For illustration, @fig-comparison-chelsa-gcm-resolution shows the temperature fields for 01. January 1979 over the Central Asia domain as provided by the CHELSA V21 data set (left panel) and as computed by the GCM GFDL-ESM4 model under the historic run. Note that there is no particular reason why we choose this model, it is just to serve as an example here. The complete list of models which we use for the climate change impact analysis will be presented and discussed further below.
 
-The difference in resolution is striking with the CHELSA data having having a horizontal resolution of 1 km, approx., and the GCM model having a resolution of 1.5 degrees x 1 degrees which corresponds to 166.5 km x 111 km on the equator, approximately. Why is GCM resolution so coarse? It is, simply put, limited by restricitions given by the computational power of the powerful super computers where these models are run on.
+The difference in resolution is striking with the CHELSA data having having a horizontal resolution of 1 km, approx., and the GCM model having a resolution of 1.5 degrees x 1 degrees which corresponds to 166.5 km x 111 km on the equator, approximately. Why is GCM resolution so coarse? It is, simply put, limited by restrictions given by the computational power of the powerful super computers where these models are run on.
 
 ```{r}
 #| label: fig-comparison-chelsa-gcm-resolution
@@ -426,15 +426,15 @@ fut_sim_dir <-  "../../../../central_asia_domain/climate/fut_sim/"
 gcm_Models <- c("GFDL-ESM4", "IPSL-CM6A-LR", "MRI-ESM2-0", "UKESM1-0-LL")
 gcm_Scenarios <- c("ssp126", "ssp245", "ssp370", "ssp585")
 
-gcm_Models_Scenarios <- base::expand.grid(gcm_Models,gcm_Scenarios) %>%
-        dplyr::mutate(model_scenario_combination = paste0(Var1,"_",Var2)) %>%
-        dplyr::select(model_scenario_combination) %>% unlist() %>% as.character()
+gcm_Models_Scenarios <- base::expand.grid(gcm_Models,gcm_Scenarios) |>
+        dplyr::mutate(model_scenario_combination = paste0(Var1,"_",Var2)) |>
+        dplyr::select(model_scenario_combination) |> unlist() |> as.character()
 
 # Historical Observations
 hist_obs_start <- 1979
 hist_obs_end <- 2011
 hist_obs_dates <- riversCentralAsia::generateSeqDates(hist_obs_start,hist_obs_end,'day')
-hist_obs_dates <- as_date(hist_obs_dates$date) %>% as_tibble() %>% rename(Date = value)
+hist_obs_dates <- as_date(hist_obs_dates$date) |> as_tibble() |> rename(Date = value)
 
 # Historical GCM Simulations
 hist_sim_start <- hist_obs_start
@@ -445,7 +445,7 @@ hist_sim_dates <- hist_obs_dates
 fut_sim_start <- 2012
 fut_sim_end <- 2099
 fut_sim_dates <- riversCentralAsia::generateSeqDates(fut_sim_start,fut_sim_end,'day')
-fut_sim_dates <- as_date(fut_sim_dates$date) %>% as_tibble() %>% rename(Date = value)
+fut_sim_dates <- as_date(fut_sim_dates$date) |> as_tibble() |> rename(Date = value)
 
 # Climate Data Observation Frequency
 obs_freq <- "day"
@@ -457,7 +457,7 @@ model_dir <- "../../RS_MINERVE/"
 
 hist_sim_dates <- hist_obs_dates
 fut_sim_dates <- riversCentralAsia::generateSeqDates(fut_sim_start,fut_sim_end,'day')
-fut_sim_dates <- as_date(fut_sim_dates$date) %>% as_tibble() %>% rename(Date = value)
+fut_sim_dates <- as_date(fut_sim_dates$date) |> as_tibble() |> rename(Date = value)
 ```
 
 ::: callout-warning
@@ -479,7 +479,7 @@ demAggFact <- 2 # dem aggregation factor (carefully fine-tune this)
 ## Delineation
 hru_shp <- gen_basinElevationBands(gis_path,dem_file,demAggFact,band_interval,holeSize_km2,smoothFact)
 # Control output
-hru_shp %>% plot()
+hru_shp |> plot()
 ```
 
 In other words, the function `gen_basinElevationBands()` from the `riversCentralAsia` R Package creates elevation bands (HRUs) as per the parameter values. In the above example, we are generating elevation bands with a 300 meters \[m\] bands interval. The smaller this number, the higher the number of elevation bands that will be generated and the higher the computational requirements will be of the hydrological model.
@@ -509,21 +509,21 @@ In a final step, we add unique subbasin names and remove the shapefile fields th
 ```{r}
 for (idxSubBasin in seq(length(subbasins_shp$name))) {
   
-  subbasin_sel <- subbasins_hru_shp %>% dplyr::filter(name == subbasins_shp$name[idxSubBasin])
-  subbasin_sel <- subbasin_sel %>% dplyr::arrange(Z)
+  subbasin_sel <- subbasins_hru_shp |> dplyr::filter(name == subbasins_shp$name[idxSubBasin])
+  subbasin_sel <- subbasin_sel |> dplyr::arrange(Z)
   subbasin_sel$hru_num <- (1:base::nrow(subbasin_sel))
   subbasin_sel$name <- paste0(subbasin_sel$name,'_',subbasin_sel$hru_num)
   
   if (idxSubBasin == 1) {
     res_subbasins <- subbasin_sel
   } else {
-    res_subbasins <- res_subbasins %>% dplyr::add_row(subbasin_sel)
+    res_subbasins <- res_subbasins |> dplyr::add_row(subbasin_sel)
   }
   
 }
 
-subbasins_hru_shp <- res_subbasins %>% dplyr::select(-layer,-hru_num)
-subbasins_hru_shp %>% plot()
+subbasins_hru_shp <- res_subbasins |> dplyr::select(-layer,-hru_num)
+subbasins_hru_shp |> plot()
 ```
 
 The resulting shapefile can then be written to local storage.
@@ -583,7 +583,7 @@ hist_obs_pr <- riversCentralAsia::gen_HRU_Climate_CSV_RSMinerve(climate_files_pr
                                               crs_project)
 
 # Combine extract climate tibbles.
-hist_obs_rsm <- hist_obs_tas %>% add_column(hist_obs_pr %>% 
+hist_obs_rsm <- hist_obs_tas |> add_column(hist_obs_pr |> 
                                               dplyr::select(-Station),.name_repair = 'unique')
 
 # Add Discharge Data (monthly)
@@ -598,25 +598,25 @@ q_dec <- riversCentralAsia::loadTabularData(q_path,
 func_type_lib <- list(mean = "Q")
 q_mon <- aggregate_to_monthly(q_dec,func_type_lib)
 
-q_mon <- q_mon %>% 
+q_mon <- q_mon |> 
   mutate(date = floor_date(as.POSIXct(.$date,tz = tz), unit = "day")) 
 # Note, the function above outputs dates as date class. 
 # This causes problems down the road. 
 # We address these by converting the date values to dttm class.
 
-q_mon <- q_mon %>% dplyr::select(date, data) %>% 
-  dplyr::filter(date >= ymd(paste0(hist_obs_start, "-01-01"))) %>% 
+q_mon <- q_mon |> dplyr::select(date, data) |> 
+  dplyr::filter(date >= ymd(paste0(hist_obs_start, "-01-01"))) |> 
   dplyr::filter(date <= ymd(paste0(hist_obs_end, "-12-31")))
 
 dates_char_Q <- 
-  riversCentralAsia::posixct2rsminerveChar(q_mon$date, tz = "UTC") %>% 
-  rename(Station = value) %>% 
-  tibble::add_column(Q = (q_mon$data %>% as.character))
+  riversCentralAsia::posixct2rsminerveChar(q_mon$date, tz = "UTC") |> 
+  rename(Station = value) |> 
+  tibble::add_column(Q = (q_mon$data |> as.character))
 
 # Get gauge location and elevation
 gauge_shp <- sf::st_read(paste0(gis_path,gauge_code,"_gauge.shp"))
 dem <- raster::raster(paste0(gis_path,dem_file))
-gauge_coord <- gauge_shp %>% sf::st_coordinates()
+gauge_coord <- gauge_shp |> sf::st_coordinates()
 gauge_Z <- exactextractr::exact_extract(dem,gauge_shp,'mean')
 
 # Combine everything
@@ -679,8 +679,8 @@ for (idxGCM in seq(length(gcm_Models))) {
                                               climate_data_type,
                                               crs_project)
   
-  hist_sim_rsm[[idxGCM]] <- hist_sim_T %>% 
-    tibble::add_column(hist_sim_P %>% dplyr::select(-Station),.name_repair = 'unique')
+  hist_sim_rsm[[idxGCM]] <- hist_sim_T |> 
+    tibble::add_column(hist_sim_P |> dplyr::select(-Station),.name_repair = 'unique')
   write_csv(hist_sim_rsm[[idxGCM]],
             paste0(model_dir,climate_data_type,"_",gcm_model,"_",
                    gauge_code,"_",hist_sim_start,"_",hist_sim_end,".csv"),
@@ -740,8 +740,8 @@ for (idxGCM in seq(length(gcm_Models_Scenarios))) {
                                              crs_project)
   
   # Final dataframe
-  fut_sim_rsm[[idxGCM]] <- fut_sim_T %>% 
-    tibble::add_column(fut_sim_P %>% dplyr::select(-Station),.name_repair = 'unique')
+  fut_sim_rsm[[idxGCM]] <- fut_sim_T |> 
+    tibble::add_column(fut_sim_P |> dplyr::select(-Station),.name_repair = 'unique')
   # Write result to disk
   readr::write_csv(fut_sim_rsm[[idxGCM]],
                    paste0(model_dir,climate_data_type,"_",gcm_model,"_",
@@ -759,7 +759,7 @@ In a final step, we can produce the bias corrected future climate scenarios with
 ## HRUs
 subbasins_hru_shp <- 
   sf::st_read(paste0(gis_path,gauge_code,'_hru','.shp'))
-n_hru <- subbasins_hru_shp %>% nrow()
+n_hru <- subbasins_hru_shp |> nrow()
 hru_names <- subbasins_hru_shp$name
 
 # ================
@@ -767,27 +767,27 @@ hru_names <- subbasins_hru_shp$name
 # ================
 climate_data_type <- "hist_obs"
 hist_obs_path <- paste0(model_dir,climate_data_type,"_rsm.csv")
-hist_obs_orig <- hist_obs_path %>% 
-  readr::read_csv(col_types = cols(.default = col_character())) %>%
+hist_obs_orig <- hist_obs_path |> 
+  readr::read_csv(col_types = cols(.default = col_character())) |>
   dplyr::select(-Station,-Q)
 
 # Extract data by groups and convert T to deg. K
-hist_obs_T <- hist_obs_orig[,1:n_hru] %>% slice(-1:-7) %>% 
-  type_convert() %>% 
+hist_obs_T <- hist_obs_orig[,1:n_hru] |> slice(-1:-7) |> 
+  type_convert() |> 
   mutate(across(.cols = everything(), ~ . + 273.15))
 hist_obs_P <- 
-  hist_obs_orig[, (n_hru + 1):(2 * n_hru)] %>% 
-  slice(-1:-7) %>%  
+  hist_obs_orig[, (n_hru + 1):(2 * n_hru)] |> 
+  slice(-1:-7) |>  
   type_convert()
 
 # Fix row names
 names(hist_obs_T) <- hru_names
 names(hist_obs_P) <- hru_names
 
-hist_obs_T_df <- hist_obs_T %>% as.data.frame()
-row.names(hist_obs_T_df) <- hist_obs_dates$Date %>% as.character()
-hist_obs_P_df <- hist_obs_P %>% as.data.frame()
-row.names(hist_obs_P_df) <- hist_obs_dates$Date %>% as.character()
+hist_obs_T_df <- hist_obs_T |> as.data.frame()
+row.names(hist_obs_T_df) <- hist_obs_dates$Date |> as.character()
+hist_obs_P_df <- hist_obs_P |> as.data.frame()
+row.names(hist_obs_P_df) <- hist_obs_dates$Date |> as.character()
 
 # ================
 # Prepare hist_sim
@@ -805,25 +805,25 @@ for (idxGCM in 1:length(gcm_Models)) {
   hist_sim_path <- 
     list.files(model_dir,
                pattern = paste0("hist_sim_",gcm_Models[idxGCM]),full.names = TRUE)
-  hist_sim_orig <- hist_sim_path %>% 
-    readr::read_csv(col_types = cols(.default = col_character())) %>% 
+  hist_sim_orig <- hist_sim_path |> 
+    readr::read_csv(col_types = cols(.default = col_character())) |> 
     dplyr::select(-Station)
   
-  hist_sim_T <- hist_sim_orig[,1:n_hru] %>% slice(-1:-7) %>% 
-    type_convert() %>% 
+  hist_sim_T <- hist_sim_orig[,1:n_hru] |> slice(-1:-7) |> 
+    type_convert() |> 
     mutate(across(.cols = everything(), ~ . + 273.15))
-  hist_sim_P <- hist_sim_orig[,(n_hru+1):(2*n_hru)] %>% 
-    slice(-1:-7) %>% 
+  hist_sim_P <- hist_sim_orig[,(n_hru+1):(2*n_hru)] |> 
+    slice(-1:-7) |> 
     type.convert()
   
   # Fix row names
   names(hist_sim_T) <- hru_names
   names(hist_sim_P) <- hru_names
   
-  hist_sim_T_df <- hist_sim_T %>% as.data.frame()
-  row.names(hist_sim_T_df) <- hist_sim_dates$Date %>% as.character()
-  hist_sim_P_df <- hist_sim_P %>% as.data.frame()
-  row.names(hist_sim_P_df) <- hist_sim_dates$Date %>% as.character()
+  hist_sim_T_df <- hist_sim_T |> as.data.frame()
+  row.names(hist_sim_T_df) <- hist_sim_dates$Date |> as.character()
+  hist_sim_P_df <- hist_sim_P |> as.data.frame()
+  row.names(hist_sim_P_df) <- hist_sim_dates$Date |> as.character()
   
   hist_sim_T_list[[idxGCM]] <- hist_sim_T_df
   hist_sim_P_list[[idxGCM]] <- hist_sim_P_df
@@ -843,26 +843,26 @@ for (idxGCM in 1:length(gcm_Models_Scenarios)) {
   fut_sim_orig_path <- 
     list.files(model_dir,pattern = 
                  paste0("fut_sim_",gcm_Models_Scenarios[idxGCM]),full.names = TRUE)
-  fut_sim_orig <- fut_sim_orig_path %>% 
-    readr::read_csv(col_types = cols(.default = col_character())) %>% 
+  fut_sim_orig <- fut_sim_orig_path |> 
+    readr::read_csv(col_types = cols(.default = col_character())) |> 
     dplyr::select(-Station)
   
-  fut_sim_T <- fut_sim_orig[,1:n_hru] %>% 
-    slice(-1:-7) %>% 
-    type_convert() %>% 
+  fut_sim_T <- fut_sim_orig[,1:n_hru] |> 
+    slice(-1:-7) |> 
+    type_convert() |> 
     mutate(across(.cols = everything(), ~ . + 273.15))
-  fut_sim_P <- fut_sim_orig[,(n_hru+1):(2*n_hru)] %>% 
-    slice(-1:-7) %>% 
+  fut_sim_P <- fut_sim_orig[,(n_hru+1):(2*n_hru)] |> 
+    slice(-1:-7) |> 
     type.convert()
   
   # Fix row names
   names(fut_sim_T) <- hru_names
   names(fut_sim_P) <- hru_names
   
-  fut_sim_T_df <- fut_sim_T %>% as.data.frame()
-  row.names(fut_sim_T_df) <- fut_sim_dates$Date %>% as.character()
-  fut_sim_P_df <- fut_sim_P %>% as.data.frame()
-  row.names(fut_sim_P_df) <- fut_sim_dates$Date %>% as.character()
+  fut_sim_T_df <- fut_sim_T |> as.data.frame()
+  row.names(fut_sim_T_df) <- fut_sim_dates$Date |> as.character()
+  fut_sim_P_df <- fut_sim_P |> as.data.frame()
+  row.names(fut_sim_P_df) <- fut_sim_dates$Date |> as.character()
   
   fut_sim_T_list[[idxGCM]] <- fut_sim_T_df
   fut_sim_P_list[[idxGCM]] <- fut_sim_P_df
@@ -909,12 +909,12 @@ for (idxGCM in 1:length(gcm_Models_Scenarios)) {
 
   # go back to tibble and convert back to deg. C
   fut_sim_T_gcmModel_qmapped <- 
-    fut_sim_T_df_gcmModel_qmapped %>% as_tibble() %>% 
+    fut_sim_T_df_gcmModel_qmapped |> as_tibble() |> 
     add_column(Date = fut_sim_dates$Date,.before = 1)
   fut_sim_T_gcmModel_qmapped <- 
-    fut_sim_T_gcmModel_qmapped %>% mutate(across(-Date, ~ . - 273.15))
+    fut_sim_T_gcmModel_qmapped |> mutate(across(-Date, ~ . - 273.15))
   fut_sim_P_gcmModel_qmapped <- 
-    fut_sim_P_df_gcmModel_qmapped %>% as_tibble() %>% 
+    fut_sim_P_df_gcmModel_qmapped |> as_tibble() |> 
     add_column(Date = fut_sim_dates$Date,.before = 1)  
   
   fut_sim_T_list[[idxGCM]] <- fut_sim_T_gcmModel_qmapped
@@ -922,10 +922,10 @@ for (idxGCM in 1:length(gcm_Models_Scenarios)) {
   
   # Export to .csv-file
   fut_sim_qmapped <- 
-    fut_sim_T_gcmModel_qmapped %>% #dplyr::select(-Date) %>% 
-    tibble::add_column(fut_sim_P_gcmModel_qmapped %>% 
-                         dplyr::select(-Date),.name_repair = "universal") %>% 
-    mutate(across(.cols = everything(),~ as.character(.))) %>% 
+    fut_sim_T_gcmModel_qmapped |> #dplyr::select(-Date) |> 
+    tibble::add_column(fut_sim_P_gcmModel_qmapped |> 
+                         dplyr::select(-Date),.name_repair = "universal") |> 
+    mutate(across(.cols = everything(),~ as.character(.))) |> 
     dplyr::select(-Date)
   
   # --- Debugging
@@ -936,11 +936,11 @@ for (idxGCM in 1:length(gcm_Models_Scenarios)) {
     list.files(model_dir,pattern = paste0("fut_sim_",gcm_Models_Scenarios[idxGCM]),
                full.names = TRUE)
   fut_sim_orig <- 
-    fut_sim_orig_path %>% readr::read_csv(col_types = cols(.default = col_character())) 
+    fut_sim_orig_path |> readr::read_csv(col_types = cols(.default = col_character())) 
   
-  fut_sim_orig_header <- fut_sim_orig %>% dplyr::select(-Station) %>% 
+  fut_sim_orig_header <- fut_sim_orig |> dplyr::select(-Station) |> 
     dplyr::slice(1:7,) 
-  fut_sim_qmapped <- fut_sim_orig_header  %>% bind_rows(fut_sim_qmapped) %>% 
+  fut_sim_qmapped <- fut_sim_orig_header  |> bind_rows(fut_sim_qmapped) |> 
     add_column(Station = fut_sim_orig$Station,.before = 1)
 
   # Write result to disk

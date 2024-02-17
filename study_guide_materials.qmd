@@ -108,10 +108,10 @@ The homework is not graded but supports reflection on the use of hydrological mo
 
 ### Day 3: Hydrological Modeling Concepts and Catchment Characterization {#sec-study-guide-day2 .unnumbered}
 
-Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the catchment characterization of the basin you selected to work on by filling in the Table @tbl-example-basin-characterization below. If you have downloaded the entire folder on your local drive, you already have all the data for the analysis.
+Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the catchment characterization of the basin you selected to work on by filling out the table below. If you have downloaded the entire folder on your local drive, you already have all the data for the analysis.
 
 | ATTRIBUTE                                             | VALUE              |
-|------------------------------------------------|------------------------|
+|-----------------------------------------------|------------------------|
 | ***Geography*** [@srtm_2020]                          |                    |
 | Basin Area $A$                                        | 13'693 km^2^       |
 | Minimum Elevation $h_{min}$                           | 2'068 masl         |

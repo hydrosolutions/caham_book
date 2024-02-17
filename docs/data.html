@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="2022 release">
+<meta name="description" content="2024 release">
 
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - Part II: Data Sources, Retrieval and Preparation</title>
 <style>
@@ -242,12 +242,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -262,13 +256,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Watershed_delineation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Watershed delineation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Watershed delineation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Watershed_characterisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Watershed characterisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Watershed characterisation</span></span></a>
   </div>
 </li>
       </ul>
@@ -321,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-data" class="quarto-section-identifier">Part II: Data Sources, Retrieval and Preparation</span></h1>
+<h1 class="title"><span id="sec-part-ii-data-sources-retrieval-and-preparation" class="quarto-section-identifier">Part II: Data Sources, Retrieval and Preparation</span></h1>
 </div>
 
 
@@ -338,15 +332,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this Chapter and its Sections, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling.</p>
-<p>Data include</p>
+<p>In this Chapter and its Sections, we will discuss how to retrieve, prepare and process the data that is required for hydrological modeling. Data include</p>
 <ul>
 <li>geospatial data,</li>
 <li>in-situ station data,</li>
 <li>snow and glacier data, and</li>
 <li>climate reanalysis and projections data.</li>
 </ul>
-<p>As will become clear, the preparation of these data requires a substantial amount of work, local storage space and, in some instances, computational power.</p>
+<p>As will become clear, the preparation of these data requires a substantial amount of work, local storage space and, in some instances, computational power. However, modern GIS tools and data processing libraries in Python and R make the preparation of these data more accessible than ever before. In some cases, free online tools can be used to retrieve and process data.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -361,9 +354,9 @@ Important
 </div>
 </div>
 <p>An overview of all data used is provided in the <a href="data_sources.html">Chapter 3 Sources of Relevant Data</a>. The preparation of the discharge data as described in <a href="discharge_station_data.html">Chapter 4 Discharge Station Data</a> demonstrates the necessary steps for the quality control of the observed station data. This is an important step prior to any hydrological modeling, independent of the modeling approach used.</p>
-<p>The <a href="geospatial_data.html">Chapter 5 on Geospatial Data</a> shows the necessary geospatial analysis steps for basin delineation and the generation of the required input files for physically-based modeling using RSMinerve. These geospatial assets can then be loaded and processed in RSMinerve as shown in <a href="hydraulic_hydrological_modeling.html">PartIII Chapter 8 Hydrological-Hydraulic Modeling</a>.</p>
+<p>The <a href="geospatial_data.html">Chapter 5 on Geospatial Data</a> is a chapter on using GIS tools to prepare for hydrological modeling. It shows the necessary geospatial analysis steps for basin delineation and the generation of the required input files for physically-based modeling using RSMinerve. These geospatial assets can then be loaded and processed in RSMinerve as shown in <a href="hydraulic_hydrological_modeling.html">PartIII Chapter 8 Hydrological-Hydraulic Modeling</a>. The can also be used in other contexts.</p>
 <p><a href="snow_and_glacier_data.html">Chapter 6</a> introduces available snow and glacier data that can be used for hydrological modeling. It also demonstrates the generation of time series data for individual hydrological response units with regard to glacier contributions. The <a href="#climate-data">Chapter 7 Climate Data</a> discussed state-of-the-art high-resolution climate data for past observations of precipitation and temperature as well as climate projections and the processing and preparation of these data for hydrological modeling.</p>
-<p>The following diagram shows the entire modeling chain for hydrological modeling. It shows that the data preparation step involves many interrelated components that partially depend on each other in a sequential way. This Chapter aims at carefully working through this modeling chain to demonstrate the preparation of all the relevant data for the subsequent modeling application.</p>
+<p>As an example, the following diagram shows an entire modeling chain for hydrological modeling for climate change impact assessments. It shows that the data preparation step involves many interrelated components that partially depend on each other in a sequential way. This Chapter aims at carefully working through this modeling chain to demonstrate the preparation of all the relevant data for the subsequent modeling application.</p>
 <div id="fig-climate-impact-model-chain" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-climate-impact-model-chain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

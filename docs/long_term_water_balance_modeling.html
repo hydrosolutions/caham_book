@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.424">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="2022 release">
+<meta name="description" content="2024 release">
 
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - 9&nbsp; Long-term Water Balance Modeling</title>
 <style>
@@ -83,6 +83,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -92,6 +93,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -100,11 +128,11 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./hydrological_modeling.html">Part III: Hydrological Modeling &amp; Applications</a></li><li class="breadcrumb-item"><a href="./long_term_water_balance_modeling.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Long-term Water Balance Modeling</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -115,7 +143,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
@@ -263,23 +291,40 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./Climate_change_impact_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Climate Change Impact Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></span></a>
+  <a href="./Watershed_delineation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Watershed delineation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Watershed_characterisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Watershed characterisation</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link">
@@ -309,7 +354,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -357,8 +402,8 @@ div.csl-indent {
 <p><span id="eq-water-balance"><span class="math display">\[
 \Delta S = P - E - Q
 \tag{9.1}\]</span></span></p>
-<p>where <span class="math inline">\(\Delta S\)</span> is net storage change in millimeter [mm], <span class="math inline">\(P\)</span> is precipitation in mm, <span class="math inline">\(E\)</span> is evaporation in mm, and <span class="math inline">\(Q\)</span> is specific discharge in mm. Evaporation is the phenomenon by which a substance is converted from its liquid into its vapor phase, independently of where it lies in nature <span class="citation" data-cites="miralles_2020">(<a href="#ref-miralles_2020" role="doc-biblioref">Miralles et al. 2020</a>)</span>. This definition of evaporation encompasses evaporation from inside leaves (transpiration), evaporation from bare soils, evaporation from intercepted precipitation (interception loss), evaporation from open water surfaces, and finally, evaporation over ice- and snow-covered surfaces (often referred to as sublimation).</p>
-<p>Over the period of a hydrological year and longer time scales, we expect <span class="math inline">\(\Delta S\)</span> to be 0 since neither water storage nor destorage happen over longer periods. This would of course not be true for catchments where for example man-made storage infrastructure was built over the period under consideration or for catchments with ongoing glacier melt over a prolonged time. If <span class="math inline">\(\Delta S = 0\)</span>, the above Equation @ref(eq:WB1) can be rewritten as</p>
+<p>where <span class="math inline">\(\Delta S\)</span> is net storage change in millimeters [mm], <span class="math inline">\(P\)</span> is precipitation in mm, <span class="math inline">\(E\)</span> is evaporation in mm, and <span class="math inline">\(Q\)</span> is specific discharge in mm. Evaporation is when a substance is converted from its liquid into its vapor phase, independently of where it lies in nature <span class="citation" data-cites="miralles_2020">(<a href="#ref-miralles_2020" role="doc-biblioref">Miralles et al. 2020</a>)</span>. This definition of evaporation encompasses evaporation from inside leaves (transpiration), evaporation from bare soils, evaporation from intercepted precipitation (interception loss), evaporation from open water surfaces, and finally, evaporation over ice- and snow-covered surfaces (often referred to as sublimation).</p>
+<p>Over the period of a hydrological year and longer time scales, we expect <span class="math inline">\(\Delta S\)</span> to be 0 since neither water storage nor destorage happens over longer periods. This would not be true for catchments where, for example, man-made storage infrastructure was built over the period under consideration or for catchments with ongoing glacier melt over a prolonged time. If <span class="math inline">\(\Delta S = 0\)</span>, the above Equation @ref(eq:WB1) can be rewritten as</p>
 <p><span id="eq-long-term-water-balance-1"><span class="math display">\[
 Q = P - E
 \tag{9.2}\]</span></span></p>
@@ -367,7 +412,7 @@ Q = P - E
 \frac{Q}{P} = 1 - \frac{E}{P}
 \tag{9.3}\]</span></span></p>
 <p>where <span class="math inline">\(Q/P\)</span> can be called the runoff index and <span class="math inline">\(E/P\)</span> is the evaporation index or evaporative fraction.</p>
-<p>For a catchment, annual mean <span class="math inline">\(E\)</span> and <span class="math inline">\(Q\)</span> are governed by total <em>water supply</em> <span class="math inline">\(P\)</span> and the total available energy which is normally expressed as potential evaporation <span class="math inline">\(E_{pot}\)</span> and which denotes the (atmospheric) <em>water demand</em>. If <span class="math inline">\(E_{pot}\)</span> is small, the discharge <span class="math inline">\(Q\)</span> is normally bigger than evaporation <span class="math inline">\(E\)</span>. Similarly, if the available radiative energy is very high, the water demand <span class="math inline">\(E_{pot}\)</span> is very large and <span class="math inline">\(Q \ll E\)</span> <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <span class="math inline">\(E_{pot}\)</span> and <span class="math inline">\(P\)</span> are thus the key determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio <span class="math inline">\(E_{pot} / P\)</span> aridity index <span class="citation" data-cites="budyko_1974">(<a href="#ref-budyko_1974" role="doc-biblioref">Budyko 1974</a>)</span>.</p>
+<p>For a catchment, the annual mean <span class="math inline">\(E\)</span> and <span class="math inline">\(Q\)</span> are governed by the total <em>water supply</em> <span class="math inline">\(P\)</span> and the total available energy, which is expressed as potential evaporation <span class="math inline">\(E_{pot}\)</span> and which denotes the (atmospheric) <em>water demand</em>. If <span class="math inline">\(E_{pot}\)</span> is small, the discharge <span class="math inline">\(Q\)</span> usually is bigger than evaporation <span class="math inline">\(E\)</span>. Similarly, if the available radiative energy is very high, the water demand <span class="math inline">\(E_{pot}\)</span> is very large and <span class="math inline">\(Q \ll E\)</span> <span class="citation" data-cites="ARORA2002164">(<a href="#ref-ARORA2002164" role="doc-biblioref">Arora 2002</a>)</span>. <span class="math inline">\(E_{pot}\)</span> and <span class="math inline">\(P\)</span> are thus the critical determinants of annual or longer timescale runoff and evaporation rates. Michael Budyko has termed the ratio <span class="math inline">\(E_{pot} / P\)</span> aridity index <span class="citation" data-cites="budyko_1974">(<a href="#ref-budyko_1974" role="doc-biblioref">Budyko 1974</a>)</span>.</p>
 <p>As explained above, water demand is determined by energy. Solar radiation is the primary energy source for the earth-atmosphere system and the key driver of the hydrological cycle. At the earth’s surface, the net radiative flux <span class="math inline">\(R_N\)</span> is the energy that is available for a) heating and cooling of the soil (ground heat flux), b) changing the phase of water (latent heat flux), and c) heating or cooling air in the boundary layer thus causing atmospheric dynamics (sensible heat flux).</p>
 <p>This can be formalized with the following relationship</p>
 <p><span id="eq-energy-balance"><span class="math display">\[
@@ -377,11 +422,11 @@ R_{N} = H_{S} + H_{L} + \Delta H_{G}
 <p><span id="eq-long-term-energy-balance"><span class="math display">\[
 R_{N} = H_{S} + L \cdot E
 \tag{9.5}\]</span></span></p>
-<p>With the Bowen ratio defined as the fraction of the sensible heat flux divided by the latent heat flux, i.e.</p>
+<p>The Bowen ratio is defined as the fraction of the sensible heat flux divided by the latent heat flux, i.e.</p>
 <p><span id="eq-bowen-ratio"><span class="math display">\[
 \gamma = \frac{H_{S}}{H_{L}} = \frac{H_{S}}{L \cdot E }
 \tag{9.6}\]</span></span></p>
-<p>and by rearranging the terms, the long-term energy balance in Equation <a href="#eq-long-term-energy-balance" class="quarto-xref">Equation&nbsp;<span>9.5</span></a> can simply be rewritten as</p>
+<p>By rearranging the terms, the long-term energy balance in Equation <a href="#eq-long-term-energy-balance" class="quarto-xref">Equation&nbsp;<span>9.5</span></a> can simply be rewritten as</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio"><span class="math display">\[
 R_{N} = (1 + \gamma)L E
 \tag{9.7}\]</span></span></p>
@@ -389,7 +434,7 @@ R_{N} = (1 + \gamma)L E
 <p><span id="eq-long-term-energy-balance-bowen-ratio-aridity-index"><span class="math display">\[
 \frac{E_{pot}}{P} = (1 + \gamma) \frac{E}{P}
 \tag{9.8}\]</span></span></p>
-<p>where the left-hand side is called the aridity index, i.e.&nbsp;<span class="math inline">\(\phi = E_{pot}/P\)</span> and <span class="math inline">\(E/P\)</span> is called the evaporative fraction or evaporation index as mentioned above. With this, <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index" class="quarto-xref">Equation&nbsp;<span>9.8</span></a> from above can be written as a function of the Bowen ratio and the aridity index, i.e.</p>
+<p>where the left-hand side is called the aridity index, i.e.&nbsp;<span class="math inline">\(\phi = E_{pot}/P\)</span> and <span class="math inline">\(E/P\)</span> is called the evaporative fraction or evaporation index, as mentioned above. With this, <a href="#eq-long-term-energy-balance-bowen-ratio-aridity-index" class="quarto-xref">Equation&nbsp;<span>9.8</span></a> can be written as a function of the Bowen ratio and the aridity index, i.e.</p>
 <p><span id="eq-long-term-energy-balance-bowen-ratio-aridity-index-final"><span class="math display">\[
 \frac{E}{P} = 1 - \frac{Q}{P} = \frac{\phi}{(1 + \gamma)}
 \tag{9.9}\]</span></span></p>
@@ -426,8 +471,8 @@ and there Chapter 4.03.4.1.1 Net radiation estimation and partitioning -->
 <section id="sec-budyko-data" class="level3" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="sec-budyko-data"><span class="header-section-number">9.2.1</span> Data</h3>
 <p>A large number of geospatial data were collected for the Central Asia region. The domain of interest was defined as 55 deg. E - 85. deg. E and 30 deg. N - 50 deg. N.. Shapefiles from the large river basin were retrieved from the <a href="https://www.bafg.de/GRDC/EN/01_GRDC/grdc_node.html">Global Runoff Data Center</a> and extracted for the following basins: Amu Darya, Chu, Issy Kul, Murghab-Harirud, Syr Darya and Talas. Where necessary, the polygons of the downstream flat areas were corrected to account for man-made water transfers via large canal systems and corresponding flow alterations across basins there. These large river basins define the area of interest (AOI).</p>
-<p>For the selected basins, the WMOBB River Network data was extracted from the layers wmobb_rivnets_Q09_10 (containing line sections representing an upland area above 4’504 km<sup>2</sup>), wmobb_rivnets_Q08_09 (containing line sections representing an upland area between 1’150 km<sup>2</sup> and 4’504 km<sup>2</sup>) and wmobb_rivnets_Q07_08 (containing line sections representing an upland area above between 487 and 1’150 km<sup>2</sup>) <span class="citation" data-cites="grdc_2020">(<a href="#ref-grdc_2020" role="doc-biblioref">GRDC, Koblenz, Germany: Federal Institute of Hydrology (BfG). 2020</a>)</span>. Permanent water bodies and courses were taken from the global HydroLakes Database <span class="citation" data-cites="hydrolakes_2016">(<a href="#ref-hydrolakes_2016" role="doc-biblioref">Messager et al. 2016</a>)</span>. Information on land cover were taken from the Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2019: Globe data <span class="citation" data-cites="copernicus_landcover_2019">(<a href="#ref-copernicus_landcover_2019" role="doc-biblioref">Buchhorn et al. 2019</a>)</span>. The NASA SRTM digital elevation model 1 Arc-second (30 m) global product was used as a DEM <span class="citation" data-cites="srtm_2020">(<a href="#ref-srtm_2020" role="doc-biblioref"><span>“NASA Shuttle Radar Topography Mission (SRTM)(2013)”</span> 2013</a>)</span>.</p>
-<p>In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3. Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200’000) from the corresponding region. The maps were downloaded from <a href="https://maps.vlasenko.net">https://maps.vlasenko.net</a> and subsequently geo-referenced in QGIS <span class="citation" data-cites="QGIS_software">(<a href="#ref-QGIS_software" role="doc-biblioref">QGIS Development Team 2021</a>)</span>. Data from northern Afghan rivers’ stream flow characteristics and the location of these gauging stations was taken from <span class="citation" data-cites="usgs_529_2010">(<a href="#ref-usgs_529_2010" role="doc-biblioref">Olson and Williams-Sether 2010</a>)</span>.</p>
+<p>For the selected basins, the WMOBB River Network data was extracted from the layers wmobb_rivnets_Q09_10 (containing line sections representing an upland area above 4’504 km<sup>2</sup>), wmobb_rivnets_Q08_09 (containing line sections representing an upland area between 1’150 km<sup>2</sup> and 4’504 km<sup>2</sup>) and wmobb_rivnets_Q07_08 (containing line sections representing an upland area above between 487 and 1’150 km<sup>2</sup>) <span class="citation" data-cites="grdc_2020">(<a href="#ref-grdc_2020" role="doc-biblioref">GRDC, Koblenz, Germany: Federal Institute of Hydrology (BfG). 2020</a>)</span>. Permanent water bodies and courses were taken from the global HydroLakes Database <span class="citation" data-cites="hydrolakes_2016">(<a href="#ref-hydrolakes_2016" role="doc-biblioref">Messager et al. 2016</a>)</span>. Information on land cover were taken from the Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2019: Globe data <span class="citation" data-cites="copernicus_landcover_2019">(<a href="#ref-copernicus_landcover_2019" role="doc-biblioref">Buchhorn et al. 2019</a>)</span>. The NASA SRTM digital elevation model 1 Arc-second (30 m) global product was used as a DEM <span class="citation" data-cites="srtm_2020">(<a href="#ref-srtm_2020" role="doc-biblioref"><span>“NASA Shuttle Radar Topography Mission (SRTM)”</span> 2013</a>)</span>.</p>
+<p>In total, data from 277 gauging stations from Afghanistan, Kyrgyzstan, Kazakhstan, Uzbekistan and Tajikistan could be obtained from the local Hydrometeorological Organization, public reports and the Soviet compendia Surface Water Resources, Vol 14 Issues 1 and 3. Except for the Afghan stations, all stations were manually located in a Geographic Information System (GIS) using the relevant Soviet Military Topographic maps (1:200’000) from the corresponding region. The maps were downloaded from <a href="https://maps.vlasenko.net" class="uri">https://maps.vlasenko.net</a> and subsequently geo-referenced in QGIS <span class="citation" data-cites="QGIS_software">(<a href="#ref-QGIS_software" role="doc-biblioref">QGIS Development Team 2021</a>)</span>. Data from northern Afghan rivers’ stream flow characteristics and the location of these gauging stations was taken from <span class="citation" data-cites="usgs_529_2010">(<a href="#ref-usgs_529_2010" role="doc-biblioref">Olson and Williams-Sether 2010</a>)</span>.</p>
 <p>For each gauge, the contributing area was delineated in R with the WhiteboxTools v2.0.0 and long-term norm mean discharge was obtained over variable observation periods between 1900 and 2018 was acquired. For a few selected stations, monthly and decadal time series data are available over the entire observational record. The FLO1K, global maps of mean, maximum and minimum annual stream flow at 1 km resolution from 1960 through 2015 were retrieved <span class="citation" data-cites="barbarossa_2018">(<a href="#ref-barbarossa_2018" role="doc-biblioref">Barbarossa et al. 2018</a>)</span>. The goodness of the FLO1K product in the Central Asia domain was validated at the locations of the 277 gauges through linear regression.</p>
 <p>Geospatial information on glaciers was taken from the Randolph Glacier Inventory (RGI) 6.0. Information from 16’617 glaciers was retrieved, together with glacier length, thickness and glacier thinning rates <span class="citation" data-cites="glims_global">Hugonnet et al. (<a href="#ref-hugonnet_accelerated_2021" role="doc-biblioref">2021</a>)</span>.</p>
 <p>The CHELSA V21 global daily high-resolution climatology, available from 01-01-1979 until 31-12-2011 was processed over the Central Asia domain to map climate trends, including on temperature, precipitation, snow fraction. The data is available upon request from this site: https://chelsa-climate.org <span class="citation" data-cites="karger_2017">Karger et al. (<a href="#ref-karger_2021" role="doc-biblioref">2021</a>)</span>. The CHELSA V21 product is corrected for snow undercatch in the high elevation ranges and thus is able to better represent actual high mountain precipitation than other available global climatologies <span class="citation" data-cites="beck_2020">(<a href="#ref-beck_2020" role="doc-biblioref">Beck et al. 2020</a>)</span>. The aridity index (AI) fields were taken from the bio-climate CHELSA V21 data set and compared with the CGIAR AI product <span class="citation" data-cites="trabucco_2019">(<a href="#ref-trabucco_2019" role="doc-biblioref">Trabucco and Zomer 2019</a>)</span>. Data on an additional 70 bio-climatic indicators were downloaded from the CHELSA V21 1980 - 2010 climatology and statistics extracted for each of the 277 gauged catchments, together with the AI.</p>
@@ -510,7 +555,7 @@ Miralles, D. G., W. Brutsaert, A. J. Dolman, and J. H. Gash. 2020. <span>“On t
 Mulligan, Mark, Arnout van Soesbergen, and Leonardo Sáenz. 2020. <span>“GOODD, a Global Dataset of More Than 38,000 Georeferenced Dams.”</span> <em>Scientific Data</em> 7 (1): 31. <a href="https://doi.org/10.1038/s41597-020-0362-5">https://doi.org/10.1038/s41597-020-0362-5</a>.
 </div>
 <div id="ref-srtm_2020" class="csl-entry" role="listitem">
-<span>“NASA Shuttle Radar Topography Mission (SRTM)(2013).”</span> 2013. NASA. <a href="https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia">https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia</a>.
+<span>“NASA Shuttle Radar Topography Mission (SRTM).”</span> 2013. NASA. <a href="https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia">https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia</a>.
 </div>
 <div id="ref-usgs_529_2010" class="csl-entry" role="listitem">
 Olson, S. A., and T. Williams-Sether. 2010. <span>“Streamflow Characteristics at Streamgages in Northern Afghanistan and Selected Locations.”</span> U.S. Geological Survey Data Series 529. USGS.
@@ -665,38 +710,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -705,8 +740,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -929,7 +971,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./hydraulic_hydrological_modeling.html" class="pagination-link  aria-label=" <span="">8&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span>"&gt;
+      <a href="./hydraulic_hydrological_modeling.html" class="pagination-link  aria-label=" &lt;span="" modeling&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hydrological-Hydraulic Modeling</span></span>
       </a>          
   </div>
@@ -944,4 +986,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hydrosolutions/caham_book/edit/master/long_term_water_balance_modeling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

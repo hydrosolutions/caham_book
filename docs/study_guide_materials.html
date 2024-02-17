@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.424">
+<meta name="generator" content="quarto-1.4.549">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="description" content="2022 release">
+<meta name="description" content="2024 release">
 <title>Modeling of Hydrological Systems in Semi-Arid Central Asia - Study Guide and Materials</title>
 <style>
 code{white-space: pre-wrap;}
@@ -112,22 +112,48 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script><link href="site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./study_guide_materials.html">Study Guide and Materials</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -135,7 +161,7 @@ div.csl-indent {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Modeling of Hydrological Systems in Semi-Arid Central Asia</a> 
         <div class="sidebar-tools-main">
@@ -282,23 +308,40 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modeling of Discharge from Glacier Melt</span></span></a>
   </div>
 </li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./Climate_change_impact_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Climate Change Impact Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Watershed_delineation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Watershed delineation</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./real_world_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Real World Hydrological Model Applications</span></span></a>
+  <a href="./Watershed_characterisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Watershed characterisation</span></span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix_a_free_software.html" class="sidebar-item-text sidebar-link">
@@ -327,21 +370,21 @@ div.csl-indent {
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#sec-study-guide" id="toc-sec-study-guide" class="nav-link active" data-scroll-target="#sec-study-guide">Study Guide</a></li>
+<li><a href="#sec-study-guide" id="toc-sec-study-guide" class="nav-link active" data-scroll-target="#sec-study-guide">Study Guide APPLIED MODELING</a></li>
   <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">TASK</a></li>
   <li>
 <a href="#sec-materials" id="toc-sec-materials" class="nav-link" data-scroll-target="#sec-materials">Materials</a>
   <ul class="collapse">
 <li><a href="#sec-study-guide-day1" id="toc-sec-study-guide-day1" class="nav-link" data-scroll-target="#sec-study-guide-day1">Day 1: Introduction &amp; Installation of Software</a></li>
-  <li><a href="#day-2-hydrological-modelling-and-processes" id="toc-day-2-hydrological-modelling-and-processes" class="nav-link" data-scroll-target="#day-2-hydrological-modelling-and-processes">Day 2: Hydrological modelling and processes</a></li>
-  <li><a href="#sec-study-guide-day2" id="toc-sec-study-guide-day2" class="nav-link" data-scroll-target="#sec-study-guide-day2">Day 3: Hydrological modelling concepts and Catchment Characterization</a></li>
-  <li><a href="#day-4-discharge-and-climate-data" id="toc-day-4-discharge-and-climate-data" class="nav-link" data-scroll-target="#day-4-discharge-and-climate-data">Day 4: Discharge and climate data</a></li>
+  <li><a href="#day-2-hydrological-modeling-and-processes" id="toc-day-2-hydrological-modeling-and-processes" class="nav-link" data-scroll-target="#day-2-hydrological-modeling-and-processes">Day 2: Hydrological Modeling and Processes</a></li>
+  <li><a href="#sec-study-guide-day2" id="toc-sec-study-guide-day2" class="nav-link" data-scroll-target="#sec-study-guide-day2">Day 3: Hydrological Modeling Concepts and Catchment Characterization</a></li>
+  <li><a href="#day-4-discharge-and-climate-data" id="toc-day-4-discharge-and-climate-data" class="nav-link" data-scroll-target="#day-4-discharge-and-climate-data">Day 4: Discharge and Climate Data</a></li>
   <li><a href="#sec-study-guide-day4" id="toc-sec-study-guide-day4" class="nav-link" data-scroll-target="#sec-study-guide-day4">Day 5: Discussion of Types of Hydrological Models</a></li>
   <li><a href="#sec-study-guide-day6" id="toc-sec-study-guide-day6" class="nav-link" data-scroll-target="#sec-study-guide-day6">Day 6 &amp; 7: Model Calibration and Validation</a></li>
   <li><a href="#sec-study-guide-day9" id="toc-sec-study-guide-day9" class="nav-link" data-scroll-target="#sec-study-guide-day9">Day 8: Student Conference &amp; Course Wrap Up</a></li>
@@ -366,7 +409,7 @@ div.csl-indent {
   
 
 
-</header><p>This book was originally designed as part of a 2 week Master level course at the German Kazakh University in Almaty, Kazakhstan. The course was taught during the academic years 2021 and 2022. At least part of the material can be covered in 10 work days. Over the duration of two weeks, it is recommended to focus on only a subset of selected materials from the Handbook.</p>
+</header><p>This course book was initially designed as part of a two-week Master level block course at the German Kazakh University in Almaty, Kazakhstan. The course was taught during the academic years 2021 and 2022. At least part of the material can be covered in 10 work days. Over two weeks, focusing on only a subset of selected materials from the Handbook is recommended.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -377,7 +420,7 @@ Learning Tracks
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Different learning tracks are possible. Some examples for inspiration are given here.</p>
+<p>Different learning tracks are possible. Some inspirational examples are given here.</p>
 <ul>
 <li>
 <strong>GEOGRAPHY Learning Track: Hydrology of Central Asia</strong>
@@ -387,7 +430,7 @@ Learning Tracks
 </ul>
 </li>
 <li>
-<strong>APPLIED MODELING Learning Track: Applied Hydrological Modeling using rainfall-runoff models</strong>
+<strong>APPLIED MODELING Learning Track: Applied Hydrological Modeling using Rainfall-Runoff Models</strong>
 <ul>
 <li>Book Part I for regional and basin-scale hydrological and climatological characterization</li>
 <li>Selected Chapters of Part II</li>
@@ -396,7 +439,7 @@ Learning Tracks
 </ul>
 </li>
 <li>
-<strong>SCIENCE Learning Track: Applied Hydrological Modeling using long-term water balance modeling</strong>
+<strong>SCIENCE Learning Track: Applied Hydrological Modeling using Long-Term Water Balance Modeling</strong>
 <ul>
 <li>Book Part I for regional and basin-scale hydrological and climatological characterization</li>
 <li>Selected Chapters of Part II</li>
@@ -406,12 +449,12 @@ Learning Tracks
 </ul>
 </div>
 </div>
-<p>All learning tracks presented here require significant investments by the students. It is clear that the students cannot learning everything though in a short time and achieve proficiency in GIS geospatial data analysis, computer programming and modeling. Hence, it pays to focus. We presented here a study guide for the Applied Modeling track.</p>
-<section id="sec-study-guide" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-study-guide">Study Guide</h2>
-<p>Over the duration of the course and as part of the Applied Modeling track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments that they can choose from the <a href="https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0">Case Studies Pack</a>.</p>
-<p>Students are required to work through the Chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference for which the students have to submit a conference abstract prior to the conference.</p>
-<p>This Chapter explains how to use this course book.</p>
-<p>Different callout blocks appear throughout the text. These include <em>Exercise</em>, <em>Tasks</em> and <em>Take Home Messages</em>. <em>Caution</em> and <em>Warning</em> callouts highlight possibly problematic issues.</p>
+<p>All learning tracks presented here require significant investments by the students. The students cannot learn everything and simultaneously achieve proficiency in GIS geospatial data analysis, computer programming, and modeling. Hence, it pays to focus. We presented here a study guide for the APPLIED MODELING track.</p>
+<section id="sec-study-guide" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-study-guide">Study Guide APPLIED MODELING</h2>
+<p>As part of this Applied Modeling Track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments they can choose from the <a href="https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0" target="_blank">Case Studies Pack</a>.</p>
+<p>Students are required to work through the chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference, for which the students have to submit a conference abstract before the conference.</p>
+<p>This chapter explains how to use this course book.</p>
+<p>Different callout blocks appear throughout the text. These include <em>Exercise</em>, <em>Tasks,</em> and <em>Take Home Messages</em>. <em>Caution</em> and <em>Warning</em> callouts highlight possibly problematic issues.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -422,7 +465,7 @@ EXERCISE
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Exercise boxes are highlighted in blue color. With the description of the exercise, hints and a link to the solution are provided. Wherever they appear in the text, exercises should be completed before starting the next course chapter.</p>
+<p>Exercise boxes are highlighted in blue color. Hints and a link to the solution are provided with the exercise description. Exercises should be completed wherever they appear in the text before starting the next course chapter.</p>
 </div>
 </div>
 </section><section id="task" class="level2 callout-task"><h2 class="anchored" data-anchor-id="task">TASK</h2>
@@ -465,7 +508,7 @@ WARNING
 
 </div>
 </div>
-<p>Code blocks of R code with corresponding output are regularly shown throughout the text and look like this. Note that in grayed-out code cell, the code can be copied and the pasted into RStudio locally. Note that code blocks in Chapters are executed sequentially.</p>
+<p>Code blocks of R code with corresponding output are regularly shown throughout the text and look like this. The code can be copied and pasted into RStudio locally directly from the greyed-out cell. Note that code blocks in Chapters are executed sequentially.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"a is set to"</span>, <span class="va">a</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -474,9 +517,9 @@ WARNING
 </div>
 </div>
 <section id="sec-materials" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-materials">Materials</h2>
-<p>In the highly intensive hydrological modeling course at GKU, students have to pass 4 GRADED EXERCISEs to be admitted to the final presentation in addidion to preparatory home work. The following section describes the daily course content as well as the homework and the GRADED EXERCISEs with links to the relevant supporting chapters in the course book. The descriptions of the GRADED EXERCISEs are highlighted with exercise boxes.</p>
+<p>In the highly intensive hydrological modeling course at DKU, students must pass <em>four graded exercises</em> and complete the preparatory homework to be admitted to the final presentation. The following section describes the daily course content, the homework, and the graded exercises with links to the relevant supporting chapters in the course book. The descriptions of the graded exercises are highlighted with exercise boxes.</p>
 <section id="sec-study-guide-day1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-study-guide-day1">Day 1: Introduction &amp; Installation of Software</h3>
-<p>Read <a href="#sec-short-history">Chapter 1: A short history of Water in Central Asia</a> and <a href="hydrology_of_central_asia.html">Chapter 2: Hydrological Systems in Semi-Arid Central Asia</a> in the course book. Then make sure the required software for this course is installed on your computer. Section <a href="#sec-appendix_a_free_software">Open-source resources of the Appendix</a> includes installation instructions and the on-line learning material that can get you started with the software. Below is a quick summary:</p>
+<p>Read <a href="#sec-short-history">Chapter 1: A Short History of Water in Central Asia</a> and <a href="hydrology_of_central_asia.html">Chapter 2: Hydrological Systems in Semi-Arid Central Asia</a> in the course book. Then, ensure the required software for this course is installed on your computer. Section <a href="#sec-appendix_a_free_software">Open-source resources of the Appendix</a> includes installation instructions and the online learning material that can get you started with the software. Below is a quick summary:</p>
 <ul>
 <li>
 <a href="https://qgis.org/en/site/">QGIS</a><br>
@@ -487,7 +530,7 @@ WARNING
 </li>
 <li><a href="https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve/telechargement-rsm.html">RS Minerve</a></li>
 </ul>
-<p>If you have not used the software above before we recommend the following resources to get your started (remember, more detailed instructions for most tasks are available in the <a href="#section-appendix-open-source-resources">Appendix</a>):</p>
+<p>If you have not used the software above before, we recommend the following resources to get you started (remember, more detailed instructions for most tasks are available in the <a href="#section-appendix-open-source-resources">Appendix</a>):</p>
 <ul>
 <li>
 <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html">QGIS training manual</a><br>
@@ -497,7 +540,7 @@ WARNING
 </li>
 <li><a href="https://www.crealp.ch/fr/accueil/outils-services/logiciels/rs-minerve/telechargement-rsm.html">RS Minerve User Manual</a></li>
 </ul>
-<p>Inevitably, you will also perform a lot of geocomputations with R in the future. After all, a GIS system like QGIS is nothing more than a nicely packed bunch of geocomputation algorithms and a window for visualizing geospatial assets. Well, rest assured, all of this can be done inside R. It is recommended therefore that you also consult the following excellent online resource <a href="https://geocompr.robinlovelace.net/index.html">Geocomputation with R</a>.</p>
+<p>Inevitably, you will also perform a lot of geocomputations with R in the future. After all, a GIS system like QGIS is nothing more than a nicely packed bunch of geocomputation algorithms and a window for visualizing geospatial assets. Well, rest assured, all of this can be done inside R. It is recommended, therefore, that you also consult the following excellent online resource <a href="https://geocompr.robinlovelace.net/index.html">Geocomputation with R</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -510,12 +553,12 @@ HOMEWORK
 <div class="callout-body-container callout-body">
 <p>Day 1 involves a lot of preparatory homework:<br>
 - Reading the introductory chapters linked above and<br>
-- Downloading and installing the required software linked above.</p>
-<p>The homework is not graded but completion is a requirement for being able to work through the course.</p>
+- Download and install the required software linked above.</p>
+<p>The homework is not graded, but completion is required to work through the course.</p>
 </div>
 </div>
-</section><section id="day-2-hydrological-modelling-and-processes" class="level3"><h3 class="anchored" data-anchor-id="day-2-hydrological-modelling-and-processes">Day 2: Hydrological modelling and processes</h3>
-<p>Day 2 involves a continued introduction to the hydrological modelling process and a deepending of the understanding what hydrological models are used for as well as a first part on hydrological processes (the partitioning of rainfall, transfer of water through the hydrological compartments).</p>
+</section><section id="day-2-hydrological-modeling-and-processes" class="level3"><h3 class="anchored" data-anchor-id="day-2-hydrological-modeling-and-processes">Day 2: Hydrological Modeling and Processes</h3>
+<p>Day 2 involves a continued introduction to the hydrological modeling process, a deepening of the understanding of what hydrological models are used for, and a first part on hydrological processes (the partitioning of rainfall and water transfer through the hydrological compartments).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -527,22 +570,22 @@ HOMEWORK
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Roleplay on model uses. Read the <a href="https://github.com/hydrosolutions/caham_book/blob/master/learningFiles/RoleplayModelUseCases.pdf">role play exercise</a>. You will be assigned a role. With your study colleagues, discuss the questions and take notes (about 15 min). One person per group will briefly (1 min) present the answers to the questions.</li>
-<li>In preparation of tomorrows lecture and GRADED EXERCISE: Read the chapter on the <a href="example_river_basins.html">case studies of Central Asian river basins</a> and on [Hydraulic-Hydrological Modeling] (#sec-hydraulic-hydrological-modeling).</li>
+<li>Role-play on model uses. Read the <a href="https://github.com/hydrosolutions/caham_book/blob/master/learningFiles/RoleplayModelUseCases.pdf">role-play exercise</a>. You will be assigned a role. With your study colleagues, discuss the questions and take notes (about 15 min). One person per group will briefly (1 min) present the answers to the questions.</li>
+<li>In preparation for the following lecture and the graded exercise, read the chapter on the <a href="example_river_basins.html">case studies of Central Asian river basins</a> and [Hydraulic-Hydrological Modeling] (#sec-hydraulic-hydrological-modeling).</li>
 </ul>
-<p>The homework is not graded but supports reflection about the use of hydrological models and how to judge the quality of hydrological models on day 3.</p>
+<p>The homework is not graded but supports reflection on the use of hydrological models and how to judge the quality of hydrological models on day 3.</p>
 </div>
 </div>
-</section><section id="sec-study-guide-day2" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-study-guide-day2">Day 3: Hydrological modelling concepts and Catchment Characterization</h3>
-<p>Familiarize yourself with the <a href="geospatial_data.html">Geospatial Data</a>. Do the catchment characterization of the basin that you selected to work on by filling in the Table <a href="#tbl-example-basin-characterization" class="quarto-xref">Table&nbsp;<span>1</span></a> below. If you have downloaded the entire folder on your local drive, you already have all the data available for the analysis.</p>
-<div id="tbl-example-basin-characterization" class="anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="table quarto-float-caption quarto-float-tbl" id="tbl-example-basin-characterization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: As an example, key relevant basin statistics for Gunt river basin are shown with individual data sources indicated. Using the data available in the data pack, you should characterize your case study basin in a similar way.
+</section><section id="sec-study-guide-day2" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-study-guide-day2">Day 3: Hydrological Modeling Concepts and Catchment Characterization</h3>
+<p>Familiarize yourself with the <a href="geospatial_data.html">Geospatial Data</a>. Do the catchment characterization of the basin you selected to work on by filling out the table below. If you have downloaded the entire folder on your local drive, you already have all the data for the analysis.</p>
+<div id="tbl-example-basin-characterization" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-example-basin-characterization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: As an example, key relevant basin statistics for the Gunt River basin are shown with individual data sources indicated. Using the data in the data pack, you should characterize your case study basin similarly.
 </figcaption><div aria-describedby="tbl-example-basin-characterization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
 <colgroup>
-<col style="width: 70%">
-<col style="width: 29%">
+<col style="width: 66%">
+<col style="width: 33%">
 </colgroup>
 <thead><tr class="header">
 <th>ATTRIBUTE</th>
@@ -551,7 +594,7 @@ Table&nbsp;1: As an example, key relevant basin statistics for Gunt river basin 
 <tbody>
 <tr class="odd">
 <td>
-<strong><em>Geography</em></strong> <span class="citation" data-cites="srtm_2020">(<a href="#ref-srtm_2020" role="doc-biblioref"><span>“NASA Shuttle Radar Topography Mission (SRTM)(2013)”</span> 2013</a>)</span>
+<strong><em>Geography</em></strong> <span class="citation" data-cites="srtm_2020">(<a href="#ref-srtm_2020" role="doc-biblioref"><span>“NASA Shuttle Radar Topography Mission (SRTM)”</span> 2013</a>)</span>
 </td>
 <td></td>
 </tr>
@@ -690,8 +733,8 @@ Table&nbsp;1: As an example, key relevant basin statistics for Gunt river basin 
 </div>
 </figure>
 </div>
-<p>There are four tutorial videos explaining how you can fill the above table. They are made available via the <a href="https://www.youtube.com/channel/UCxmA9SnaMnhODWFIkwC_vtg/playlists">dedicated CAHAM YouTube Channel</a>{target = “_blank”} that is accompanying this online textbook.</p>
-<p>The first video explains in detail how to process and extract geospatial raster and vector data.</p>
+<p>There are four tutorial videos explaining how you can fill the above table. They are made available via the <a href="https://www.youtube.com/channel/UCxmA9SnaMnhODWFIkwC_vtg/playlists">dedicated CAHAM YouTube Channel</a>{target = “_blank”} accompanying this online textbook.</p>
+<p>The first video explains how to process and extract geospatial raster and vector data in detail.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -711,7 +754,7 @@ Table&nbsp;1: As an example, key relevant basin statistics for Gunt river basin 
 </div>
 </div>
 </div>
-<p>The third video covers extracting information from landcover for the basin under consideration.</p>
+<p>The third video covers extracting information from land cover for the basin under consideration.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -721,7 +764,7 @@ Table&nbsp;1: As an example, key relevant basin statistics for Gunt river basin 
 </div>
 </div>
 </div>
-<p>Finally, the last video shows you how to extract the relevant information on glaciers.</p>
+<p>Finally, the last video shows you how to extract the relevant glacier information.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -741,46 +784,46 @@ GRADED EXERCISE 1: Catchment characterization
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Following the video tutorial, fill in the table above with the characteristic numbers of your catchment together with your colleague. Compare your numbers to the ones of the Gunt catchment (table above). Note the submission deadline for Excercise 1 on Moodle.</p>
+<p>Following the video tutorial, fill in the table above with the characteristic numbers of your catchment together with your colleague. Compare your numbers to the ones of the Gunt catchment (table above). Note the submission deadline for Exercise 1 on Moodle.</p>
 </div>
 </div>
-</section><section id="day-4-discharge-and-climate-data" class="level3"><h3 class="anchored" data-anchor-id="day-4-discharge-and-climate-data">Day 4: Discharge and climate data</h3>
-<p>Yet more data preparation is required before you can start modelling. The review of the basins discharge and climate forcing.</p>
+</section><section id="day-4-discharge-and-climate-data" class="level3"><h3 class="anchored" data-anchor-id="day-4-discharge-and-climate-data">Day 4: Discharge and Climate Data</h3>
+<p>Yet more data preparation is required before you can start modeling. Hence, basin discharge and climate-forcing data are reviewed.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-GRADED EXERCISE 2: Discharge characterization
+GRADED EXERCISE 2: Discharge Characterization
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read the chapters on <a href="##sec-discharge-station-data">discharge station data</a> and <a href="climate_data.html">climate data</a> and, together with your colleague, perform a discharge characterization using the dedicated scripts in your case study’s <code>./CODE/discharge_characterization/</code> folder. Note the submission deadline for Excercise 2 on Moodle!</p>
+<p>Read the chapters on <a href="##sec-discharge-station-data">discharge station data</a> and <a href="climate_data.html">climate data</a> and, together with your colleague, perform a discharge characterization using the dedicated scripts in your case study’s <code>./CODE/discharge_characterization/</code> folder. Note the submission deadline for Exercise 2 on Moodle!</p>
 </div>
 </div>
 </section><section id="sec-study-guide-day4" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-study-guide-day4">Day 5: Discussion of Types of Hydrological Models</h3>
-<p>Hydrological models in general are discussed. Consult the introductory Section of <a href="hydrological_modeling.html">Part III: Hydrological Modeling and Applications</a>. All three types of modeling approaches will be presented but with a focus on hydraulic-hydrological rainfall-runoff modeling.</p>
+<p>Hydrological models, in general, are discussed. Consult the introductory Section of <a href="hydrological_modeling.html">Part III: Hydrological Modeling and Applications</a>. All three types of modeling approaches will be presented but with a focus on hydraulic-hydrological rainfall-runoff modeling.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-HOMEWORK : RS Minerve tutorial
+HOMEWORK: RS Minerve tutorial
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Read the <a href="hydrological_modeling.html">modelling chapter</a><br>
+<li>Read the <a href="hydrological_modeling.html">modeling chapter</a><br>
 </li>
 <li>Go through the RS Minerve tutorial (TODO LINK)</li>
 </ul>
-<p>This homework is not graded but basic knowledge of RS Minerve is required for the second part of the course.</p>
+<p>This homework is not graded, but basic knowledge of RS Minerve is required for the second part of the course.</p>
 </div>
 </div>
 </section><section id="sec-study-guide-day6" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-study-guide-day6">Day 6 &amp; 7: Model Calibration and Validation</h3>
-<p>Read the chapter on <a href="#section-model-calibration-and-validation">Model calibration and validation</a> and go through the example of the Nauvalisoy catchment which illustrates the iterative model refinement process. As the ultimate goal, students will implement a hydrological model of their study catchment and calibrate it.</p>
+<p>Read the chapter on <a href="#section-model-calibration-and-validation">Model calibration and validation</a> and go through the example of the Nauvalisoy catchment, which illustrates the iterative model refinement process. As the ultimate goal, students will implement a hydrological model of their study catchment and calibrate it.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -792,11 +835,11 @@ GRADED EXERCISE 3: Model implementation and calibration in RS Minerve
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Read the <a href="hydrological_modeling.html">modelling chapter</a><br>
+<li>Read the <a href="hydrological_modeling.html">modeling chapter</a><br>
 </li>
 <li>Implementing a hydrological model of your study basin in RS Minerve.</li>
 </ul>
-<p>Note the submission deadline for Excercise 3 on Moodle!</p>
+<p>Note the submission deadline for Exercise 3 on Moodle!</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -812,27 +855,27 @@ GRADED EXERCISE 4: Abstract submission for student conference
 <ul>
 <li>Carefully read the <a href="https://github.com/hydrosolutions/caham_book/blob/master/learningFiles/AbstractSubmissionGuide.pdf">abstract submission guidelines</a> and write an abstract for your model.</li>
 </ul>
-<p>Note the submission deadline for Excercise 4 on Moodle!</p>
+<p>Note the submission deadline for Exercise 4 on Moodle!</p>
 </div>
 </div>
 </section><section id="sec-study-guide-day9" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sec-study-guide-day9">Day 8: Student Conference &amp; Course Wrap Up</h3>
-<p>The last day of the course is organized as a student conference where students present their modeling work on their respective case study catchment. The groups need to prepare a presentation of 12 minutes duration. Each presentation will be followed by a 3 minutes Q&amp;A session. After all the groups have presented, impressions and feedback will be shared by the teachers followed by a larger group discussion.</p>
-<p>Only students that have passed the GRADED EXERCISEs will be admitted to the student conference which consists the final exam.</p>
-<p>At the end, students are invited to provide feedback with regard to their impression of the course. A key question will be hoe the course can be further improved to reach future students even more effectively.</p>
+<p>The last day of the course is organized as a student conference where students present their modeling work on their respective case study catchments. The groups need to prepare a presentation of 12 minutes duration. Each presentation will be followed by a 3-minute Q&amp;A session. After all the groups have presented their work, impressions, and feedback will be shared by the teachers, followed by a group discussion.</p>
+<p>Only students who pass the GRADED EXERCISES will be admitted to the student conference, which consists of the final exam.</p>
+<p>At the end, students are invited to provide feedback about their impression of the course. A key question will be how the course can be further improved to reach future students more effectively.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-FINAL EXAM : Model presentation
+FINAL EXAM: Model presentation
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Present an overview of your catchment, discharge characterization and your model implementation and results at the students conference.</li>
+<li>Present an overview of your catchment, discharge characterization, and your model implementation and results at the student’s conference.</li>
 </ul>
-<p>Note that the presentations have to be uploaded to the moodle prior to the start of the conference.</p>
+<p>Note that the presentations must be uploaded to the moodle before the start of the conference.</p>
 </div>
 </div>
 </section></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
@@ -852,7 +895,7 @@ Erasov, N. V. 1968. <span>“Method for Determining of Volume of Mountain Glacie
 Karger, Dirk Nikolaus, Olaf Conrad, Jürgen Böhner, Tobias Kawohl, Holger Kreft, Rodrigo Wilber Soria-Auza, Niklaus E. Zimmermann, H. Peter Linder, and Michael Kessler. 2017. <span>“<span class="nocase">Climatologies at high resolution for the earth’s land surface areas</span>.”</span> <em>Scientific Data</em> 4 (1): 170122. <a href="https://doi.org/10.1038/sdata.2017.122">https://doi.org/10.1038/sdata.2017.122</a>.
 </div>
 <div id="ref-srtm_2020" class="csl-entry" role="listitem">
-<span>“NASA Shuttle Radar Topography Mission (SRTM)(2013).”</span> 2013. NASA. <a href="https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia">https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia</a>.
+<span>“NASA Shuttle Radar Topography Mission (SRTM).”</span> 2013. NASA. <a href="https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia">https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia</a>.
 </div>
 <div id="ref-rgi60" class="csl-entry" role="listitem">
 RGI Consortium. 2017. <span>“<span>Randolph</span> <span>Glacier</span> <span>Inventory</span> – a Dataset of Global Glacier Outlines: Version 6.0: Technical Report.”</span> <span>Global Land Ice Measurements from Space, Colorado, USA. Digital Media</span>. https://doi.org/<a href="https://doi.org/10.7265/N5-RGI-60">https://doi.org/10.7265/N5-RGI-60</a>.
@@ -989,38 +1032,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1029,8 +1062,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1265,4 +1305,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hydrosolutions/caham_book/edit/master/study_guide_materials.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

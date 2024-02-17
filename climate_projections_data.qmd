@@ -1,3 +1,0 @@
-## Climate Projections Data {#sec-climate-projections-data}
-
-Chapter on climate projections data with a focus on CMIP6. Also Discussion on quantile mapping for downscaling.

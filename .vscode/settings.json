@@ -1,4 +1,11 @@
 {
     "r.plot.useHttpgd": true,
-    "jupyter.jupyterServerType": "local"
+    "jupyter.jupyterServerType": "local",
+    "grammarly.selectors": [
+        {
+            "language": "quarto",
+            "scheme": "file",
+            "pattern": "geospatial_data.qmd"
+        }
+    ]
 }

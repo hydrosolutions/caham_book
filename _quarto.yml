@@ -12,7 +12,7 @@ book:
   repo-branch: master
   repo-actions: [edit]
   sharing: [facebook, linkedin]
-  date: "02/14/2024"
+  date: "02/17/2024"
   chapters:
     - index.qmd
     - preface.qmd

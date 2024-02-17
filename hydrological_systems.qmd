@@ -209,29 +209,30 @@ The relief thus has a powerful and many-sided impact on runoff formation process
 
 ## Zone of Water Distribution and Use {#sec-zone-of-water-distribution-and-use}
 
-The arid zones as shown in @fig-aridity-index-classes-large-basins dominate the Central Asia region. As in the case of the definition of the zones of runoff formation (@sec-zone-of-runoff-formation), one way to define the zones of complex water distribution and use is to use the definition of @mcvicar_2012 to classify zones of high aridity in the following way
+The arid zones as shown in @fig-central-asia-high-aridity dominate the Central Asia region. As in the case of the definition of the zones of runoff formation (@sec-zone-of-runoff-formation), one way to define the zones of complex water distribution and use is to use the definition of @mcvicar_2012 to classify zones of high aridity in the following way
 
 -   $\phi \ge 1.3$ and $\phi < 3$: arid conditions
 -   $\phi \ge 3$: hyperarid conditions
 
 ![The classification of the domain into arid and hyperarid zones is shown. Climatology data are from @karger_2021 to compute the aridity index. For the definition of the humid and equidistant zones, we use @mcvicar_2012.](./images/hydrology_of_central_asia/11_central_asia_high_aridity.jpg){#fig-central-asia-high-aridity}
 
-Comparing @fig-zones-of-runoff-formation with @fig-central-asia-high-aridity, it is evident that the bulk of the domain is either arid or hyperarid and that the mountains are the regions where the annually renewable water resources are formed. In fact, these humid regions resemble floating islands in an enormous sea of aridity.
+Comparing @fig-central-asia-low-aridity with @fig-central-asia-high-aridity, it is evident that the bulk of the domain is either arid or hyperarid and that the mountains are the regions where the annually renewable water resources are formed. In fact, these humid regions resemble floating islands in an enormous sea of aridity.
 
 For this reason, it is not further astonishing that Central Asia is the home of some of the world's largest irrigation systems (@fig-central-asia-irrigated-areas-2020). From the moment water leaves the mountainous zones of runoff formation in rivers, water gets diverted into irrigation channels for its diversion to supply irrigated areas. In the lowlands of Central Asia, it is for this reason impossible to talk about natural hydrology as man has engineered the hydrological landscape in its entirety with tens of thousands of kilometers of irrigation and drainage channels that, in some instances, even cross natural river basins.
 
-For the interested readers, the history of these irrigation systems is provided by @peterson_2019. While the history of irrigation dates back millennia in the region, the large-scale push to extend irrigated areas beyond the historically established perimeters has happend during the Soviet era. It's history is excellently recounted by @peterson_2019. As an example, @fig-construction-of-big-fergana-canal shows archival footage from a Soviet propaganda film which shows in an impressive way the scale of the undertaking.
+For the interested readers, the history of these irrigation systems is provided by @peterson_2019. While the history of irrigation dates back millennia in the region, the large-scale push to extend irrigated areas beyond the historically established perimeters has happened during the Soviet era. It's history is excellently recounted by @peterson_2019. As an example, @fig-construction-of-big-fergana-canal shows archival footage from a Soviet propaganda film which shows in an impressive way the scale of the undertaking.
 
 ```{r}
 #| label: fig-construction-of-big-fergana-canal
 #| fig-cap: "This archive footage shows a Soviet propaganda video featuring unique footage of the construction of the Big Fergana Canal in the Fergana Valley in 1939. The canal was build over the period of 45 days over a length of 280 km, approximately, with an estimated 180'000 labour."
 #| echo: false
+#| include: false
 library(vembedr)
 library(magrittr)
 embed_url("https://www.youtube.com/watch?v=kz_zDRi9Vl8") |> use_align("center")
 ```
 
-Nowadays, Uzbekistan has by far irrigates the largest area, i.e., almost half of the total irrigated area. Contrary to that, Tajikistan has the smallest fraction with only 7% of the total irrigated area on its territory. Almost one-third of the total irrigated area is non-agricultural land including irrigated vegetation in cities and house gardens.
+Nowadays, Uzbekistan has by far irrigates the largest area, i.e., almost half of the total irrigated area. Contrary to that, Tajikistan has the smallest fraction with only 7 % of the total irrigated area on its territory. Almost one-third of the total irrigated area is non-agricultural land including irrigated vegetation in cities and house gardens.
 
 ![Irrigated area in 2020 in semi-arid Central Asia, excluding Afghanistan. The pie chart in the upper left shows country-level statistics whereas the one in the upper right corner shows the type of irrigated area. Irrigated non-agricultural refers to irrigated areas in cities and housegardens. Source: [hydrosolutions GmbH](www.hydrosolutions.ch).](./images/hydrology_of_central_asia/15_central_asia_irrigated_area.jpg){#fig-central-asia-irrigated-areas-2020}
 

@@ -2,6 +2,7 @@
 
 ```{r}
 #| echo: false
+#| include: false
 # libraries
 library(tidyverse)
 library(lubridate)
@@ -10,7 +11,7 @@ library(riversCentralAsia)
 library(sf)
 library(ncdf4)
 # configurations
-data_path <- "/caham_data/SyrDarya/Atbashy"
+data_path <- "../caham_data"
 fig_path <- "./images/hydrological_modeling"
 ```
 
@@ -100,7 +101,10 @@ Let's go back to the water balance: Where does the water in the river come from?
 #| error: false
 #| fig-cap: "Discharge (red) and precipitation (grey) in the Nauvalisoy catchment."
 
-climate <- load_minerve_input_csv("../caham_data/SyrDarya/Chirchiq/RSMinerve/ERA5_Nauvalisoy_1981_2013.csv")
+climate <- 
+  load_minerve_input_csv(
+    file.path(data_path,
+              "SyrDarya/Chirchiq/RSMinerve/ERA5_Nauvalisoy_1981_2013.csv"))
 
 seasonal_precipitation <- mutate(climate, yearmonth = yearmonth(date)) |>
  dplyr::filter(type == "P") |>
@@ -444,11 +448,11 @@ library(ncdf4)
 library(riversCentralAsia)
 
 # Path to the data directory downloaded from the download link provided above. 
-data_path <- "../caham_data/SyrDarya/Atbashy/"
+data_path <- "../caham_data"
 
 # Read in a list of HBV objects in the model
-Object_IDs <- st_read(paste0(data_path, 
-                             "GIS/16076_HRU.shp")) |> 
+Object_IDs <- 
+  st_read(file.path(data_path, "SyrDarya/Atbashy/GIS/16076_HRU.shp")) |> 
   st_drop_geometry() 
 
 # Define the model objects and variables for the selection
@@ -462,7 +466,7 @@ data <- tibble(
 # Write the check node file which can be imported to RS MINERVE
 writeSelectionCHK(
   # To reproduce the example, make sure the below filepath exists
-  filepath = paste0(data_path, "RSMINERVE/SWE.chk"), 
+  filepath = file.path(data_path, "SyrDarya/Atbashy/RSMINERVE/SWE.chk"), 
   data = data, 
   # The name of the selection will appear in RS MINERVE
   name = "SWE"  
@@ -484,8 +488,8 @@ library(ncdf4)
 library(riversCentralAsia)
 
 swe_sim <- readResultCSV(
-  paste0(data_path, 
-         "RSMINERVE/Atbaschy_Results_SWE_uncalibrated.csv")) |>  
+  file.path(data_path, 
+         "SyrDarya/Atbashy/RSMINERVE/Atbaschy_Results_SWE_uncalibrated.csv")) |>  
   mutate(Subbasin = gsub("\\_Subbasin\\_\\d+$", "", model), 
          # Extract the elevation band level from the HRU names, for plotting
          "Elevation band" = str_extract(model, "\\d+$") |> as.numeric(), 
@@ -510,7 +514,7 @@ Now we import the SWE extracted from the HMASR product for each elevation band a
 #| message: false
 #| error: false
 # Loads SWE extracted from HMASR per HRU in the Atbashy model.
-load(paste0(data_path, "/SNOW/SWE.RData"))
+load(file.path(data_path, "SyrDarya/AtBashy/SNOW/SWE.RData"))
 
 compare_swe <- swe_sim |> 
   rename(Sim = value) |> 
@@ -562,7 +566,8 @@ library(ncdf4)
 library(riversCentralAsia)
 
 # Read in the HRU names
-Object_IDs <- st_read("../caham_data/AmuDarya/17050_Gunt/GIS/17050_hru_GSM.shp") |> 
+Object_IDs <- 
+  st_read(file.path(data_path,"AmuDarya/17050_Gunt/GIS/17050_hru_GSM.shp")) |> 
   st_drop_geometry() 
 
 # Get a list of glacierised HRUs (their name starts with "gl")
@@ -580,7 +585,8 @@ data <- tibble(
 
 # Write the check node file
 writeSelectionCHK(
-  filepath = "../caham_data/AmuDarya/17050_Gunt/RS_MINERVE/HQ_glaciers.chk", 
+  filepath = 
+    file.path(data_path,"AmuDarya/17050_Gunt/RS_MINERVE/HQ_glaciers.chk"), 
   data = data, 
   name = "HQglaciers"  # Name of the selection that will appear in RS MINERVE
 )
@@ -594,7 +600,11 @@ In the Selection and plots tab in RS MINERVE, click on Import and select the fil
 #| warning: false
 #| message: false
 #| error: false
-hqgl <- readResultCSV("../caham_data/AmuDarya/17050_Gunt/RS_MINERVE/Gunt_Results_HQglaciers.csv") |> 
+hqgl <- 
+  readResultCSV(
+    file.path(
+      data_path,
+      "AmuDarya/17050_Gunt/RS_MINERVE/Gunt_Results_HQglaciers.csv")) |> 
   mutate(object = ifelse(str_detect(model, "gl_"), "GSM", "HBV"), 
          # Extract ID of elevation band for plotting
          layer = str_extract(model, "\\d+"),  
@@ -659,7 +669,10 @@ Simulated glacier thinning rates may be compared to observed thinning rates by @
 # Read in the RGI glaciers shape cut to the Gunt basin to filter the Hugonnet
 # data set
 # Read in glacier geometries
-rgi <- st_read("../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_RGI_glaciers.shp") |> 
+rgi <- 
+  st_read(
+    file.path(data_path,
+              "AmuDarya/17050_Gunt/Glaciers/17050_RGI_glaciers.shp")) |> 
   dplyr::select(RGIId, Area_m2, Volume_m3) 
 
 # Glacier volume was already estimated in QGIS. You can also do this in R using 
@@ -668,10 +681,8 @@ rgi <- st_read("../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_RGI_glaciers.sh
 #   mutate(Area_m2 = as.numeric(st_area(rgi)), 
 #          Volume_m3 = glacierVolume_Erasov(Area_m2/10^6)*10^9)
 
-# Path to data for the Central Asian domain
-data_path <- "../caham_data/central_asia_domain/glaciers/"
-
-hugonnet <- read_csv(paste0(data_path, "Hugonnet/dh_13_rgi60_pergla_rates.csv"))
+hugonnet <- 
+  read_csv(file.path(data_path, "/central_asia_domain/glaciers/Hugonnet/dh_13_rgi60_pergla_rates.csv"))
 # Explanation of variables (see documentation by Hugonnet et al., 2021):
 # - dhdt is the elevation change rate in meters per year,
 # - dvoldt is the volume change rate in meters cube per year,
@@ -765,8 +776,10 @@ Glacier discharge estimates in High Mountain Asia by @miles_health_2021 are amon
 # observed and simulated glacier discharge do not overlap.  
 # Further, Miles et al. only cover glaciers with areas > 2 km2. The observed 
 # glacier discharge over the basin is therefore likely underestimated. 
-miles <- read_csv(paste0(data_path,
-                         "Miles/Miles2021_Glaciers_summarytable_20210721.csv")) |>
+miles <- 
+  read_csv(
+    file.path(data_path,
+              "/central_asia_domain/glaciers/Miles/Miles2021_Glaciers_summarytable_20210721.csv")) |>
   dplyr::filter(grepl("RGI60-13.", RGIID), 
                 VALID == 1) |> 
   dplyr::select(RGIID, totAbl, totAblsig)
@@ -825,7 +838,7 @@ The observed glacier discharge is estimated at about 30 million m^3^/a whereas t
 glaciers <- rgi$RGIId
 
 # Here we read in all nc files in a folder. For this example, we only use one 
-ncfilelist <- list.files(path = paste0(data_path, "PyGEM"), pattern = ".nc$", 
+ncfilelist <- list.files(path = file.path(data_path, "/central_asia_domain/glaciers/PyGEM"), pattern = ".nc$", 
                          full.names = TRUE)
 ncfilelist <- ncfilelist[str_detect(ncfilelist, "_R13_")]
 
@@ -953,8 +966,10 @@ for (ncfile in ncfilelist) {
   
 }
 
-save(glac_runoff_basin, glac_volume_basin, 
-     file = "../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData")
+save(glac_runoff_basin, 
+     glac_volume_basin, 
+     file = file.path(data_path,
+                      "/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData"))
 ```
 
 ```{r}
@@ -963,7 +978,9 @@ save(glac_runoff_basin, glac_volume_basin,
 #| warning: false
 #| message: false
 #| error: false
-load("../caham_data/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData")
+load(
+  file.path(data_path,
+    "/AmuDarya/17050_Gunt/Glaciers/17050_PyGEM_demo.RData"))
 
 glac_runoff_basin <- glac_runoff_basin |> 
   dplyr::filter(year(date) <= 2011) |>  # Filter same period as simulation

@@ -126,7 +126,7 @@ The Table below summarizes key basin statistics that are relevant from the hydro
 
 The basin area has been derived from the basin shapefile. Raster statistics of the SRTM digital elevation model [@srtm_2020], the climate raster files as well as the land cover raster are calculated using the QGIS `Raster Layer Statistics` processing toolbox algorithm. The land ice total polygon area is computed with the Statistical Summary Option in QGIS.
 
-The norm hydrological year discharge and the corresponding norm cold and warm season discharge values have been computed with data from the Tajik Hydrometeorological Service. The mean basin precipitation is computed using a state-of-the-art bias corrected high-resolution reanalysis product [@karger_2017, @karger_2020, @karger_2021, @beck_2020]. Such data will also be used for hydro-climatological modeling in later Chapters. Potential evaporation is from [@Trabucco2019] using the Penman-Montieth equation.
+The norm hydrological year discharge and the corresponding norm cold and warm season discharge values have been computed with data from the Tajik Hydrometeorological Service. The mean basin precipitation is computed using a state-of-the-art bias corrected high-resolution reanalysis product [@karger_2017, @karger_2020, @karger_2021, @beck_2020]. Such data will also be used for hydro-climatological modeling in later Chapters. Potential evaporation is from [@trabucco_2019] using the Penman-Montieth equation.
 
 | ATTRIBUTE                                             | VALUE              |
 |----------------------------------------------|--------------------------|
@@ -161,7 +161,7 @@ The norm hydrological year discharge and the corresponding norm cold and warm se
 
 : Key relevant basin statistics for Gunt river basin. Individual data sources are indicated. Note that the hydrological year in Central Asia is defined as starting from October in year 1 and lasts until end of September in the subsequent year 2. More information on the relevance of hydrological year-based water accounting is given below. {#tbl-gunt-basin-characterization}
 
-With the values provided in the table above, the discharge index $Q/P$ is 68.5 % and the evaporative index $E/P$ is 31.5 %. In other words, the long-term water balance shows that 3 precipitation units gets partitioned into 2 discharge units and 1 evaporation unit, approximately. The aridity index $\phi$ , when calculated using $P$ from [@karger_2020] and $E_{pot}$ from [@Trabucco2019] is 2.7. The aridity index from [@Trabucco2019] is 3.6. These values indicate some uncertainty in relation to the global climate products used. Despite this, they confirm the highly arid characteristics of the basin.
+With the values provided in the table above, the discharge index $Q/P$ is 68.5 % and the evaporative index $E/P$ is 31.5 %. In other words, the long-term water balance shows that 3 precipitation units gets partitioned into 2 discharge units and 1 evaporation unit, approximately. The aridity index $\phi$ , when calculated using $P$ from [@karger_2020] and $E_{pot}$ from [@trabucco_2019] is 2.7. The aridity index from [@trabucco_2019] is 3.6. These values indicate some uncertainty in relation to the global climate products used. Despite this, they confirm the highly arid characteristics of the basin.
 
 ### Gunt Basin Hydrology {#sec-gunt-basin-hydrology}
 
@@ -395,7 +395,7 @@ Koksu however, with a basin area of 392 km$^2$, is ungauged. Its discharge contr
 
 ### Chirchik Basin Characterization {#sec-chirchik-basin-characterization}
 
-This Section available data to characterize the Chirchik River Basin from the hydro-climatological perspective. Data access and modeling is further described in the Section on Data @sec-data in Part II and Part III @sec-hydrological-modeling of this Book.
+This Section available data to characterize the Chirchik River Basin from the hydro-climatological perspective. Data access and modeling is further described in the Section on Data @sec-part-ii-data-sources-retrieval-and-preparation in Part II and Part III @sec-hydraulic-hydrological-modeling of this Book.
 
 The available discharge data is shown in @fig-chirchick-river-available-data. These are near complete historic records. See above @fig-chirchik-river-basin-overview for the station locations. Note that all available data has been converted to monthly time series for plotting.
 

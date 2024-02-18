@@ -66,7 +66,7 @@ print(paste("a is set to", a))
 
 In the highly intensive hydrological modeling course at DKU, students must pass *four graded exercises* and complete the preparatory homework to be admitted to the final presentation. The following section describes the daily course content, the homework, and the graded exercises with links to the relevant supporting chapters in the course book. The descriptions of the graded exercises are highlighted with exercise boxes.
 
-### Day 1: Introduction & Installation of Software {#sec-study-guide-day1 .unnumbered}
+### Day 1: Introduction & Installation of Software {#sec-study-guide-day1}
 
 Read [Chapter 1: A Short History of Water in Central Asia](#sec-short-history) and [Chapter 2: Hydrological Systems in Semi-Arid Central Asia](#sec-hydrology-of-central-asia) in the course book. Then, ensure the required software for this course is installed on your computer. Section [Open-source resources of the Appendix](#sec-appendix_a_free_software) includes installation instructions and the online learning material that can get you started with the software. Below is a quick summary:
 
@@ -111,7 +111,7 @@ The homework is not graded but supports reflection on the use of hydrological mo
 Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the catchment characterization of the basin you selected to work on by filling out the table below. If you have downloaded the entire folder on your local drive, you already have all the data for the analysis.
 
 | ATTRIBUTE                                             | VALUE              |
-|-----------------------------------------------|------------------------|
+|----------------------------------------------------|--------------------|
 | ***Geography*** [@srtm_2020]                          |                    |
 | Basin Area $A$                                        | 13'693 km^2^       |
 | Minimum Elevation $h_{min}$                           | 2'068 masl         |

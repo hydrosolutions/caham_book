@@ -4,9 +4,29 @@
     "href": "index.html",
     "title": "Modeling of Hydrological Systems in Semi-Arid Central Asia",
     "section": "",
-    "text": "Welcome\nThis handbook on hydrological modeling of Central Asian river basins is geared toward young water professionals in Central Asia. They inherit fascinatingly complex natural and man-made hydrological systems. They face work where opportunities for modernization abound after decades of limited investments in the water sectors of the countries and where continuous population growth and a changing climate pose emerging challenges. At the same time, they face work in a field that has enabled the region to prosper and flourish over hundreds if not thousands of years.\nThe authors hope that this easily online translatable textbook provides a source of inspiration for these students and that the text and the methods presented will also be used by teachers and integrated into university curricula locally.\nThe book is dedicated to colleagues at the Central Asian Hydrometeorological Agencies whose tireless work in collecting and analyzing hydro-meteorological data in Central Asia has helped to significantly improve our understanding of the complex runoff generation processes at work in the region.\nThe authors are grateful for the support by the Global Water Programme of the Swiss Agency for Development and Cooperation who greatly helped to push the envelop further with regard to modern water education in the Central Asia region. Finally, Mr. Andrey Yakovlev and his tremendous knowledge of the region is acknowledged.",
+    "text": "About This Book\nThis handbook is designed to serve as a comprehensive guide for early- or in-career water professionals engaged in the hydrological modeling of river basins within Central Asia. It addresses the intricacies of the natural and anthropogenically influenced hydrological systems characteristic of this region. The text underscores the dual nature of the challenges faced by these professionals. On the one hand, considerable potential exists for modernization within the water sector, a field that has historically seen constrained investment across the Central Asian nations. On the other hand, these professionals must navigate the complexities introduced by continuous demographic expansion and the multifaceted impacts of climate change. Concurrently, the handbook acknowledges the enduring significance of hydrological work in fostering the region’s prosperity and development, a tradition that spans several centuries, if not millennia. This dual focus highlights the immediate challenges and situates the work within a broader historical and socio-economic context, emphasizing its critical role in the region’s sustained growth and stability.\nThis freely accessible online textbook is designed to be translated into any language through the utilization of browser-based translation functionalities. It is a valuable inspirational resource for students pursuing studies in hydrology or integrated water resources management. Additionally, the methodologies delineated within this text are intended for academic utilization, enabling educators to incorporate them into the existing curricula of higher education institutions at a local level. This feature enhances the textbook’s utility by facilitating its integration into diverse educational settings, thereby broadening the scope of its applicability and impact in the field of water resource management education.",
     "crumbs": [
-      "Welcome"
+      "About This Book"
+    ]
+  },
+  {
+    "objectID": "index.html#whats-new-in-the-2024.q1-edition",
+    "href": "index.html#whats-new-in-the-2024.q1-edition",
+    "title": "Modeling of Hydrological Systems in Semi-Arid Central Asia",
+    "section": "What’s New in the 2024.Q1 Edition?",
+    "text": "What’s New in the 2024.Q1 Edition?\nChanges include:\n\nIncreasing focus on providing YouTube learning materials in English and Russian languages to complement the existing text-based learning materials. The material is available on a dedicated YouTube Channel - subscribe here.\nWork started on a step-by-step guide about quantifying climate change impacts with examples. See Chapter 12  Quantification of Climate Change Impacts for more information.\nOverall correction of errors and typos throughout the text. Selected updated Figures with a focus on increased consistency.\n\nWe are aware that many more construction sites exist throughout the text. Furthermore, with the continuous advancements in watershed modeling, any future updates to the book should also reflect references to new technologies and approaches.",
+    "crumbs": [
+      "About This Book"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "Modeling of Hydrological Systems in Semi-Arid Central Asia",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nThe development of this book was supported by the Global Water Programme and the Blue Peace Central Asia Project by the Swiss Agency for Development and Cooperation (SDC).\n\n\n\n\n\n\n\n\nMany people indirectly contributed to the book through numerous discussions regarding its content. We especially thank Mr. Andrey Yakovlev for this critical feedback on the various book sections.\nThe book is dedicated to colleagues at the Central Asian National Meteorological and Hydrological Agencies whose tireless work in collecting and analyzing hydro-meteorological data in Central Asia has helped to significantly improve our understanding of the complex runoff generation processes at work in the region.",
+    "crumbs": [
+      "About This Book"
     ]
   },
   {
@@ -14,19 +34,19 @@
     "href": "index.html#license",
     "title": "Modeling of Hydrological Systems in Semi-Arid Central Asia",
     "section": "License",
-    "text": "License\n\n\n\nDOI\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.\n\nThe development of this book was supported by the Swiss Agency for Development and Cooperation.",
+    "text": "License\n\n\n\nDOI\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.",
     "crumbs": [
-      "Welcome"
+      "About This Book"
     ]
   },
   {
     "objectID": "preface.html",
     "href": "preface.html",
-    "title": "Preface",
+    "title": "Preface to the 2024.Q1 Edition",
     "section": "",
     "text": "This is a book and study guide about the hydrology of semi-arid Central Asia and applied hydrological modeling in the region. It is geared towards students and young professionals in Central Asia who are interested in learning modern hydrological modeling approaches. The book teaches by example and focuses on two example catchments in the Syr Darya and Amu Darya river basins as case studies. The methods demonstrated here can be applied elsewhere.\n\n\n\n\n\n\nThe What and Why of Hydrological Modeling\n\n\n\nHydrological models come in different incarnations and flavors. Hydrological water balance models, in this text also sometimes referred to as rainfall-runoff models, were developed to help us gain an understanding of the partitioning of available water into different fluxes and storage compartments over time in the natural system under consideration. This natural system normally consists of different interlinked compartments, including surface water and the unsaturated (soil moisture) and unsaturated (groundwater) zones. These models simulate the flow of water through these compartments. They are most often used in the context of water management and planning applications, i.e., for basin planning under climate change and population growth scenarios to allocate water between different uses and users on the one hand. On the other, these models are also used operationally to close supply-demand gaps in real-time management tasks and for short-term forecasting.\nWhere large amounts of data are available, empirical models can be implemented. These models strictly speaking do rely on the explicit simulation of the water balance of individual compartments. Rather, they learn patterns from measured time series of discharge and other relevant variables, such as temperature, precipitation, snow cover and then use these pattern between the time-ordered data for forecasting variable of interest (i.e., discharge, water levels, etc.).\n\n\nIn Part I of the book, key hydro-climatological characteristics of the region are presented. This Section draws inspiration from Victor Shults’ “Rivers of Middle Asia” (Shults 1965). Through the collection of a large number of in-situ hydrological data from all over the region and in combination with a plethora of newly available data, a grand modern regional perspective on Central Asian hydrology becomes possible in the tradition of Shults.\nTwo important basins are highlighted as in-depth case studies, i.e. the Gunt River Basins in the Amu Darya catchment and the Chirchik River basin in the Syr Darya. The analyses of these catchments draws on available data from the Central Asian Hydrometeorological Services and on global and entirely public hydro-climatological as well as land cover datasets. The goal of these introductory chapters is to familiarize the student with the first steps prior to any hydrological modeling, i.e. to obtain a robust understand of the system of interest through a thorough hydro-climatological characterization of the study area.\nPart II is a rather large section of the book which is then devoted to data where different open data sources are presented. Retrieval and data preparation in the context of hydrological modeling are discussed. These data include data on topography, land cover, climate reanalysis data and parameters on biophysical climate and climate projections data. The preparation of these data often requires significant work. Hence, a focus lies on demonstrating workflows to facilitate the handling and preparation of these type of data for hydrological modeling.\nIn Part III, three different modeling approach are presented and discussed. First, long-term water balance modeling using the Budyko framework is presented and discussed in depth with an application to a large dataset from the region. This approach can yield powerful insights for example on regional hydrological changes due to climatic changes and where the detailed hydrological-hydraulic modeling of a large number of rivers is impracticable. Second, detailed hydrological-hydraulic modeling of individual river basins is presented. These types of models are normally developed for tradeoff analysis between different water uses and users in a basin, i.e. in the planning context and also under different climate scenarios. They can also be run in operational mode to respond to real-time management challenges. Finally, the last modeling chapter introduces modeling through predictive inference where empirical data-driven models are setup for forecasting discharge at particular locations in a basin. These models rely on large amounts of measured discharge data and hence, their application is limited to places where such data are available.\nPart III also includes two Chapters on hydrological model applications where real-world model deployment is presented and discussed. A special emphasis here is aspects of operation and maintenance of deployed models in local agencies and options for this, also in relation to staff education and learning.\nThe book / study guide is accompanied by a Study Exercise Pack that encompasses data from 7 Central Asian catchments which can be used by students for learning and applying skills acquired to real-world examples in the region. The Exercise Pack can accessed and downloaded here. Furthermore, a dedicated R Package has been developed which implements many of the data analyses and processing steps shown in this book (see also Section for more information).\nWith everything that is presented, the focus is on the use of open source and free software. For data preparation and analysis as well as for water balance and empirical modeling, R and RStudio are utilized (R Core Team 2022). For the processing of geographic data, workflows in QGIS are demonstrated (QGIS Development Team 2021). For hydrological-hydraulic modeling, the free RS MINERVE is utilized which is a environment for the modeling of free surface runoff flow formation and propagation (Foehn et al. 2020; Garcia Hernandez et al. 2020). The reader is expected to have a basic understanding of R and QGIS and how to use these software for data analysis and processing.\nThe outlook having to learn hydrology together with quantitative geospatial analysis and programming may sound overwhelming at the beginning. Really the best way is just to dive into the book and learn through the many examples provided. All code with which the analysis and modeling is carried out is provided and can be thus adapted to any other local context or relevant task. So, this handbook on applied hydrological modeling is hopefully inviting students to learn through experimentation and not to get scared.\nBefore we get going, a small note on how to translate this text in any other language of interest. Should the reader struggle with the English language, there is a very easy way to translate this book into any of the local languages spoken in Central Asia, including Russian. The picture below shows a screenshot from the online book translated into Russian language via Google Chrome’s translation service. The screenshot shows how to activiate the translation panel (1). The translated book text then appears (2). Alternatively right-click anywhere on the page. Then, click Translate to [Language].\n\n\n\n\n\nFoehn, A., J. Garcia Hernandez, B. Roquier, J. Fluixa-Sanmartin, T. Brauchli, J. Paredes Arquiola, and G. De Cesare. 2020. “RS MINERVE - User Manual, V2.15.” ISSN 2673-2653. Switzerland: Ed. CREALP.\n\n\nGarcia Hernandez, J., A. Foehn, J. Fluixa-Sanmartin, B. Roquier, T. Brauchli, J. Paredes Arquiola, and De Cesare G. 2020. “RS MINERVE - Technical Manual, V2.25.” ISSN 2673-2661. Switzerland: Ed. CREALP.\n\n\nQGIS Development Team. 2021. QGIS Geographic Information System. QGIS Association.\n\n\nR Core Team. 2022. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.\n\n\nShults, Victor. 1965. Rivers of Middle Asia. 2nd Edition. Gidrometeoizdat, Leningrad.",
     "crumbs": [
-      "Preface"
+      "Preface to the 2024.Q1 Edition"
     ]
   },
   {
@@ -873,7 +893,7 @@
     "href": "glacier_modeling.html#references",
     "title": "11  Modeling of Discharge from Glacier Melt",
     "section": "\n11.4 References",
-    "text": "11.4 References\n\n\n\n\nBenn, Douglas I., and David J. A. Evans. 2010. Glaciers & Glaciation. 2nd ed. London: Hodder education.\n\n\nCogley, J. Graham, Regine Hock, B. Rasmussen, A. Arendt, A. Bauder, Roger J. Braithwaite, P. Jansson, et al. 2011. “Glossary of Glacier Mass Balance and Related Terms.” 86. Paris: UNESCO-IHP. https://unesdoc.unesco.org/in/documentViewer.xhtml?v=2.1.196&id=p::usmarcdef_0000192525&file=/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_48a3790e-914c-4dcd-9896-aa397ccc17e6%3F_%3D192525eng.pdf&locale=en&multi=true&ark=/ark:/48223/pf0000192525/PDF/192525eng.pdf#%5B%7B%22num%22%3A165%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2Cnull%2Cnull%2C0%5D.\n\n\nErasov, N. V. 1968. “Method for Determining of Volume of Mountain Glaciers.” MGI, no. 14: 307–8.\n\n\nFarinotti, Daniel, Matthias Huss, Johannes J. Fürst, Johannes Landmann, Horst Machguth, Fabien Maussion, and Ankur Pandit. 2019. “A Consensus Estimate for the Ice Thickness Distribution of All Glaciers on Earth.” Nature Geoscience 12 (3): 168–73. https://doi.org/10.1038/s41561-019-0300-3.\n\n\nGarcia Hernandez, J., A. Foehn, J. Fluixa-Sanmartin, B. Roquier, T. Brauchli, J. Paredes Arquiola, and De Cesare G. 2020. “RS MINERVE - Technical Manual, V2.25.” ISSN 2673-2661. Switzerland: Ed. CREALP.\n\n\nHock, Regine. 2003. “Temperature index melt modelling in mountain areas.” Journal of Hydrology 282 (1-4): 104–15. https://doi.org/10.1016/s0022-1694(03)00257-9.\n\n\n———. 2005. “Glacier Melt: A Review of Processes and Their Modelling.” Progress in Physical Geography: Earth and Environment 29 (3): 362–91. https://doi.org/10.1191/0309133305pp453ra.\n\n\nPritchard, Hamish D. 2019. “Asia’s Shrinking Glaciers Protect Large Populations from Drought Stress.” Nature 569 (7758): 649–54. https://doi.org/10.1038/s41586-019-1240-1.",
+    "text": "11.4 References\n\n\n\n\nBenn, Douglas I., and David J. A. Evans. 2010. Glaciers & Glaciation. 2nd ed. London: Hodder education.\n\n\nCogley, J. Graham, Regine Hock, B. Rasmussen, A. Arendt, A. Bauder, Roger J. Braithwaite, P. Jansson, et al. 2011. “Glossary of Glacier Mass Balance and Related Terms.” 86. Paris: UNESCO-IHP.\n\n\nErasov, N. V. 1968. “Method for Determining of Volume of Mountain Glaciers.” MGI, no. 14: 307–8.\n\n\nFarinotti, Daniel, Matthias Huss, Johannes J. Fürst, Johannes Landmann, Horst Machguth, Fabien Maussion, and Ankur Pandit. 2019. “A Consensus Estimate for the Ice Thickness Distribution of All Glaciers on Earth.” Nature Geoscience 12 (3): 168–73. https://doi.org/10.1038/s41561-019-0300-3.\n\n\nGarcia Hernandez, J., A. Foehn, J. Fluixa-Sanmartin, B. Roquier, T. Brauchli, J. Paredes Arquiola, and De Cesare G. 2020. “RS MINERVE - Technical Manual, V2.25.” ISSN 2673-2661. Switzerland: Ed. CREALP.\n\n\nHock, Regine. 2003. “Temperature index melt modelling in mountain areas.” Journal of Hydrology 282 (1-4): 104–15. https://doi.org/10.1016/s0022-1694(03)00257-9.\n\n\n———. 2005. “Glacier Melt: A Review of Processes and Their Modelling.” Progress in Physical Geography: Earth and Environment 29 (3): 362–91. https://doi.org/10.1191/0309133305pp453ra.\n\n\nPritchard, Hamish D. 2019. “Asia’s Shrinking Glaciers Protect Large Populations from Drought Stress.” Nature 569 (7758): 649–54. https://doi.org/10.1038/s41586-019-1240-1.",
     "crumbs": [
       "Part III: Hydrological Modeling & Applications",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Modeling of Discharge from Glacier Melt</span>"
@@ -882,197 +902,89 @@
   {
     "objectID": "Climate_change_impact_study.html",
     "href": "Climate_change_impact_study.html",
-    "title": "Part IV: Climate Change Impact Study",
+    "title": "12  Quantification of Climate Change Impacts",
     "section": "",
-    "text": "Prerequisites\nThis handbook uses the following software:\nPlease refer to ?sec-study-guide-day1 to find links for installing the required software. Additional support is also provided in Appendix A.2 QGIS, A.3 R and RStudio and A.3.2 RS Minerve. In the beginning, we will need R and QGIS. From the chapter Introduction to Hydrological Modeling, RSMinerve is also needed.",
+    "text": "12.1 Watershed Delineation\nIn this chapter, we examine the definition of a watershed and how it is delineated using a Geographic Information System (GIS) and a Digital Elevation Model (DEM). We also explore the basics of GIS and the concept of a DEM.",
     "crumbs": [
-      "Part IV: Climate Change Impact Study"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {
-    "objectID": "Climate_change_impact_study.html#prerequisites",
-    "href": "Climate_change_impact_study.html#prerequisites",
-    "title": "Part IV: Climate Change Impact Study",
+    "objectID": "Climate_change_impact_study.html#sec-cci-watershed-delineation",
+    "href": "Climate_change_impact_study.html#sec-cci-watershed-delineation",
+    "title": "12  Quantification of Climate Change Impacts",
     "section": "",
-    "text": "R: free and open-source statistical programming language\nQGIS: free and open-source Geographical Information System (GIS)\nRSMinerve: Hydrological modelling",
+    "text": "12.1.1 Definition of a Watershed\nA watershed, often also referred to as a catchment or drainage basin, is a landscape unit over which the hydrological balance can be determined (measured or computed). It is the area draining to a common point. Watershed delineation is creating a boundary representing the contributing area for a particular point/outlet. The topography is the main driving force behind watershed delineation. To find the watershed boundary, we need to pick a point (outlet) and find the area draining into it. We do this to select properties within the watershed, as well as the climate forcing.\n\n\n\n\n\nFigure 12.1: Example of a watershed. Source: The watershed project\n\n\nIn hydrological modeling, we basically compute the water balance for the watershed. The water balance is the difference between the inputs and outputs of water in the system and the resulting change in storage. The water balance equation is given by:\n\\[\nP + SM - ET - I- Q = 0\n\\tag{12.1}\\]\nWhere \\(P\\) is the precipitation, \\(SM\\) snowmelt, \\(ET\\) evapotranspiration, \\(I\\) infiltration and \\(Q\\) the discharge.\n\n12.1.2 Geographic Information System (GIS)\nWe perform all operations in a Geographic Information System (GIS). A GIS allows us to manage, analyse, edit, produce, and visualise geographic data, also known as spatial data. This is data that includes additional location information. Spatial data comes in two forms: vector and raster data.\nVector points are simply X,Y coordinates and can represent a location like a discharge station, for example. A vector line is a connected sequence of points (e. g. river, street). A vector polygon is a closed set of lines, like a watershed boundary.\n\n\n\n\n\nFigure 12.2: Vector vs. raster data in GIS.\n\n\nRaster data is made up of pixels (also referred to as grid cells). They are usually regularly spaced and square but don’t have to be. Each pixel is associated with a specific geographical location. Examples of raster data are land use and elevation data. The spatial resolution of raster data refers to the cell geometry, how “big” one cell is. Figure 12.3 shows the effect of different spatial resolutions.\n\n\n\n\n\nFigure 12.3: Raster data with different spatial resolution.\n\n\n\n12.1.3 Coordinate Reference System (CRS)\nTo define the location of objects on the Earth you need a coordinate reference system that adapts to the Earth’s shape. There are two different types of a Coordinate Reference Systems (CRS):\n\nA Geographic coordinate systems (GCS) is a system that uses a three-dimensional spherical surface to determine locations on the Earth. Any location on Earth can be referenced by a point with longitude and latitude coordinates. Its units are angular, usually degrees. (Figure 12.4, right)\nA Projected coordinate system (PCS) is flat. It contains a GCS, but it converts that GCS into a flat surface by projecting points into the plane. Its units are linear, for example, in meters Figure 12.4, left)\n\n\n\n\n\n\nFigure 12.4: Differences of a geographic coordinate system (GCS) left and a projected coordinate system (PCS) right.\n\n\nThere are many different models of the earth’s surface, and therefore many different GCS. World Geodetic System 1984 (WGS84) is designed as a one-size-fits-all GCS, good for mapping global data and the most popular CRS. WGS84 uses a three-dimensional ellipsoidal model of the Earth, with positions that are defined using latitude and longitude in degree (e.g. Location of Zurich: E: 47.4°, N: 8.5°).\nThe Universal Transverse Mercator (UTM) system is a commonly used projected coordinate reference system, in meter. UTM subdivides the globe into zones, numbered 0-60 (equivalent to longitude) and regions (north and south). A UTM zone is a 6° segment of the Earth. Because a circle has 360°, this means that there are 60 UTM zones on Earth. The coordinate system grid for each zone is projected individually. Additionally, the system includes a series of horizontal bands, each covering 8 degrees of latitude, which are lettered from C to X. Zurich, for example, is in UTM zone 32T with the location: 32T E: 465207.85 N: 5246235.11.\n\n12.1.4 Digital Elevation Model (DEM)\nA Digital Elevation Model (DEM) represents the Earth’s bare ground topographic surface, excluding trees, buildings, and any other surface objects. There are several datasets available. This handbook will use the digital elevation model from the Shuttle Radar Topography Mission (SRTM) (“NASA Shuttle Radar Topography Mission (SRTM)” (2013)). There are several ways to download the data. This will be discussed within the exercise (?sec-basin-characterisation-exercise-Part1).\n\n12.1.5 Watershed Delineation\nWatersheds can be delineated from a DEM. In this Coursebook, we look at the point-based watershed delineation. The point-based method derives a watershed for each selected point (e.g. discharge station). The slideshow below shows the steps to delineate a watershed based on the example of the upper Zarafshan River Basin.\nThe outlet point of a watershed is where all the water drains into. Water flow is mainly driven by gravity. From a DEM, we are getting information about the height structure of the surface. To delineate a watershed, first, we have to fill in sinks. A filled DEM is void of depressions, cells that are surrounded by higher elevation values and thus represent an area of internal drainage. From the filled DEM, we can calculate the flow direction. The flow direction shows the direction in which the water will flow out of each cell of the filled DEM. A widely used method for deriving flow direction is the D8 method. The D8 method assigns a cell’s flow direction based on the steepest slope of its eight neighbours. From the flow direction, we can calculate the flow accumulation of each cell by counting how many cells are draining into one cell. The stream network can be derived from a flow accumulation raster by, for example, using a threshold method. This means if a cell of the flow accumulation raster exceeds a certain threshold of how many cells are draining into this cell, it is classified as a river.\n\n\n\n  \n\n\n\n\nExercise 1: Watershed delineation\nThe goal of the first exercise is to delineate the catchment, like in the example of upper ZRB in Figure Figure 12.5. For this exercise, you need to have QGIS installed. For a quick installation guide and tutorial, follow this Link. If you already have your catchment outlines and river network, you can skip this exercise and go to sec-basin-characterisation-theory.\n\n\n\n\n\nFigure 12.5: Outcome Exercise 1: Watershed area and river network here with the example of the upper Zarafshan River Basin.\n\n\nIn this exercise, we will use the Global Watersheds web app by Heberger (2022). The following instruction video shows how to delineate the catchment and import your watershed area and river network into QGIS.\nEnglish version:\n\n\n\n\n\n\n\n\n\nRussian version:\n\n\n\n\n\n\n\n\n\nWatershed delineation can also be performed using other tools such as QGIS, detailed in Chapter Section 5.2, or R, as outlined here.",
     "crumbs": [
-      "Part IV: Climate Change Impact Study"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {
-    "objectID": "Watershed_delineation.html",
-    "href": "Watershed_delineation.html",
-    "title": "12  Watershed delineation",
-    "section": "",
-    "text": "Theory\nIn this chapter, we examine the definition of a watershed and how it is delineated using Geographic Information System (GIS) and a Digital Elevation Model (DEM). We also explore the basics of GIS and the concept of a DEM.",
+    "objectID": "Climate_change_impact_study.html#watershed-characterization",
+    "href": "Climate_change_impact_study.html#watershed-characterization",
+    "title": "12  Quantification of Climate Change Impacts",
+    "section": "\n12.2 Watershed Characterization",
+    "text": "12.2 Watershed Characterization\nIn this section, we will start with a characterization of the watershed under consideration.\nUPDATE: Work in progress, stay tuned for more information.",
     "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Watershed delineation</span>"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {
-    "objectID": "Watershed_delineation.html#watershed-definition",
-    "href": "Watershed_delineation.html#watershed-definition",
-    "title": "12  Watershed delineation",
-    "section": "\n12.1 Watershed definition",
-    "text": "12.1 Watershed definition\nA watershed, often also referred to as a catchment or drainage basin, is a landscape unit over which the hydrological balance can be determined (measured or computed). It is the area draining to a common point. Watershed delineation is creating a boundary representing the contributing area for a particular point/outlet.\n\n\n\n\n\nFigure 12.1: Example of a watershed. Source: The watershed project\n\n\nHydrological Balance\n\\[\nP + SM - ET - I- Q = 0\n\\tag{12.1}\\]\nWhere \\(P\\) is the precipitation, \\(SM\\) snowmelt, \\(ET\\) evapotranspiration, \\(I\\) infiltration and \\(Q\\) the discharge.\nThe Topography is the main driving force behind watershed delineation. To find the watershed boundary, we need to pick a point (outlet) and find the area draining into it. We do this to select properties within the watershed, as well as the climate forcing.",
+    "objectID": "Climate_change_impact_study.html#delineation-of-hydrological-response-units",
+    "href": "Climate_change_impact_study.html#delineation-of-hydrological-response-units",
+    "title": "12  Quantification of Climate Change Impacts",
+    "section": "\n12.3 Delineation of Hydrological Response Units",
+    "text": "12.3 Delineation of Hydrological Response Units",
     "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Watershed delineation</span>"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {
-    "objectID": "Watershed_delineation.html#geographic-information-system-gis",
-    "href": "Watershed_delineation.html#geographic-information-system-gis",
-    "title": "12  Watershed delineation",
-    "section": "\n12.2 Geographic information system (GIS)",
-    "text": "12.2 Geographic information system (GIS)\nWe perform all operations in a Geographic Information System (GIS). A GIS allows us to manage, analyse, edit, produce, and visualise geographic data, also known as spatial data. This is data that includes additional location information. Spatial data comes in two forms: vector and raster data.\nVector points are simply X,Y coordinates and can represent a location like a discharge station, for example. A vector line is a connected sequence of points (e. g. river, street). A vector polygon is a closed set of lines, like a watershed boundary.\n\n\n\n\n\nFigure 12.2: Vector vs. raster data in GIS.\n\n\nRaster data is made up of pixels (also referred to as grid cells). They are usually regularly spaced and square but don’t have to be. Each pixel is associated with a specific geographical location. Examples of raster data are land use and elevation data. The spatial resolution of raster data refers to the cell geometry, how “big” one cell is. Figure 12.3 shows the effect of different spatial resolutions.\n\n\n\n\n\nFigure 12.3: Raster data with different spatial resolution.",
+    "objectID": "Climate_change_impact_study.html#preparation-of-climate-forcing-data",
+    "href": "Climate_change_impact_study.html#preparation-of-climate-forcing-data",
+    "title": "12  Quantification of Climate Change Impacts",
+    "section": "\n12.4 Preparation of Climate Forcing Data",
+    "text": "12.4 Preparation of Climate Forcing Data\nIntroductory words.\n\n12.4.1 Historical Climate Data (CHELSA V21 Data)\n\n12.4.2 GCM Simulation Data\n\n12.4.3 Bias-Correction of GCM Climate Data",
     "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Watershed delineation</span>"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {
-    "objectID": "Watershed_delineation.html#coordinate-reference-system-crs",
-    "href": "Watershed_delineation.html#coordinate-reference-system-crs",
-    "title": "12  Watershed delineation",
-    "section": "\n12.3 Coordinate Reference System (CRS)",
-    "text": "12.3 Coordinate Reference System (CRS)\nTo define the location of objects on the Earth you need a coordinate reference system that adapts to the Earth’s shape. There are two different types of a Coordinate Reference Systems (CRS):\n\nA Geographic coordinate systems (GCS) is a system that uses a three-dimensional spherical surface to determine locations on the Earth. Any location on Earth can be referenced by a point with longitude and latitude coordinates. Its units are angular, usually degrees. (Figure 12.4, right)\nA Projected coordinate system (PCS) is flat. It contains a GCS, but it converts that GCS into a flat surface by projecting points into the plane. Its units are linear, for example, in meters Figure 12.4, left)\n\n\n\n\n\n\nFigure 12.4: Differences of a geographic coordinate system (GCS) left and a projected coordinate system (PCS) right.\n\n\nThere are many different models of the earth’s surface, and therefore many different GCS. World Geodetic System 1984 (WGS84) is designed as a one-size-fits-all GCS, good for mapping global data and the most popular CRS. WGS84 uses a three-dimensional ellipsoidal model of the Earth, with positions that are defined using latitude and longitude in degree (e.g. Location of Zurich: E: 47.4°, N: 8.5°).\nThe Universal Transverse Mercator (UTM) system is a commonly used projected coordinate reference system, in meter. UTM subdivides the globe into zones, numbered 0-60 (equivalent to longitude) and regions (north and south). A UTM zone is a 6° segment of the Earth. Because a circle has 360°, this means that there are 60 UTM zones on Earth. The coordinate system grid for each zone is projected individually. Additionally, the system includes a series of horizontal bands, each covering 8 degrees of latitude, which are lettered from C to X. Zurich, for example, is in UTM zone 32T with the location: 32T E: 465207.85 N: 5246235.11.",
+    "objectID": "Climate_change_impact_study.html#implementation-of-hydrological-model",
+    "href": "Climate_change_impact_study.html#implementation-of-hydrological-model",
+    "title": "12  Quantification of Climate Change Impacts",
+    "section": "\n12.5 Implementation of Hydrological Model",
+    "text": "12.5 Implementation of Hydrological Model\n\n12.5.1 Baseline Hydrological Model\n\n12.5.2 Computing Climate Change Scenarios",
     "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Watershed delineation</span>"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {
-    "objectID": "Watershed_delineation.html#digital-elevation-model-dem",
-    "href": "Watershed_delineation.html#digital-elevation-model-dem",
-    "title": "12  Watershed delineation",
-    "section": "\n12.4 Digital elevation model (DEM)",
-    "text": "12.4 Digital elevation model (DEM)\nA Digital Elevation Model (DEM) represents the Earth’s bare ground topographic surface, excluding trees, buildings, and any other surface objects.There are several datasets available. This handbook will use the digital elevation model from the Shuttle Radar Topography Mission (SRTM) (“NASA Shuttle Radar Topography Mission (SRTM)” (2013)). There are several ways to download the data. This will be discussed within the exercise (?sec-basin-characterisation-exercise-Part1).",
+    "objectID": "Climate_change_impact_study.html#discussion-and-conclusion",
+    "href": "Climate_change_impact_study.html#discussion-and-conclusion",
+    "title": "12  Quantification of Climate Change Impacts",
+    "section": "\n12.6 Discussion and Conclusion",
+    "text": "12.6 Discussion and Conclusion",
     "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Watershed delineation</span>"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {
-    "objectID": "Watershed_delineation.html#watershed-delineation",
-    "href": "Watershed_delineation.html#watershed-delineation",
-    "title": "12  Watershed delineation",
-    "section": "\n12.5 Watershed delineation",
-    "text": "12.5 Watershed delineation\nWatersheds can be delineated from a DEM. In this handbook, we look at the point-based watershed delineation. The point-based method derives a watershed for each selected point (e.g. discharge station). The slideshow below shows the steps to delineate a watershed based on the example of the upper Zarafshan River Basin.\nThe outlet point of a watershed is where all the water drains into. Water flow is mainly driven by gravity. From a DEM, we are getting information about the height structure of the surface. To delineate a watershed, first, we have to fill in sinks. A filled DEM is void of depressions, cells that are surrounded by higher elevation values and thus represent an area of internal drainage. From the filled DEM, we can calculate the flow direction. The flow direction shows the direction in which the water will flow out of each cell of the filled DEM. A widely used method for deriving flow direction is the D8 method. The D8 method assigns a cell’s flow direction based on the steepest slope of its eight neighbours. From the flow direction, we can calculate the flow accumulation of each cell by counting how many cells are draining into one cell. The stream network can be derived from a flow accumulation raster by, for example, using a threshold method. This means if a cell of the flow accumulation raster exceeds a certain threshold of how many cells are draining into this cell, it is classified as a river.",
+    "objectID": "Climate_change_impact_study.html#references",
+    "href": "Climate_change_impact_study.html#references",
+    "title": "12  Quantification of Climate Change Impacts",
+    "section": "\n12.7 References",
+    "text": "12.7 References\n\n\n\n\nHeberger, Matthew. 2022. “Delineator.py: Fast, Accurate Global Watershed Delineation Using Hybrid Vector- and Raster-Based Methods.” Zenodo. https://doi.org/10.5281/zenodo.7314287.\n\n\n“NASA Shuttle Radar Topography Mission (SRTM).” 2013. NASA. https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia.",
     "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Watershed delineation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_delineation.html#sec-watershed-delineation-references",
-    "href": "Watershed_delineation.html#sec-watershed-delineation-references",
-    "title": "12  Watershed delineation",
-    "section": "\n12.6 References",
-    "text": "12.6 References\n\n\n\n\nHeberger, Matthew. 2022. “Delineator.py: Fast, Accurate Global Watershed Delineation Using Hybrid Vector- and Raster-Based Methods.” Zenodo. https://doi.org/10.5281/zenodo.7314287.\n\n\n“NASA Shuttle Radar Topography Mission (SRTM).” 2013. NASA. https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia.",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Watershed delineation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html",
-    "href": "Watershed_characterisation.html",
-    "title": "13  Watershed characterisation",
-    "section": "",
-    "text": "Theory\nIn this chapter, we look at land cover and the definition of hydrological response units (HRU’s) and their importance in hydrological modeling.",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#land-use-and-land-cover",
-    "href": "Watershed_characterisation.html#land-use-and-land-cover",
-    "title": "13  Watershed characterisation",
-    "section": "\n13.1 Land use and land cover",
-    "text": "13.1 Land use and land cover\nIn hydrological modelling, we are transforming rainfall into a runoff called rainfall-runoff transformation. When precipitation reaches the ground it can take various pathways. It can be stored as ice or snow, directly evaporate, infiltrate into the ground etc.\nLand cover (LC) maps represent spatial information on different types (classes) of physical coverage of the Earth’s surface, e.g. forests, grasslands, croplands, lakes, wetlands.\nThe land cover is a key influencer for runoff generation and the estimation of evapotranspiration in the hydrology of watersheds. Therefore, it is essential to use accurate and reliable LC data in hydrological modelling.\nSeveral datasets are available globally and free of charge. Below is a brief list of the most recent land cover data products:\n\nWorldCover project, part of the European Space Agency’s Earth observation program provides global land cover products for 2020 and 2021 at 10 m resolution, developed and validated in near-real time based on Sentinel-1 and Sentinel-2 data.\nCopernicus Global Land Service (CGLS)",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#hydrological-response-units-hrus",
-    "href": "Watershed_characterisation.html#hydrological-response-units-hrus",
-    "title": "13  Watershed characterisation",
-    "section": "\n13.2 Hydrological response units (HRUs)",
-    "text": "13.2 Hydrological response units (HRUs)\nHydrological response units (HRUs) are areas that have common properties which are important from the hydrological perspective for runoff generation: for instance similar slope, elevation, aspect, soil type, vegetation cover, landuse. They are areas of land that are assumed to respond similarly to weather input. In each HRU the land based portion of the hydrological cycle is simulated. HRUs are used in hydrological models to represent the spatial variability of the catchment. The number of HRUs in a catchment depends on the spatial variability of the catchment and the resolution of the input data.",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part1",
-    "href": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part1",
-    "title": "13  Watershed characterisation",
-    "section": "Part 1: DEM and Land Cover",
-    "text": "Part 1: DEM and Land Cover\nIn this chapter, we will fill out the sections Geography and Land Cover in Table 1 and download the digital elevation model and land cover data within our catchment boundaries, which we delineated in Chapter 12. To download the DEM and Land cover data we will use the Google Earth Engine (GEE). Google Earth Engine is a cloud-based platform for planetary-scale environmental data analysis. It hosts a vast amounts of environmental data, enabling users to download and perform various analyses and processing tasks.\nIn this part of the exercise, we will use the GEE to download the SRTM Digital Elevation Model and Land Cover data (Source) and calculate Land cover type statistics using the GEE Link in combination with the following tutorial.\nThere are several other ways to download the DEM and Land Cover data. Here is a turorial how to donwload the DEM from the Earth Explorer or use the QGIS Plugin. Land cover data can also be obtained directly from the ESA WorldCover webpage.\nEnglish version:\n\n\n\n\n\n\n\n\n\nRussian version:",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part2",
-    "href": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part2",
-    "title": "13  Watershed characterisation",
-    "section": "Part 2: Glacier outlines and visualization",
-    "text": "Part 2: Glacier outlines and visualization\nIn the second part of this exercise, we’ll download glacier outlines from the Randolph Glacier Inventory (RGI) v7.0. For more details, refer to #sec-glacier-outlines. The tutorial videos in English and Russian explain how to download the data and import it into QGIS. They also demonstrate how to visualize the data and how to produce the study are map in Figure 13.1 and the Land cover map in Figure 13.2.\nEnglish version:\n\n\n\n\n\n\n\n\n\nRussian version:",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part3",
-    "href": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part3",
-    "title": "13  Watershed characterisation",
-    "section": "Part 3: Discharge data",
-    "text": "Part 3: Discharge data",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part4",
-    "href": "Watershed_characterisation.html#sec-basin-characterisation-exercise-Part4",
-    "title": "13  Watershed characterisation",
-    "section": "Part 4: Hydrological response units (HRUs)",
-    "text": "Part 4: Hydrological response units (HRUs)\nIn the fourth part of the exercise, we will utilize elevation bands to delineate HRUs, as elevation significantly influences hydrological processes like precipitation patterns and temperature gradients. Refer to Figure [insert figure number] for an illustration of elevation bands in the upper Zarafshan River basin, as an example for this approach.\n\n\n\n\n\nFigure 13.3: Elevation band ZRB",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#part-5-climate-data",
-    "href": "Watershed_characterisation.html#part-5-climate-data",
-    "title": "13  Watershed characterisation",
-    "section": "Part 5: Climate data",
-    "text": "Part 5: Climate data",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
-    ]
-  },
-  {
-    "objectID": "Watershed_characterisation.html#sec-basin-characterisation-references",
-    "href": "Watershed_characterisation.html#sec-basin-characterisation-references",
-    "title": "13  Watershed characterisation",
-    "section": "\n13.3 References",
-    "text": "13.3 References\n\n\n\n\n“NASA Shuttle Radar Topography Mission (SRTM).” 2013. NASA. https://earthdata.nasa.gov/learn/articles/nasa-shuttle-radar-topography-mission-srtm-version-3-0-global-1-arc-second-data-released-over-asia-and-australia.\n\n\nRGI Consortium. 2023. “Randolph Glacier Inventory - a Dataset of Global Glacier Outlines, Version 7.” National Snow; Ice Data Center. https://doi.org/10.5067/F6JMOVY5NAVZ.\n\n\nZanaga, Daniele, Ruben Van De Kerchove, Wanda De Keersmaecker, Niels Souverijns, Carsten Brockmann, Ralf Quast, Jan Wevers, et al. 2021. “ESA WorldCover 10 m 2020 V100.” Zenodo. https://doi.org/10.5281/zenodo.5571936.",
-    "crumbs": [
-      "Part IV: Climate Change Impact Study",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Watershed characterisation</span>"
+      "Part III: Hydrological Modeling & Applications",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Quantification of Climate Change Impacts</span>"
     ]
   },
   {

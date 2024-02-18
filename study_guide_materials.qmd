@@ -111,7 +111,7 @@ The homework is not graded but supports reflection on the use of hydrological mo
 Familiarize yourself with the [Geospatial Data](#sec-geospatial-data). Do the catchment characterization of the basin you selected to work on by filling out the table below. If you have downloaded the entire folder on your local drive, you already have all the data for the analysis.
 
 | ATTRIBUTE                                             | VALUE              |
-|----------------------------------------------------|--------------------|
+|---------------------------------------------------|---------------------|
 | ***Geography*** [@srtm_2020]                          |                    |
 | Basin Area $A$                                        | 13'693 km^2^       |
 | Minimum Elevation $h_{min}$                           | 2'068 masl         |

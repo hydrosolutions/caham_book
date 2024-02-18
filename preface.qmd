@@ -1,4 +1,4 @@
-# Preface {.unnumbered}
+# Preface to the 2024.Q1 Edition {.unnumbered}
 
 This is a book and study guide about the hydrology of semi-arid Central Asia and applied hydrological modeling in the region. It is geared towards students and young professionals in Central Asia who are interested in learning modern hydrological modeling approaches. The book teaches by example and focuses on two example catchments in the Syr Darya and Amu Darya river basins as case studies. The methods demonstrated here can be applied elsewhere.
 

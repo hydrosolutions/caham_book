@@ -4,15 +4,16 @@ project:
 
 book:
   title: "Modeling of Hydrological Systems in Semi-Arid Central Asia"
-  author: "Tobias Siegfried, Beatrice Marti, Adrian Kreiner, and Aidar Zhumabaev [hydrosolutions GmbH](https://www.hydrosolutions.ch)"
-  description: "2024 release"
-  cover-image: images/cover/applied_modeling_cover.png
+  author: "Tobias Siegfried, Beatrice Marti, Adrian Kreiner, and Aidar Zhumabaev"
+  publisher: "[hydrosolutions GmbH, Zurich, Switzerland](https://www.hydrosolutions.ch)"
+  description: "2024.Q1 Edition [hydrosolutions GmbH](https://www.hydrosolutions.ch)"
+  cover-image: images/cover/applied_modeling_cover_2024_Q1_edition.jpg
   site-url: https://hydrosolutions.github.io/caham_book/
   repo-url: https://github.com/hydrosolutions/caham_book
   repo-branch: master
   repo-actions: [edit]
   sharing: [facebook, linkedin]
-  date: "02/17/2024"
+  date: "02/18/2024"
   chapters:
     - index.qmd
     - preface.qmd
@@ -34,13 +35,14 @@ book:
         - long_term_water_balance_modeling.qmd
         - modeling_using_predictive_inference.qmd
         - glacier_modeling.qmd
+        - Climate_change_impact_study.qmd
 #        - real_world_examples.qmd # not yet ready as there is no content yet here. 
 # Idea to include real world examples of hydrological modeling in Central Asia. 
 # We can write a report about iEasyHydro here.
-    - part: Climate_change_impact_study.qmd
-      chapters:
-        - Watershed_delineation.qmd
-        - Watershed_characterisation.qmd
+#    - part: Climate_change_impact_study.qmd
+#      chapters:
+#        - Watershed_delineation.qmd
+#        - Watershed_characterisation.qmd
   appendices:
     - appendix_a_free_software.qmd
     - appendix_b_riverscentralasia_r_toolbox.qmd

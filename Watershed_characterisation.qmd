@@ -1,15 +1,13 @@
-# Watershed characterisation {#sec-basin-characterisation}
+# Watershed Characterisation {#sec-basin-characterisation}
 
 ```{r}
 #| include: false
 
 ```
 
-# Theory {#sec-basin-characterisation-theory .unnumbered}
-
 In this chapter, we look at **land cover** and the definition of **hydrological response units (HRU's)** and their importance in hydrological modeling.
 
-## Land use and land cover
+## Land Use and Land Cover
 
 In hydrological modelling, we are transforming rainfall into a runoff called rainfall-runoff transformation. When precipitation reaches the ground it can take various pathways. It can be stored as ice or snow, directly evaporate, infiltrate into the ground etc.
 
@@ -23,13 +21,8 @@ Several datasets are available globally and free of charge. Below is a brief lis
 
 -   [Copernicus Global Land Service (CGLS)](https://land.copernicus.eu/global/products/lc)
 
-## Hydrological response units (HRUs)
 
-**Hydrological response units (HRUs)** are areas that have common properties which are important from the hydrological perspective for runoff generation: for instance similar slope, elevation, aspect, soil type, vegetation cover, landuse. They are areas of land that are assumed to respond similarly to weather input. In each HRU the land based portion of the hydrological cycle is simulated. HRUs are used in hydrological models to represent the spatial variability of the catchment. The number of HRUs in a catchment depends on the spatial variability of the catchment and the resolution of the input data. 
-
-
-
-# Exercise 2: Basin characterisation {#sec-basin-characterisation-exercise .unnumbered}
+## Exercise 2: Basin characterisation {#sec-basin-characterisation-exercise .unnumbered}
 
 The goal of the second exercise is to fill in @tbl-example-basin-characterization with data from your catchment. This table includes key characterisations relevant to hydrological modelling for your specific catchment area.
 
@@ -51,7 +44,7 @@ This will be done in several parts, each supported by tutorial videos in both En
 
 -   Part 5: Climate data
 
-## Part 1: DEM and Land Cover {#sec-basin-characterisation-exercise-Part1 .unnumbered}
+### Part 1: DEM and Land Cover {#sec-basin-characterisation-exercise-Part1 .unnumbered}
 
 In this chapter, we will fill out the sections Geography and Land Cover in Table 1 and download the digital elevation model and land cover data within our catchment boundaries, which we delineated in @sec-watershed-delineation. To download the DEM and Land cover data we will use the Google Earth Engine (GEE). Google Earth Engine is a cloud-based platform for planetary-scale environmental data analysis. It hosts a vast amounts of environmental data, enabling users to download and perform various analyses and processing tasks.
 
@@ -77,7 +70,7 @@ embed_url("https://www.youtube.com/watch?v=dn3OhQAr4a0") %>%
   use_align("center")
 ```
 
-## Part 2: Glacier outlines and visualization {#sec-basin-characterisation-exercise-Part2 .unnumbered}
+### Part 2: Glacier outlines and visualization {#sec-basin-characterisation-exercise-Part2 .unnumbered}
 In the second part of this exercise, we'll download glacier outlines from the Randolph [Glacier Inventory (RGI) v7.0](https://www.glims.org/RGI/). For more details, refer to #sec-glacier-outlines. The tutorial videos in English and Russian explain how to download the data and import it into QGIS. They also demonstrate how to visualize the data and how to produce the study are map in @fig-studyarea-dem and the Land cover map in @fig-studyarea-landcover.
 
 
@@ -100,15 +93,15 @@ embed_url("https://www.youtube.com/watch?v=1DJNviAtaSg") %>%
 ```
 
 
-## Part 3: Discharge data {#sec-basin-characterisation-exercise-Part3 .unnumbered}
+### Part 3: Discharge data {#sec-basin-characterisation-exercise-Part3 .unnumbered}
 
 
-## Part 4: Hydrological response units (HRUs) {#sec-basin-characterisation-exercise-Part4 .unnumbered}
+### Part 4: Hydrological response units (HRUs) {#sec-basin-characterisation-exercise-Part4 .unnumbered}
 
 In the fourth part of the exercise, we will utilize elevation bands to delineate HRUs, as elevation significantly influences hydrological processes like precipitation patterns and temperature gradients. Refer to Figure [insert figure number] for an illustration of elevation bands in the upper Zarafshan River basin, as an example for this approach.
 
 ![Elevation band ZRB](/images/Climate_change_impact_study/Basin_characterisation/HRUs.png){#fig-HRU width="600"}
 
-## Part 5: Climate data {.unnumbered}
+### Part 5: Climate data {.unnumbered}
 
 ## References {#sec-basin-characterisation-references}

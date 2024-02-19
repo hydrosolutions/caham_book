@@ -25,7 +25,7 @@ All learning tracks presented here require significant investments by the studen
 
 ## Study Guide APPLIED MODELING {#sec-study-guide .unnumbered}
 
-As part of this Applied Modeling Track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments they can choose from the [Case Studies Pack](https://www.dropbox.com/sh/tucg4eno67ndpp0/AADpkSbovUpBx5vhzUJuDquwa?dl=0){target="_blank"}.
+As part of this Applied Modeling Track, students are guided through implementing their own conceptual hydrological rainfall-runoff model of one of the Central Asian sample catchments they can choose from the [Case Studies Pack](https://www.dropbox.com/sh/4zckdihrq9iq1wi/AADHtjRXd2rZHGqT3DULZCzBa?dl=0){target="_blank"}.
 
 Students are required to work through the chapters, including the occasional tasks that serve to deepen reflection on the course material and to do their daily homework assignments. As the final exam, the homework results are presented in a final student conference, for which the students have to submit a conference abstract before the conference.
 

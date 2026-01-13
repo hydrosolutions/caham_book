@@ -14,6 +14,11 @@ The book is published at https://hydrosolutions.github.io/caham_book/.
 
 The book is written in markdown and compiled using the Quarto toolchain. There are always improvements to be made. If you see issues, please file them via GitHub so we can address them. If you want to contribute, please fork the repository, make changes, and file a pull request.
 
+## Maintenance status
+🟡 **Maintenance Mode**
+This project has concluded. Security updates are provided as needed.
+For questions, please [open an issue](../../issues).
+
 ## Change Log
 
 -   2023-10-17: Compiling book for the identification of problems.

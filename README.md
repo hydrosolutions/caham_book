@@ -95,8 +95,8 @@ square brackets. The name in the brackets identifies the figure or section meant
 If you find another error, please [open an issue](../../issues).
 
 ## Maintenance status
-🟡 **Maintenance Mode**
-This project has concluded. Security updates are provided as needed.
+🟢 **Active Development**
+We are working on a new 2027 edition of the book. The online book stays at edition 2024.Q1 until the new edition is released; known errors are listed in the errata above.
 For questions, please [open an issue](../../issues).
 
 ## Change Log
@@ -105,3 +105,4 @@ For questions, please [open an issue](../../issues).
 -   2024-02-13: Starting to work on improvements along several fronts.
 -   2024-02-14: Revised hydrological_systems.qmd, discharge_station_data.qmd, and example_river_basin.qmd.
 -   2026-11-05: Added errata for edition 2024.Q1. The corrections enter the book with the 2027 edition.
+-   2026-11-05: Status changed to active development; work on the 2027 edition has started.

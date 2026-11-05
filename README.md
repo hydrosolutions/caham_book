@@ -24,17 +24,23 @@ errors listed here. Until then, please read the affected passages as follows. La
 1.  **Section "The Simplest Model - The Linear Reservoir Model", discretised water balance.** The first term
     averages precipitation over both time steps:
 
-    $$\frac{P(t_1)+P(t_2)}{2} - \frac{Q(t_1)+Q(t_2)}{2} = \frac{k}{t_2-t_1} \cdot \big(Q(t_2)-Q(t_1)\big)$$
+    ```math
+    \frac{P(t_1)+P(t_2)}{2} - \frac{Q(t_1)+Q(t_2)}{2} = \frac{k}{t_2-t_1} \cdot \big(Q(t_2)-Q(t_1)\big)
+    ```
 
 2.  **Section "First Model Run", Nash-Sutcliffe efficiency.** The denominator uses the observed discharge,
     not the simulated discharge:
 
-    $$\text{Nash} = 1 - \frac{\sum_{t=1}^{N} \big( Q_{sim}(t) - Q_{obs}(t) \big)^2}{\sum_{t=1}^{N} \big( Q_{obs}(t) - \overline{Q_{obs}} \big)^2}$$
+    ```math
+    \text{Nash} = 1 - \frac{\sum_{t=1}^{N} \big( Q_{sim}(t) - Q_{obs}(t) \big)^2}{\sum_{t=1}^{N} \big( Q_{obs}(t) - \overline{Q_{obs}} \big)^2}
+    ```
 
 3.  **Section "Model Calibration", calibration objective.** Raw differences cancel between over- and
     underestimation. The differences are squared, or taken as absolute values, before they are summed:
 
-    $$\min_{\boldsymbol{P}} \sum_{t=1}^{N} \big( Q_{sim}(t, \boldsymbol{P}) - Q_{obs}(t) \big)^2$$
+    ```math
+    \min_{\boldsymbol{P}} \sum_{t=1}^{N} \big( Q_{sim}(t, \boldsymbol{P}) - Q_{obs}(t) \big)^2
+    ```
 
 4.  **Section "Calibration of Snow Water Equivalent", code above Figure 8.29.** The line that computes the
     root mean squared error lacks the square. The computed value is not used in the figure or the text.
@@ -54,7 +60,9 @@ errors listed here. Until then, please read the affected passages as follows. La
 6.  **Equation 9.12, Choudhury equation.** The outer exponent is negative. With the printed exponent the
     evaporative fraction would exceed 1.
 
-    $$\frac{E}{P} = \left[ 1 + \left( \frac{E_{pot}}{P} \right)^{-n} \right]^{-1/n}$$
+    ```math
+    \frac{E}{P} = \left[ 1 + \left( \frac{E_{pot}}{P} \right)^{-n} \right]^{-1/n}
+    ```
 
 ### Chapter 10, Modeling Using Predictive Inference
 
@@ -72,7 +80,9 @@ errors listed here. Until then, please read the affected passages as follows. La
 11. **Equation 12.1, water balance.** The printed equation counts snowmelt in addition to precipitation and
     has no storage term. With $P$ as total precipitation (rain and snow), the balance of a watershed is
 
-    $$P - ET - Q = \Delta S$$
+    ```math
+    P - ET - Q = \Delta S
+    ```
 
     where $\Delta S$ is the change in storage in snow, ice, soil water and groundwater. Snowmelt and
     infiltration move water between these stores and are not separate terms of the balance.

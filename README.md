@@ -78,13 +78,13 @@ errors listed here. Until then, please read the affected passages as follows. La
 ### Chapter 12, Quantification of Climate Change Impacts
 
 11. **Equation 12.1, water balance.** The printed equation counts snowmelt in addition to precipitation and
-    has no storage term. With $P$ as total precipitation (rain and snow), the balance of a watershed is
+    has no storage term. With *P* as total precipitation (rain and snow), the balance of a watershed is
 
     ```math
     P - ET - Q = \Delta S
     ```
 
-    where $\Delta S$ is the change in storage in snow, ice, soil water and groundwater. Snowmelt and
+    where Δ*S* is the change in storage in snow, ice, soil water and groundwater. Snowmelt and
     infiltration move water between these stores and are not separate terms of the balance.
 
 ### Cross-references
